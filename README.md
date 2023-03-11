@@ -79,3 +79,5 @@ NOTA: Utiliza este modelo como guía o referencia para resolver el ejercicio.
 ## HIKING STICK 10___________________________________________
 
  DÍA DE LA PRESENTACIÓN GRUPAL 
+
+prueba
