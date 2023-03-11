@@ -1,0 +1,129 @@
+/* Fonts Form Google Font ::- https://fonts.google.com/  -:: */
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+
+body {
+      background-color: white;
+      font-family: 'Vibur', cursive;
+      /*   the main font */
+      font-family: 'Abel', sans-serif;
+      opacity: .95;
+     
+}
+
+nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+}
+
+.logo {
+      height: 100px;
+      width: 100px;
+}
+
+.avatar {
+      height: 100px;
+      width: 100px;
+}
+
+h1 {
+      color: black;
+      text-align:start;
+      font-family: 'Playfair Display', serif;
+
+}
+
+p {
+      font-family: 'Alegreya', serif;
+      font-size: 15px;
+}
+
+ul {
+      list-style: none;
+}
+
+
+.meme {
+      width: 300px;
+      height: 200px;
+}
+
+.card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: whitesmoke;
+      border-radius: 10px;
+      box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center
+       
+}
+
+form {
+      display: flex;
+      flex-direction: column;
+      align-items:normal;
+
+}
+
+label {
+      
+      margin-top: 5px;
+}
+
+/* inputs form  */
+input[class="form-input"] {
+      width: 250px;
+      height: 30px;
+    
+      margin-top: 2%;
+      padding: 1px;
+      
+      font-size: 16px;
+      font-family: 'Abel', sans-serif;
+      color: #5E6472;
+    
+      outline: none;
+      border: none;
+    
+      border-radius: 5px;
+      transition: 0.2s linear;
+      
+}
+
+::placeholder {
+      text-align: center;
+}
+
+
+
+/* focus  */
+input:focus {
+      transform: translateX(-4px);
+      border-radius: 5px;
+}
+    
+
+button {
+      width: 250px;
+      height: 30px;
+    
+      margin-top: 5%;
+      padding: 1px;
+      border-radius: 5px;
+
+      background-color: rgb(78, 168, 252);
+      outline: none;
+      border: none;
+      
+}
+
+/* buttons hover */
+button:hover {
+      transform: translatey(3px);
+      box-shadow: none;
+  }

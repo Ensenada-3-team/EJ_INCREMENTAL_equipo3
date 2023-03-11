@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+
+body {
+      background-color: white;
+      font-family: 'Vibur', cursive;
+      /*   the main font */
+      font-family: 'Abel', sans-serif;
+      opacity: .95;
+     
+}
+
+.card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: whitesmoke;
+      border-radius: 10px;
+      box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center
+       
+}
+
+/* contenedor principal */
+
+.grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 20px;
+      border: 2px solid black
+      
+}
+    
+/*  columnas */
+.columna-izquierda,
+.columna-derecha,
+.columna-centro {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid black
+}
+
+/* divisiones dentro de las columnas */
+.sub-columna-izquierda,
+.sub-columna-derecha {
+      flex: 1;
+      margin: 0 10px;
+      border: 2px solid black
+}
+
+/* barra de navegación */
+nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border: 2px solid black;
+      margin-bottom: 1rem
+
+}
+
+.logo {
+      width: 100px;
+      height: 100px;
+}
+
+
+.navbar li {
+      list-style: none;
+}
