@@ -68,7 +68,6 @@ Mejorando el diseño de la red social 3ra parte:
 
 NOTA: Utiliza este modelo como guía o referencia para resolver el ejercicio. 
 
-
 ## HIKING STICK 8____________________________________________
 
  ( aún no han puesto ejercicio. Las materias son Bootstrap y Git)
