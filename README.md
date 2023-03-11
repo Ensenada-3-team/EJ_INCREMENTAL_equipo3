@@ -77,7 +77,6 @@ NOTA: Utiliza este modelo como guía o referencia para resolver el ejercicio.
 
  ( aún no han puesto ejercicio. Las materias son Bootstrap y Git)
 
-
 ## HIKING STICK 10___________________________________________
 
  DÍA DE LA PRESENTACIÓN GRUPAL 
