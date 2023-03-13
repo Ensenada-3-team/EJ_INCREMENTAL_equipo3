@@ -111,7 +111,7 @@ body {
       align-items: center;
       border-radius: 10px;
       box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      padding: 5rem;
       max-width: 400px;
       margin: 0 auto;
       text-align: center
@@ -133,7 +133,6 @@ body {
 .columna-centro {
       display: flex;
       flex-direction: column;
-      border: 2px solidblack
 }
 
 /* divisiones dentro de las columnas */
