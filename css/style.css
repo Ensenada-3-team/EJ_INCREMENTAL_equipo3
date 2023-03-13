@@ -39,7 +39,8 @@
 }
 .btn:hover { 
       color: #333333; 
-      text-decoration: none; 
+      text-decoration: none;
+      transform: translatey(3px); 
       background-color: #e6e6e6; 
       background-position: 0 -15px; -webkit-transition: 
       background-position 0.1s linear; -moz-transition: 
@@ -117,12 +118,7 @@ nav {
       width: 100px;
 }
 
-/* h1 {
-      color: black;
-      text-align:start;
-      font-family: 'Playfair Display', serif;
 
-} */
 
 p {
       font-family: 'Alegreya', serif;
@@ -132,8 +128,6 @@ p {
 ul {
       list-style: none;
 }
-
-
 
 
 .card {
@@ -149,7 +143,12 @@ ul {
        
 }
 
-.card h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+.card h1 { 
+      color: #fff; 
+      text-shadow: 0 0 10px rgba(0,0,0,0.3); 
+      letter-spacing:1px; 
+      text-align:center; 
+}
 
 
 input { 
@@ -173,7 +172,9 @@ input {
 }
 
 
-input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+input:focus { 
+      box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+}
 
 
 form {
@@ -187,6 +188,19 @@ label {
       
       margin-top: 5px;
 }
+
+
+
+
+
+/* old styles  */
+
+/* h1 {
+      color: black;
+      text-align:start;
+      font-family: 'Playfair Display', serif;
+
+} */
 
 /* inputs form  */
 /* input[class="form-input"] {
@@ -219,9 +233,8 @@ label {
       transform: translateX(-4px);
       border-radius: 5px;
 } */
-     
 
-button {
+/* button {
       width: 250px;
       height: 30px;
     
@@ -233,11 +246,10 @@ button {
       outline: none;
       border: none;
       
-}
+} */
 
-/* buttons hover */
+/* buttons hover
 button:hover {
       transform: translatey(3px);
       box-shadow: none;
-}
-
+} */
