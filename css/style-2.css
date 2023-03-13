@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
-
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
 /*  ESTILOS PRINCIPALES - GENERALES DE LA  WEB  */
 
 /* para todos los elementos de la página. 
@@ -13,20 +13,19 @@ box-sizinz: border-box --> ancho y alto de los elementos incluyen padding y bord
       box-sizing:border-box; 
 }
 
-html {
+/* html {
       width: 100%; 
-      height:100%; 
+      height:100%; }
       /* overflow:hidden;   */
-}
+
 
 body {
       width: 100%;
-      height:100%;
+      /* height:100%; */
       font-family: 'Vibur', cursive;
       /*   the main font */
       font-family: 'Abel', sans-serif;
       opacity: .95;
-      
       background: #092756;
       background: 
       -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),
@@ -50,6 +49,7 @@ body {
       linear-gradient(135deg,  #670d10 0%,#092756 100%);
       /* compatibilidad con versiones antiguas de internet explorer. Sintaxis específica de microsoft */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+      
 }
 
 /* Barra de navegación */
@@ -57,6 +57,9 @@ nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-radius: 10px;
+      /* background-color: #0a0a0a; */
+      box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
       padding: 20px;
       margin-bottom: 1rem
 }
@@ -77,6 +80,70 @@ ul {
       height: 100px;
 }
 
+.logo-sm {
+      width: 20px;
+      height: 20px;
+}
+
+/* SEARCHBAR */
+.search-box {
+      width: fit-content;
+      height: fit-content;
+      position: relative;
+    }
+    .search-icon {
+      width: 50px;
+      height: 50px;
+    }
+    .input-search{
+      height: 30px;
+      width: 30px;
+      border-style: none;
+      padding: 10px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      outline: none;
+      border-radius: 20px;
+      transition: all .5s ease-in-out;
+      /* background-color: #5ad266; */
+      padding-right: 20px;
+      color:#fff;
+    }
+    .input-search::placeholder{
+      color:rgba(6, 5, 5, 0.9);
+      font-size: 18px;
+      letter-spacing: 2px;
+      font-weight: 100;
+    }
+    .btn-search{
+      width: 50px;
+      height: 50px;
+      border-style: none;
+      font-size: 20px;
+      font-weight: bold;
+      outline: none;
+      cursor: pointer;
+      border-radius: 50%;
+      position: absolute;
+      right: 0px;
+      color:#ffffff ;
+      background-color:transparent;
+      pointer-events: painted;  
+    }
+    .btn-search:focus ~ .input-search{
+      width: 300px;
+      border-radius: 0px;
+      background-color: transparent;
+      border-bottom:1px solid rgba(255,255,255,.5);
+      transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+    }
+    .input-search:focus{
+      width: 300px;
+      border-radius: 0px;
+      background-color: transparent;
+      border-bottom:1px solid rgba(255,255,255,.5);
+      transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+    }
 
 /* Lista enlaces - sustituir por un menú más elaborado - */
 .navbar li {
@@ -88,6 +155,11 @@ ul {
       width: 100px;
 }
 
+.avatar-sm {
+      height: 25px;
+      width: 25px;
+}
+
 
 
 /* Estilos de contenedores principales estilo 'tarjeta' */
@@ -96,12 +168,12 @@ ul {
       flex-direction: column;
       align-items: center;
       border-radius: 10px;
+      background-color: rgba(13, 242, 28, 0.1);
       box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
-      padding: 5rem;
-      max-width: 400px;
+      padding: 3rem;
+      max-width: 90%;  /* 400px*/
       margin: 0 auto;
-      text-align: center
-       
+      text-align: center;   
 }
 
 .card h1 { 
@@ -111,9 +183,16 @@ ul {
       text-align:center; 
 }
 
+.card h2 {
+      color: black; 
+      text-shadow: 0 0 10px rgba(0,0,0,0.3); 
+      letter-spacing:1px; 
+      text-align:center; 
+}
+
 /* Estilos para los INPUTS -darle clase- */
 
-input { 
+input, #textarea { 
 	width: 100%; 
 	margin-bottom: 10px; 
 	background: rgba(0,0,0,0.3);
@@ -154,35 +233,30 @@ label {
 
 
 /* Estilo general de botones */
-.btn { 
-      display: inline-block; 
-      *display: inline; *zoom: 1; 
-      padding: 4px 10px 4px; 
-      margin-bottom: 0; 
-      font-size: 13px; 
-      line-height: 18px; 
-      color: #333333; 
+.btn {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      padding: 4px 10px;
+      margin-bottom: 0;
+      font-size: 13px;
+      line-height: 18px;
+      color: #333333;
       text-align: center;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); 
-      vertical-align: middle; background-color: #f5f5f5; 
-      background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); 
-      background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); 
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); 
-      background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); 
-      background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); 
-      background-image: linear-gradient(top, #ffffff, #e6e6e6); 
-      background-repeat: repeat-x; 
-      filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); 
-      border-color: #e6e6e6 #e6e6e6 #e6e6e6; 
-      border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); 
-      border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; 
-      border-radius: 4px; 
-      -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
-      -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
-      cursor: pointer; 
-      *margin-left: .3em; 
+      text-shadow: 0 1px 1px rgba(133, 130, 130, 0.865);
+      vertical-align: middle;
+      background-color: #737373;
+      background-image: none;
+      background-repeat: repeat-x;
+      border-color: #666666;
+      border-color: rgba(0, 0, 0, 0.1);
+      border: 1px solid #666666;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      *margin-left: .3em;
 }
+      
 
 /* distintos estados generales  del botón --> color blanco */
 .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
@@ -210,15 +284,15 @@ label {
 /* Botón que destaca por color llamativo. Podemos usar esta clase para 'enviar' 'comprar' ... */
 .btn-primary, .btn-primary:hover { 
       text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); 
-      color: #ffffff; 
+      color: #0a0303; 
 }
 
 .btn-primary.active { 
-      color: rgba(255, 255, 255, 0.75); 
+      color: rgba(225, 225, 225, 0.75); 
 }
 
 .btn-primary { 
-      background-color: #4a77d4; 
+      background-color: #4a77d4; /*#4a77d4; */
       background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); 
       background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); 
       background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); 
@@ -258,13 +332,23 @@ label {
 .columna-centro {
       display: flex;
       flex-direction: column;
+      margin: 1px;
 }
 
 /* divisiones dentro de las columnas */
 .sub-columna-izquierda,
 .sub-columna-derecha {
       flex: 1;
-      margin: 0 10px;
+      margin: 5px;
 }
 
 
+.iconos {
+      width: 40px;
+      height: 40px ;
+      border-radius: 15px;
+}
+
+.iconos:hover {
+      box-shadow: black;
+}
