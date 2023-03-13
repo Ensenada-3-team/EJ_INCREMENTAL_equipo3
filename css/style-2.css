@@ -146,6 +146,12 @@ ul {
     }
 
 /* Lista enlaces - sustituir por un menú más elaborado - */
+
+.i fi {
+
+      font-size: 50px;
+}
+
 .navbar li {
       list-style: none;
 }
