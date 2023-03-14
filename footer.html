@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Teclers</title>
+		<link rel="stylesheet" href="./css/footer.css" />
+	</head>
+	<body>
+		<nav>
+			<div>
+				<img class="logo" src="./img/enter-black.png" alt="Logo" />
+			</div>
+
+			<div>
+				<div class="search-box">
+					<button class="btn-search">
+						<img class="search-icon" src="./img/search-icon2.png" alt="" />
+					</button>
+					<input
+						type="text"
+						class="input-search"
+						placeholder="Type to Search..."
+					/>
+				</div>
+
+				<!-- <h1>welcome</h1> -->
+			</div>
+
+			<div class="navbar">
+				<i class="fi fi-br-menu-burger"></i>
+				<!-- <ul>
+					<li><a href="#">Inicio</a></li>
+					<li><a href="#">Acerca de</a></li>
+					<li><a href="#">Contacto</a></li>
+				</ul> -->
+			</div>
+		</nav>
+
+		<main class="grid-container">
+
+			<!-- IZQUIERDA -->
+			<div class="columna-izquierda">
+				<div class="card sub-columna-izquierda">
+					<h2>Tus intereses</h2>
+
+					<div>
+						<img
+							class="iconos"
+							id="icono"
+							href=""
+							src="./img/icons/icono-noticias.png"
+							alt="icono-noticias"
+						/>
+						<h3>Noticias</h3>
+					</div>
+					<div>
+						<img
+							class="iconos"
+							id="icono"
+							href=""
+							src="./img/icons/icono mi perfil.png"
+							alt="icono-miperfil"
+						/>
+						<h3>Mi perfil</h3>
+					</div>
+					<div>
+						<img
+							class="iconos"
+							id="icono"
+							href=""
+							src="./img/icons/icono-aleatorio.png"
+							alt="icono-aleatorio"
+						/>
+						<h3>Aleatorio</h3>
+					</div>
+					<div>
+						<img
+							class="iconos"
+							id="icono"
+							href=""
+							src="./img/icons/icono-masnuevo.png"
+							alt="icono-masnuevo"
+						/>
+						<h3>Novedades</h3>
+					</div>
+					<div>
+						<img
+							class="iconos"
+							id="icono"
+							href=""
+							src="./img/icons/icono-guardados.png"
+							alt="icono-guardados"
+						/>
+						<h3>Guardados</h3>
+					</div>
+				</div>
+				<div class="card sub-columna-derecha">
+					<h2>Cuenta</h2>
+					<div>
+						<img
+							class="iconos"
+							id="icono"
+							href=""
+							src="./img/icons/icono-configuracion.png"
+							alt="icono-configuracion"
+						/>
+					</div>
+					<div>
+						<img
+							class="iconos"
+							id="icono"
+							href=""
+							src="./img/icons/icono-preguntasfrecuentes.png"
+							alt="icono-preguntasfrecuentes"
+						/>
+					</div>
+					<div>
+						<img
+							class="iconos"
+							id="icono"
+							href=""
+							src="./img/icons/icono trabaja con nosotros.png"
+							alt="icono-trabajaconnosotros"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<!-- CENTRO  -->
+			<div class="columna-centro">
+				<div class="card contenido-principal">
+					<!-- <p>CONTENIDO PRINCIPAL</p> -->
+					<div class="">
+						<h2>
+							Comparte algo con la comunidad de teclers
+							<img class="logo-sm" src="./img/enter-black.png" alt="" />
+						</h2>
+						<form>
+							<textarea
+								id="textarea"
+								placeholder="Max 256 caracteres"
+								maxlength="256"
+							></textarea>
+
+							<div class="button">
+								<button type="button" class="btn" @click="createGlit">
+									Post
+								</button>
+							</div>
+						</form>
+					</div>
+					<!-- Aquí irá el contenido principal -->
+				</div>
+			</div>
+
+			<!-- DERECHA  -->
+			<div class="columna-derecha">
+				<div class="card sub-columna-izquierda">
+					<h2>Peticiones de amistad</h2>
+					<div>
+						<h5>María Gómez</h5>
+						<img class="avatar-sm" src="./img/avatar.png" alt="avatar" />
+						<button class="btn" type="button">Aceptar</button>
+						<button class="btn" type="button">Rechazar</button>
+					</div>
+					<div>
+						<h5>Pepe Palotes</h5>
+						<img class="avatar-sm" src="./img/avatar-2.png" alt="avatar" />
+						<button class="btn" type="button">Aceptar</button>
+						<button class="btn" type="button">Rechazar</button>
+					</div>
+					<div>
+						<h5>Carmen Lomana</h5>
+						<img class="avatar-sm" src="./img/avatar.png" alt="avatar" />
+						<button class="btn" type="button">Aceptar</button>
+						<button class="btn" type="button">Rechazar</button>
+					</div>
+					<div>
+						<h5>Julio Iglesias</h5>
+						<img class="avatar-sm" src="./img/avatar-2.png" alt="avatar" />
+						<button class="btn" type="button">Aceptar</button>
+						<button class="btn" type="button">Rechazar</button>
+					</div>
+				</div>
+				<div class="card sub-columna-derecha">
+					<h2>derecha-2</h2>
+					<button type="button" class="btn btn-primary btn-block btn-large">
+						Enviar mensaje
+					</button>
+				</div>
+			</div>
+		</main>
+		
+       <!-- a partir de aquí ye el footer -->
+        
+        <footer>
+            <div>
+                <div>
+                    <img class="logo" src="./img/enter-black.png" alt="Logo" />
+                </div>
+                <div>
+                    <a href="">Quiénes somos</a>
+                </div>
+                <div>
+                    <a href="mailto:grupo3@teclers.com">Contáctanos</a>
+                </div>
+                <div>
+                    <a href="http://">copyright © Equpo3</a>
+                </div>
+            </div>
+            <div>
+                <h4>Links útiles</h4>
+                <div>
+                <a href="https://www.w3schools.com/">Información básica</a>
+            </div>
+                <div><a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+                </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-block btn-large">
+                    Enviar mensaje
+                </button>
+            <div>
+                
+            </div>
+		</footer>
+	</body>
+</html>
+
+
+
+
+
+
+
+
