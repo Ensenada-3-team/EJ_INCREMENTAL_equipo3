@@ -90,6 +90,11 @@ ul {
       height: 20px;
 }
 
+.logo-sl {
+      width: 40px;
+      height: 40px; 
+}
+
 /* ICONOS DE AVATAR DE USUARIO */
 .avatar {
       height: 100px;
@@ -336,12 +341,43 @@ label {
       display:block; 
 }
 
+/* FRIENDS-PAGE GRID - específico */
+/* Estilos específicos para la página friends.html */
+.friends-page .grid-container {
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        "columna-izquierda columna-derecha"
+        "fila-superior fila-superior"
+        "contenedor-abajo contenedor-abajo";
+    }
+    
+    .friends-page .columna-derecha {
+      display: grid;
+      grid-template-areas: "fila-superior contenedor-abajo";
+    }
+    
+    .friends-page .fila-superior {
+      grid-area: fila-superior;
+    }
+    
+    .friends-page .contenedor-abajo {
+      grid-area: contenedor-abajo;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      border: 1px solid black
+    }
+    
 
-/* CONTENEDOR PRINCIPAL 'parrilla'  --> main */
+
+/* INDEX GRID - CONTENEDOR PRINCIPAL 'parrilla'  --> main */
 
 .grid-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 2fr 1fr;
+      /* grid-template-columns: repeat(3, 1fr);*/
       grid-template-rows: auto;
       gap: 20px;
       
@@ -363,6 +399,9 @@ label {
       margin: 5px;
 }
 
+
+
+
 /* ICONOS  */
 
 .iconos {
@@ -372,5 +411,27 @@ label {
 }
 
 .iconos:hover {
-      box-shadow: black;
+      color: #333333; 
+      text-decoration: none; 
+      background-color: #e6e6e6; 
+      background-position: 0 -15px; -webkit-transition: 
+      background-position 0.1s linear; -moz-transition: 
+      background-position 0.1s linear; -ms-transition: 
+      background-position 0.1s linear; -o-transition: 
+      background-position 0.1s linear; transition: background-position 0.1s linear; 
+    
+}
+
+/* FOOTER */
+
+footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      column-gap:5px  ;
+}
+
+a {
+      text-decoration: none; /* Elimina el subrayado */
+      color: black; /* Cambia el color a negro */
 }
