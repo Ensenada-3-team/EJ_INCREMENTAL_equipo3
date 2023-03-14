@@ -2,15 +2,13 @@
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
 /*  ESTILOS PRINCIPALES - GENERALES DE LA  WEB  */
 
-/* para todos los elementos de la página. 
-box-sizinz: border-box --> ancho y alto de los elementos incluyen padding y borde pero no el margen.
-*/
+
 * { 
       -webkit-box-sizing:border-box; 
       -moz-box-sizing:border-box; 
       -ms-box-sizing:border-box; 
       -o-box-sizing:border-box; 
-      box-sizing:border-box; 
+      box-sizing:border-box; /* ancho y alto de elementos incluyen padding y borde pero no el margen*/
 }
 
 /* html {
@@ -61,8 +59,12 @@ nav {
       /* background-color: #0a0a0a; */
       box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      margin-bottom: 1rem
+      margin-bottom: 1rem;
+      position:sticky;
+      top: 0px;
 }
+
+
 
 p {
       font-family: 'Alegreya', serif;
@@ -74,28 +76,45 @@ ul {
 }
 
 
-/* Logo */
+/* LOGO */
+
+/* LOGO NAV */
 .logo {
       width: 100px;
       height: 100px;
 }
 
+/* LOGO PEQUEÑO DE USO EN TEXTO */
 .logo-sm {
       width: 20px;
       height: 20px;
 }
 
-/* SEARCHBAR */
+/* ICONOS DE AVATAR DE USUARIO */
+.avatar {
+      height: 100px;
+      width: 100px;
+}
+
+.avatar-sm {
+      height: 25px;
+      width: 25px;
+}
+
+
+
+/* SEARCHBAR - BARRA DE BÚSQUEDA */
+
 .search-box {
       width: fit-content;
       height: fit-content;
       position: relative;
-    }
-    .search-icon {
+}
+.search-icon {
       width: 50px;
       height: 50px;
-    }
-    .input-search{
+}
+.input-search {
       height: 30px;
       width: 30px;
       border-style: none;
@@ -105,17 +124,16 @@ ul {
       outline: none;
       border-radius: 20px;
       transition: all .5s ease-in-out;
-      /* background-color: #5ad266; */
       padding-right: 20px;
       color:#fff;
-    }
-    .input-search::placeholder{
+}
+.input-search::placeholder {
       color:rgba(6, 5, 5, 0.9);
       font-size: 18px;
       letter-spacing: 2px;
       font-weight: 100;
-    }
-    .btn-search{
+}
+.btn-search {
       width: 50px;
       height: 50px;
       border-style: none;
@@ -129,52 +147,45 @@ ul {
       color:#ffffff ;
       background-color:transparent;
       pointer-events: painted;  
-    }
-    .btn-search:focus ~ .input-search{
+}
+.btn-search:focus ~ .input-search {
+      width: 300px;
+      border-radius: 20px;
+      background-color: transparent;
+      border-bottom:1px solid rgba(255,255,255,.5);
+      transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus {
       width: 300px;
       border-radius: 0px;
       background-color: transparent;
       border-bottom:1px solid rgba(255,255,255,.5);
       transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-    }
-    .input-search:focus{
-      width: 300px;
-      border-radius: 0px;
-      background-color: transparent;
-      border-bottom:1px solid rgba(255,255,255,.5);
-      transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-    }
-
-/* Lista enlaces - sustituir por un menú más elaborado - */
-
-.i fi {
-
-      font-size: 50px;
 }
 
-.navbar li {
+
+
+/* MENÚ NAVEGACIÓN */
+
+.fi, .fi-br-menu-burger {
+      font-size: 80px;
+}
+
+/* .navbar li {
       list-style: none;
-}
-
-.avatar {
-      height: 100px;
-      width: 100px;
-}
-
-.avatar-sm {
-      height: 25px;
-      width: 25px;
-}
+} */
 
 
+/* CONTENEDORES PRINCIPALES ESTILO TARJETA */
 
-/* Estilos de contenedores principales estilo 'tarjeta' */
+/* CARDS DE PÁGINAS DE LA WEB */
 .card {
       display: flex;
       flex-direction: column;
       align-items: center;
       border-radius: 10px;
-      background-color: rgba(13, 242, 28, 0.1);
+      background-color: rgba(18, 235, 83, 0.281);
+      /* background-color: rgba(13, 242, 28, 0.1); */
       box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
       padding: 3rem;
       max-width: 90%;  /* 400px*/
@@ -196,7 +207,7 @@ ul {
       text-align:center; 
 }
 
-/* Estilos para los INPUTS -darle clase- */
+/* INPUTS -darle clase- */
 
 input, #textarea { 
 	width: 100%; 
@@ -238,7 +249,9 @@ label {
 
 
 
-/* Estilo general de botones */
+/* BOTONES */
+
+/* BOTON GENÉRICO */
 .btn {
       display: inline-block;
       *display: inline;
@@ -279,7 +292,8 @@ label {
       background-position 0.1s linear; -o-transition: 
       background-position 0.1s linear; transition: background-position 0.1s linear; 
 }
-/* botones principales de página más visibles */
+
+/* BOTÓN PRINCIPAL DE PÁGINA MÁS VISIBLE */
 .btn-large { 
       padding: 9px 14px; 
       font-size: 15px; 
@@ -287,7 +301,7 @@ label {
       border-radius: 5px; 
 }
 
-/* Botón que destaca por color llamativo. Podemos usar esta clase para 'enviar' 'comprar' ... */
+/* BOTÓN MÁS LLAMATIVO. Podemos usar esta clase para 'enviar' 'comprar' ... */
 .btn-primary, .btn-primary:hover { 
       text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); 
       color: #0a0303; 
@@ -316,7 +330,7 @@ label {
      background-color: #4a77d4; 
 }
 
-/* Botón que queramos que ocupe todo el ancho del contenedor e impide que otro elemento se coloque en misma fila */
+/* BOTÓN QUE OCUPA TODO EL ANCHO DE SU CONTENEDOR - impide que otro elemento se coloque en misma fila */
 .btn-block { 
       width: 100%; 
       display:block; 
@@ -324,6 +338,7 @@ label {
 
 
 /* CONTENEDOR PRINCIPAL 'parrilla'  --> main */
+
 .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -348,6 +363,7 @@ label {
       margin: 5px;
 }
 
+/* ICONOS  */
 
 .iconos {
       width: 40px;
