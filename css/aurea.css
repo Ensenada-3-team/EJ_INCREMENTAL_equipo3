@@ -16,8 +16,9 @@
 
 /* html {
       width: 100%; 
-      height:100%; }
-      /* overflow:hidden;   */
+      height:100%; 
+} */
+     
 
 
 body {
@@ -67,6 +68,13 @@ nav {
       top: 0px;
 }
 
+.enter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+}
+
 
 
 p {
@@ -112,9 +120,7 @@ ul {
 }
 
 
-
 /* SEARCHBAR - BARRA DE BÚSQUEDA */
-
 .search-box {
       width: fit-content;
       height: fit-content;
@@ -193,28 +199,26 @@ ul {
 /* CONTENEDORES PRINCIPALES ESTILO TARJETA */
 
 /* CARDS DE PÁGINAS DE LA WEB */
-.card {
+.card, .enter-card {
       display: flex;
       flex-direction: column;
       align-items: center;
       border: 1px solid black;
       border-radius: 10px;
-      /* background-color: rgba(18, 235, 83, 0.281); */
+      background-color: rgba(18, 235, 83, 0.281);
       /* background-color: rgba(13, 242, 28, 0.1); */
       box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
       padding: 3rem;
-      max-width: 95%;  /*400px*/
-      margin: 0.5rem;
-      text-align: center; 
-      
+   
 }
 
-.card .contenedor-abajo {
-      background-color: rgba(198, 135, 216, 0.281);
+.card {
+      max-width: 95%; 
+      margin: 0.5rem;
+      text-align: center;  
 }
 
 .card h1 { 
-      color: #fff; 
       text-shadow: 0 0 10px rgba(0,0,0,0.3); 
       letter-spacing:1px; 
       text-align:center; 
@@ -227,8 +231,26 @@ ul {
       text-align:center; 
 }
 
-/* INPUTS -darle clase- */
+/* login y registro  */
+.enter-card {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center
+}
 
+.enter-card h1 {
+      text-shadow: 0 0 10px rgba(0,0,0,0.3); 
+      letter-spacing:1px; 
+      text-align:center; 
+}
+
+/* friends-page */
+.card .contenedor-abajo {
+      background-color: rgba(198, 135, 216, 0.281);
+}
+
+
+/* INPUTS  */
 input, #textarea { 
 	width: 100%; 
 	margin-bottom: 10px; 
@@ -262,8 +284,8 @@ form {
 }
 
 label {
-      
-      margin-top: 5px;
+      margin-top: auto;
+      font-weight: bold;
 }
 
 
@@ -357,10 +379,7 @@ label {
 }
 
 
-
-
 /* INDEX GRID - CONTENEDOR PRINCIPAL 'parrilla'  --> main */
-
 .grid-container {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
@@ -450,11 +469,17 @@ footer {
 }
 
 a {
-      text-decoration: none; /* Elimina el subrayado */
-      color: black; /* Cambia el color a negro */
+      text-decoration:none; /* Elimina el subrayado */
+      color: rgb(8, 8, 8); /* Cambia el color a negro */
 }
 
 
 /* AUREA DE AQUI PARA ABAJO - LOGIN Y REGISTRO */
 
 /* para las divisiones puedes aplicarle la clase .card  */
+
+.division_login_registro {
+      
+      display: flex;
+      justify-content: space-between;
+}
