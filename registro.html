@@ -1,40 +1,59 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Registro</title>
-	<link rel="stylesheet" href="./css/style.css" />
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registro</title>
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body>
+		<nav class="enter">
+			<img class="logo" src="./img/enter-black.png" alt="logo-twitter" />
+		</nav>
 
-</head>
-<body>
-      <nav class="enter">
-            <img class="logo" src="./img/enter-black.png" alt="logo-twitter"/>
-      </nav>
+		<div class="enter-card">
+			<h1>Unete a la comunidad:</h1>
+			<form action="procesar_registro.js" method="post">
+				<label for="nombre">Nombre:</label>
+				<input class="form-input" type="text" id="nombre" name="nombre" />
 
-      <div class="enter-card">
-	      <h1>Unete a la comunidad:</h1>
-            <form action="procesar_registro.js" method="post">
-                  <label for="nombre">Nombre:</label>
-                  <input class="form-input" type="text" id="nombre" name="nombre">
+				<label for="apellido">Apellido:</label>
+				<input class="form-input" type="text" id="apellido" name="apellido" />
 
-                  <label for="apellido">Apellido:</label>
-                  <input class="form-input" type="text" id="apellido" name="apellido">
+				<label for="email">Email:</label>
+				<input
+					class="form-input"
+					type="email"
+					id="email"
+					name="email"
+					placeholder="ejemplo@mail.com"
+				/>
 
-                  <label for="email">Email:</label>
-                  <input class="form-input" type="email" id="email" name="email" placeholder="ejemplo@mail.com">
+				<label for="contrasena">Contraseña:</label>
+				<input
+					class="form-input"
+					type="password"
+					id="contrasena"
+					name="contrasena"
+				/>
 
-                  <label for="contrasena">Contraseña:</label>
-                  <input class="form-input" type="password" id="contrasena" name="contrasena">
+				<label for="conf_contrasena">Confirmar contraseña:</label>
+				<input
+					class="form-input"
+					type="password"
+					id="conf_contrasena"
+					name="conf_contrasena"
+				/>
 
-                  <label for="conf_contrasena">Confirmar contraseña:</label>
-                  <input class="form-input" type="password" id="conf_contrasena" name="conf_contrasena">
-
-                  <button type="submit" value="Registrarse" class="btn btn-primary btn-block btn-large">Listo!</button>
-            </form>
-      </div>
-</body>
+				<button
+					type="submit"
+					value="Registrarse"
+					class="btn btn-primary btn-block btn-large"
+				>
+					Listo!
+				</button>
+			</form>
+		</div>
+	</body>
 </html>
-
-
-
-
-
