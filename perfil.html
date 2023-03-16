@@ -8,25 +8,87 @@
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-    <nav>
-        <div>
-            <img class="logo" src="./img/enter-black.png" alt="Logo" />
-        </div>
+    <nav class="container">
+        <div class="row d-flex justify-content-around align-items-center">
 
-        <div>
-            <div class="search-box">
+            <div class="col-1">
+                <img class="logo" src="./img/enter-black.png" alt="Logo" />
+                
+            </div>
+            
+            <div class="col-2">
+                <h1>¡¡Bienvenido, Tecler!!</h1>
+            </div>
+
+            <div class="col-7 search-box">
+                
                 <button class="btn-search">
-                    <img class="search-icon" src="./img/icons/search-icon2.png" alt="" />
+                    <img
+                        class="search-icon"
+                        src="./img/icons/search-icon2.png"
+                        alt=""
+                    />
                 </button>
                 <input
                     type="text"
                     class="input-search"
                     placeholder="Type to Search..."
                 />
+            
+                
             </div>
 
-            <!-- <h1>welcome</h1> -->
+            <div class="col-2  d-flex">
+                <div>
+                    <a href="./friends.html" target="_blank">
+                        <img
+                            class="iconos"
+                            id="icono"
+                            src="./img/icons/equipo.png"
+                            alt="icono-comunidad"
+                        />
+                    </a>
+                </div>
+                <div>
+                    <a href="./friends.html" target="_blank">
+                        <img
+                            class="iconos"
+                            id="icono"
+                            src="./img/icons/mensaje-bold.png"
+                            alt="mensaje"
+                        />
+                    </a>
+                </div>
+                <div>
+                    <a href="./perfil.html" target="_blank">
+                        <img
+                            class="iconos"
+                            id="icono"
+                            src="./img/icons/avatar-2.png"
+                            alt="Mi perfil"
+                        />
+                    </a>
+                </div>
+                <div>
+                    <a href="./login.html" target="_blank">
+                        <img
+                            class="iconos"
+                            id="icono"
+                            src="./img/icons/logout.png"
+                            alt="icono-comunidad"
+                        />
+                    </a>
+                </div>
+                <!-- <div>
+                    <i class="fi fi-br-menu-burger"></i>
+                </div> -->
+
+            </div>
+
         </div>
+
+    </nav>
+    <!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
         <div class="navbar">
             <i class="fi fi-br-menu-burger"></i>
