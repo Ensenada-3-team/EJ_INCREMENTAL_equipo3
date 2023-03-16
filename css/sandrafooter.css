@@ -461,12 +461,12 @@ label {
 
 /* FOOTER */
 
-footer {
+/* footer {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: auto;
       column-gap:5px  ;
-}
+} */
 
 a {
       text-decoration:none; /* Elimina el subrayado */

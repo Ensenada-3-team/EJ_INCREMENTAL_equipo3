@@ -56,11 +56,7 @@ body {
 
 /* Barra de navegación */
 nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       border-radius: 10px;
-      /* background-color: #0a0a0a; */
       box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
       padding: 0.5rem;
       margin-bottom: 1rem;
@@ -184,14 +180,12 @@ ul {
 /* MENÚ NAVEGACIÓN */
 
 .navbar {
-      margin-right: 1.5rem;
+      
 }
 
-.fi, .fi-br-menu-burger {
-      font-size: 60px;
-}
 
-.fi, .fi-rr-sobre, .fi-ss-usuario {
+
+.fi {
       font-size: 30px;
 }
 
@@ -200,14 +194,13 @@ ul {
 
 /* CARDS DE PÁGINAS DE LA WEB */
 .card, .enter-card {
-      display: flex;
-      flex-direction: column;
+      /* display: flex;
+      flex-direction: column;  YA INCLUIDO EN BOOTSTRAP*/
       align-items: center;
       border: 1px solid black;
-      border-radius: 10px;
+      border-radius: 10pX;
       background-color: rgba(18, 235, 83, 0.281);
-      /* background-color: rgba(13, 242, 28, 0.1); */
-      box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
       padding: 3rem;
    
 }
@@ -216,7 +209,7 @@ ul {
       max-width: 95%; 
       margin: 0.5rem;
       text-align: center;  
-}
+} 
 
 .card h1 { 
       text-shadow: 0 0 10px rgba(0,0,0,0.3); 
@@ -226,22 +219,22 @@ ul {
 
 .card h2 {
       color: black; 
-      text-shadow: 0 0 10px rgba(0,0,0,0.3); 
-      letter-spacing:1px; 
-      text-align:center; 
+      text-shadow: 0 0 0.625rem rgba(0,0,0,0.3); 
+      letter-spacing: 0.06rem; 
+      /* text-align:center;  */
 }
 
 /* login y registro  */
 .enter-card {
       max-width: 400px;
       margin: 0 auto;
-      text-align: center
+      /* text-align: center */
 }
 
 .enter-card h1 {
       text-shadow: 0 0 10px rgba(0,0,0,0.3); 
       letter-spacing:1px; 
-      text-align:center; 
+      /* text-align:center;  */
 }
 
 /* friends-page */
@@ -252,13 +245,13 @@ ul {
 
 /* INPUTS  */
 input, #textarea { 
-	width: 100%; 
-	margin-bottom: 10px; 
+	width: 25rem; 
+	margin-bottom: 0.625rem; 
 	background: rgba(0,0,0,0.3);
 	border: none;
 	outline: none;
-	padding: 10px;
-	font-size: 13px;
+	padding: 1%;
+	font-size: 0.85rem;
 	color: #fff;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 	border: 1px solid rgba(0,0,0,0.3);
@@ -442,9 +435,10 @@ label {
 /* ICONOS  */
 
 .iconos {
-      width: 40px;
-      height: 40px ;
+      width: 30px;
+      height: 30px ;
       border-radius: 3px;
+      margin: 0.2em;
 }
 
 .iconos:hover {
@@ -461,12 +455,12 @@ label {
 
 /* FOOTER */
 
-footer {
+/* footer {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: auto;
       column-gap:5px  ;
-}
+} */
 
 a {
       text-decoration:none; /* Elimina el subrayado */
