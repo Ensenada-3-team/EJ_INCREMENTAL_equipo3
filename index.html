@@ -9,11 +9,19 @@
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
+		<!-- BARRA DE NAVEGACION -->
 		<nav class="container">
-			<div class="row d-flex justify-content-between align-items-center">
-				<div class="col-2">
+			<div class="row d-flex justify-content-around align-items-center">
+
+				<div class="col-1">
 					<img class="logo" src="./img/enter-black.png" alt="Logo" />
+					
 				</div>
+				
+				<div class="col-2">
+					<h1>¡¡Bienvenido, Tecler!!</h1>
+				</div>
+
 				<div class="col-7 search-box">
 					
 					<button class="btn-search">
@@ -29,19 +37,60 @@
 						placeholder="Type to Search..."
 					/>
 				
-	
-					<!-- <h1>welcome</h1> -->
+					
 				</div>
 
-				<div class="col-2 navbar d-flex justify-content-center">
-					<i class="fi fi-br-menu-burger"></i>
+				<div class="col-2  d-flex">
+					<div>
+						<a href="./friends.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/equipo.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./friends.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/mensaje-bold.png"
+								alt="mensaje"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./perfil.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/avatar-2.png"
+								alt="Mi perfil"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./login.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/logout.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
+					<!-- <div>
+						<i class="fi fi-br-menu-burger"></i>
+					</div> -->
 	
 				</div>
 
 			</div>
 
-
 		</nav>
+		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
 		<main class="container">
 			<div class="row d-flex justify-content-center">
@@ -122,7 +171,7 @@
 									></textarea>
 			
 									<div class="button">
-										<button type="button" class="btn" @click="createGlit">
+										<button type="button" class="btn">
 											Post
 										</button>
 									</div>
@@ -131,17 +180,17 @@
 						</div>
 
 						<div class="row">
-							<div class="col  ">
+							<div class="col ">
 								<div class="card my-3">
 									<div class="card-body">
 									  <div class="media">
-									    <img src="ruta/a/la/foto.jpg" class="mr-3 rounded-circle" alt="Foto del autor">
-									    <div class="media-body">
-										<h5 class="card-title">Título de la publicación</h5>
-										<p class="card-text">Contenido de la publicación.</p>
-										<blockquote class="blockquote">
-										  <p class="mb-0">"Texto de la cita"</p>
-										</blockquote>
+									    <img src="./img/friends/avatar10.png" class="avatar rounded-circle" alt="Foto del autor">
+									    <div >
+										<h2 class="card-title">¡Hola a todos!</h2>
+										<p class="card-text text-justify">Acabo de lanzar una nueva aplicación web que creo que les gustará. Tiene muchas características interesantes y puede ser útil para diferentes propósitos.</p>
+										<p>Puedes echar un vistazo a la aplicación en mi sitio web <a href="https://www.misitio.com">www.misitio.com</a>. Si tienes algún comentario o sugerencia, por favor házmelo saber.</p>
+										<blockquote>"La programación no se trata de lo que sabes, se trata de lo que puedes aprender."</blockquote>
+										<p>¡Gracias por su tiempo!</p></p>
 										<div class="d-flex justify-content-end">
 										  <button type="button" class="btn btn-outline-primary mr-2"><i class="fas fa-thumbs-up"></i></button>
 										  <button type="button" class="btn btn-outline-danger"><i class="fas fa-thumbs-down"></i></button>

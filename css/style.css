@@ -6,20 +6,6 @@
 /*  ESTILOS PRINCIPALES - GENERALES DE LA  WEB  */
 
 
-* { 
-      -webkit-box-sizing:border-box; 
-      -moz-box-sizing:border-box; 
-      -ms-box-sizing:border-box; 
-      -o-box-sizing:border-box; 
-      box-sizing:border-box; /* ancho y alto de elementos incluyen padding y borde pero no el margen*/
-}
-
-/* html {
-      width: 100%; 
-      height:100%; 
-} */
-     
-
 
 body {
       width: 100%;
@@ -179,9 +165,9 @@ ul {
 
 /* MENÚ NAVEGACIÓN */
 
-.navbar {
+/* .navbar {
       
-}
+} */
 
 
 
@@ -211,13 +197,13 @@ ul {
       text-align: center;  
 } 
 
-.card h1 { 
+h1 { 
       text-shadow: 0 0 10px rgba(0,0,0,0.3); 
       letter-spacing:1px; 
       text-align:center; 
 }
 
-.card h2 {
+h2 {
       color: black; 
       text-shadow: 0 0 0.625rem rgba(0,0,0,0.3); 
       letter-spacing: 0.06rem; 
@@ -435,10 +421,10 @@ label {
 /* ICONOS  */
 
 .iconos {
-      width: 30px;
-      height: 30px ;
+      width: 1.6em;
+      height: 1.3em ;
       border-radius: 3px;
-      margin: 0.2em;
+      margin: 0.5em;
 }
 
 .iconos:hover {
