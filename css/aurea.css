@@ -483,3 +483,8 @@ a {
       display: flex;
       justify-content: space-between;
 }
+
+.txt-bienvenida {
+      justify-content: center;
+      color: white;
+}
