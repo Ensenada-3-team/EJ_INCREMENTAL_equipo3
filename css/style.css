@@ -386,6 +386,7 @@ label {
 }
 
 /* FRIENDS-PAGE GRID - específico */
+
 /* Estilos específicos para la página friends.html */
 .friends-page .grid-container {
       grid-template-columns: 1fr 4fr;
@@ -441,14 +442,6 @@ label {
     
 }
 
-/* FOOTER */
-
-/* footer {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: auto;
-      column-gap:5px  ;
-} */
 
 a {
       text-decoration:none; /* Elimina el subrayado */
