@@ -5,12 +5,105 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Registro</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+			integrity="sha512-P8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZPzQPjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
-		<nav class="enter">
-			<img class="logo" src="./img/enter-black.png" alt="logo-twitter" />
+		<!-- BARRA DE NAVEGACION -->
+		<nav class="container">
+			<div class="row d-flex justify-content-around align-items-center">
+				<div class="col-1">
+					<a href="./index.html" target="_blank">
+						<img
+							class="logo"
+							id="logo"
+							href="./index.html"
+							src="./img/enter-black.png"
+							alt="Logo-Tecla"
+						/>
+					</a>
+				</div>
+
+				<div class="col-2">
+					<h1>¡¡Bienvenido, Tecler!!</h1>
+				</div>
+
+				<div class="col-7 search-box">
+					<button class="btn-search">
+						<img
+							class="search-icon"
+							src="./img/icons/search-icon2.png"
+							alt=""
+						/>
+					</button>
+					<input
+						type="text"
+						class="input-search"
+						placeholder="Type to Search..."
+					/>
+				</div>
+
+				<div class="col-2 d-flex">
+					<div>
+						<a href="./friends.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/equipo.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./friends.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/mensaje-bold.png"
+								alt="mensaje"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./perfil.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/avatar-2.png"
+								alt="Mi perfil"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./login.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/logout.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
+					<!-- <div>
+						<i class="fi fi-br-menu-burger"></i>
+					</div> -->
+				</div>
+			</div>
 		</nav>
+		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
+
 
 		<div class="enter-card">
 			<h1>Unete a la comunidad:</h1>
@@ -45,15 +138,88 @@
 					id="conf_contrasena"
 					name="conf_contrasena"
 				/>
-
+				<!-- provisional, en un futuro será submit -->
 				<button
-					type="submit"
+					type="button"
 					value="Registrarse"
 					class="btn btn-primary btn-block btn-large"
 				>
-					Listo!
+					<a href="./login.html">Listo</a>
 				</button>
 			</form>
 		</div>
+		<!-- SEPARADOR ENTRE EL MAIN Y EL FOOTER -->
+		<div class="container">
+			<div class="row">
+				<div class="col text-align-center">
+					<p>SEPARADOR</p>
+				</div>
+			</div>
+		</div>
+		<!-- SEPARADOR HASTA AQUI -->
+
+		<!-- FOOTER  -->
+		<footer class="container">
+			<!-- una sola fila -->
+			<div class="row align-items-center">
+				<div class="col-4">
+					<div>
+						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+					</div>
+					<div>
+						<a href="">Quiénes somos</a>
+					</div>
+					<div>
+						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
+					</div>
+					<div>
+						<a href="http://">copyright © Equpo3</a>
+					</div>
+				</div>
+
+				<div class="col-4">
+					<h4>Links útiles</h4>
+					<div>
+						<a href="https://www.w3schools.com/">Información básica</a>
+					</div>
+					<div>
+						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+					</div>
+				</div>
+
+				<div class="col-4">
+					<div>
+						<a href="https://twitter.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-twitter.png"
+								alt="icono-twitter"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="https://reddit.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-reddit.png"
+								alt="icono-reddit"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="https://instagram.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-instagram.png"
+								alt="icono-instagram"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>

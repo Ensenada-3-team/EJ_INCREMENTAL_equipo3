@@ -459,7 +459,7 @@ label {
     
 }
 
-/* FOOTER */
+/* FOOTER 
 
 footer {
       display: grid;
@@ -467,7 +467,7 @@ footer {
       grid-template-rows: auto;
       column-gap:5px  ;
       
-}
+}*/
 
 a {
       text-decoration:none; /* Elimina el subrayado */
