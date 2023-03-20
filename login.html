@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Login</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+			integrity="sha512-P8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZPzQPjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
 		<nav class="container">
 			<div class="row d-flex justify-content-around align-items-center">
-
 				<div class="col-1">
-					<img class="logo" src="./img/enter-black.png" alt="Logo" />
-					
+					<a href="./index.html" target="_blank">
+						<img
+							class="logo"
+							id="logo"
+							href="./index.html"
+							src="./img/enter-black.png"
+							alt="Logo-Tecla"
+						/>
+					</a>
 				</div>
-				
+
 				<div class="col-2">
 					<h1>¡¡Bienvenido, Tecler!!</h1>
 				</div>
 
 				<div class="col-7 search-box">
-					
 					<button class="btn-search">
 						<img
 							class="search-icon"
@@ -34,11 +52,9 @@
 						class="input-search"
 						placeholder="Type to Search..."
 					/>
-				
-					
 				</div>
 
-				<div class="col-2  d-flex">
+				<div class="col-2 d-flex">
 					<div>
 						<a href="./friends.html" target="_blank">
 							<img
@@ -82,11 +98,8 @@
 					<!-- <div>
 						<i class="fi fi-br-menu-burger"></i>
 					</div> -->
-	
 				</div>
-
 			</div>
-
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
@@ -94,14 +107,103 @@
 			<h1>Inicia sesión en Tecla</h1>
 			<form>
 				<label for="usuario">Nombre de usuario o correo electrónico:</label>
-				<input class="form-input" type="text" id="usuario" name="usuario" required />
+				<input
+					class="form-input"
+					type="text"
+					id="usuario"
+					name="usuario"
+					required
+				/>
 
 				<label for="contrasena">Contraseña:</label>
-				<input class="form-input" type="password" id="contrasena" name="contrasena" required />
+				<input
+					class="form-input"
+					type="password"
+					id="contrasena"
+					name="contrasena"
+					required
+				/>
 
-				<button type="submit" class="btn btn-primary btn-block btn-large">Iniciar sesión</button>
+				<button type="submit" class="btn btn-primary btn-block btn-large">
+					Iniciar sesión
+				</button>
 			</form>
-			<p>¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a>.</p>
+			<p>
+				¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a>.
+			</p>
 		</div>
+
+		<!-- SEPARADOR ENTRE EL MAIN Y EL FOOTER -->
+		<div class="container">
+			<div class="row">
+				<div class="col text-align-center">
+					<p></p>
+				</div>
+			</div>
+		</div>
+		<!-- SEPARADOR HASTA AQUI -->
+
+		<!-- FOOTER  -->
+		<footer class="container">
+			<div class="row">
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="">Quiénes somos</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="http://">copyright © Equpo3</a>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<h4>Links útiles</h4>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://www.w3schools.com/">Información básica</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<a href="https://twitter.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-twitter.png"
+								alt="icono-twitter"
+							/>
+						</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://reddit.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-reddit.png"
+								alt="icono-reddit"
+							/>
+						</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://instagram.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-instagram.png"
+								alt="icono-instagram"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>

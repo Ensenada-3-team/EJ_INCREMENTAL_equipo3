@@ -6,20 +6,6 @@
 /*  ESTILOS PRINCIPALES - GENERALES DE LA  WEB  */
 
 
-* { 
-      -webkit-box-sizing:border-box; 
-      -moz-box-sizing:border-box; 
-      -ms-box-sizing:border-box; 
-      -o-box-sizing:border-box; 
-      box-sizing:border-box; /* ancho y alto de elementos incluyen padding y borde pero no el margen*/
-}
-
-/* html {
-      width: 100%; 
-      height:100%; 
-} */
-     
-
 
 body {
       width: 100%;
@@ -56,11 +42,7 @@ body {
 
 /* Barra de navegación */
 nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       border-radius: 10px;
-      /* background-color: #0a0a0a; */
       box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
       padding: 0.5rem;
       margin-bottom: 1rem;
@@ -183,15 +165,13 @@ ul {
 
 /* MENÚ NAVEGACIÓN */
 
-.navbar {
-      margin-right: 1.5rem;
-}
+/* .navbar {
+      
+} */
 
-.fi, .fi-br-menu-burger {
-      font-size: 60px;
-}
 
-.fi, .fi-rr-sobre, .fi-ss-usuario {
+
+.fi {
       font-size: 30px;
 }
 
@@ -200,14 +180,12 @@ ul {
 
 /* CARDS DE PÁGINAS DE LA WEB */
 .card, .enter-card {
-      display: flex;
-      flex-direction: column;
+      /* display: flex;
+      flex-direction: column;  YA INCLUIDO EN BOOTSTRAP*/
       align-items: center;
-      border: 1px solid black;
-      border-radius: 10px;
+      border-radius: 10pX;
       background-color: rgba(18, 235, 83, 0.281);
-      /* background-color: rgba(13, 242, 28, 0.1); */
-      box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
       padding: 3rem;
    
 }
@@ -216,32 +194,33 @@ ul {
       max-width: 95%; 
       margin: 0.5rem;
       text-align: center;  
-}
+} 
 
-.card h1 { 
+h1 { 
       text-shadow: 0 0 10px rgba(0,0,0,0.3); 
       letter-spacing:1px; 
       text-align:center; 
 }
 
-.card h2 {
+h2 {
       color: black; 
-      text-shadow: 0 0 10px rgba(0,0,0,0.3); 
-      letter-spacing:1px; 
-      text-align:center; 
+      text-shadow: 0 0 0.625rem rgba(0,0,0,0.3); 
+      letter-spacing: 0.06rem; 
+      /* text-align:center;  */
 }
 
 /* login y registro  */
 .enter-card {
       max-width: 400px;
       margin: 0 auto;
-      text-align: center
+      /* text-align: center */
 }
 
 .enter-card h1 {
+      color: white;
       text-shadow: 0 0 10px rgba(0,0,0,0.3); 
       letter-spacing:1px; 
-      text-align:center; 
+      /* text-align:center;  */
 }
 
 /* friends-page */
@@ -252,13 +231,12 @@ ul {
 
 /* INPUTS  */
 input, #textarea { 
-	width: 100%; 
-	margin-bottom: 10px; 
+	margin-bottom: 0.625rem; 
 	background: rgba(0,0,0,0.3);
 	border: none;
 	outline: none;
-	padding: 10px;
-	font-size: 13px;
+	padding: 1%;
+	font-size: 0.85rem;
 	color: #fff;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 	border: 1px solid rgba(0,0,0,0.3);
@@ -269,6 +247,10 @@ input, #textarea {
 	-o-transition: box-shadow .5s ease;
 	-ms-transition: box-shadow .5s ease;
 	transition: box-shadow .5s ease;
+}
+
+#textarea {
+      width: 25rem;
 }
 
 
@@ -287,7 +269,6 @@ label {
       margin-top: auto;
       font-weight: bold;
 }
-
 
 
 
@@ -313,7 +294,7 @@ label {
       border-color: rgba(0, 0, 0, 0.1);
       border: 1px solid #666666;
       border-radius: 4px;
-      box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.05);
+      box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.5), 0 1px 3px rgba(0, 0, 0, 0.05);
       cursor: pointer;
       *margin-left: .3em;
 }
@@ -435,16 +416,17 @@ label {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(3, 1fr);
       gap: 10px;
-      border: 1px solid black;
+      
 }
     
 
 /* ICONOS  */
 
 .iconos {
-      width: 40px;
-      height: 40px ;
+      width: 1.6em;
+      height: 1.3em ;
       border-radius: 3px;
+      margin: 0.5em;
 }
 
 .iconos:hover {
@@ -461,25 +443,77 @@ label {
 
 /* FOOTER */
 
-footer {
+/* footer {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: auto;
       column-gap:5px  ;
-}
+} */
 
 a {
       text-decoration:none; /* Elimina el subrayado */
       color: rgb(8, 8, 8); /* Cambia el color a negro */
 }
 
-
-/* AUREA DE AQUI PARA ABAJO - LOGIN Y REGISTRO */
-
-/* para las divisiones puedes aplicarle la clase .card  */
-
-.division_login_registro {
-      
-      display: flex;
-      justify-content: space-between;
+.fit {
+      height: fit-content;
 }
+@media only screen and (max-width: 375px) {
+      nav{
+         
+         align-self: center;
+          }
+        
+          
+          .search-box{
+              align-self: right;
+          }
+          .enter-card{
+            width: min-content;
+          }
+      body{
+          width: 40%;
+          align-items: center;
+      }
+      .col-4 {font-size: x-small}
+}
+      
+  @media only screen and (max-width: 600px){
+      nav{
+         
+            align-self: center;
+             }
+           
+             
+             .search-box{
+                 align-self: right;
+             }
+             .enter-card{
+               width: min-content;
+             }
+         body{
+             width: 40%;
+             align-items: center;
+         }
+         .col-4 {font-size: x-small}
+}
+      
+  
+  @media only screen and (max-width: 800px){
+  
+  .card{
+      width: 60%;
+  }
+  .col-4 {font-size: medium}
+}
+  @media only screen and (max-width: 1024px){
+  
+      body{
+          width: fit-content
+      
+      }
+      .col-4 {font-size: large }
+}
+
+  
+  

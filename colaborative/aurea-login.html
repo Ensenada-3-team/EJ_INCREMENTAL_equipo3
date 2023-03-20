@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>aurea Login</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+			integrity="sha512-P8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZPzQPjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/aurea.css" />
+	</head>
+	<body>
+		<!-- BARRA DE NAVEGACION -->
+		<nav class="container">
+			<div class="row d-flex justify-content-around align-items-center">
+
+				<div class="col-1">
+					<a href="./index.html" target="_blank">
+						<img
+							class="logo"
+							id="logo"
+							href="./index.html"
+							src="./img/enter-black.png"
+							alt="Logo-Tecla"
+						/>
+					</a>
+					
+				</div>
+				
+				<div class="col-2">
+					<h1>¡¡Bienvenido, Tecler!!</h1>
+				</div>
+
+				<div class="col-7 search-box">
+					
+					<button class="btn-search">
+						<img
+							class="search-icon"
+							src="./img/icons/search-icon2.png"
+							alt=""
+						/>
+					</button>
+					<input
+						type="text"
+						class="input-search"
+						placeholder="Type to Search..."
+					/>
+				
+					
+				</div>
+
+				<div class="col-2  d-flex">
+					<div>
+						<a href="./friends.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/equipo.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./friends.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/mensaje-bold.png"
+								alt="mensaje"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./perfil.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/avatar-2.png"
+								alt="Mi perfil"
+							/>
+						</a>
+					</div>
+					<div>
+						<a href="./login.html" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/logout.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
+					<!-- <div>
+						<i class="fi fi-br-menu-burger"></i>
+					</div> -->
+	
+				</div>
+
+			</div>
+
+		</nav>
+		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
+
+		<div class="division_login_registro">
+			<div class="enter-card">
+				<p>
+					Bienvenido a la página para developers. Descubre nuevos amigos y
+					disfruta de esta web donde encontrarás todo lo que te apasiona.
+				</p>
+			</div>
+
+			<div class="card enter-card">
+				<h1>Inicia sesión en Tecla</h1>
+				<form>
+					<label for="usuario">Nombre de usuario o correo electrónico:</label>
+					<input
+						class="form-input"
+						type="text"
+						id="usuario"
+						name="usuario"
+						required
+					/>
+
+					<label for="contrasena">Contraseña:</label>
+					<input
+						class="form-input"
+						type="password"
+						id="contrasena"
+						name="contrasena"
+						required
+					/>
+
+					<button type="submit" class="btn btn-primary btn-block btn-large">
+						Iniciar sesión
+					</button>
+				</form>
+				<p>
+					¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a>.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

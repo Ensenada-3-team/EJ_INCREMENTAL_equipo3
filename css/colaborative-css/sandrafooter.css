@@ -459,16 +459,17 @@ label {
     
 }
 
-/* FOOTER */  
+/* FOOTER 
 
- /*footer {
+footer {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: auto;
       column-gap:5px  ;
-} */
+      
+}*/
 
 a {
       text-decoration:none; /* Elimina el subrayado */
-      color: rgb(8, 8, 8); /* Cambia el color a negro*/
+      color: rgb(8, 8, 8); /* Cambia el color a negro */
 }
