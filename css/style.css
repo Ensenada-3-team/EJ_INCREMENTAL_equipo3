@@ -163,14 +163,6 @@ ul {
 
 
 
-/* MENÚ NAVEGACIÓN */
-
-/* .navbar {
-      
-} */
-
-
-
 .fi {
       font-size: 30px;
 }
@@ -448,6 +440,18 @@ a {
       color: rgb(8, 8, 8); /* Cambia el color a negro */
 }
 
+a:hover {
+      color: white;
+}
+
 .fit {
       height: fit-content;
+}
+
+
+/* LOGIN Y REGISTRO AUREA */
+
+.txt-bienvenida {
+      justify-content: center;
+      color: white;
 }

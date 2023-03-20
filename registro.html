@@ -104,55 +104,64 @@
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
+		<main class="d-flex justify-content-between">
+			<div class="enter-card txt-bienvenida">
+				<h1>
+					Bienvenido a la página para developers. Descubre nuevos amigos y
+					disfruta de esta web donde encontrarás todo lo que te apasiona.
+				</h1>
+			</div>
 
-		<div class="enter-card">
-			<h1>Unete a la comunidad:</h1>
-			<form action="procesar_registro.js" method="post">
-				<label for="nombre">Nombre:</label>
-				<input class="form-input" type="text" id="nombre" name="nombre" />
+			<div class="enter-card">
+				<h1>Unete a la comunidad:</h1>
+				<form action="procesar_registro.js" method="post">
+					<label for="nombre">Nombre:</label>
+					<input class="form-input" type="text" id="nombre" name="nombre" />
 
-				<label for="apellido">Apellido:</label>
-				<input class="form-input" type="text" id="apellido" name="apellido" />
+					<label for="apellido">Apellido:</label>
+					<input class="form-input" type="text" id="apellido" name="apellido" />
 
-				<label for="email">Email:</label>
-				<input
-					class="form-input"
-					type="email"
-					id="email"
-					name="email"
-					placeholder="ejemplo@mail.com"
-				/>
+					<label for="email">Email:</label>
+					<input
+						class="form-input"
+						type="email"
+						id="email"
+						name="email"
+						placeholder="ejemplo@mail.com"
+					/>
 
-				<label for="contrasena">Contraseña:</label>
-				<input
-					class="form-input"
-					type="password"
-					id="contrasena"
-					name="contrasena"
-				/>
+					<label for="contrasena">Contraseña:</label>
+					<input
+						class="form-input"
+						type="password"
+						id="contrasena"
+						name="contrasena"
+					/>
 
-				<label for="conf_contrasena">Confirmar contraseña:</label>
-				<input
-					class="form-input"
-					type="password"
-					id="conf_contrasena"
-					name="conf_contrasena"
-				/>
-				<!-- provisional, en un futuro será submit -->
-				<button
-					type="button"
-					value="Registrarse"
-					class="btn btn-primary btn-block btn-large"
-				>
-					<a href="./login.html">Listo</a>
-				</button>
-			</form>
-		</div>
+					<label for="conf_contrasena">Confirmar contraseña:</label>
+					<input
+						class="form-input"
+						type="password"
+						id="conf_contrasena"
+						name="conf_contrasena"
+					/>
+
+					<!-- provisional, en un futuro será submit -->
+					<button
+						type="button"
+						value="Registrarse"
+						class="btn btn-primary btn-block btn-large"
+					>
+						<a href="./login.html">Listo</a>
+					</button>
+				</form>
+			</div>
+		</main>
 		<!-- SEPARADOR ENTRE EL MAIN Y EL FOOTER -->
 		<div class="container">
 			<div class="row">
 				<div class="col text-align-center">
-					<p>SEPARADOR</p>
+					<p></p>
 				</div>
 			</div>
 		</div>
@@ -160,35 +169,34 @@
 
 		<!-- FOOTER  -->
 		<footer class="container">
-			<!-- una sola fila -->
-			<div class="row align-items-center">
+			<div class="row">
 				<div class="col-4">
-					<div>
+					<div class="d-flex justify-content-center">
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
 					</div>
-					<div>
+					<div class="d-flex justify-content-center">
 						<a href="">Quiénes somos</a>
 					</div>
-					<div>
+					<div class="d-flex justify-content-center">
 						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
 					</div>
-					<div>
+					<div class="d-flex justify-content-center">
 						<a href="http://">copyright © Equpo3</a>
 					</div>
 				</div>
-
 				<div class="col-4">
-					<h4>Links útiles</h4>
-					<div>
+					<div class="d-flex justify-content-center">
+						<h4>Links útiles</h4>
+					</div>
+					<div class="d-flex justify-content-center">
 						<a href="https://www.w3schools.com/">Información básica</a>
 					</div>
-					<div>
+					<div class="d-flex justify-content-center">
 						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
 					</div>
 				</div>
-
 				<div class="col-4">
-					<div>
+					<div class="d-flex justify-content-center">
 						<a href="https://twitter.com/" target="_blank">
 							<img
 								class="iconos"
@@ -198,7 +206,7 @@
 							/>
 						</a>
 					</div>
-					<div>
+					<div class="d-flex justify-content-center">
 						<a href="https://reddit.com/" target="_blank">
 							<img
 								class="iconos"
@@ -208,7 +216,7 @@
 							/>
 						</a>
 					</div>
-					<div>
+					<div class="d-flex justify-content-center">
 						<a href="https://instagram.com/" target="_blank">
 							<img
 								class="iconos"
