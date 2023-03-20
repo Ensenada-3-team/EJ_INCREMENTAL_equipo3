@@ -162,7 +162,7 @@ ul {
 }
 
 
-
+/* iconos de font awesome */
 .fi {
       font-size: 30px;
 }
@@ -173,7 +173,7 @@ ul {
 /* CARDS DE PÁGINAS DE LA WEB */
 .card, .enter-card {
       /* display: flex;
-      flex-direction: column;  YA INCLUIDO EN BOOTSTRAP*/
+      flex-direction: column;  YA INCLUIDO EN BOOTSTRAP en la clase card*/
       align-items: center;
       border-radius: 10pX;
       background-color: rgba(18, 235, 83, 0.281);
