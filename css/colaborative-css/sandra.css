@@ -168,11 +168,12 @@ ul {
 
 
 
-/* Estilos de contenedores principales estilo 'tarjeta' */
-.card {
+/* Estilos de contenedores principales estilo 'tarjeta'   
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center; */
+.card {
+     
       border-radius: 10px;
       background-color: rgba(13, 242, 28, 0.1);
       box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
@@ -323,7 +324,7 @@ label {
 }
 
 
-/* CONTENEDOR PRINCIPAL 'parrilla'  --> main */
+/* CONTENEDOR PRINCIPAL 'parrilla'  --> main
 .grid-container {
       display: grid;
       grid-template-columns: 1fr 4fr;
@@ -332,7 +333,7 @@ label {
       
 }
     
-/*  columnas */
+/*  columnas 
 .columna-izquierda-perfil
  {
       display: flex;
@@ -340,12 +341,15 @@ label {
       margin: 1px;
 }
 
-/* divisiones dentro de las columnas */
+/* divisiones dentro de las columnas 
 .sub-columna-izquierda,
 .sub-columna-derecha {
       flex: 1;
       margin: 5px;
 }
+
+*/
+
 
 
 .iconos {
