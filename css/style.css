@@ -1,17 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
-@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
 
 /*  ESTILOS PRINCIPALES - GENERALES DE LA  WEB  */
 
-
-
 body {
+      margin: 0;
+      padding:0;
       width: 100%;
-      /* height:100%; */
-      font-family: 'Vibur', cursive;
-      /*   the main font */
+      height:100%;
+      /* font-family: 'Vibur', cursive; */
       font-family: 'Abel', sans-serif;
       opacity: .95;
       background: #092756;
@@ -37,7 +33,7 @@ body {
       linear-gradient(135deg,  #670d10 0%,#092756 100%);
       /* compatibilidad con versiones antiguas de internet explorer. Sintaxis específica de microsoft */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
-      
+      background-size: cover;
 }
 
 /* Barra de navegación */
@@ -162,15 +158,7 @@ ul {
 }
 
 
-
-/* MENÚ NAVEGACIÓN */
-
-/* .navbar {
-      
-} */
-
-
-
+/* iconos de font awesome */
 .fi {
       font-size: 30px;
 }
@@ -181,7 +169,7 @@ ul {
 /* CARDS DE PÁGINAS DE LA WEB */
 .card, .enter-card {
       /* display: flex;
-      flex-direction: column;  YA INCLUIDO EN BOOTSTRAP*/
+      flex-direction: column;  YA INCLUIDO EN BOOTSTRAP en la clase card*/
       align-items: center;
       border-radius: 10pX;
       background-color: rgba(18, 235, 83, 0.281);
@@ -197,8 +185,8 @@ ul {
 } 
 
 h1 { 
-      text-shadow: 0 0 10px rgba(0,0,0,0.3); 
-      letter-spacing:1px; 
+      text-shadow: 0 0 0.2em rgba(0,0,0,0.3); 
+      letter-spacing:0.2rem; 
       text-align:center; 
 }
 
@@ -211,15 +199,15 @@ h2 {
 
 /* login y registro  */
 .enter-card {
-      max-width: 400px;
+      max-width: 25rem;
       margin: 0 auto;
       /* text-align: center */
 }
 
 .enter-card h1 {
       color: white;
-      text-shadow: 0 0 10px rgba(0,0,0,0.3); 
-      letter-spacing:1px; 
+      text-shadow: 0 0 0.2rem rgba(0,0,0,0.3); 
+      letter-spacing:0.06rem; 
       /* text-align:center;  */
 }
 
@@ -254,10 +242,9 @@ input, #textarea {
 }
 
 
-input:focus { 
-      box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
-}
-
+input:focus {
+      box-shadow: inset 0 -10% 4.5% rgba(100,100,100,0.4), 0 0.2em 0.2em rgba(255,255,255,0.2);
+    }
 
 form {
       display: flex;
@@ -448,6 +435,18 @@ a {
       color: rgb(8, 8, 8); /* Cambia el color a negro */
 }
 
+a:hover {
+      color: white;
+}
+
 .fit {
       height: fit-content;
+}
+
+
+/* LOGIN Y REGISTRO AUREA */
+
+.txt-bienvenida {
+      justify-content: center;
+      color: white;
 }
