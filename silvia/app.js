@@ -151,9 +151,30 @@ userData = () => {
       
 };
 
-userData()
+// userData()
 
 
 
 
 //EXTRA 13
+
+//INCREMENTAL 14
+
+sortFriends = () => {
+      friendsArr = new Array()
+
+      do {
+            newFriend = prompt('Introduce el nombre de un amigo\nPara finalizar deja el campo vacío y pulsa "Aceptar"')
+            if (newFriend !== null && newFriend !== '') {
+                  friendsArr.push(newFriend)
+            }
+
+      } while(newFriend !== '' && newFriend !== null)
+
+      friendsSortedAlphabeticaly = friendsArr.sort()
+
+      alert(`Tus amigos por orden alfabético:\n${friendsSortedAlphabeticaly.join('\n')}`)
+      console.table(friendsSortedAlphabeticaly)
+};
+
+// sortFriends()
