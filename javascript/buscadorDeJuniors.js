@@ -15,4 +15,4 @@ buscadorJuniors = () => {
     alert(`${nombre} ${apellido}, naciste en el año ${añoNacimiento} y realizaste ${numCursos + 1} cursos de programación.`)
 };
 
-buscadorJuniors()
+// buscadorJuniors()
