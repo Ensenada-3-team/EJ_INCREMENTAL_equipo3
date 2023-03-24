@@ -102,3 +102,258 @@ Entonces hay que modificar la posición número 0 de nuestra “playa de estacio
 
 CONSIGNA: 
 Escribe el código necesario para cumplir con todos los requerimientos pedidos.
+
+
+## Ejercicio Incremental 16
+
+Crear un botón "Me gusta" en una publicación.
+
+Al hacer clic en el botón, aumentar el contador de "Me gusta" en 1.
+
+Mostrar el número actualizado de "Me gusta" en la publicación.
+
+**NOTA:
+
+**Para hacer esto, los estudiantes pueden utilizar JavaScript para acceder al elemento del DOM que representa el botón y añadir un escuchador de eventos para detectar cuando se hace clic en él.
+
+Luego, pueden actualizar el valor del contador de "Me gusta" y mostrarlo en la página utilizando métodos DOM para acceder y modificar los elementos HTML correspondientes.
+
+
+
+## Ejercicio Extra 16
+
+SITUACIÓN: Crear una lista de tareas
+
+Crea un archivo HTML con una sección <ul> vacía y un formulario que permita agregar tareas a la lista.
+
+Escribe un archivo JavaScript que escuche el evento submit del formulario y capture el valor del campo de texto.
+
+Usa el método createElement() para crear un elemento <li> y el método appendChild() para agregarlo a la lista.
+
+Crea un botón "Eliminar" para cada tarea que permita borrarla de la lista. Para esto, puedes agregar un botón "Eliminar" dentro de cada elemento <li> y agregar un evento click que elimine el elemento de la lista.
+
+
+
+## Ejercicio con Resolución 16
+
+SITUACIÓN:
+
+Crea un archivo HTML que contenga un formulario con dos campos de texto: uno para el nombre y otro para el correo electrónico, y un botón de "Enviar".
+
+Agrega un manejador de eventos al formulario para que al hacer submit, se cree un nuevo elemento en el DOM que muestre el nombre y el correo electrónico ingresados en el formulario. El elemento debe ser un div con dos elementos hijos: un h2 que muestre el nombre y un p que muestre el correo electrónico.
+
+Agrega un botón "Borrar" a cada elemento creado en el paso anterior. Al hacer clic en el botón "Borrar", se debe eliminar el elemento del DOM.
+
+Agrega estilos CSS al formulario y al elemento creado en el paso 2 para que se vean bien en la página.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario de contacto</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      form {
+        margin-bottom: 1em;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5em;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 0.5em;
+      }
+
+      button[type="submit"] {
+        display: block;
+        margin: 1em auto 0;
+        padding: 0.5em;
+        border: none;
+        border-radius: 0.5em;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #0069d9;
+      }
+
+      .contact {
+        margin-bottom: 1em;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 0.5em;
+        background-color: #f8f8f8;
+      }
+
+      .contact h2 {
+        margin-top: 0;
+      }
+
+      .contact p {
+        margin-bottom: 0;
+      }
+
+      .delete {
+        margin-left: 1em;
+        padding: 0.5em;
+        border: none;
+        border-radius: 0.5em;
+        background-color: #dc3545;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .delete:hover {
+        background-color: #c82333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formulario de contacto</h1>
+    <form id="contact-form">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Correo electrónico:</label>
+      <input type="text" id="email" name="email" required>
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="contact-list">
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
+## Incremental 17
+
+Crear un botón "Eliminar cuenta" en la sección de configuración de la cuenta.
+
+Al hacer clic en el botón "Eliminar cuenta", mostrar un mensaje de confirmación al usuario.
+
+Si el usuario confirma la eliminación de la cuenta, utilizar una solicitud asincrónica (por ejemplo, mediante fetch) para eliminar la cuenta del servidor y llamar a una función de callback que redirija al usuario a la página de inicio de sesión.
+
+Para hacer esto, los estudiantes pueden utilizar JavaScript para acceder al botón "Eliminar cuenta" y añadir un escuchador de eventos para detectar cuando se hace clic en él. Luego, pueden utilizar una función de confirmación de JavaScript para mostrar un mensaje de confirmación al usuario y utilizar una solicitud asincrónica (por ejemplo, mediante fetch) para eliminar la cuenta del servidor si el usuario confirma la eliminación. Finalmente, pueden utilizar una función de callback para redirigir al usuario a la página de inicio de sesión después de que se haya eliminado la cuenta.
+
+
+
+## Extra 17
+
+SITUACIÓN: Crear una lista de tareas
+
+Supongamos que estamos trabajando en una aplicación de comercio electrónico que permite a los usuarios realizar pedidos de comida en línea. Una de las características principales de esta aplicación es la capacidad de enviar notificaciones en tiempo real al usuario sobre el estado de su pedido. Para hacer esto, podemos utilizar callbacks.
+
+Por ejemplo, podemos tener una función llamada realizarPedido que se encarga de enviar el pedido al restaurante y devuelve un objeto con la información del pedido, incluyendo un ID único. Luego, podemos tener otra función llamada notificarEstadoPedido que se encarga de enviar una notificación al usuario sobre el estado actual de su pedido. Esta función toma el ID del pedido como argumento y llama a un callback una vez que se ha actualizado el estado del pedido.
+
+
+
+## Ejercicio con Resolución 17
+
+SITUACIÓN: Realiza una programa simulando la vida real:
+
+Supongamos que estás trabajando en una aplicación de clima que necesita obtener la ubicación actual del usuario para mostrar las condiciones meteorológicas. Para hacer esto, puedes utilizar la API de geolocalización del navegador. Sin embargo, la API de geolocalización es asíncrona, por lo que necesitas utilizar callbacks para manejar el resultado.
+
+NOTA: todo esto debes realizarlo sin usar ninguna API.
+
+Supongamos que la ubicación actual del usuario es 37.7749 grados de latitud y -122.4194 grados de longitud.
+
+Javascript.
+
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Ejemplo de callbacks</title>
+  </head>
+
+  <body>
+
+    <h1>Obtener ubicación actual</h1>
+
+    <p>Presione el botón para obtener la ubicación actual:</p>
+
+    <button id="btn-obtener-ubicacion">Obtener ubicación</button>
+
+    <div id="ubicacion"></div>
+
+    <script>
+
+      function obtenerUbicacionActual(callback) {
+
+        if (navigator.geolocation) {
+
+          navigator.geolocation.getCurrentPosition(
+
+            function(posicion) {
+
+              const latitud = posicion.coords.latitude;
+
+              const longitud = posicion.coords.longitude;
+
+              callback(null, { latitud, longitud }); // llama al callback con la ubicación
+
+            },
+
+            function(error) {
+
+              callback(error, null); // llama al callback con el error
+
+            }
+
+          );
+
+        } else {
+
+          callback('Geolocalización no soportada', null); // llama al callback con el error
+
+        }
+
+      }
+
+
+
+      const btnObtenerUbicacion = document.querySelector('#btn-obtener-ubicacion');
+
+      const ubicacionDiv = document.querySelector('#ubicacion');
+
+
+
+      btnObtenerUbicacion.addEventListener('click', function() {
+
+        obtenerUbicacionActual(function(error, ubicacion) {
+
+          if (error) {
+
+            ubicacionDiv.textContent = 'Error al obtener la ubicación: ' + error;
+
+          } else {
+
+            ubicacionDiv.textContent = 'Ubicación actual: ' + ubicacion.latitud + ', ' + ubicacion.longitud;
+
+          }
+
+        });
+
+      });
+
+    </script>
+
+  </body>
+
+</html>
+
+
+
+
+
