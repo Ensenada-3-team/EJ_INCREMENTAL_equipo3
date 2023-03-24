@@ -13,7 +13,7 @@ buscadorJuniors = () => {
       }
       
       //Condición hecha con operador ternario en vez de con IF 
-      añoNacimiento < 2000 ?  alert('¿Estás seguro de que eres un programador Junior?') : alert('Ya te queda poquito para ser un pro')
+      añoNacimiento < 2000 ? alert('¿Estás seguro de que eres un programador Junior?') : alert('Ya te queda poquito para ser un pro')
       
       alert(`${nombre} ${apellido}, naciste en el año ${añoNacimiento} y realizaste ${numCursos + 1} cursos de programación.`)
 };
@@ -169,13 +169,13 @@ sortFriends = () => {
 
       } while(newFriend !== '' && newFriend !== null)
 
-      friendsSortedAlphabeticaly = friendsArr.sort() 
+      friendsSortedAlphabetically = friendsArr.sort() 
 
-      alert(`Tus amigos por orden alfabético:\n${friendsSortedAlphabeticaly.join('\n')}`)
-      console.table(friendsSortedAlphabeticaly)
+      alert(`Tus amigos por orden alfabético:\n${friendsSortedAlphabetically.join('\n')}`)
+      console.table(friendsSortedAlphabetically)
 };
 
-// sortFriends()
+sortFriends()
 
 
 //EXTRA 14

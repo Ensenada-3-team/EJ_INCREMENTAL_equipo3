@@ -80,7 +80,8 @@ EJEMPLO: traducirDia(""lunes""); debe imprimir por pantalla: monday
 
 Simulando amigos:
 
-Desarrollar  un programa con una función que, agregando cualquier cantidad de amigos, permita ordenarlos alfabéticamente. Utilizar arrays para solucionar el problema.
+Desarrollar  un programa con una función que, agregando cualquier cantidad de amigos, permita ordenarlos alfabéticamente. 
+Utilizar arrays para solucionar el problema.
 
 nota: en programación cuando se habla de "cualquier cantidad" es un ciclo (rodri)
 
