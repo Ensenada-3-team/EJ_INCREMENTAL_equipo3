@@ -105,142 +105,185 @@
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
-		<main class="grid-container">
-			<!-- IZQUIERDA -->
-			<div class="columna-izquierda">
-				<div class="card sub-columna-izquierda">
-					<h2>Tus intereses</h2>
+		<!-- REFACTORIZADO DESDE AQUÍ -->
+		<main class="container">
+			<div class="row justify-content-around m-0">
+				<!-- IZQUIERDA -->
+				<div class="col-lg-3 col-md-2 ">
+					<!-- IZQUIERDA ARRIBA -->
+					<div class="card sub-columna-izquierda">
+						<h2>Tus intereses</h2>
 
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-noticias.png"
-							alt="icono-noticias"
-						/>
-						<h3>Noticias</h3>
+						<div>
+							<img
+								class="iconos"
+								id="icono"
+								href=""
+								src="./img/icons/icono-noticias.png"
+								alt="icono-noticias"
+							/>
+							<h3>Noticias</h3>
+						</div>
+
+						<div>
+							<img
+								class="iconos"
+								id="icono"
+								href=""
+								src="./img/icons/icono-aleatorio.png"
+								alt="icono-aleatorio"
+							/>
+							<h3>Aleatorio</h3>
+						</div>
+
+						<div>
+							<img
+								class="iconos"
+								id="icono"
+								href=""
+								src="./img/icons/icono-masnuevo.png"
+								alt="icono-masnuevo"
+							/>
+							<h3>Novedades</h3>
+						</div>
+
+						<div>
+							<img
+								class="iconos"
+								id="icono"
+								href=""
+								src="./img/icons/icono-guardados.png"
+								alt="icono-guardados"
+							/>
+							<h3>Guardados</h3>
+						</div>
 					</div>
 
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-aleatorio.png"
-							alt="icono-aleatorio"
-						/>
-						<h3>Aleatorio</h3>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-masnuevo.png"
-							alt="icono-masnuevo"
-						/>
-						<h3>Novedades</h3>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-guardados.png"
-							alt="icono-guardados"
-						/>
-						<h3>Guardados</h3>
+					<!-- IZQUIERDA ABAJO -->
+					<div class="card sub-columna-derecha">
+						<h2>Cuenta</h2>
+
+						<div>
+							<img
+								class="iconos"
+								id="icono"
+								href=""
+								src="./img/icons/icono-configuracion.png"
+								alt="icono-configuracion"
+							/>
+						</div>
+
+						<div>
+							<img
+								class="iconos"
+								id="icono"
+								href=""
+								src="./img/icons/icono-preguntasfrecuentes.png"
+								alt="icono-preguntasfrecuentes"
+							/>
+						</div>
+
+						<div>
+							<img
+								class="iconos"
+								id="icono"
+								href=""
+								src="./img/icons/icono trabaja con nosotros.png"
+								alt="icono-trabajaconnosotros"
+							/>
+						</div>
 					</div>
 				</div>
 
-				<div class="card sub-columna-derecha fit">
-					<h2>Cuenta</h2>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-configuracion.png"
-							alt="icono-configuracion"
-						/>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-preguntasfrecuentes.png"
-							alt="icono-preguntasfrecuentes"
-						/>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono trabaja con nosotros.png"
-							alt="icono-trabajaconnosotros"
-						/>
-					</div>
-				</div>
-			</div>
+				<!-- CENTRO  -->
+				<div class="col-lg-8 col-md-4 col-sm-12">
 
-			<!-- CENTRO  -->
-			<div class="card">
-				<h1>Tu perfil</h1>
-				<div>
-					<img class="avatar" src="./img/friends/avatar13.png" alt="avatar" />
-					<input type="file" name="fotoperfil" id="fotoperfil" />
-				</div>
+					<div class="container card">
+						<!-- TU PERFIL + FOTO -->
+						<div class="row">
+							<div class="col">
+								<h1>Tu perfil</h1>
+								<img
+									class="avatar"
+									src="./img/friends/avatar13.png"
+									alt="avatar"
+								/>
+								<input type="file" name="fotoperfil" id="fotoperfil" />
+							</div>
+						</div>
 
-				<div>
-					<h2>Datos personales:</h2>
-					<p>Nombre: Sandra-Dev</p>
-					<input type="text" name="nombre" id="nombre" />
-					<p>Apellido: Mouse</p>
-					<input type="text" name="apellido" id="apellido" />
-					<p>Email: sandra-dev-mouse@example.com</p>
-					<input type="email" id="email" name="email" />
-					<input class="btn" type="submit" value="Subir cambios" />
-				</div>
-				<div>
-					<h2>Disponibilidad horaria:</h2>
-					<p>Lunes a viernes: 9am - 5pm</p>
-					<p>Sábados: 10am - 2pm</p>
-					<input
-						type="radio"
-						id="Disponibilidad"
-						name="Disponibilidad"
-						value="Mañanas"
-					/>
-					<label for="Mañanas">Mañanas</label><br />
-					<input
-						type="radio"
-						id="Tardes"
-						name="Disponibilidad"
-						value="Tardes"
-					/>
-					<label for="Tardes">Tardes</label><br />
-					<input
-						type="radio"
-						id="Completa"
-						name="Disponibilidad"
-						value="Completa"
-					/>
-					<label for="Completa">Completa</label><br /><br />
-					<button class="btn" type="submit" value="Submit">
-						Cambia tus datos
-					</button>
+						<!-- DATOS PERSONALES -->
+						<div class="row">
+							<div class="col ">
+								<h2>Datos personales:</h2>
+								<p>Nombre: Sandra-Dev</p>
+								<input type="text" name="nombre" id="nombre" />
+								<p>Apellido: Mouse</p>
+								<input type="text" name="apellido" id="apellido" />
+								<p>Email: sandra-dev-mouse@example.com</p>
+								<input type="email" id="email" name="email" />
+								<input class="btn" type="submit" value="Subir cambios" />
+							</div>
+						</div>
+
+						<!-- DISPONIBILIDAD HORARIA -->
+						<div class="row">
+							<div class="col">
+								<h2>Disponibilidad horaria:</h2>
+
+								<p>Lunes a viernes: 9am - 5pm</p>
+								<p>Sábados: 10am - 2pm</p>
+
+                                <div class="form-check">
+                                    <input
+                                    type="radio"
+                                    class="form-check-input"
+                                    id="Mananas"
+                                    name="Disponibilidad"
+                                    value="Mañanas"
+                                    />
+                                    <label class="form-check-label " for="Mananas">Mañanas</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                    type="radio"
+                                    class="form-check-input"
+                                    id="Tardes"
+                                    name="Disponibilidad"
+                                    value="Tardes"
+                                    />
+                                    <label class="form-check-label " for="Tardes">Tardes</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                    type="radio"
+                                    class="form-check-input"
+                                    id="Completa"
+                                    name="Disponibilidad"
+                                    value="Completa"
+                                    />
+                                    <label class="form-check-label " for="Completa">Completa</label>
+                                </div>
+
+								<div >
+                                    <button class="btn" type="submit" value="Submit">Submit</button>
+                                </div>
+
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
+		<!-- REFACTORIZADO HASTA AQUÍ -->
 
 		<!-- SEPARADOR -->
 		<div class="container">
 			<div class="row">
 				<div class="col text-align-center">
-					<p></p>
+					<p>SEPARADOR</p>
 				</div>
 			</div>
 		</div>
@@ -248,34 +291,35 @@
 
 		<!-- FOOTER  -->
 		<footer class="container">
-			<div class="row">
+			<!-- una sola fila -->
+			<div class="row align-items-center">
 				<div class="col-4">
-					<div class="d-flex justify-content-center">
+					<div>
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
 					</div>
-					<div class="d-flex justify-content-center">
+					<div>
 						<a href="">Quiénes somos</a>
 					</div>
-					<div class="d-flex justify-content-center">
+					<div>
 						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
 					</div>
-					<div class="d-flex justify-content-center">
+					<div>
 						<a href="http://">copyright © Equpo3</a>
 					</div>
 				</div>
+
 				<div class="col-4">
-					<div class="d-flex justify-content-center">
-						<h4>Links útiles</h4>
-					</div>
-					<div class="d-flex justify-content-center">
+					<h4>Links útiles</h4>
+					<div>
 						<a href="https://www.w3schools.com/">Información básica</a>
 					</div>
-					<div class="d-flex justify-content-center">
+					<div>
 						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
 					</div>
 				</div>
+
 				<div class="col-4">
-					<div class="d-flex justify-content-center">
+					<div>
 						<a href="https://twitter.com/" target="_blank">
 							<img
 								class="iconos"
@@ -285,7 +329,7 @@
 							/>
 						</a>
 					</div>
-					<div class="d-flex justify-content-center">
+					<div>
 						<a href="https://reddit.com/" target="_blank">
 							<img
 								class="iconos"
@@ -295,7 +339,7 @@
 							/>
 						</a>
 					</div>
-					<div class="d-flex justify-content-center">
+					<div>
 						<a href="https://instagram.com/" target="_blank">
 							<img
 								class="iconos"
