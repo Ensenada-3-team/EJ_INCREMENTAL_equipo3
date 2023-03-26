@@ -1,95 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Incremental con Javascript</title>
-      <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-            crossorigin="anonymous"
-	/>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Incremental con Javascript</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/responsive.css" />
+	</head>
+	<body>
+		<!-- BARRA DE NAVEGACION -->
+		<nav
+			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
+		>
+			<div class="container col-2">
+				<a class="navbar-brand" href="#">
+					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+				</a>
+			</div>
+			<!-- MENÚ HAMBURGUESA -->
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNav"
+				aria-controls="navbarNav"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- MENÚ HAMBURGUESA HASTA AQUÍ -->
 
-      <div class="container">
-            <div class="row">
-                  <div class="col">
-                        <h4>Incrementales</h4>
-                        <p>
-                              <input type="button" value="Probar" onclick="buscadorJuniors()">
-                              11- Buscador de Juniors 🐥💻👾
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="contadorLikes()">
-                              12- Contador de Likes 🖤
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="userData()">
-                              13- Id switch 👥 && Mes del año
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="sortFriends()">
-                              14- Ordenar Amigos Alfabéticamente 🔤👬👭
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
+			<div
+				class="collapse navbar-collapse justify-content-between"
+				id="navbarNav"
+			>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<h2 class="nav-welcome d-none d-sm-block">
+							¡¡Bienvenido, Tecler!!
+						</h2>
+					</li>
+				</ul>
 
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
+				<!-- SEARCHBAR -->
+				<form class="form-inline search-box">
+					<button class="btn-search">
+						<img
+							class="search-icon"
+							src="./img/icons/search-icon2.png"
+							alt=""
+						/>
+					</button>
+					<input
+						type="text"
+						class="input-search"
+						placeholder="Type to Search..."
+					/>
+				</form>
+				<!-- SEARCHBAR HASTA AQUI -->
 
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
+				<div class="navbar-nav">
+					<div class="collapse navbar-collapse" id="navbarIcons">
+						<a class="nav-link" href="./friends.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/equipo.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+						<a class="nav-link" href="./friends.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/mensaje-bold.png"
+								alt="mensaje"
+							/>
+						</a>
+						<a class="nav-link" href="./perfil.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/avatar-2.png"
+								alt="Mi perfil"
+							/>
+						</a>
+						<a class="nav-link" href="./login.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/logout.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
-                        </p>
-                  </div>
-                  <div class="col">
-                        <h4>Extras</h4>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
-                              11x- Inicio de sesión 📥👀✔💻
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
-                              12x- Cuenta atrás pares || impares 👩🏻‍🤝‍👩🏻 🙍🏻‍♀️
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
-                              13x- Día de la semana 📅
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
-                              14x- Coches 
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
+		<div class="container">
+			<div class="row ">
+				<div class="col enter-card">
+					<h4>Incrementales</h4>
+					<p>
+						<input type="button" value="Probar" onclick="buscadorJuniors()" />
+						11- Buscador de Juniors 🐥💻👾
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="contadorLikes()" />
+						12- Contador de Likes 🖤
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="userData()" />
+						13- Id switch 👥 && Mes del año
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="sortFriends()" />
+						14- Ordenar Amigos Alfabéticamente 🔤👬👭
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+					</p>
+				</div>
+				<div class="col enter-card">
+					<h4>Extras</h4>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+						11x- Inicio de sesión 📥👀✔💻
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+						12x- Cuenta atrás pares || impares 👩🏻‍🤝‍👩🏻 🙍🏻‍♀️
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+						13x- Día de la semana 📅
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+						14x- Coches
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+					</p>
+					<p>
+						<input type="button" value="Probar" onclick="" />
+					</p>
+				</div>
+			</div>
+		</div>
 
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
-
-                        </p>
-                        <p>
-                              <input type="button" value="Probar" onclick="">
-
-                        </p>
-
-
-                  </div>
-
-            </div>
-
-      </div>
-
-
-      <script src="./javascript/buscadorDeJuniors.js"></script>
-      <script src="./javascript/datosUsuario.js"></script>
-      <script src="./javascript/likes.js"></script>
-      <script src="./javascript/ordenarAmigos.js"></script>
-
-</body>
+		<script src="./javascript/buscadorDeJuniors.js"></script>
+		<script src="./javascript/datosUsuario.js"></script>
+		<script src="./javascript/likes.js"></script>
+		<script src="./javascript/ordenarAmigos.js"></script>
+	</body>
 </html>
