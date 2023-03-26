@@ -18,7 +18,7 @@
 			referrerpolicy="no-referrer"
 		/>
 		<link rel="stylesheet" href="./css/style.css" />
-		<link rel="stylesheet" href="./css/responsive.css">
+		<link rel="stylesheet" href="./css/responsive.css" />
 	</head>
 
 	<body>
@@ -27,13 +27,8 @@
 			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
 		>
 			<div class="container col-2">
-
 				<a class="navbar-brand" href="#">
-					<img
-						class="logo"
-						src="./img/enter-black.png"
-						alt="Logo-Tecla"
-					/>
+					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
 				</a>
 			</div>
 			<!-- MENÚ HAMBURGUESA -->
@@ -56,9 +51,9 @@
 			>
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<h3 class="nav-welcome d-none d-sm-block">
+						<h2 class="nav-welcome d-none d-sm-block">
 							¡¡Bienvenido, Tecler!!
-						</h3>
+						</h2>
 					</li>
 				</ul>
 
@@ -80,38 +75,40 @@
 				<!-- SEARCHBAR HASTA AQUI -->
 
 				<div class="navbar-nav">
-					<a class="nav-link" href="./friends.html">
-						<img
-							class="iconos"
-							id="icono"
-							src="./img/icons/equipo.png"
-							alt="icono-comunidad"
-						/>
-					</a>
-					<a class="nav-link" href="./friends.html">
-						<img
-							class="iconos"
-							id="icono"
-							src="./img/icons/mensaje-bold.png"
-							alt="mensaje"
-						/>
-					</a>
-					<a class="nav-link" href="./perfil.html">
-						<img
-							class="iconos"
-							id="icono"
-							src="./img/icons/avatar-2.png"
-							alt="Mi perfil"
-						/>
-					</a>
-					<a class="nav-link" href="./login.html">
-						<img
-							class="iconos"
-							id="icono"
-							src="./img/icons/logout.png"
-							alt="icono-comunidad"
-						/>
-					</a>
+					<div class="collapse navbar-collapse" id="navbarIcons">
+						<a class="nav-link" href="./friends.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/equipo.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+						<a class="nav-link" href="./friends.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/mensaje-bold.png"
+								alt="mensaje"
+							/>
+						</a>
+						<a class="nav-link" href="./perfil.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/avatar-2.png"
+								alt="Mi perfil"
+							/>
+						</a>
+						<a class="nav-link" href="./login.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/logout.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -121,14 +118,13 @@
 			<!-- 1 fila, 3 columnas, las 2 primeras con grid -->
 			<div class="row">
 				<!-- IZQUIERDA -->
-				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block ">
-
+				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
 					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 					<div class="container">
 						<!-- izq arriba -->
 						<div class="row">
 							<div class="col card w-100">
-								<h4 class="d-lg-block d-md-none">Tus likes</h4>
+								<h4 class="d-lg-block d-md-none">Intereses</h4>
 
 								<div>
 									<img
@@ -175,8 +171,8 @@
 						</div>
 
 						<!-- izq abajo  -->
-						<div class="row ">
-							<div class="col card w-100 ">
+						<div class="row">
+							<div class="col card w-100">
 								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
 									<img
@@ -215,10 +211,9 @@
 					<div class="container">
 						<!-- CREAR PUBLICACIONES -->
 						<div class="row">
-							<div class="col card">
-								<h2>
-									Comparte algo con la comunidad de teclers
-									<img class="logo-sm" src="./img/enter-black.png" alt="" />
+							<div class="col card post-card">
+								<h2 class=" ">
+									Comparte algo con tu comunidad: 
 								</h2>
 								<form class="w-100">
 									<textarea
@@ -229,8 +224,10 @@
 										rows="2"
 									></textarea>
 
-									<div class="button">
-										<button type="button" class="btn btn-sm btn-primary">Post</button>
+									<div class="button d-flex flex-row-reverse">
+										<button type="button" class="btn btn-sm btn-primary">
+											Post
+										</button>
 									</div>
 								</form>
 							</div>
@@ -241,26 +238,26 @@
 								<div class="media">
 									<img
 										src="./img/friends/avatar10.png"
-										class="avatar rounded-circle align-self-start mr-3"
+										class="avatar rounded-circle mr-3 d-flex flex-row-reverse"
 										alt="Foto del autor"
 									/>
-									<div class="media-body">
+									<div class="media-body w-100">
 										<h2>¡Hola a todos!</h2>
-										<h6>
+										<h6 class="text-justify">
 											Acabo de lanzar una nueva aplicación web que creo que les
 											gustará. Tiene muchas características interesantes y puede
 											ser útil para diferentes propósitos.
 										</h6>
-										<h6>
+										<h6 class="text-justify">
 											Puedes echar un vistazo a la aplicación en mi sitio web
 											<a href="https://www.misitio.com">www.misitio.com</a>. Si
 											tienes algún comentario o sugerencia, por favor házmelo
 											saber.
 										</h6>
-										<blockquote>
+										<p class="text-justify">
 											"La programación no se trata de lo que sabes, se trata de
 											lo que puedes aprender."
-										</blockquote>
+										</p>
 									</div>
 								</div>
 							</div>
@@ -268,18 +265,26 @@
 						<!-- PUBLICACIÓN 2 -->
 						<div class="row">
 							<div class="col card">
-								<img
-									src="./img/friends/avatar6.png"
-									class="avatar rounded-circle"
-									alt="Foto del autor"
-								/>
-								<h5>
-									Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-									Cupiditate, ullam ratione exercitationem placeat rerum
-									repudiandae magnam, eaque quia porro reprehenderit repellat
-									ducimus soluta consectetur expedita in atque doloremque
-									voluptates. At?
-								</h5>
+								<div class="media">
+									<img
+										src="./img/friends/avatar6.png"
+										class="avatar rounded-circle mr-3 d-flex flex-row-reverse"
+										alt="Foto del autor"
+									/>
+									<div class="media-body">
+										<h2>¡Hola a todos!</h2>
+										<h6>
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Quis quia consequuntur doloribus, distinctio, minus fugiat
+											voluptatem id incidunt vel temporibus amet consequatur
+											aspernatur quisquam omnis molestiae ab, ullam nemo. Vero.
+										</h6>
+										<p>
+											"La programación no se trata de lo que sabes, se trata de
+											lo que puedes aprender."
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
 
@@ -289,39 +294,78 @@
 
 				<!-- DERECHA -->
 				<div class="col-md-2 card flex-grow-1 d-none d-md-block">
-					<h4>Peticiones de amistad</h4>
-					<div class="mt-3">
-						<h6>Dev-Punk Gutierrez</h6>
-						<img class="avatar img-fluid" src="./img/friends/avatar10.png" alt="avatar" />
-						<div class="d-flex justify-content-center mt-3">
-							<button class="btn btn-sm btn-primary" type="button">Aceptar</button>
-							<button class="btn btn-sm btn-dark" type="button">Rechazar</button>
-						</div>
+					<h4 class="text-center fs-md-5">Nuevos amigos</h4>
+
+					<!-- amigo 1 -->
+					<div class="mt-3 p-lg-3 p-md-1 border border-dark border-1 rounded sombra">
+						<h6 class="fs-6 fs-md-8">Dev-Punk Gutierrez</h6>
+						<img
+							class="avatar img-fluid mx-auto d-block"
+							style="max-width: 100%;"
+							src="./img/friends/avatar10.png"
+							alt="avatar"
+						/>
 					</div>
-					<div class="mt-3">
+					<div class="d-flex justify-content-center w-100 mt-2" >
+						<button class="btn btn-sm btn-dark sombra" type="button">
+							Aceptar
+						</button>
+						<button class="btn btn-sm btn-outline-dark sombra" type="button">
+							Rechazar
+						</button>
+					</div>
+					<!-- amigo 2 -->
+					<div class="mt-3 p-lg-3 p-md-1 border border-dark border-1 rounded sombra">
 						<h6>Pepe Palotes</h6>
-						<img class="avatar img-fluid" src="./img/friends/avatar4.png" alt="avatar" />
-						<div class="d-flex justify-content-center mt-3">
-							<button class="btn btn-sm btn-primary" type="button">Aceptar</button>
-							<button class="btn btn-sm btn-dark" type="button">Rechazar</button>
-						</div>
+						<img
+							class="avatar img-fluid"
+							src="./img/friends/avatar4.png"
+							alt="avatar"
+						/>
 					</div>
-					<div class="mt-3">
+					<div class="d-flex justify-content-center mt-2 ">
+						<button class="btn btn-sm btn-dark sombra" type="button">
+							Aceptar
+						</button>
+						<button class="btn btn-sm btn-outline-dark sombra" type="button">
+							Rechazar
+						</button>
+					</div>
+					<!-- amigo 3 -->
+					<div class="mt-3 p-lg-3 p-md-1 border border-dark border-1 rounded sombra">
 						<h6>Carmen Lomana</h6>
-						<img class="avatar img-fluid" src="./img/friends/avatar5.png" alt="avatar" />
-						<div class="d-flex justify-content-center mt-3">
-							<button class="btn btn-sm btn-primary" type="button">Aceptar</button>
-							<button class="btn btn-sm btn-dark" type="button">Rechazar</button>
-						</div>
+						<img
+							class="avatar img-fluid"
+							src="./img/friends/avatar5.png"
+							alt="avatar"
+						/>
 					</div>
-					<div class="mt-3">
+					<div class="d-flex justify-content-center mt-2 ">
+						<button class="btn btn-sm btn-dark sombra" type="button">
+							Aceptar
+						</button>
+						<button class="btn btn-sm btn-outline-dark sombra" type="button">
+							Rechazar
+						</button>
+					</div>
+					<!-- amigo4 -->
+					<div class="mt-3 p-lg-3 p-md-1 border border-dark border-1 rounded sombra">
 						<h6>Yaya-vascript</h6>
-						<img class="avatar img-fluid" src="./img/friends/avatar6.png" alt="avatar" />
-						<div class="d-flex justify-content-center mt-3">
-							<button class="btn btn-sm btn-primary" type="button">Aceptar</button>
-							<button class="btn btn-sm btn-dark" type="button">Rechazar</button>
-						</div>
+						<img
+							class="avatar img-fluid"
+							src="./img/friends/avatar6.png"
+							alt="avatar"
+						/>
 					</div>
+					<div class="d-flex justify-content-center mt-2 ">
+						<button class="btn btn-sm btn-dark sombra" type="button">
+							Aceptar
+						</button>
+						<button class="btn btn-sm btn-outline-dark sombra" type="button">
+							Rechazar
+						</button>
+					</div>
+					
 				</div>
 			</div>
 		</main>
@@ -392,5 +436,11 @@
 				</div>
 			</div>
 		</footer>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>
