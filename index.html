@@ -18,18 +18,22 @@
 			referrerpolicy="no-referrer"
 		/>
 		<link rel="stylesheet" href="./css/style.css" />
-		<!-- <link rel="stylesheet" href="./css/responsive.css"> -->
+		<link rel="stylesheet" href="./css/responsive.css">
 	</head>
+
 	<body>
 		<!-- BARRA DE NAVEGACION -->
-		<nav class="navbar navbar-expand-lg navbar-transparent bg-transparent container ">
-			<a class="navbar-brand " href="#">
+		<nav
+			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
+		>
+			<a class="navbar-brand" href="#">
 				<img
-					class="logo img-fluid "
+					class="logo img-fluid"
 					src="./img/enter-black.png"
 					alt="Logo-Tecla"
 				/>
 			</a>
+			<!-- MENÚ HAMBURGUESA -->
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -41,6 +45,7 @@
 			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
+			<!-- MENÚ HAMBURGUESA HASTA AQUÍ -->
 
 			<div
 				class="collapse navbar-collapse justify-content-between"
@@ -54,6 +59,7 @@
 					</li>
 				</ul>
 
+				<!-- SEARCHBAR -->
 				<form class="form-inline search-box">
 					<button class="btn-search">
 						<img
@@ -68,48 +74,41 @@
 						placeholder="Type to Search..."
 					/>
 				</form>
+				<!-- SEARCHBAR HASTA AQUI -->
 
-				<div class="d-flex iconos-sm">
-					<div>
-						<a href="./friends.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/equipo.png"
-								alt="icono-comunidad"
-							/>
-						</a>
-					</div>
-					<div>
-						<a href="./friends.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/mensaje-bold.png"
-								alt="mensaje"
-							/>
-						</a>
-					</div>
-					<div>
-						<a href="./perfil.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/avatar-2.png"
-								alt="Mi perfil"
-							/>
-						</a>
-					</div>
-					<div>
-						<a href="./login.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/logout.png"
-								alt="icono-comunidad"
-							/>
-						</a>
-					</div>
+				<div class="navbar-nav">
+					<a class="nav-link" href="./friends.html">
+						<img
+							class="iconos"
+							id="icono"
+							src="./img/icons/equipo.png"
+							alt="icono-comunidad"
+						/>
+					</a>
+					<a class="nav-link" href="./friends.html">
+						<img
+							class="iconos"
+							id="icono"
+							src="./img/icons/mensaje-bold.png"
+							alt="mensaje"
+						/>
+					</a>
+					<a class="nav-link" href="./perfil.html">
+						<img
+							class="iconos"
+							id="icono"
+							src="./img/icons/avatar-2.png"
+							alt="Mi perfil"
+						/>
+					</a>
+					<a class="nav-link" href="./login.html">
+						<img
+							class="iconos"
+							id="icono"
+							src="./img/icons/logout.png"
+							alt="icono-comunidad"
+						/>
+					</a>
 				</div>
 			</div>
 		</nav>
@@ -117,14 +116,16 @@
 
 		<main class="container">
 			<!-- 1 fila, 3 columnas, las 2 primeras con grid -->
-			<div class="row justify-content-around m-0">
+			<div class="row">
 				<!-- IZQUIERDA -->
-				<div class="col-2 flex-grow-1 d-none d-md-block">
-					<div class="container w-100">
+				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block ">
+
+					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
+					<div class="container">
 						<!-- izq arriba -->
-						<div class="row card w-100">
-							<div class="col flex-grow-1 w-100">
-								<h4 class="text-wrap">Tus likes</h4>
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none">Tus likes</h4>
 
 								<div>
 									<img
@@ -134,7 +135,7 @@
 										src="./img/icons/icono-noticias.png"
 										alt="icono-noticias"
 									/>
-									<h4 class="text-wrap">Noticias</h4>
+									<h6 class="d-lg-block d-md-none">Noticias</h6>
 								</div>
 
 								<div>
@@ -145,7 +146,7 @@
 										src="./img/icons/icono-aleatorio.png"
 										alt="icono-aleatorio"
 									/>
-									<h4 class="text-wrap">Aleatorio</h4>
+									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
 								</div>
 								<div>
 									<img
@@ -155,7 +156,7 @@
 										src="./img/icons/icono-masnuevo.png"
 										alt="icono-masnuevo"
 									/>
-									<h4 class="text-wrap">Nuevo</h4>
+									<h6 class="d-lg-block d-md-none">Nuevo</h6>
 								</div>
 								<div>
 									<img
@@ -165,15 +166,15 @@
 										src="./img/icons/icono-guardados.png"
 										alt="icono-guardados"
 									/>
-									<h4 class="text-wrap">Guardado</h4>
+									<h6 class="d-lg-block d-md-none">Guardado</h6>
 								</div>
 							</div>
 						</div>
 
 						<!-- izq abajo  -->
-						<div class="row card w-100">
-							<div class="col">
-								<h4 class="text-wrap">Cuenta</h4>
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
 									<img
 										class="iconos"
@@ -207,7 +208,7 @@
 				</div>
 
 				<!-- CENTRO -->
-				<div class="col-7 flex-grow-1">
+				<div class="col-md-5 col-lg-7 flex-grow-1">
 					<div class="container">
 						<!-- CREAR PUBLICACIONES -->
 						<div class="row">
@@ -216,11 +217,13 @@
 									Comparte algo con la comunidad de teclers
 									<img class="logo-sm" src="./img/enter-black.png" alt="" />
 								</h2>
-								<form>
+								<form class="w-100">
 									<textarea
 										id="textarea"
+										class="form-control"
 										placeholder="Max 256 caracteres"
 										maxlength="256"
+										rows="2"
 									></textarea>
 
 									<div class="button">
@@ -232,28 +235,30 @@
 						<!-- PUBLICACIÓN 1 -->
 						<div class="row">
 							<div class="col card">
-								<img
-									src="./img/friends/avatar10.png"
-									class="avatar rounded-circle"
-									alt="Foto del autor"
-								/>
-								<div>
-									<h2>¡Hola a todos!</h2>
-									<h6>
-										Acabo de lanzar una nueva aplicación web que creo que les
-										gustará. Tiene muchas características interesantes y puede
-										ser útil para diferentes propósitos.
-									</h6>
-									<h6>
-										Puedes echar un vistazo a la aplicación en mi sitio web
-										<a href="https://www.misitio.com">www.misitio.com</a>. Si
-										tienes algún comentario o sugerencia, por favor házmelo
-										saber.
-									</h6>
-									<blockquote>
-										"La programación no se trata de lo que sabes, se trata de lo
-										que puedes aprender."
-									</blockquote>
+								<div class="media">
+									<img
+										src="./img/friends/avatar10.png"
+										class="avatar rounded-circle align-self-start mr-3"
+										alt="Foto del autor"
+									/>
+									<div class="media-body">
+										<h2>¡Hola a todos!</h2>
+										<h6>
+											Acabo de lanzar una nueva aplicación web que creo que les
+											gustará. Tiene muchas características interesantes y puede
+											ser útil para diferentes propósitos.
+										</h6>
+										<h6>
+											Puedes echar un vistazo a la aplicación en mi sitio web
+											<a href="https://www.misitio.com">www.misitio.com</a>. Si
+											tienes algún comentario o sugerencia, por favor házmelo
+											saber.
+										</h6>
+										<blockquote>
+											"La programación no se trata de lo que sabes, se trata de
+											lo que puedes aprender."
+										</blockquote>
+									</div>
 								</div>
 							</div>
 						</div>

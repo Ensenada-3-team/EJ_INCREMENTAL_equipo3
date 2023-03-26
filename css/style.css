@@ -173,7 +173,7 @@ ul {
 h1 { 
       text-shadow: 0 0 0.2em rgba(0,0,0,0.3); 
       letter-spacing:0.2rem; 
-      text-align:center; 
+      /* text-align:center;  */
 }
 
 h2 {
@@ -181,6 +181,7 @@ h2 {
       text-shadow: 0 0 0.625rem rgba(0,0,0,0.3); 
       letter-spacing: 0.06rem; 
       /* text-align:center;  */
+      
 }
 
 /* login y registro  */
@@ -224,11 +225,12 @@ input, #textarea {
 }
 
 #textarea {
-      width: 25rem;
+      width: 100%;
+      /* resize: none; */
 }
 
 
-input:focus {
+input:focus, textarea:focus {
       box-shadow: inset 0 -10% 4.5% rgba(100,100,100,0.4), 0 0.2em 0.2em rgba(255,255,255,0.2);
     }
 
