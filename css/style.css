@@ -48,12 +48,16 @@ body {
 
 p {
       
-	font-family: "Vibur", serif;
+	font-family: "Abel", serif;
 	font-size: 1rem;
 }
 
 ul {
 	list-style: none;
+}
+
+.bg-friends {
+	background-color:rgba(61, 64, 196, 0.932);
 }
 
 /* LOGO */
