@@ -206,7 +206,7 @@ spliceElement = (arr, element) => {
 //EXTRA 16
 
 let form = document.querySelector('form')
-let listaDOM = document.getElementById('extra16') //ul
+let listaDOM = document.getElementById('listaTareas') //ul
 
 
 form.addEventListener('submit', function(e) {
