@@ -109,7 +109,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-5 flex-grow-1 enter-card">
+				<div class="col-md-5 flex-grow-1 enter-card col-sm-8 order-sm-1 order-1">
 					<h4>Incrementales</h4>
 					<p>
 						<input
@@ -157,14 +157,15 @@
 						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
 					</p> -->
 				</div>
-				<div class="col-5 flex-grow-1 enter-card post-card">
+				
+				<div class="col-md-5 flex-grow-1 enter-card post-card col-sm-8 order-sm-2 order-2">
 					<h4>Extras</h4>
 					<p>
 						<input
 							type="button"
 							class="btn btn-sm btn-dark sombra"
 							value="Probar"
-							onclick=""
+							onclick="inicioSesion()"
 						/>
 						11- Inicio de sesión 📥👀✔💻
 					</p>
@@ -173,7 +174,7 @@
 							type="button"
 							class="btn btn-sm btn-dark sombra"
 							value="Probar"
-							onclick=""
+							onclick="cuentaAtras()"
 						/>
 						12- Cuenta atrás pares || impares 👩🏻‍🤝‍👩🏻
 					</p>
@@ -182,7 +183,7 @@
 							type="button"
 							class="btn btn-sm btn-dark sombra"
 							value="Probar"
-							onclick=""
+							onclick="diaSemana()"
 						/>
 						13- Día de la semana 📅
 					</p>
@@ -191,7 +192,7 @@
 							type="button"
 							class="btn btn-sm btn-dark sombra"
 							value="Probar"
-							onclick=""
+							onclick="coches()"
 						/>
 						14- Coches
 					</p>
@@ -275,9 +276,17 @@
 			</div>
 		</footer>
 
+		<!-- INCREMENTALES -->
 		<script src="./javascript/buscadorDeJuniors.js"></script>
 		<script src="./javascript/datosUsuario.js"></script>
 		<script src="./javascript/likes.js"></script>
 		<script src="./javascript/ordenarAmigos.js"></script>
+		<!-- EXTRAS -->
+		<script src="./javascript/cuentaAtras.js"></script>
+		<script src="./javascript/diaSemana.js"></script>
+		<script src="./javascript/inicioSesion.js"></script>
+		<script src="./javascript/coches.js"></script>
+
+	
 	</body>
 </html>
