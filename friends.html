@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYpE html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
@@ -13,33 +13,51 @@
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-			integrity="sha512-P8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZPzQPjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
+			integrity="sha512-p8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZpzQpjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
 		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/responsive.css" />
 	</head>
-	<body class="friends-page">
-		<!-- BARRA DE NAVEGACION -->
-		<nav class="container">
-			<div class="row d-flex justify-content-around align-items-center">
-				<div class="col-1">
-					<a href="./index.html" target="_blank">
-						<img
-							class="logo"
-							id="logo"
-							href="./index.html"
-							src="./img/enter-black.png"
-							alt="Logo-Tecla"
-						/>
-					</a>
-				</div>
+	<body>
+		<!-- BARRA DE NAVEGACION ya pasada a bootstrap-->
+		<nav
+			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
+		>
+			<div class="container col-2">
+				<a class="navbar-brand" href="#">
+					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+				</a>
+			</div>
+			<!-- MENÚ HAMBURGUESA -->
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNav"
+				aria-controls="navbarNav"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- MENÚ HAMBURGUESA HASTA AQUÍ -->
 
-				<div class="col-2">
-					<h1>¡¡Bienvenido, Tecler!!</h1>
-				</div>
+			<div
+				class="collapse navbar-collapse justify-content-between"
+				id="navbarNav"
+			>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<h2 class="nav-welcome d-none d-sm-block">
+							¡¡Bienvenido, Tecler!!
+						</h2>
+					</li>
+				</ul>
 
-				<div class="col-7 search-box">
+				<!-- SEARCHBAR -->
+				<form class="form-inline search-box">
 					<button class="btn-search">
 						<img
 							class="search-icon"
@@ -52,11 +70,12 @@
 						class="input-search"
 						placeholder="Type to Search..."
 					/>
-				</div>
+				</form>
+				<!-- SEARCHBAR HASTA AQUI -->
 
-				<div class="col-2 d-flex">
-					<div>
-						<a href="./friends.html" target="_blank">
+				<div class="navbar-nav">
+					<div class="collapse navbar-collapse" id="navbarIcons">
+						<a class="nav-link" href="./friends.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -64,9 +83,7 @@
 								alt="icono-comunidad"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./friends.html" target="_blank">
+						<a class="nav-link" href="./friends.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -74,9 +91,7 @@
 								alt="mensaje"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./perfil.html" target="_blank">
+						<a class="nav-link" href="./perfil.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -84,9 +99,7 @@
 								alt="Mi perfil"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./login.html" target="_blank">
+						<a class="nav-link" href="./login.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -95,200 +108,285 @@
 							/>
 						</a>
 					</div>
-					<!-- <div>
-				<i class="fi fi-br-menu-burger"></i>
-			</div> -->
 				</div>
 			</div>
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
-		<main class="grid-container">
-			<!-- IZQUIERDA -->
-			<div class="columna-izquierda">
-				<div class="card sub-columna-izquierda">
-					<h2>Tus intereses</h2>
-
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-noticias.png"
-							alt="icono-noticias"
-						/>
-						<h3>Noticias</h3>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono mi perfil.png"
-							alt="icono-miperfil"
-						/>
-						<h3>Mi perfil</h3>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-aleatorio.png"
-							alt="icono-aleatorio"
-						/>
-						<h3>Aleatorio</h3>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-masnuevo.png"
-							alt="icono-masnuevo"
-						/>
-						<h3>Novedades</h3>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-guardados.png"
-							alt="icono-guardados"
-						/>
-						<h3>Guardados</h3>
-					</div>
-				</div>
-				<div class="card sub-columna-derecha">
-					<h2>Cuenta</h2>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-configuracion.png"
-							alt="icono-configuracion"
-						/>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-preguntasfrecuentes.png"
-							alt="icono-preguntasfrecuentes"
-						/>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono trabaja con nosotros.png"
-							alt="icono-trabajaconnosotros"
-						/>
-					</div>
-				</div>
-			</div>
-
-			<!-- DERECHA  -->
-			<div class="columna-derecha">
-				<div class="card fila-superior">
-					<div>
-						<h2>Teclers</h2>
-					</div>
-					<div></div>
-					<div></div>
-					<div class="search-box">
-						<button class="btn-search">
-							<img
-								class="search-icon"
-								src="./img/icons/search-icon2.png"
-								alt=""
-							/>
-						</button>
-						<input
-							type="text"
-							class="input-search"
-							placeholder="Type to Search..."
-						/>
-					</div>
-				</div>
-
-				<div class="card contenedor-abajo">
-					<div>
-						<img class="avatar" src="./img/friends/avatar1.png" alt="" />
-						<p>Carmen Css</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar2.png" alt="" />
-						<p>Federico Grid</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar3.png" alt="" />
-						<p>Rosa HTMLv</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar4.png" alt="" />
-						<p>Pepe Palotes</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar5.png" alt="" />
-						<p>Carmen Lomana</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar6.png" alt="" />
-						<p>Yaya-vascript</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<!-- ENLACE A PERFIL DEL AMIGO no cambiar nombre!!! -->
-						<img class="avatar" src="./img/friends/avatar7.png" alt="" />
-						<p>Rober-dev</p>
-						<button class="btn"> <a href="./roberto-friend.html" >Friend</a> </button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar8.png" alt="" />
-						<p>Ana Flex</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar9.png" alt="" />
-						<p>Nuria Responsive</p>
-						<button class="btn">Friend</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar10.png" alt="" />
-						<p>Dev-Punk Gutierre</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar11.png" alt="" />
-						<p>Alejandra Activev</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-					<div>
-						<img class="avatar" src="./img/friends/avatar12.png" alt="" />
-						<p>Paula Footer</p>
-						<button class="btn btn-primary">Conectar</button>
-					</div>
-				</div>
-			</div>
-		</main>
-		<!-- SEPARADOR ENTRE EL MAIN Y EL FOOTER -->
-		<div class="container">
+		<main class="container">
 			<div class="row">
-				<div class="col text-align-center">
-					<p></p>
+				<!-- IZQUIERDA ya pasado a bootstrap-->
+				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
+					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
+					<div class="container">
+						<!-- izq arriba -->
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none">Intereses</h4>
+
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-noticias.png"
+										alt="icono-noticias"
+									/>
+									<h6 class="d-lg-block d-md-none">Noticias
+								</div>
+
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-aleatorio.png"
+										alt="icono-aleatorio"
+									/>
+									<h6 class="d-lg-block d-md-none">Aleatorio
+								</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-masnuevo.png"
+										alt="icono-masnuevo"
+									/>
+									<h6 class="d-lg-block d-md-none">Nuevo
+								</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-guardados.png"
+										alt="icono-guardados"
+									/>
+									<h6 class="d-lg-block d-md-none">Guardado
+								</div>
+							</div>
+						</div>
+
+						<!-- izq abajo  -->
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none">Cuenta</h4>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-configuracion.png"
+										alt="icono-configuracion"
+									/>
+								</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-preguntasfrecuentes.png"
+										alt="icono-preguntasfrecuentes"
+									/>
+								</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono trabaja con nosotros.png"
+										alt="icono-trabajaconnosotros"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- CENTRO -->
+				<div class="col-md-8 col-lg-9 flex-grow-1">
+					<!-- CONTENEDOR CENTRO CON DOS ROWS -->
+					<div class="container">
+						<!-- ROW 1: ENCABEZADO Y BUSQUEDA DE TECLERS -->
+						<div class="row">
+							<div class="col card post-card">
+								<div>
+									<h2>Teclers</h2>
+								</div>
+
+								<div class="search-box">
+									<button class="btn-search">
+										<img
+											class="search-icon"
+											src="./img/icons/search-icon2.png"
+											alt=""
+										/>
+									</button>
+									<input
+										type="text"
+										class="input-search"
+										placeholder="Type to Search..."
+									/>
+								</div>
+							</div>
+						</div>
+
+						<!-- ROW 2: GRID DE TECLERS -->
+						<div class="row">
+							<div class="col card">
+								<!-- primera fila con 4 teclers -->
+								<div class="row w-100">
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar1.png"
+												alt=""
+											/>
+											<h6>Carmen Css</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar2.png"
+												alt=""
+											/>
+											<h6>Federico Grid</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar3.png"
+												alt=""
+											/>
+											<h6>Rosa HTMLv</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar4.png"
+												alt=""
+											/>
+											<h6>pepe palotes</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+								</div>
+								<!-- segunda fila con 4 teclers -->
+								<div class="row w-100">
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar5.png"
+												alt=""
+											/>
+											<h6>Carmen Lomana</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar6.png"
+												alt=""
+											/>
+											<h6>Yaya-vascript</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar7.png"
+												alt=""
+											/>
+											<h6>Rober-dev</h6>
+											<button class="btn">
+												<a href="./roberto-friend.html">Friend</a>
+											</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar8.png"
+												alt=""
+											/>
+											<h6>Ana Flex</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+								</div>
+								<!-- tercera fila con 4 teclers -->
+								<div class="row w-100">
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar9.png"
+												alt=""
+											/>
+											<h6>Nuria Responsive</h6>
+											<button class="btn">Friend</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar10.png"
+												alt=""
+											/>
+											<h6>Dev-punk Gutierrez</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar11.png"
+												alt=""
+											/>
+											<h6>Alejandra Active</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar12.png"
+												alt=""
+											/>
+											<h6>paula Footer</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+
+		</main>
+		<!-- SEPARADOR -->
+		<div class="container mt-5 mb-5 border-0"></div>
 		<!-- SEPARADOR HASTA AQUI -->
 
 		<!-- FOOTER  -->
