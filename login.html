@@ -18,32 +18,48 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
-		<link rel="stylesheet" href="./css/responsive.css">
+		<link rel="stylesheet" href="./css/responsive.css" />
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 
-
 	<body>
 		<!-- BARRA DE NAVEGACION -->
-		<nav class="container">
-			<div class="row d-flex justify-content-around align-items-center">
-				<div class="col-1">
-					<a href="./index.html" target="_blank">
-						<img
-							class="logo"
-							id="logo"
-							href="./index.html"
-							src="./img/enter-black.png"
-							alt="Logo-Tecla"
-						/>
-					</a>
-				</div>
+		<nav
+			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
+		>
+			<div class="container col-2">
+				<a class="navbar-brand" href="#">
+					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+				</a>
+			</div>
+			<!-- MENÚ HAMBURGUESA -->
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNav"
+				aria-controls="navbarNav"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- MENÚ HAMBURGUESA HASTA AQUÍ -->
 
-				<div class="col-2">
-					<h1>¡¡Bienvenido, Tecler!!</h1>
-				</div>
+			<div
+				class="collapse navbar-collapse justify-content-between"
+				id="navbarNav"
+			>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<h2 class="nav-welcome d-none d-sm-block">
+							¡¡Bienvenido, Tecler!!
+						</h2>
+					</li>
+				</ul>
 
-				<div class="col-7 search-box">
+				<!-- SEARCHBAR -->
+				<form class="form-inline search-box">
 					<button class="btn-search">
 						<img
 							class="search-icon"
@@ -56,11 +72,12 @@
 						class="input-search"
 						placeholder="Type to Search..."
 					/>
-				</div>
+				</form>
+				<!-- SEARCHBAR HASTA AQUI -->
 
-				<div class="col-2 d-flex navegate">
-					<div>
-						<a href="./friends.html">
+				<div class="navbar-nav">
+					<div class="collapse navbar-collapse" id="navbarIcons">
+						<a class="nav-link" href="./friends.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -68,9 +85,7 @@
 								alt="icono-comunidad"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./friends.html">
+						<a class="nav-link" href="./friends.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -78,9 +93,7 @@
 								alt="mensaje"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./perfil.html">
+						<a class="nav-link" href="./perfil.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -88,9 +101,7 @@
 								alt="Mi perfil"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./login.html">
+						<a class="nav-link" href="./login.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -99,9 +110,6 @@
 							/>
 						</a>
 					</div>
-					<!-- <div>
-						<i class="fi fi-br-menu-burger"></i>
-					</div> -->
 				</div>
 			</div>
 		</nav>
@@ -209,6 +217,5 @@
 				</div>
 			</div>
 		</footer>
-
 	</body>
 </html>
