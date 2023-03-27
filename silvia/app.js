@@ -212,21 +212,27 @@ let listaDOM = document.getElementById('extra16') //ul
 form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      let nuevaTarea = document.querySelector('#tarea').value //input
-
+      //Guardamos en una variable el valor que entra por input
+      let nuevaTarea = document.querySelector('#tarea').value 
+      
+      //creamos un elemento li  y le agregamos el contenido de nuevaTarea
       const li = document.createElement('li'); //creamos el elemento li 
       li.textContent = nuevaTarea;
 
-      let deleteBtn = document.createElement('button')
-      deleteBtn.textContent = 'Eliminar'
+      //Creamos un elemento botton de eliminar y le agregamos contenido
+      const deleteBtn = document.createElement('button')
+      deleteBtn.textContent = 'Eliminar' //!! si no, no se ve
 
+      //Agregamos un event listener al botón que borre el elemento li
       deleteBtn.addEventListener('click', function(){
             li.remove()
       })
 
+      //Agregamos el botón al elemento li, y el elemento li a la ul
       li.appendChild(deleteBtn)
       listaDOM.appendChild(li);
 
+      //Borramos el valor residual del input
       document.querySelector('#tarea').value = '';
       
 })
