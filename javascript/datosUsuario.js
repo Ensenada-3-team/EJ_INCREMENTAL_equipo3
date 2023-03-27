@@ -17,7 +17,7 @@ userData = () => {
       let closeApp 
 
       do {
-            valor = prompt('¡¡Bienvenid@ Tecler!!\n-Ingrese su id de usuario para obtener sus datos.\n-Ingrese "Salir" para finalizar.')
+            valor = prompt('¡¡Bienvenid@ Tecler!!\n-Ingrese su id de usuario para obtener sus datos.\n-Ingrese "Salir" para finalizar.').toLowerCase()
             closeApp = ''
 
             switch (valor) {
@@ -55,7 +55,7 @@ userData = () => {
                         break 
                   
                   case null:
-                        closeApp = prompt('¿Estás segur@ de querer salir?\n-Igresa "Si" para finalizar.\n ingresa "No" para continuar.')
+                        closeApp = prompt('¿Estás segur@ de querer salir?\n-Igresa "Si" para finalizar.\n ingresa "No" para continuar.').toLowerCase()
                         break;
 
                   default:
