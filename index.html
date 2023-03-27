@@ -260,12 +260,11 @@
 								</div>
 								<!-- probar con grid -->
 								<div class="likesCounter d-flex justify-content-between w-100">
-									<div>contador</div>
+									<div id="sumLikes">contador</div>
 									<div>
-										<button>likes</button>
-										<button>dislikes</button>
+										<button id="likeBtn">likes</button>
+										<button id="dislikeBtn">dislikes</button>
 									</div>
-
 								</div>
 							</div>
 						</div>
@@ -290,6 +289,15 @@
 											"La programación no se trata de lo que sabes, se trata de
 											lo que puedes aprender."
 										</p>
+									</div>
+								</div>
+								<div class="likesCounter d-flex justify-content-between w-100">
+									<div id="sumLikes2">contador</div>
+									<div>
+										<button id="meGustaBtn" onclick="sumLikes()">likes</button>
+										<button id="noMeGustaBtn" onclick="removeLikes()">
+											dislikes
+										</button>
 									</div>
 								</div>
 							</div>
@@ -456,5 +464,6 @@
 			integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
 			crossorigin="anonymous"
 		></script>
+		<script src="./javascript/likes16.js"></script>
 	</body>
 </html>
