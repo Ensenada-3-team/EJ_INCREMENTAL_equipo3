@@ -1,6 +1,6 @@
 //Elementos del DOM donde queremos que se renderice el contador actualizado
-let contadorDOM = document.getElementById('sumLikes') 
-let contadorDOM2 = document.getElementById('sumLikes2') 
+let contadorDOM = document.getElementById('sumLikes') // addEventListener
+let contadorDOM2 = document.getElementById('sumLikes2') //onclick
 
 //Botones del DOM donde añadimos los eventos click (para onclick en el propio botón no hace falta)
 let likeBtn = document.getElementById('likeBtn')
