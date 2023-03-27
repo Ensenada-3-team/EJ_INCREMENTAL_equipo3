@@ -175,7 +175,7 @@ sortFriends = () => {
       console.table(friendsSortedAlphabetically)
 };
 
-sortFriends()
+// sortFriends()
 
 
 //EXTRA 14
@@ -201,4 +201,36 @@ spliceElement = (arr, element) => {
 // deleteLastElement(carros);
 // addElementToEnd(carros, elements[0]);
 // spliceElement(carros, elements[1]);
+
+
+//EXTRA 16
+
+let form = document.querySelector('form')
+let listaDOM = document.getElementById('extra16') //ul
+
+
+form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      let nuevaTarea = document.querySelector('#tarea').value //input
+
+      const li = document.createElement('li'); //creamos el elemento li 
+      li.textContent = nuevaTarea;
+
+      let deleteBtn = document.createElement('button')
+      deleteBtn.textContent = 'Eliminar'
+
+      deleteBtn.addEventListener('click', function(){
+            li.remove()
+      })
+
+      li.appendChild(deleteBtn)
+      listaDOM.appendChild(li);
+
+      document.querySelector('#tarea').value = '';
+      
+})
+
+
+
 
