@@ -243,7 +243,10 @@ Al hacer clic en el botón "Eliminar cuenta", mostrar un mensaje de confirmació
 
 Si el usuario confirma la eliminación de la cuenta, utilizar una solicitud asincrónica (por ejemplo, mediante fetch) para eliminar la cuenta del servidor y llamar a una función de callback que redirija al usuario a la página de inicio de sesión.
 
-Para hacer esto, los estudiantes pueden utilizar JavaScript para acceder al botón "Eliminar cuenta" y añadir un escuchador de eventos para detectar cuando se hace clic en él. Luego, pueden utilizar una función de confirmación de JavaScript para mostrar un mensaje de confirmación al usuario y utilizar una solicitud asincrónica (por ejemplo, mediante fetch) para eliminar la cuenta del servidor si el usuario confirma la eliminación. Finalmente, pueden utilizar una función de callback para redirigir al usuario a la página de inicio de sesión después de que se haya eliminado la cuenta.
+Para hacer esto, los estudiantes pueden utilizar JavaScript para acceder al botón "Eliminar cuenta" y añadir un escuchador de eventos para detectar cuando se hace clic en él. 
+Luego, pueden utilizar una función de confirmación de JavaScript para mostrar un mensaje de confirmación al usuario y utilizar una solicitud asincrónica (por ejemplo, mediante fetch) para eliminar la cuenta del servidor si el usuario confirma la eliminación. 
+
+Finalmente, pueden utilizar una función de callback para redirigir al usuario a la página de inicio de sesión después de que se haya eliminado la cuenta.
 
 
 
