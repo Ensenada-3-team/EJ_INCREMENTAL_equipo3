@@ -356,4 +356,74 @@ Javascript.
 
 
 
+## Ejercicio Incremental 18
 
+Refactorizar la funcionalidad de "Me gusta" usando Promesas.
+Queremos crear una función que nos permita obtener el número total de "me gusta" de una publicación, utilizando una promesa para asegurarnos de que la operación sea asíncrona y no bloquee la ejecución del programa.
+La función getTotalLikes recibe como parámetro el ID de la publicación de la cual queremos obtener el número total de "me gusta". La función utiliza una promesa para devolver el número de "me gusta" de la publicación.
+
+getTotalLikes(123)
+  .then(likes => console.log(`La publicación tiene ${likes} me gusta`))
+  .catch(error => console.error(error));
+
+## Extra 18
+
+SITUACIÓN: Crear una lista de números pares o impares.
+
+Primero, define una función llamada checkNumber que tome un número como parámetro y devuelva una promesa que resuelva con el mensaje "El número es par" si el número es par, o se rechace con el mensaje "El número es impar" si el número es impar.
+
+Después, utiliza la función checkNumber para comprobar si varios números son pares o impares. Puedes hacerlo utilizando un bucle for y un array de números.
+
+Finalmente, utiliza los métodos then() y catch() de las promesas para mostrar en la consola el resultado de cada número. Si el número es par, muestra el mensaje "El número es par". Si el número es impar, muestra el mensaje "El número es impar".
+
+
+## Ejercicio con resolución 18
+
+SITUACIÓN: 
+
+
+Crea una aplicación web que permita al usuario buscar información sobre una película utilizando la API de IMDb. Para ello, la aplicación debe mostrar un formulario donde el usuario pueda ingresar el título de la película que desea buscar.
+
+Una vez que el usuario ha ingresado el título de la película y ha presionado el botón de búsqueda, la aplicación debe utilizar la API de IMDb para obtener la información de la película, incluyendo su título, año de lanzamiento, género, calificación y una breve descripción.
+
+`
+const apiKey = 'tu_api_key'; // reemplaza esto con tu propia API key
+
+const form = document.querySelector('form');
+const searchInput = document.querySelector('input');
+const movieTitle = document.querySelector('#movie-title');
+const movieYear = document.querySelector('#movie-year');
+const movieGenre = document.querySelector('#movie-genre');
+const movieRating = document.querySelector('#movie-rating');
+const moviePlot = document.querySelector('#movie-plot');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  
+  const title = searchInput.value;
+
+  fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${title}`)
+    .then(response => response.json())
+    .then(movie => {
+      movieTitle.innerText = movie.Title;
+      movieYear.innerText = movie.Year;
+      movieGenre.innerText = movie.Genre;
+      movieRating.innerText = movie.imdbRating;
+      moviePlot.innerText = movie.Plot;
+    })
+    .catch(error => console.error(error));
+});
+
+`
+
+## Ejercicio Incremental 19
+
+Contexto:
+
+Continuamos trabajando en el proyecto para crear una red social y necesitas implementar una funcionalidad que permita a los usuarios buscar publicaciones de otras cuentas en la plataforma. Para ello, has decidido utilizar una API de redes sociales como la de Twitter o Instagram.
+
+Tu tarea es crear una página web utilizando JavaScript, HTML y CSS donde los usuarios puedan buscar publicaciones de una cuenta en particular utilizando el nombre de usuario. Una vez que el usuario haya ingresado el nombre de usuario, deberás utilizar la API que hayas elegido para obtener los datos de las publicaciones de esa cuenta.
+
+Luego, deberás mostrar las publicaciones en la página web utilizando HTML y CSS. Cada publicación deberá mostrar la imagen, el texto y la fecha de la publicación.
+
+Recuerda que la página web debe ser atractiva y fácil de usar para los usuarios. Además, deberás manejar los errores que puedan surgir al utilizar la API de redes sociales de manera adecuada, para que la página no se rompa si los datos no se obtienen correctamente.
