@@ -84,13 +84,13 @@ async function confirmarEliminacionCuentaFetch() {
       const data = await response.json();
     
       if (response.ok) {
-        redirigirALoginFetch();
+        redirigirALogin();
       } else {
         // Mostrar mensaje de error al usuario
         console.error(data.error);
       }
     }
     
-    function redirigirALoginFetch() {
+    function redirigirALogin() {
       window.location.href = '../login.html';
     }
