@@ -5,9 +5,9 @@ let usuariosList = [1, 2, 3,'Pepe'];
 
 const usuarioFicticio = { 
       id: 600,
-      nombre: 'John', 
-      apellido: 'Doe', 
-      email: 'johndoe@example.com' 
+      nombre: 'Jose', 
+      apellido: 'Gutierrez', 
+      email: 'equipazo3@example.com' 
 };
 
 usuariosList.push(usuarioFicticio)
