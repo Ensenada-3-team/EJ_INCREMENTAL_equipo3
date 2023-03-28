@@ -23,25 +23,42 @@
 
 	<body>
 		<!-- BARRA DE NAVEGACION -->
-		<nav class="container">
-			<div class="row d-flex justify-content-around align-items-center">
-				<div class="col-1">
-					<a href="./index.html" target="_blank">
-						<img
-							class="logo"
-							id="logo"
-							href="./index.html"
-							src="./img/enter-black.png"
-							alt="Logo-Tecla"
-						/>
-					</a>
-				</div>
+		<nav
+			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
+		>
+			<div class="container col-2">
+				<a class="navbar-brand" href="./index.html">
+					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+				</a>
+			</div>
+			<!-- MENÚ HAMBURGUESA -->
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNav"
+				aria-controls="navbarNav"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- MENÚ HAMBURGUESA HASTA AQUÍ -->
 
-				<div class="col-2">
-					<h1>¡¡Bienvenido, Tecler!!</h1>
-				</div>
+			<div
+				class="collapse navbar-collapse justify-content-between"
+				id="navbarNav"
+			>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<h2 class="nav-welcome d-none d-sm-block">
+							¡¡Bienvenido, Tecler!!
+						</h2>
+					</li>
+				</ul>
 
-				<div class="col-7 search-box">
+				<!-- SEARCHBAR -->
+				<form class="form-inline search-box">
 					<button class="btn-search">
 						<img
 							class="search-icon"
@@ -54,11 +71,12 @@
 						class="input-search"
 						placeholder="Type to Search..."
 					/>
-				</div>
+				</form>
+				<!-- SEARCHBAR HASTA AQUI -->
 
-				<div class="col-2 d-flex">
-					<div>
-						<a href="./friends.html" target="_blank">
+				<div class="navbar-nav">
+					<div class="collapse navbar-collapse" id="navbarIcons">
+						<a class="nav-link" href="./friends.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -66,9 +84,7 @@
 								alt="icono-comunidad"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./friends.html" target="_blank">
+						<a class="nav-link" href="./friends.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -76,9 +92,7 @@
 								alt="mensaje"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./perfil.html" target="_blank">
+						<a class="nav-link" href="./perfil.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -86,9 +100,7 @@
 								alt="Mi perfil"
 							/>
 						</a>
-					</div>
-					<div>
-						<a href="./login.html" target="_blank">
+						<a class="nav-link" href="./login.html">
 							<img
 								class="iconos"
 								id="icono"
@@ -97,153 +109,200 @@
 							/>
 						</a>
 					</div>
-					<!-- <div>
-                    <i class="fi fi-br-menu-burger"></i>
-                </div> -->
 				</div>
 			</div>
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
-		<main class="grid-container">
-			<!-- IZQUIERDA -->
-			<div class="columna-izquierda">
-				<div class="card sub-columna-izquierda">
-					<h2>Tus intereses</h2>
+		<!-- REFACTORIZADO DESDE AQUÍ -->
+		<main class="container">
+			<div class="row">
+				<!-- IZQUIERDA -->
+				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
+					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
+					<div class="container">
+						<!-- izq arriba -->
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none">Intereses</h4>
 
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-noticias.png"
-							alt="icono-noticias"
-						/>
-						<h3>Noticias</h3>
-					</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-noticias.png"
+										alt="icono-noticias"
+									/>
+									<h6 class="d-lg-block d-md-none">Noticias</h6>
+								</div>
 
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-aleatorio.png"
-							alt="icono-aleatorio"
-						/>
-						<h3>Aleatorio</h3>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-masnuevo.png"
-							alt="icono-masnuevo"
-						/>
-						<h3>Novedades</h3>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-guardados.png"
-							alt="icono-guardados"
-						/>
-						<h3>Guardados</h3>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-aleatorio.png"
+										alt="icono-aleatorio"
+									/>
+									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
+								</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-masnuevo.png"
+										alt="icono-masnuevo"
+									/>
+									<h6 class="d-lg-block d-md-none">Nuevo</h6>
+								</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-guardados.png"
+										alt="icono-guardados"
+									/>
+									<h6 class="d-lg-block d-md-none">Guardado</h6>
+								</div>
+							</div>
+						</div>
+
+						<!-- izq abajo  -->
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none">Cuenta</h4>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-configuracion.png"
+										alt="icono-configuracion"
+									/>
+								</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono-preguntasfrecuentes.png"
+										alt="icono-preguntasfrecuentes"
+									/>
+								</div>
+								<div>
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono trabaja con nosotros.png"
+										alt="icono-trabajaconnosotros"
+									/>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<div class="card sub-columna-derecha fit">
-					<h2>Cuenta</h2>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-configuracion.png"
-							alt="icono-configuracion"
-						/>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono-preguntasfrecuentes.png"
-							alt="icono-preguntasfrecuentes"
-						/>
-					</div>
-					<div>
-						<img
-							class="iconos"
-							id="icono"
-							href=""
-							src="./img/icons/icono trabaja con nosotros.png"
-							alt="icono-trabajaconnosotros"
-						/>
-					</div>
-				</div>
-			</div>
+				<!-- CENTRO  -->
+				<div class="col-md-8 col-lg-9 flex-grow-1">
+					<div class="container">
+						<!-- TU PERFIL + FOTO -->
+						<div class="row">
+							<div class="col card post-card">
+								<h1>Tu perfil</h1>
+								<img
+									class="avatar"
+									src="./img/friends/avatar13.png"
+									alt="avatar"
+								/>
+								<input type="file" name="fotoperfil" id="fotoperfil" />
+								<div>
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae, voluptatem! Ab reiciendis laudantium culpa? Nobis dolor labore, natus nisi laudantium ad amet dolorem error corrupti quisquam optio, quae doloremque expedita.</p>
+									<button 
+									class="btn btn-primary"
+									onclick="window.open('./funciones.html', '_blank');"
+								    >
+									Explora los ejercicios de mi equipo
+								    </button>
+								</div>
+							</div>
+						</div>
 
-			<!-- CENTRO  -->
-			<div class="card">
-				<h1>Tu perfil</h1>
-				<div>
-					<img class="avatar" src="./img/friends/avatar13.png" alt="avatar" />
-					<input type="file" name="fotoperfil" id="fotoperfil" />
-				</div>
+						<!-- DATOS PERSONALES -->
+						<div class="row">
+							<div class="col card">
+								<h2>Datos personales:</h2>
+								<p>Nombre: Sandra-Dev</p>
+								<input type="text" name="nombre" id="nombre" />
+								<p>Apellido: Mouse</p>
+								<input type="text" name="apellido" id="apellido" />
+								<p>Email: sandra-dev-mouse@example.com</p>
+								<input type="email" id="email" name="email" />
+								<input class="btn" type="submit" value="Subir cambios" />
+							</div>
+						</div>
 
-				<div>
-					<h2>Datos personales:</h2>
-					<p>Nombre: Sandra-Dev</p>
-					<input type="text" name="nombre" id="nombre" />
-					<p>Apellido: Mouse</p>
-					<input type="text" name="apellido" id="apellido" />
-					<p>Email: sandra-dev-mouse@example.com</p>
-					<input type="email" id="email" name="email" />
-					<input class="btn" type="submit" value="Subir cambios" />
-				</div>
-				<div>
-					<h2>Disponibilidad horaria:</h2>
-					<p>Lunes a viernes: 9am - 5pm</p>
-					<p>Sábados: 10am - 2pm</p>
-					<input
-						type="radio"
-						id="Disponibilidad"
-						name="Disponibilidad"
-						value="Mañanas"
-					/>
-					<label for="Mañanas">Mañanas</label><br />
-					<input
-						type="radio"
-						id="Tardes"
-						name="Disponibilidad"
-						value="Tardes"
-					/>
-					<label for="Tardes">Tardes</label><br />
-					<input
-						type="radio"
-						id="Completa"
-						name="Disponibilidad"
-						value="Completa"
-					/>
-					<label for="Completa">Completa</label><br /><br />
-					<button class="btn" type="submit" value="Submit">
-						Cambia tus datos
-					</button>
+						<!-- DISPONIBILIDAD HORARIA -->
+						<div class="row">
+							<div class="col enter-card">
+								<h2>Disponibilidad horaria:</h2>
+
+								<p>Lunes a viernes: 9am - 5pm</p>
+								<p>Sábados: 10am - 2pm</p>
+
+								<div class="form-check">
+									<input
+										type="radio"
+										class="form-check-input"
+										id="Mananas"
+										name="Disponibilidad"
+										value="Mañanas"
+									/>
+									<label class="form-check-label" for="Mananas">Mañanas</label>
+								</div>
+
+								<div class="form-check">
+									<input
+										type="radio"
+										class="form-check-input"
+										id="Tardes"
+										name="Disponibilidad"
+										value="Tardes"
+									/>
+									<label class="form-check-label" for="Tardes">Tardes</label>
+								</div>
+
+								<div class="form-check">
+									<input
+										type="radio"
+										class="form-check-input"
+										id="Completa"
+										name="Disponibilidad"
+										value="Completa"
+									/>
+									<label class="form-check-label" for="Completa"
+										>Completa</label
+									>
+								</div>
+
+								<div>
+									<button class="btn btn-sm btn-dark sombra mt-3" type="submit" value="Submit">
+										Submit
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
+		<!-- REFACTORIZADO HASTA AQUÍ -->
 
 		<!-- SEPARADOR -->
-		<div class="container">
-			<div class="row">
-				<div class="col text-align-center">
-					<p></p>
-				</div>
-			</div>
-		</div>
+		<div class="container mt-5 mb-5 border-0"></div>
 		<!-- SEPARADOR HASTA AQUI -->
 
 		<!-- FOOTER  -->

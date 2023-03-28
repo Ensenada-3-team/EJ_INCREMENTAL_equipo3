@@ -4,24 +4,16 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login</title>
+		<title>Incremental con Javascript</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 			crossorigin="anonymous"
 		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-			integrity="sha512-P8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZPzQPjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<link rel="stylesheet" href="./css/responsive.css" />
 		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/responsive.css" />
 	</head>
-
 	<body>
 		<!-- BARRA DE NAVEGACION -->
 		<nav
@@ -115,50 +107,116 @@
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
-		<div class="card enter-card">
-			<h1>Inicia sesión en Tecla</h1>
-			<form>
-				<label for="usuario">Nombre de usuario o correo electrónico:</label>
-				<input
-					class="form-input"
-					type="text"
-					id="usuario"
-					name="usuario"
-					required
-				/>
-
-				<label for="contrasena">Contraseña:</label>
-				<input
-					class="form-input"
-					type="password"
-					id="contrasena"
-					name="contrasena"
-					required
-				/>
-
-				<button type="submit" class="btn btn-primary btn-block btn-large">
-					Iniciar sesión
-				</button>
-			</form>
-			<p>
-				¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a>.
-			</p>
-		</div>
-
-		<!-- SEPARADOR ENTRE EL MAIN Y EL FOOTER -->
 		<div class="container">
 			<div class="row">
-				<div class="col text-align-center">
-					<p></p>
+				<div class="col-md-5 flex-grow-1 enter-card col-sm-8 order-sm-1 order-1">
+					<h4>Incrementales</h4>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="buscadorJuniors()"
+						/>
+						11- Buscador de Juniors 🐥💻👾
+					</p>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="contadorLikes()"
+						/>
+						12- Contador de Likes 🖤
+					</p>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="userData()"
+						/>
+						13- Id switch 👥 && Mes del año
+					</p>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="sortFriends()"
+						/>
+						14- Ordenar Amigos 🔤👬👭
+					</p>
+					<!-- <p>
+						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
+					</p>
+					<p>
+						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
+					</p>
+					<p>
+						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
+					</p> -->
+				</div>
+				
+				<div class="col-md-5 flex-grow-1 enter-card post-card col-sm-8 order-sm-2 order-2">
+					<h4>Extras</h4>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="inicioSesion()"
+						/>
+						11- Inicio de sesión 📥👀✔💻
+					</p>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="cuentaAtras()"
+						/>
+						12- Cuenta atrás pares || impares 👩🏻‍🤝‍👩🏻
+					</p>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="diaSemana()"
+						/>
+						13- Día de la semana 📅
+					</p>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="coches()"
+						/>
+						14- Coches
+					</p>
+					<!-- <p>
+						<input type="button" class="btn btn-sm btn-dark sombra" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
+					</p>
+					<p>
+						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
+					</p>
+					<p>
+						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
+					</p> -->
 				</div>
 			</div>
 		</div>
+
+		<!-- SEPARADOR -->
+		<div class="container mt-5 mb-5 border-0"></div>
 		<!-- SEPARADOR HASTA AQUI -->
 
 		<!-- FOOTER  -->
 		<footer class="container">
-			<div class="row">
-				<div class="col-4 footer-query">
+			<div class="row w-100">
+				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
 					</div>
@@ -172,9 +230,9 @@
 						<a href="http://">copyright © Equpo3</a>
 					</div>
 				</div>
-				<div class="col-4 footer-query">
+				<div class="col-4">
 					<div class="d-flex justify-content-center">
-						<h4>Links útiles</h4>
+						<h4>Links</h4>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://www.w3schools.com/">Información básica</a>
@@ -183,7 +241,7 @@
 						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
 					</div>
 				</div>
-				<div class="col-4 footer-query">
+				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<a href="https://twitter.com/" target="_blank">
 							<img
@@ -217,5 +275,18 @@
 				</div>
 			</div>
 		</footer>
+
+		<!-- INCREMENTALES -->
+		<script src="./javascript/incrementales/buscadorDeJuniors.js"></script>
+		<script src="./javascript/incrementales/datosUsuario.js"></script>
+		<script src="./javascript/incrementales/contadorLikes.js"></script>
+		<script src="./javascript/incrementales/ordenarAmigos.js"></script>
+		<!-- EXTRAS -->
+		<script src="./javascript/incrementales/cuentaAtras.js"></script>
+		<script src="./javascript/incrementales/diaSemana.js"></script>
+		<script src="./javascript/incrementales/inicioSesion.js"></script>
+		<script src="./javascript/incrementales/coches.js"></script>
+
+	
 	</body>
 </html>
