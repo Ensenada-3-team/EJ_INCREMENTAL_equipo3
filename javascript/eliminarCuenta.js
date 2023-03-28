@@ -10,8 +10,6 @@ const usuarioFicticio = {
       email: 'equipazo3@example.com' 
 };
 
-
-
 //accedemos al DOM del botón que elimina cuenta
 const eliminarCuentaBtn = document.querySelector('#eliminar-cuenta');
 // const eliminarcuentaBtnconID = document.getElementById('eliminar-cuenta')
