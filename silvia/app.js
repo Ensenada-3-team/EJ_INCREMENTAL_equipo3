@@ -240,3 +240,39 @@ form.addEventListener('submit', function(e) {
 
 
 
+// INCREMENTAL 17
+
+const eliminarCuentaBtn = document.querySelector('#eliminar-cuenta');
+eliminarCuentaBtn.addEventListener('click', confirmarEliminacionCuenta);
+
+
+function confirmarEliminacionCuenta() {
+const confirmacion = confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.');
+
+if (confirmacion) {
+      eliminarCuenta();
+}
+}
+
+
+async function eliminarCuenta() {
+try {
+      // Simulamos la eliminación de la cuenta del usuario ficticio
+      const usuarioFicticio = { nombre: 'John', apellido: 'Doe', email: 'johndoe@example.com' };
+      delete usuarioFicticio;
+
+      // Esperamos 2 segundos para simular una solicitud asincrónica al servidor
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Redireccionamos al usuario a la página de inicio de sesión
+      window.location.href = '/login';
+      
+      } catch (error) {
+            console.error(error);
+      }
+}
+    
+    
+    
+    
+    
