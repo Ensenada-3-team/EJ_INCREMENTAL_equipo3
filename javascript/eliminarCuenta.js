@@ -10,7 +10,7 @@ const usuarioFicticio = {
       email: 'equipazo3@example.com' 
 };
 
-usuariosList.push(usuarioFicticio)
+
 
 //accedemos al DOM del botón que elimina cuenta
 const eliminarCuentaBtn = document.querySelector('#eliminar-cuenta');
@@ -18,7 +18,7 @@ const eliminarCuentaBtn = document.querySelector('#eliminar-cuenta');
 
 eliminarCuentaBtn.addEventListener('click', confirmarEliminacionCuenta);
 
-
+//RESOLUCIÓN CON ASYNC/AWAIT
 function confirmarEliminacionCuenta() {
       const confirmacion = confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.');
 
@@ -34,6 +34,8 @@ async function eliminarCuenta() {
             // Simulamos la eliminación de la cuenta del usuario ficticio
             console.log(usuariosList)
             console.table(usuarioFicticio)
+
+            usuariosList.push(usuarioFicticio)
 
             delete usuarioFicticio;
             usuariosList.pop()
@@ -53,3 +55,42 @@ async function eliminarCuenta() {
       }
 }
     
+
+
+// RESOLUCIÓN CON FETCH 
+
+async function confirmarEliminacionCuentaFetch() {
+      const confirmacion = confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.');
+    
+      if (confirmacion) {
+        try {
+          await eliminarCuentaFetch();
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }
+    
+    async function eliminarCuentaFetch() {
+      const options = {
+        method: 'DELETE',
+        headers: {
+          'Authorization': 'Bearer ' + TOKEN_DE_AUTORIZACION,
+          'Content-Type': 'application/json'
+        }
+      };
+    
+      const response = await fetch(URL_DEL_ENDPOINT_DE_ELIMINACION_DE_CUENTA, options);
+      const data = await response.json();
+    
+      if (response.ok) {
+        redirigirALoginFetch();
+      } else {
+        // Mostrar mensaje de error al usuario
+        console.error(data.error);
+      }
+    }
+    
+    function redirigirALoginFetch() {
+      window.location.href = '../login.html';
+    }
