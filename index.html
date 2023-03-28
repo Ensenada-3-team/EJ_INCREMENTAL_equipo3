@@ -263,8 +263,13 @@
 								<div class="likesCounter d-flex justify-content-between w-100">
 									<div id="sumLikes">0 Likes</div>
 									<div>
-										<button id="likeBtn">likes</button>
-										<button id="dislikeBtn">dislikes</button>
+										<button id="likeBtn" class="btn btn-outline-dark">
+											<i class="bi bi-emoji-smile-fill"></i>
+										</button>
+
+										<button id="dislikeBtn" class="btn btn-outline-dark">
+											<i class="bi bi-emoji-smile-upside-down-fill"> </i>
+										</button>
 									</div>
 								</div>
 							</div>
@@ -295,11 +300,19 @@
 								<div class="likesCounter d-flex justify-content-between w-100">
 									<div id="sumLikes2">0 Likes</div>
 									<div>
-										<button id="meGustaBtn" onclick="sumLikesOn()">
-											likes
+										<button
+											id="meGustaBtn"
+											class="btn btn-outline-dark"
+											onclick="sumLikesOn()"
+										>
+											<i class="bi bi-emoji-smile-fill"></i>
 										</button>
-										<button id="noMeGustaBtn" onclick="removeLikesOn()">
-											dislikes
+										<button
+											id="noMeGustaBtn"
+											class="btn btn-outline-dark"
+											onclick="removeLikesOn()"
+										>
+											<i class="bi bi-emoji-smile-upside-down-fill"> </i>
 										</button>
 									</div>
 								</div>
