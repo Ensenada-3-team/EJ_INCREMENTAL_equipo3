@@ -1,0 +1,465 @@
+<!DOCTYpE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Friends</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+			integrity="sha512-p8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZpzQpjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/responsive.css" />
+	</head>
+	<body>
+		<!-- BARRA DE NAVEGACION ya pasada a bootstrap-->
+		<nav
+			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
+		>
+			<div class="container col-2">
+				<a class="navbar-brand" href="#">
+					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+				</a>
+			</div>
+			<!-- MENÚ HAMBURGUESA -->
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNav"
+				aria-controls="navbarNav"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- MENÚ HAMBURGUESA HASTA AQUÍ -->
+
+			<div
+				class="collapse navbar-collapse justify-content-between"
+				id="navbarNav"
+			>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<h2 class="nav-welcome d-none d-sm-block">
+							¡¡Bienvenido, Tecler!!
+						</h2>
+					</li>
+				</ul>
+
+				<!-- SEARCHBAR -->
+				<form class="form-inline search-box">
+					<button class="btn-search">
+						<img
+							class="search-icon"
+							src="./img/icons/search-icon2.png"
+							alt=""
+						/>
+					</button>
+					<input
+						type="text"
+						class="input-search"
+						placeholder="Type to Search..."
+					/>
+				</form>
+				<!-- SEARCHBAR HASTA AQUI -->
+
+				<div class="navbar-nav">
+					<div class="collapse navbar-collapse" id="navbarIcons">
+						<a class="nav-link" href="./friends.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/equipo.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+						<a class="nav-link" href="./friends.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/mensaje-bold.png"
+								alt="mensaje"
+							/>
+						</a>
+						<a class="nav-link" href="./perfil.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/avatar-2.png"
+								alt="Mi perfil"
+							/>
+						</a>
+						<a class="nav-link" href="./login.html">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/logout.png"
+								alt="icono-comunidad"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
+
+		<main class="container">
+			<div class="row">
+				<!-- IZQUIERDA ya pasado a bootstrap-->
+				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
+					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
+					<div class="container">
+						<!-- izq arriba -->
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none">Intereses</h4>
+
+								<div>
+									<a href="https://www.nytimes.com/" target="_blank">
+										<img
+										class="iconos"
+										id="icono"
+										src="./img/icons/icono-noticias.png"
+										alt="icono-noticias"
+									/>
+								</a>
+									<h6 class="d-lg-block d-md-none">Noticias
+								</div>
+
+								<div>
+									<a href="https://theuselessweb.com/" target="_blank">
+									<img
+										class="iconos"
+										id="icono"
+										src="./img/icons/icono-aleatorio.png"
+										alt="icono-aleatorio"
+									/>
+								</a>
+									<h6 class="d-lg-block d-md-none">Aleatorio
+								</div>
+								<div>
+									<a href="https://www.reuters.com/" target="_blank">
+									<img
+										class="iconos"
+										id="icono"
+										src="./img/icons/icono-masnuevo.png"
+										alt="icono-masnuevo"
+									/>
+								</a>
+									<h6 class="d-lg-block d-md-none">Nuevo
+								</div>
+								<div>
+									<a href="http://" target="_blank">
+									<img
+										class="iconos"
+										id="icono"
+										src="./img/icons/icono-guardados.png"
+										alt="icono-guardados"
+									/>
+								</a>
+									<h6 class="d-lg-block d-md-none">Guardado
+								</div>
+							</div>
+						</div>
+
+						<!-- izq abajo  -->
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none">Cuenta</h4>
+								<div>
+									<a href="./configuracion.html">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-configuracion.png"
+											alt="icono-configuracion"
+										/>
+									</a>
+								</div>
+								<div>
+									<a href="http://">
+									<img
+										class="iconos"
+										id="icono"
+										src="./img/icons/icono-preguntasfrecuentes.png"
+										alt="icono-preguntasfrecuentes"
+									/>
+								</a>
+								</div>
+								<div>
+									<a href="http://">
+									<img
+										class="iconos"
+										id="icono"
+										href=""
+										src="./img/icons/icono trabaja con nosotros.png"
+										alt="icono-trabajaconnosotros"
+									/>
+								</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- CENTRO -->
+				<div class="col-md-8 col-lg-9 flex-grow-1">
+					<!-- CONTENEDOR CENTRO CON DOS ROWS -->
+					<div class="container">
+						<!-- ROW 1: ENCABEZADO Y BUSQUEDA DE TECLERS -->
+						<div class="row">
+							<div class="col card post-card">
+								<div>
+									<h2>Teclers</h2>
+								</div>
+
+								<div class="search-box">
+									<button class="btn-search">
+										<img
+											class="search-icon"
+											src="./img/icons/search-icon2.png"
+											alt=""
+										/>
+									</button>
+									<input
+										type="text"
+										class="input-search"
+										placeholder="Type to Search..."
+									/>
+								</div>
+							</div>
+						</div>
+
+						<!-- ROW 2: GRID DE TECLERS -->
+						<div class="row">
+							<div class="col card">
+								<!-- primera fila con 4 teclers -->
+								<div class="row w-100">
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar1.png"
+												alt=""
+											/>
+											<h6>Carmen Css</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar2.png"
+												alt=""
+											/>
+											<h6>Federico Grid</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar3.png"
+												alt=""
+											/>
+											<h6>Rosa HTMLv</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar4.png"
+												alt=""
+											/>
+											<h6>pepe palotes</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+								</div>
+								<!-- segunda fila con 4 teclers -->
+								<div class="row w-100">
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar5.png"
+												alt=""
+											/>
+											<h6>Carmen Lomana</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar6.png"
+												alt=""
+											/>
+											<h6>Yaya-vascript</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar7.png"
+												alt=""
+											/>
+											<h6>Rober-dev</h6>
+											<button class="btn">
+												<a href="./roberto-friend.html">Friend</a>
+											</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar8.png"
+												alt=""
+											/>
+											<h6>Ana Flex</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+								</div>
+								<!-- tercera fila con 4 teclers -->
+								<div class="row w-100">
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar9.png"
+												alt=""
+											/>
+											<h6>Nuria Responsive</h6>
+											<button class="btn">Friend</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar10.png"
+												alt=""
+											/>
+											<h6>Dev-punk Gutierrez</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar11.png"
+												alt=""
+											/>
+											<h6>Alejandra Active</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div>
+											<img
+												class="avatar"
+												src="./img/friends/avatar12.png"
+												alt=""
+											/>
+											<h6>paula Footer</h6>
+											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</main>
+		<!-- SEPARADOR -->
+		<div class="container mt-5 mb-5 border-0"></div>
+		<!-- SEPARADOR HASTA AQUI -->
+
+		<!-- FOOTER  -->
+		<footer class="container">
+			<div class="row">
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<a href="http://">
+						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+						</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="">Quiénes somos</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="http://">copyright © Equpo3</a>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<h4>Links útiles</h4>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://www.w3schools.com/">Información básica</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<a href="https://twitter.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-twitter.png"
+								alt="icono-twitter"
+							/>
+						</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://reddit.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-reddit.png"
+								alt="icono-reddit"
+							/>
+						</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://instagram.com/" target="_blank">
+							<img
+								class="iconos"
+								id="icono"
+								src="./img/icons/icono-instagram.png"
+								alt="icono-instagram"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
