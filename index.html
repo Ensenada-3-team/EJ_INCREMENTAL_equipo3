@@ -10,106 +10,130 @@
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 			crossorigin="anonymous"
 		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-			integrity="sha512-P8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZPzQPjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
+
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/responsive.css" />
 	</head>
 
 	<body>
 		<!-- BARRA DE NAVEGACION -->
-		<nav
-			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
-		>
-			<div class="container col-2">
-				<a class="navbar-brand" href="./index.html">
-					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
-				</a>
-			</div>
-			<!-- MENÚ HAMBURGUESA -->
-			<button
-				class="navbar-toggler"
-				type="button"
-				data-toggle="collapse"
-				data-target="#navbarNav"
-				aria-controls="navbarNav"
-				aria-expanded="false"
-				aria-label="Toggle navigation"
-			>
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<!-- MENÚ HAMBURGUESA HASTA AQUÍ -->
+		<nav class="navbar navbar-expand-lg bg-body-transparent container">
+			<div class="container-fluid">
+				<!-- CONTAINER DEL LOGO -->
+				<div class="container col-2">
+					<a class="navbar-brand" href="./index.html">
+						<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+					</a>
+				</div>
+				<!-- MENÚ HAMBURGUESA -->
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-			<div
-				class="collapse navbar-collapse justify-content-between"
-				id="navbarNav"
-			>
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<h2 class="nav-welcome d-none d-sm-block">
-							¡¡Bienvenido, Tecler!!
-						</h2>
-					</li>
-				</ul>
-
-				<!-- SEARCHBAR -->
-				<form class="form-inline search-box">
-					<button class="btn-search">
-						<img
-							class="search-icon"
-							src="./img/icons/search-icon2.png"
-							alt=""
+				<!-- DESDE AQUÍ TODO LO QUE SE ESCONDE -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<h2 class="nav-welcome d-none d-sm-block">
+								¡¡Bienvenido, Tecler!!
+							</h2>
+						</li>
+					</ul>
+					<!-- SEARCHBAR -->
+					<form class="form-inline search-box ms-auto d-none d-sm-block">
+						<button class="btn-search">
+							<img
+								class="search-icon"
+								src="./img/icons/search-icon2.png"
+								alt=""
+							/>
+						</button>
+						<input
+							type="text"
+							class="input-search"
+							placeholder="Type to Search..."
 						/>
-					</button>
-					<input
-						type="text"
-						class="input-search"
-						placeholder="Type to Search..."
-					/>
-				</form>
-				<!-- SEARCHBAR HASTA AQUI -->
+					</form>
+					<!-- SEARCHBAR HASTA AQUI -->
 
-				<div class="navbar-nav">
-					<div class="collapse navbar-collapse" id="navbarIcons">
-						<!-- icono comunidad amigos -->
-						<a class="nav-link" href="./friends.html">
-							<i 
-							class="bi bi-people-fill"
-							style="font-size: 1.8rem; "
-							id="icono"
-							alt="Comunidad de amigos"
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<!-- comunidad -->
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="./friends.html">
+								<i
+									class="bi bi-people-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Comunidad de amigos"
+								>
+								</i>
+							</a>
+						</li>
+						<!-- mensajes -->
+						<li class="nav-item">
+							<a class="nav-link" href="./friends.html">
+								<i
+									class="bi bi-envelope-exclamation"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Mensajes"
+								></i>
+							</a>
+						</li>
+						<!-- mi perfil -->
+						<li class="nav-item">
+							<a class="nav-link" href="./perfil.html">
+								<i
+									class="bi bi-person-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Mi perfil"
+								></i>
+							</a>
+						</li>
+						<!-- cerrar sesion -->
+						<li class="nav-item">
+							<a class="nav-link" href="./login.html">
+								<i
+									class="bi bi-box-arrow-right"
+									class="bi bi-people-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Cerrar sesión"
+								></i>
+							</a>
+						</li>
+						<!-- <li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
 							>
-							</i>
-						
-						</a>
-						<!-- sustituir por boton de mensaje flotante aurea -->
-						<a class="nav-link " href="./friends.html">
-							<i class="bi bi-envelope-exclamation"
-							style="font-size: 1.8rem; "
-							id="icono"
-							alt="Mensajes"></i>
-						</a>
-						<!-- icono Mi perfil -->
-						<a class="nav-link" href="./perfil.html">
-							<i class="bi bi-person-fill"
-							style="font-size: 1.8rem;"
-							id="icono"
-							alt="Mi perfil"></i>
-						</a>
-						<!-- icono Cerrar sesion -->
-						<a class="nav-link" href="./login.html">
-							<i class="bi bi-box-arrow-right"
-							class="bi bi-people-fill"
-							style="font-size: 1.8rem;"
-							id="icono"
-							alt="Cerrar sesión"></i>
-						</a>
-					</div>
+								Dropdown
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</li>
+							</ul>
+						</li> -->
+						<!-- <li class="nav-item">
+							<a class="nav-link disabled">Disabled</a>
+						</li> -->
+					</ul>
 				</div>
 			</div>
 		</nav>
@@ -232,7 +256,11 @@
 										rows="2"
 									></textarea>
 									<div class="d-flex flex-row-reverse">
-										<button type="submit" class="btn btn-sm btn-dark sombra" id="crear-publicacion">
+										<button
+											type="submit"
+											class="btn btn-sm btn-dark sombra"
+											id="crear-publicacion"
+										>
 											Post
 										</button>
 									</div>
@@ -253,13 +281,12 @@
 										<p class="text-justify">
 											Acabo de lanzar una nueva aplicación web que creo que les
 											gustará. Tiene muchas características interesantes y puede
-											ser útil para diferentes propósitos.
-											Puedes echar un vistazo a la aplicación en mi sitio web
+											ser útil para diferentes propósitos. Puedes echar un
+											vistazo a la aplicación en mi sitio web
 											<a href="https://www.misitio.com">www.misitio.com</a>. Si
 											tienes algún comentario o sugerencia, por favor házmelo
-											saber.
-											"La programación no se trata de lo que sabes, se trata de
-											lo que puedes aprender."
+											saber. "La programación no se trata de lo que sabes, se
+											trata de lo que puedes aprender."
 										</p>
 									</div>
 								</div>
@@ -267,16 +294,22 @@
 								<div class="likesCounter d-flex justify-content-between w-100">
 									<div class="d-flex">
 										<div id="sumLikes">0&nbsp</div>
-										<i class="bi bi-heart-fill" style="color:black"></i>
-
+										<i class="bi bi-heart-fill" style="color: black"></i>
 									</div>
 									<div>
 										<button id="likeBtn" class="btn btn-outline-dark">
-											<i class="bi bi-emoji-smile-fill" style="color:black"></i>
+											<i
+												class="bi bi-emoji-smile-fill"
+												style="color: black"
+											></i>
 										</button>
 
 										<button id="dislikeBtn" class="btn btn-outline-dark">
-											<i class="bi bi-emoji-smile-upside-down-fill" style="color:black"> </i>
+											<i
+												class="bi bi-emoji-smile-upside-down-fill"
+												style="color: black"
+											>
+											</i>
 										</button>
 									</div>
 								</div>
@@ -298,30 +331,36 @@
 											Quis quia consequuntur doloribus, distinctio, minus fugiat
 											voluptatem id incidunt vel temporibus amet consequatur
 											aspernatur quisquam omnis molestiae ab, ullam nemo. Vero.
-
 										</p>
 									</div>
 								</div>
 								<div class="likesCounter d-flex justify-content-between w-100">
 									<div class="d-flex">
-										<div id="sumLikes2"> 0&nbsp </div> 
-										<i class="bi bi-heart-fill" style="color:black"></i>
+										<div id="sumLikes2">0&nbsp</div>
+										<i class="bi bi-heart-fill" style="color: black"></i>
 									</div>
-									
+
 									<div>
 										<button
 											id="meGustaBtn"
 											class="btn btn-outline-dark"
 											onclick="sumLikesOn()"
 										>
-											<i class="bi bi-emoji-smile-fill" style="color:black"></i>
+											<i
+												class="bi bi-emoji-smile-fill"
+												style="color: black"
+											></i>
 										</button>
 										<button
 											id="noMeGustaBtn"
 											class="btn btn-outline-dark"
 											onclick="removeLikesOn()"
 										>
-											<i class="bi bi-emoji-smile-upside-down-fill" style="color:black"> </i>
+											<i
+												class="bi bi-emoji-smile-upside-down-fill"
+												style="color: black"
+											>
+											</i>
 										</button>
 									</div>
 								</div>
@@ -487,6 +526,16 @@
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+			integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
 		<script src="./javascript/likeDislike.js"></script>
