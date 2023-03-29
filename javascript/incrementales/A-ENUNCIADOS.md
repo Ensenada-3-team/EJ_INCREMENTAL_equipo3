@@ -267,7 +267,7 @@ NOTA: todo esto debes realizarlo sin usar ninguna API.
 
 Supongamos que la ubicación actual del usuario es 37.7749 grados de latitud y -122.4194 grados de longitud.
 
-Javascript.
+
 
 <!DOCTYPE html>
 

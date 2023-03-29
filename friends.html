@@ -1,4 +1,4 @@
-<!DOCTYpE html>
+<!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
@@ -21,12 +21,12 @@
 		<link rel="stylesheet" href="./css/responsive.css" />
 	</head>
 	<body>
-		<!-- BARRA DE NAVEGACION ya pasada a bootstrap-->
+		<!-- BARRA DE NAVEGACION -->
 		<nav
 			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
 		>
 			<div class="container col-2">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="./index.html">
 					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
 				</a>
 			</div>
@@ -75,37 +75,43 @@
 
 				<div class="navbar-nav">
 					<div class="collapse navbar-collapse" id="navbarIcons">
+						<!-- icono comunidad amigos -->
 						<a class="nav-link" href="./friends.html">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-people-fill"
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/equipo.png"
-								alt="icono-comunidad"
-							/>
+								alt="Comunidad de amigos"
+							>
+							</i>
 						</a>
+						<!-- sustituir por boton de mensaje flotante aurea -->
 						<a class="nav-link" href="./friends.html">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-envelope-exclamation"
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/mensaje-bold.png"
-								alt="mensaje"
-							/>
+								alt="Mensajes"
+							></i>
 						</a>
+						<!-- icono Mi perfil -->
 						<a class="nav-link" href="./perfil.html">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-person-fill"
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/avatar-2.png"
 								alt="Mi perfil"
-							/>
+							></i>
 						</a>
+						<!-- icono Cerrar sesion -->
 						<a class="nav-link" href="./login.html">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-box-arrow-right"
+								class="bi bi-people-fill"
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/logout.png"
-								alt="icono-comunidad"
-							/>
+								alt="Cerrar sesión"
+							></i>
 						</a>
 					</div>
 				</div>
@@ -125,45 +131,50 @@
 								<h4 class="d-lg-block d-md-none">Intereses</h4>
 
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-noticias.png"
-										alt="icono-noticias"
-									/>
-									<h6 class="d-lg-block d-md-none">Noticias
+									<a href="https://www.nytimes.com/" target="_blank">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-noticias.png"
+											alt="icono-noticias"
+										/>
+									</a>
+									<h6 class="d-lg-block d-md-none">Noticias</h6>
 								</div>
 
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-aleatorio.png"
-										alt="icono-aleatorio"
-									/>
-									<h6 class="d-lg-block d-md-none">Aleatorio
+									<a href="https://theuselessweb.com/" target="_blank">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-aleatorio.png"
+											alt="icono-aleatorio"
+										/>
+									</a>
+									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
+								</div>
+
+								<div>
+									<a href="https://www.reuters.com/" target="_blank">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-masnuevo.png"
+											alt="icono-masnuevo"
+										/>
+									</a>
+									<h6 class="d-lg-block d-md-none">Nuevo</h6>
 								</div>
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-masnuevo.png"
-										alt="icono-masnuevo"
-									/>
-									<h6 class="d-lg-block d-md-none">Nuevo
-								</div>
-								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-guardados.png"
-										alt="icono-guardados"
-									/>
-									<h6 class="d-lg-block d-md-none">Guardado
+									<a href="http://" target="_blank">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-guardados.png"
+											alt="icono-guardados"
+										/>
+									</a>
+									<h6 class="d-lg-block d-md-none">Guardado</h6>
 								</div>
 							</div>
 						</div>
@@ -173,31 +184,35 @@
 							<div class="col card w-100">
 								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-configuracion.png"
-										alt="icono-configuracion"
-									/>
+									<a href="./configuracion.html">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-configuracion.png"
+											alt="icono-configuracion"
+										/>
+									</a>
 								</div>
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-preguntasfrecuentes.png"
-										alt="icono-preguntasfrecuentes"
-									/>
+									<a href="http://">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-preguntasfrecuentes.png"
+											alt="icono-preguntasfrecuentes"
+										/>
+									</a>
 								</div>
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono trabaja con nosotros.png"
-										alt="icono-trabajaconnosotros"
-									/>
+									<a href="http://">
+										<img
+											class="iconos"
+											id="icono"
+											href=""
+											src="./img/icons/icono trabaja con nosotros.png"
+											alt="icono-trabajaconnosotros"
+										/>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -245,7 +260,9 @@
 												alt=""
 											/>
 											<h6>Carmen Css</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -256,7 +273,9 @@
 												alt=""
 											/>
 											<h6>Federico Grid</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -267,7 +286,9 @@
 												alt=""
 											/>
 											<h6>Rosa HTMLv</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -278,7 +299,9 @@
 												alt=""
 											/>
 											<h6>pepe palotes</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 								</div>
@@ -292,7 +315,9 @@
 												alt=""
 											/>
 											<h6>Carmen Lomana</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -303,7 +328,9 @@
 												alt=""
 											/>
 											<h6>Yaya-vascript</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -327,7 +354,9 @@
 												alt=""
 											/>
 											<h6>Ana Flex</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 								</div>
@@ -352,7 +381,9 @@
 												alt=""
 											/>
 											<h6>Dev-punk Gutierrez</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -363,7 +394,9 @@
 												alt=""
 											/>
 											<h6>Alejandra Active</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -374,7 +407,9 @@
 												alt=""
 											/>
 											<h6>paula Footer</h6>
-											<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
+											<button class="btn btn-sm btn-dark sombra mb-3">
+												Conectar
+											</button>
 										</div>
 									</div>
 								</div>
@@ -383,7 +418,6 @@
 					</div>
 				</div>
 			</div>
-
 		</main>
 		<!-- SEPARADOR -->
 		<div class="container mt-5 mb-5 border-0"></div>
@@ -394,7 +428,9 @@
 			<div class="row">
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
-						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+						<a href="http://">
+							<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="">Quiénes somos</a>

@@ -20,7 +20,7 @@
 			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
 		>
 			<div class="container col-2">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="./index.html">
 					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
 				</a>
 			</div>
@@ -69,37 +69,43 @@
 
 				<div class="navbar-nav">
 					<div class="collapse navbar-collapse" id="navbarIcons">
+						<!-- icono comunidad amigos -->
 						<a class="nav-link" href="./friends.html">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-people-fill"
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/equipo.png"
-								alt="icono-comunidad"
-							/>
+								alt="Comunidad de amigos"
+							>
+							</i>
 						</a>
+						<!-- sustituir por boton de mensaje flotante aurea -->
 						<a class="nav-link" href="./friends.html">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-envelope-exclamation"
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/mensaje-bold.png"
-								alt="mensaje"
-							/>
+								alt="Mensajes"
+							></i>
 						</a>
+						<!-- icono Mi perfil -->
 						<a class="nav-link" href="./perfil.html">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-person-fill"
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/avatar-2.png"
 								alt="Mi perfil"
-							/>
+							></i>
 						</a>
+						<!-- icono Cerrar sesion -->
 						<a class="nav-link" href="./login.html">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-box-arrow-right"
+								class="bi bi-people-fill"
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/logout.png"
-								alt="icono-comunidad"
-							/>
+								alt="Cerrar sesión"
+							></i>
 						</a>
 					</div>
 				</div>
@@ -108,8 +114,8 @@
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
 		<div class="container">
-			<div class="row">
-				<div class="col-md-5 flex-grow-1 enter-card col-sm-8 order-sm-1 order-1">
+			<div class="row justify-content-center m-2">
+				<div class="col-md-5 col-sm-1 order-sm-1 order-1 card-left mt-md-3 mr-sm-3">
 					<h4>Incrementales</h4>
 					<p>
 						<input
@@ -147,6 +153,15 @@
 						/>
 						14- Ordenar Amigos 🔤👬👭
 					</p>
+					<p>
+						<input
+							type="button"
+							class="btn btn-sm btn-dark sombra"
+							value="Probar"
+							onclick="mostrarLikes()"
+						/>
+						18- Obtener nº de likes de la publicación
+					</p>
 					<!-- <p>
 						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
 					</p>
@@ -157,9 +172,11 @@
 						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
 					</p> -->
 				</div>
-				
-				<div class="col-md-5 flex-grow-1 enter-card post-card col-sm-8 order-sm-2 order-2">
-					<h4>Extras</h4>
+
+				<div
+					class="col-md-5 col-sm-1 order-sm-1 order-2 card-left post-card mt-md-3 mr-sm-3"
+				>
+					<h4 >Extras</h4>
 					<p>
 						<input
 							type="button"
@@ -196,10 +213,8 @@
 						/>
 						14- Coches
 					</p>
+
 					<!-- <p>
-						<input type="button" class="btn btn-sm btn-dark sombra" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
-					</p>
-					<p>
 						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
 					</p>
 					<p>
@@ -281,12 +296,12 @@
 		<script src="./javascript/incrementales/datosUsuario.js"></script>
 		<script src="./javascript/incrementales/contadorLikes.js"></script>
 		<script src="./javascript/incrementales/ordenarAmigos.js"></script>
+		<script src="./javascript/incrementales/getTotalLikes.js"></script>
+
 		<!-- EXTRAS -->
 		<script src="./javascript/incrementales/cuentaAtras.js"></script>
 		<script src="./javascript/incrementales/diaSemana.js"></script>
 		<script src="./javascript/incrementales/inicioSesion.js"></script>
 		<script src="./javascript/incrementales/coches.js"></script>
-
-	
 	</body>
 </html>

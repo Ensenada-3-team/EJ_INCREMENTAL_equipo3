@@ -27,7 +27,7 @@
 			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
 		>
 			<div class="container col-2">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="./index.html">
 					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
 				</a>
 			</div>
@@ -76,37 +76,38 @@
 
 				<div class="navbar-nav">
 					<div class="collapse navbar-collapse" id="navbarIcons">
+						<!-- icono comunidad amigos -->
 						<a class="nav-link" href="./friends.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/equipo.png"
-								alt="icono-comunidad"
-							/>
+							<i 
+							class="bi bi-people-fill"
+							style="font-size: 1.8rem; "
+							id="icono"
+							alt="Comunidad de amigos"
+							>
+							</i>
+						
 						</a>
-						<a class="nav-link" href="./friends.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/mensaje-bold.png"
-								alt="mensaje"
-							/>
+						<!-- sustituir por boton de mensaje flotante aurea -->
+						<a class="nav-link " href="./friends.html">
+							<i class="bi bi-envelope-exclamation"
+							style="font-size: 1.8rem; "
+							id="icono"
+							alt="Mensajes"></i>
 						</a>
+						<!-- icono Mi perfil -->
 						<a class="nav-link" href="./perfil.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/avatar-2.png"
-								alt="Mi perfil"
-							/>
+							<i class="bi bi-person-fill"
+							style="font-size: 1.8rem;"
+							id="icono"
+							alt="Mi perfil"></i>
 						</a>
+						<!-- icono Cerrar sesion -->
 						<a class="nav-link" href="./login.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/logout.png"
-								alt="icono-comunidad"
-							/>
+							<i class="bi bi-box-arrow-right"
+							class="bi bi-people-fill"
+							style="font-size: 1.8rem;"
+							id="icono"
+							alt="Cerrar sesión"></i>
 						</a>
 					</div>
 				</div>
@@ -117,54 +118,59 @@
 		<main class="container">
 			<!-- 1 fila, 3 columnas, las 2 primeras con grid -->
 			<div class="row">
-				<!-- IZQUIERDA -->
+				<!-- IZQUIERDA ya pasado a bootstrap-->
 				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
 					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 					<div class="container">
 						<!-- izq arriba -->
 						<div class="row">
-							<div class="col card w-100 ">
+							<div class="col card w-100">
 								<h4 class="d-lg-block d-md-none">Intereses</h4>
 
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-noticias.png"
-										alt="icono-noticias"
-									/>
+									<a href="https://www.nytimes.com/" target="_blank">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-noticias.png"
+											alt="icono-noticias"
+										/>
+									</a>
 									<h6 class="d-lg-block d-md-none">Noticias</h6>
 								</div>
 
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-aleatorio.png"
-										alt="icono-aleatorio"
-									/>
+									<a href="https://theuselessweb.com/" target="_blank">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-aleatorio.png"
+											alt="icono-aleatorio"
+										/>
+									</a>
 									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
 								</div>
+
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-masnuevo.png"
-										alt="icono-masnuevo"
-									/>
+									<a href="https://www.reuters.com/" target="_blank">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-masnuevo.png"
+											alt="icono-masnuevo"
+										/>
+									</a>
 									<h6 class="d-lg-block d-md-none">Nuevo</h6>
 								</div>
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-guardados.png"
-										alt="icono-guardados"
-									/>
+									<a href="http://" target="_blank">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-guardados.png"
+											alt="icono-guardados"
+										/>
+									</a>
 									<h6 class="d-lg-block d-md-none">Guardado</h6>
 								</div>
 							</div>
@@ -175,31 +181,35 @@
 							<div class="col card w-100">
 								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-configuracion.png"
-										alt="icono-configuracion"
-									/>
+									<a href="./configuracion.html">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-configuracion.png"
+											alt="icono-configuracion"
+										/>
+									</a>
 								</div>
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono-preguntasfrecuentes.png"
-										alt="icono-preguntasfrecuentes"
-									/>
+									<a href="http://">
+										<img
+											class="iconos"
+											id="icono"
+											src="./img/icons/icono-preguntasfrecuentes.png"
+											alt="icono-preguntasfrecuentes"
+										/>
+									</a>
 								</div>
 								<div>
-									<img
-										class="iconos"
-										id="icono"
-										href=""
-										src="./img/icons/icono trabaja con nosotros.png"
-										alt="icono-trabajaconnosotros"
-									/>
+									<a href="http://">
+										<img
+											class="iconos"
+											id="icono"
+											href=""
+											src="./img/icons/icono trabaja con nosotros.png"
+											alt="icono-trabajaconnosotros"
+										/>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -213,17 +223,16 @@
 						<div class="row">
 							<div class="col card post-card">
 								<h2 class=" ">Comparte algo con tu comunidad:</h2>
-								<form class="w-100">
+								<form class="w-100" id="form-publicacion" novalidate>
 									<textarea
-										id="textarea"
+										id="mensaje-publicacion"
 										class="form-control"
 										placeholder="Max 256 caracteres"
 										maxlength="256"
 										rows="2"
 									></textarea>
-
-									<div class="button d-flex flex-row-reverse">
-										<button type="button" class="btn btn-sm btn-primary">
+									<div class="d-flex flex-row-reverse">
+										<button type="submit" class="btn btn-sm btn-dark sombra" id="crear-publicacion">
 											Post
 										</button>
 									</div>
@@ -241,18 +250,14 @@
 									/>
 									<div class="media-body w-100">
 										<h2>¡Hola a todos!</h2>
-										<h6 class="text-justify">
+										<p class="text-justify">
 											Acabo de lanzar una nueva aplicación web que creo que les
 											gustará. Tiene muchas características interesantes y puede
 											ser útil para diferentes propósitos.
-										</h6>
-										<h6 class="text-justify">
 											Puedes echar un vistazo a la aplicación en mi sitio web
 											<a href="https://www.misitio.com">www.misitio.com</a>. Si
 											tienes algún comentario o sugerencia, por favor házmelo
 											saber.
-										</h6>
-										<p class="text-justify">
 											"La programación no se trata de lo que sabes, se trata de
 											lo que puedes aprender."
 										</p>
@@ -260,10 +265,19 @@
 								</div>
 								<!-- probar con grid -->
 								<div class="likesCounter d-flex justify-content-between w-100">
-									<div id="sumLikes">0 Likes</div>
+									<div class="d-flex">
+										<div id="sumLikes">0&nbsp</div>
+										<i class="bi bi-heart-fill" style="color:black"></i>
+
+									</div>
 									<div>
-										<button id="likeBtn">likes</button>
-										<button id="dislikeBtn">dislikes</button>
+										<button id="likeBtn" class="btn btn-outline-dark">
+											<i class="bi bi-emoji-smile-fill" style="color:black"></i>
+										</button>
+
+										<button id="dislikeBtn" class="btn btn-outline-dark">
+											<i class="bi bi-emoji-smile-upside-down-fill" style="color:black"> </i>
+										</button>
 									</div>
 								</div>
 							</div>
@@ -279,24 +293,35 @@
 									/>
 									<div class="media-body">
 										<h2>¡Hola a todos!</h2>
-										<h6>
+										<p>
 											Lorem ipsum dolor sit amet consectetur adipisicing elit.
 											Quis quia consequuntur doloribus, distinctio, minus fugiat
 											voluptatem id incidunt vel temporibus amet consequatur
 											aspernatur quisquam omnis molestiae ab, ullam nemo. Vero.
-										</h6>
-										<p>
-											"La programación no se trata de lo que sabes, se trata de
-											lo que puedes aprender."
+
 										</p>
 									</div>
 								</div>
 								<div class="likesCounter d-flex justify-content-between w-100">
-									<div id="sumLikes2">0 Likes</div>
+									<div class="d-flex">
+										<div id="sumLikes2"> 0&nbsp </div> 
+										<i class="bi bi-heart-fill" style="color:black"></i>
+									</div>
+									
 									<div>
-										<button id="meGustaBtn" onclick="sumLikesOn()">likes</button>
-										<button id="noMeGustaBtn" onclick="removeLikesOn()">
-											dislikes
+										<button
+											id="meGustaBtn"
+											class="btn btn-outline-dark"
+											onclick="sumLikesOn()"
+										>
+											<i class="bi bi-emoji-smile-fill" style="color:black"></i>
+										</button>
+										<button
+											id="noMeGustaBtn"
+											class="btn btn-outline-dark"
+											onclick="removeLikesOn()"
+										>
+											<i class="bi bi-emoji-smile-upside-down-fill" style="color:black"> </i>
 										</button>
 									</div>
 								</div>
@@ -308,7 +333,7 @@
 				</div>
 
 				<!-- DERECHA -->
-				<div class="col-md-2 card flex-grow-1 d-none d-md-block">
+				<div class="col-md-2 col-lg-2 card flex-grow-1 d-none d-md-block">
 					<h4 class="text-center fs-md-5">Nuevos amigos</h4>
 
 					<!-- amigo 1 -->
