@@ -115,14 +115,25 @@
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
-		<div class="card enter-card">
-			<h2>CONFIGURACIÓN DE LA CUENTA <i class="bi bi-sun"></i></h3>
-                        
-			<button id="eliminar-cuenta" class="btn btn-dark">Eliminar cuenta</button>
-			<p>
-				¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a>.
-			</p>
-		</div>
+		<main>
+			<div class="container">
+				<!-- contenido de la fila en el centro / cambiar si se añaden más divs -->
+				<div class="row justify-content-center">
+					
+					<div class="col-4 card">
+						<h2>CONFIGURACIÓN DE LA CUENTA <i class="bi bi-gear"></i></h2>
+
+						<button id="eliminar-cuenta" class="btn btn-dark sombra mt-3">
+							Eliminar cuenta
+						</button>
+						<p class="mt-3">
+							¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a
+							>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</main>
 
 		<!-- SEPARADOR -->
 		<div class="container mt-5 mb-5 border-0"></div>
@@ -190,6 +201,6 @@
 				</div>
 			</div>
 		</footer>
-            <script src="./javascript/eliminarCuenta.js"></script>
+		<script src="./javascript/eliminarCuenta.js"></script>
 	</body>
 </html>

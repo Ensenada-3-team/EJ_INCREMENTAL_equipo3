@@ -13,12 +13,12 @@ let contadorLikes2 = 0
 // EJ. PUBLICACIÓN 1: CREANDO EVENTO CON addEventListenerr
 sumLikes = () => {
       contadorLikes = contadorLikes + 1
-      contadorDOM.innerHTML = `${contadorLikes} Likes`     
+      contadorDOM.innerHTML = `${contadorLikes} &nbsp `  //agrega un espacio en blanco 
 };
 
 removeLikes = () => {
       contadorLikes = contadorLikes - 1
-      contadorDOM.innerHTML = `${contadorLikes} Likes` 
+      contadorDOM.innerHTML = `${contadorLikes} &nbsp` 
 };
 
 likeBtn.addEventListener('click', sumLikes );
@@ -29,12 +29,12 @@ dislikeBtn.addEventListener('click', removeLikes);
 //para ello creamos dos funciones nuevas que son llamadas por el onclick.
 sumLikesOn = () =>  {
       contadorLikes2++
-      contadorDOM2.innerHTML = `${contadorLikes2} Likes` 
+      contadorDOM2.innerHTML = `${contadorLikes2}&nbsp` 
 }
 
 removeLikesOn = () => {
       contadorLikes2--
-      contadorDOM2.innerHTML = `${contadorLikes2} Likes` 
+      contadorDOM2.innerHTML = `${contadorLikes2} &nbsp` 
 }
 
 //Ejemplo de acceder a elementos del DOM por su ID y cambiar su HTML
