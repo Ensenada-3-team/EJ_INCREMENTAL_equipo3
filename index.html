@@ -225,17 +225,16 @@
 						<div class="row">
 							<div class="col card post-card">
 								<h2 class=" ">Comparte algo con tu comunidad:</h2>
-								<form class="w-100">
+								<form class="w-100" id="form-publicacion" novalidate>
 									<textarea
-										id="textarea"
+										id="mensaje-publicacion"
 										class="form-control"
 										placeholder="Max 256 caracteres"
 										maxlength="256"
 										rows="2"
 									></textarea>
-
-									<div class="button d-flex flex-row-reverse">
-										<button type="button" class="btn btn-sm btn-dark sombra">
+									<div class="d-flex flex-row-reverse">
+										<button type="submit" class="btn btn-sm btn-dark sombra" id="crear-publicacion">
 											Post
 										</button>
 									</div>
@@ -257,14 +256,10 @@
 											Acabo de lanzar una nueva aplicación web que creo que les
 											gustará. Tiene muchas características interesantes y puede
 											ser útil para diferentes propósitos.
-										</p>
-										<p class="text-justify">
 											Puedes echar un vistazo a la aplicación en mi sitio web
 											<a href="https://www.misitio.com">www.misitio.com</a>. Si
 											tienes algún comentario o sugerencia, por favor házmelo
 											saber.
-										</p>
-										<p class="text-justify">
 											"La programación no se trata de lo que sabes, se trata de
 											lo que puedes aprender."
 										</p>
@@ -305,10 +300,7 @@
 											Quis quia consequuntur doloribus, distinctio, minus fugiat
 											voluptatem id incidunt vel temporibus amet consequatur
 											aspernatur quisquam omnis molestiae ab, ullam nemo. Vero.
-										</p>
-										<p>
-											"La programación no se trata de lo que sabes, se trata de
-											lo que puedes aprender."
+
 										</p>
 									</div>
 								</div>
