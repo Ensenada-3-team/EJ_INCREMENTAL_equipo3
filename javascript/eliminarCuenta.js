@@ -13,7 +13,6 @@ const usuarioFicticio = {
 //accedemos al DOM del botón que elimina cuenta
 const eliminarCuentaBtn = document.querySelector("#eliminar-cuenta");
 // const eliminarcuentaBtnconID = document.getElementById('eliminar-cuenta')
-
 eliminarCuentaBtn.addEventListener("click", confirmarEliminacionCuenta);
 
 //RESOLUCIÓN CON ASYNC/AWAIT
@@ -35,7 +34,7 @@ async function eliminarCuenta() {
 		console.log(usuariosList);
 		console.table(usuarioFicticio);
 
-		delete usuarioFicticio;
+		// delete usuarioFicticio;
 		usuariosList.pop();
 
 		console.table(usuarioFicticio);
@@ -47,6 +46,7 @@ async function eliminarCuenta() {
 		// Redireccionamos al usuario a la página de inicio de sesión
 		// window.location.href = '../login.html';
 		window.open("./login.html", "_blank");
+
 	} catch (error) {
 		console.error(error);
 	}

@@ -28,7 +28,7 @@
 			class="navbar navbar-expand-lg navbar-transparent bg-transparent container"
 		>
 			<div class="container col-2">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="./index.html">
 					<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
 				</a>
 			</div>
@@ -78,14 +78,17 @@
 				<div class="navbar-nav">
 					<div class="collapse navbar-collapse" id="navbarIcons">
 						<a class="nav-link" href="./friends.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/equipo.png"
-								alt="icono-comunidad"
-							/>
+							<i 
+							class="bi bi-people-fill"
+							style="font-size: 1.8rem"
+							id="icono"
+							alt="icono-comunidad"
+							>
+							</i>
+						
 						</a>
 						<a class="nav-link" href="./friends.html">
+
 							<img
 								class="iconos"
 								id="icono"
@@ -114,36 +117,43 @@
 			</div>
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
+		<main>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-4 card enter-card">
+						<h2 class="text-center">Inicia sesión en Tecla</h2>
+						<form>
+							<label for="usuario">Nombre de usuario o correo electrónico:</label>
+							<input
+								class="form-input"
+								type="text"
+								id="usuario"
+								name="usuario"
+								required
+							/>
+			
+							<label for="contrasena">Contraseña:</label>
+							<input
+								class="form-input"
+								type="password"
+								id="contrasena"
+								name="contrasena"
+								required
+							/>
+			
+							<button type="submit" class="btn btn-dark btn-block btn-large sombra mb-3">
+								Iniciar sesión
+							</button>
+						</form>
+						<p>
+							¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a>.
+						</p>
+					</div>
+			
 
-		<div class="card enter-card">
-			<h1>Inicia sesión en Tecla</h1>
-			<form>
-				<label for="usuario">Nombre de usuario o correo electrónico:</label>
-				<input
-					class="form-input"
-					type="text"
-					id="usuario"
-					name="usuario"
-					required
-				/>
-
-				<label for="contrasena">Contraseña:</label>
-				<input
-					class="form-input"
-					type="password"
-					id="contrasena"
-					name="contrasena"
-					required
-				/>
-
-				<button type="submit" class="btn btn-primary btn-block btn-large">
-					Iniciar sesión
-				</button>
-			</form>
-			<p>
-				¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a>.
-			</p>
-		</div>
+				</div>
+			</div>
+		</main>
 
 		<!-- SEPARADOR ENTRE EL MAIN Y EL FOOTER -->
 		<div class="container">
