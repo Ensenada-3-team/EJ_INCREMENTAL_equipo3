@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>User-friend</title>
+		<title>Configuracion</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -12,6 +12,7 @@
 			crossorigin="anonymous"
 		/>
 
+		<link rel="stylesheet" href="./css/responsive.css" />
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 
@@ -112,197 +113,47 @@
 							</a>
 						</li>
 						<!-- <li class="nav-item dropdown">
-							<a
-								class="nav-link dropdown-toggle"
-								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								Dropdown
-							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><hr class="dropdown-divider" /></li>
-								<li>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</li>
-							</ul>
-						</li> -->
+									<a
+										class="nav-link dropdown-toggle"
+										href="#"
+										role="button"
+										data-bs-toggle="dropdown"
+										aria-expanded="false"
+									>
+										Dropdown
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li><a class="dropdown-item" href="#">Another action</a></li>
+										<li><hr class="dropdown-divider" /></li>
+										<li>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</li>
+									</ul>
+								</li> -->
 						<!-- <li class="nav-item">
-							<a class="nav-link disabled">Disabled</a>
-						</li> -->
+									<a class="nav-link disabled">Disabled</a>
+								</li> -->
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
-		<main class="container">
-			<div class="row">
-				<!-- IZQUIERDA ya pasado a bootstrap-->
-				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
-					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
-					<div class="container">
-						<!-- izq arriba -->
-						<div class="row">
-							<div class="col card w-100">
-								<h4 class="d-lg-block d-md-none">Intereses</h4>
+		<main>
+			<div class="container">
+				<!-- contenido de la fila en el centro / cambiar si se añaden más divs -->
+				<div class="row justify-content-center">
+					<div class="col-4 card">
+						<h2>CONFIGURACIÓN DE LA CUENTA <i class="bi bi-gear"></i></h2>
 
-								<div>
-									<a href="https://www.nytimes.com/" target="_blank">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-noticias.png"
-											alt="icono-noticias"
-										/>
-									</a>
-									<h6 class="d-lg-block d-md-none">Noticias</h6>
-								</div>
-
-								<div>
-									<a href="https://theuselessweb.com/" target="_blank">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-aleatorio.png"
-											alt="icono-aleatorio"
-										/>
-									</a>
-									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
-								</div>
-
-								<div>
-									<a href="https://www.reuters.com/" target="_blank">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-masnuevo.png"
-											alt="icono-masnuevo"
-										/>
-									</a>
-									<h6 class="d-lg-block d-md-none">Nuevo</h6>
-								</div>
-								<div>
-									<a href="http://" target="_blank">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-guardados.png"
-											alt="icono-guardados"
-										/>
-									</a>
-									<h6 class="d-lg-block d-md-none">Guardado</h6>
-								</div>
-							</div>
-						</div>
-
-						<!-- izq abajo  -->
-						<div class="row">
-							<div class="col card w-100">
-								<h4 class="d-lg-block d-md-none">Cuenta</h4>
-								<div>
-									<a href="./configuracion.html">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-configuracion.png"
-											alt="icono-configuracion"
-										/>
-									</a>
-								</div>
-								<div>
-									<a href="http://">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-preguntasfrecuentes.png"
-											alt="icono-preguntasfrecuentes"
-										/>
-									</a>
-								</div>
-								<div>
-									<a href="http://">
-										<img
-											class="iconos"
-											id="icono"
-											href=""
-											src="./img/icons/icono trabaja con nosotros.png"
-											alt="icono-trabajaconnosotros"
-										/>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- CENTRO  -->
-				<div class="col-md-8 col-lg-9 flex-grow-1 card">
-					<div class="container"></div>
-					<h1>Perfil</h1>
-
-					<div>
-						<img class="avatar" src="./img/friends/avatar7.png" alt="avatar" />
-					</div>
-
-					<div>
-						<h2>Datos personales:</h2>
-
-						<p>Nombre:</p>
-						<input type="text" name="nombre" id="nombre" value="Roberto" />
-						<p>Apellido:</p>
-						<input type="text" name="apellido" id="apellido" value="Cortés" />
-						<p>Ciudad:</p>
-						<input type="text" name="ciudad" id="ciudad" value="Gijón" />
-						<p>País:</p>
-						<input type="text" name="pais" id="pais" value="España" />
-						<p>Edad:</p>
-						<input type="text" name="edad" id="edad" value="34" />
-						<p>Estudios:</p>
-						<input
-							type="text"
-							name="estudios"
-							id="estudios"
-							value="Ingeniería Eléctrica"
-						/>
-						<p>Idiomas:</p>
-						<input type="text" name="idiomas" id="idiomas" value="Inglés C1" />
-						<p>Linkedin:</p>
-						<input
-							type="text"
-							name="Linkedin"
-							id="Linkedin"
-							value="https://www.linkedin.com/feed/roberto"
-						/>
-						<p>Email:</p>
-						<input
-							type="email"
-							id="email"
-							name="email"
-							value="robertoc@gmail.com"
-						/>
-						<p>Hobbies:</p>
-						<input
-							type="text"
-							id="hobbies"
-							name="hobbies"
-							value="Cine, videojuegos"
-						/>
-					</div>
-
-					<div>
-						<h2>Disponibilidad horaria:</h2>
-						<p>Lunes a viernes: 9am - 5pm</p>
-						<p>Sábados: 10am - 2pm</p>
-						<input
-							type="text"
-							id="Disponibilidad"
-							name="Disponibilidad"
-							value="Mañanas"
-						/>
+						<button id="eliminar-cuenta" class="btn btn-dark sombra mt-3">
+							Eliminar cuenta
+						</button>
+						<p class="mt-3">
+							¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a
+							>.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -315,7 +166,7 @@
 		<!-- FOOTER  -->
 		<footer class="container">
 			<div class="row">
-				<div class="col-4">
+				<div class="col-4 footer-query">
 					<div class="d-flex justify-content-center">
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
 					</div>
@@ -329,7 +180,7 @@
 						<a href="http://">copyright © Equpo3</a>
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-4 footer-query">
 					<div class="d-flex justify-content-center">
 						<h4>Links útiles</h4>
 					</div>
@@ -340,7 +191,7 @@
 						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-4 footer-query">
 					<div class="d-flex justify-content-center">
 						<a href="https://twitter.com/" target="_blank">
 							<img
@@ -374,7 +225,6 @@
 				</div>
 			</div>
 		</footer>
-
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
@@ -390,5 +240,6 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
+		<script src="./javascript/eliminarCuenta.js"></script>
 	</body>
 </html>
