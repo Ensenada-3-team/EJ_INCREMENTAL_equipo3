@@ -54,45 +54,45 @@ async function eliminarCuenta() {
 
 // RESOLUCIÓN CON FETCH
 
-// async function confirmarEliminacionCuentaFetch() {
-// 	const confirmacion = confirm(
-// 		"¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer."
-// 	);
+async function confirmarEliminacionCuentaFetch() {
+	const confirmacion = confirm(
+		"¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer."
+	);
 
-// 	if (confirmacion) {
-// 		try {
-// 			await eliminarCuentaFetch();
+	if (confirmacion) {
+		try {
+			await eliminarCuentaFetch();
 
-// 		} catch (error) {
-// 			console.error(error);
-// 		}
-// 	}
-// }
+		} catch (error) {
+			console.error(error);
+		}
+	}
+}
 
-// async function eliminarCuentaFetch() {
+async function eliminarCuentaFetch() {
 
-// 	const options = {
-// 		method: "DELETE",
-// 		headers: {
-// 		  Authorization: 
-//       "Bearer " + TOKEN_DE_AUTORIZACION,
-// 			"Content-Type": "application/json",
-// 		},
-// 	};
+	const options = {
+		method: "DELETE",
+		headers: {
+		  Authorization: 
+      		"Bearer " + TOKEN_DE_AUTORIZACION,
+			"Content-Type": "application/json",
+		},
+	};
 
   
 
-// 	const response = await fetch(URL_DEL_ENDPOINT_DE_ELIMINACION_DE_CUENTA, options);
-// 	const data = await response.json();
+	const response = await fetch(URL_DEL_ENDPOINT_DE_ELIMINACION_DE_CUENTA, options);
+	const data = await response.json();
 
-// 	if (response.ok) {
-// 		redirigirALogin();
-// 	} else {
-// 		// Mostrar mensaje de error al usuario
-// 		console.error(data.error);
-// 	}
-// }
+	if (response.ok) {
+		redirigirALogin();
+	} else {
+		// Mostrar mensaje de error al usuario
+		console.error(data.error);
+	}
+}
 
-// function redirigirALogin() {
-// 	window.location.href = "./login.html";
-// }
+function redirigirALogin() {
+	window.location.href = "./login.html";
+}

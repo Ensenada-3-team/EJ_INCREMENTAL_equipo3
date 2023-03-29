@@ -76,40 +76,38 @@
 
 				<div class="navbar-nav">
 					<div class="collapse navbar-collapse" id="navbarIcons">
+						<!-- icono comunidad amigos -->
 						<a class="nav-link" href="./friends.html">
 							<i 
 							class="bi bi-people-fill"
-							style="font-size: 1.8rem"
+							style="font-size: 1.8rem; color:black; "
 							id="icono"
-							alt="icono-comunidad"
+							alt="Comunidad de amigos"
 							>
 							</i>
 						
 						</a>
+						<!-- sustituir por boton de mensaje flotante aurea -->
 						<a class="nav-link" href="./friends.html">
-
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/mensaje-bold.png"
-								alt="mensaje"
-							/>
+							<i class="bi bi-envelope-exclamation"
+							style="font-size: 1.8rem; color:black"
+							id="icono"
+							alt="Mensajes"></i>
 						</a>
+						<!-- icono Mi perfil -->
 						<a class="nav-link" href="./perfil.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/avatar-2.png"
-								alt="Mi perfil"
-							/>
+							<i class="bi bi-person-fill"
+							style="font-size: 1.8rem; color:black""
+							id="icono"
+							alt="Mi perfil"></i>
 						</a>
+						<!-- icono Cerrar sesion -->
 						<a class="nav-link" href="./login.html">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/logout.png"
-								alt="icono-comunidad"
-							/>
+							<i class="bi bi-box-arrow-right"
+							class="bi bi-people-fill"
+							style="font-size: 1.8rem; color:black"
+							id="icono"
+							alt="Cerrar sesión"></i>
 						</a>
 					</div>
 				</div>
@@ -225,17 +223,16 @@
 						<div class="row">
 							<div class="col card post-card">
 								<h2 class=" ">Comparte algo con tu comunidad:</h2>
-								<form class="w-100">
+								<form class="w-100" id="form-publicacion" novalidate>
 									<textarea
-										id="textarea"
+										id="mensaje-publicacion"
 										class="form-control"
 										placeholder="Max 256 caracteres"
 										maxlength="256"
 										rows="2"
 									></textarea>
-
-									<div class="button d-flex flex-row-reverse">
-										<button type="button" class="btn btn-sm btn-dark sombra">
+									<div class="d-flex flex-row-reverse">
+										<button type="submit" class="btn btn-sm btn-dark sombra" id="crear-publicacion">
 											Post
 										</button>
 									</div>
@@ -257,14 +254,10 @@
 											Acabo de lanzar una nueva aplicación web que creo que les
 											gustará. Tiene muchas características interesantes y puede
 											ser útil para diferentes propósitos.
-										</p>
-										<p class="text-justify">
 											Puedes echar un vistazo a la aplicación en mi sitio web
 											<a href="https://www.misitio.com">www.misitio.com</a>. Si
 											tienes algún comentario o sugerencia, por favor házmelo
 											saber.
-										</p>
-										<p class="text-justify">
 											"La programación no se trata de lo que sabes, se trata de
 											lo que puedes aprender."
 										</p>
@@ -305,10 +298,7 @@
 											Quis quia consequuntur doloribus, distinctio, minus fugiat
 											voluptatem id incidunt vel temporibus amet consequatur
 											aspernatur quisquam omnis molestiae ab, ullam nemo. Vero.
-										</p>
-										<p>
-											"La programación no se trata de lo que sabes, se trata de
-											lo que puedes aprender."
+
 										</p>
 									</div>
 								</div>

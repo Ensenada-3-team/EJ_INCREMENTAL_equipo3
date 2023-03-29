@@ -52,10 +52,10 @@ h4 {
 	letter-spacing: 0.06rem;
 }
 
-h6 {
+/* h6 {
 	color: black;
 	font-weight: bold;
-}
+} */
 
 p {
 	font-family: "Abel", serif;
@@ -72,7 +72,7 @@ a {
 }
 
 a:hover {
-	color: white;
+	color: rgb(190, 190, 235);;
 }
 
 #sumLikes, #sumLikes2 {
@@ -82,14 +82,15 @@ a:hover {
 
 /* INPUTS  */
 input,
-#textarea {
+#textarea,
+#mensaje-publicacion {
 	margin-bottom: 0.625rem;
 	background: rgba(0, 0, 0, 0.3);
 	border: none;
 	outline: none;
 	padding: 1%;
 	font-size: 0.85rem;
-	color: #fff;
+	color: rgb(190, 190, 235);
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
@@ -107,7 +108,7 @@ input,
 	/* resize: none; */
 }
 
-#textarea::placeholder {
+#mensaje-publicacion::placeholder {
 	color: #aab2ca;
 }
 
@@ -124,9 +125,9 @@ form {
 }
 
 label {
-	color: black;
+	/* color: black; */
 	margin-top: auto;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 /* CLASES ESPECÍFICAS CREADAS */
@@ -143,7 +144,7 @@ label {
 
 .txt-bienvenida {
 	justify-content: center;
-	color: white;
+	color: rgb(190, 190, 235);
 }
 
 .bg-friends {
@@ -219,16 +220,17 @@ label {
 	border-radius: 20px;
 	transition: all 0.5s ease-in-out;
 	padding-right: 20px;
-	color: #fff;
+	color: rgb(190, 190, 235);
 }
 .input-search::placeholder {
 	color: rgba(6, 5, 5, 0.9);
+	font-family: 'Abel';
 	font-size: 18px;
 	letter-spacing: 2px;
 	font-weight: 100;
 }
 .btn-search {
-	width: 50px;
+	width: 40px;
 	height: 50px;
 	border-style: none;
 	font-size: 20px;
@@ -372,15 +374,17 @@ label {
 .iconos {
 	width: 1.6em;
 	height: 1.3em;
-	border-radius: 3px;
+	/* border-radius: 0.3rem; */
 	margin: 0.5em;
 }
 
 .iconos:hover {
 	color: #333333;
 	text-decoration: none;
-	background-color: #e6e6e6;
+	background-color: rgba(212, 212, 245, 0.909);
 	background-position: 0 -15px;
+	border-radius: 0.1rem;
+	box-shadow:  0 0 10px rgba(0,0,0,0.5); 
 	-webkit-transition: background-position 0.1s linear;
 	-moz-transition: background-position 0.1s linear;
 	-ms-transition: background-position 0.1s linear;
