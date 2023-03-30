@@ -18,6 +18,7 @@ formBuscaPostsByUsername.addEventListener('Submit', async(event) => {
 	const inputUserName = document.getElementById('username').value
 
 	console.log('aquí 1')
+	console.log(inputUserName)
 	
 	await getPostsByUsername(inputUserName)
 })
