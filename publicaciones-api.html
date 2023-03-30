@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Mi perfil</title>
+		<title>Publicaciones</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 			crossorigin="anonymous"
 		/>
-
 		<link rel="stylesheet" href="./css/style.css" />
+		<!-- <link rel="stylesheet" href="./css/responsive.css" /> -->
 	</head>
-
 	<body>
 		<!-- BARRA DE NAVEGACION -->
 		<nav class="navbar navbar-expand-lg bg-body-transparent container">
@@ -139,258 +137,51 @@
 			</div>
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
-
-		<!-- REFACTORIZADO DESDE AQUÍ -->
-		<main class="container">
-			<div class="row">
-				<!-- IZQUIERDA ya pasado a bootstrap-->
-				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
-					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
-					<div class="container">
-						<!-- izq arriba -->
-						<div class="row">
-							<div class="col card w-100">
-								<h4 class="d-lg-block d-md-none">Intereses</h4>
-
-								<div>
-									<a href="https://www.nytimes.com/" target="_blank">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-noticias.png"
-											alt="icono-noticias"
-										/>
-									</a>
-									<h6 class="d-lg-block d-md-none">Noticias</h6>
-								</div>
-
-								<div>
-									<a href="https://theuselessweb.com/" target="_blank">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-aleatorio.png"
-											alt="icono-aleatorio"
-										/>
-									</a>
-									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
-								</div>
-
-								<div>
-									<a href="https://www.reuters.com/" target="_blank">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-masnuevo.png"
-											alt="icono-masnuevo"
-										/>
-									</a>
-									<h6 class="d-lg-block d-md-none">Nuevo</h6>
-								</div>
-								<div>
-									<a href="http://" target="_blank">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-guardados.png"
-											alt="icono-guardados"
-										/>
-									</a>
-									<h6 class="d-lg-block d-md-none">Guardado</h6>
-								</div>
-							</div>
-						</div>
-
-						<!-- izq abajo  -->
-						<div class="row">
-							<div class="col card w-100">
-								<h4 class="d-lg-block d-md-none">Cuenta</h4>
-								<div>
-									<a href="./configuracion.html">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-configuracion.png"
-											alt="icono-configuracion"
-										/>
-									</a>
-								</div>
-								<div>
-									<a href="http://">
-										<img
-											class="iconos"
-											id="icono"
-											src="./img/icons/icono-preguntasfrecuentes.png"
-											alt="icono-preguntasfrecuentes"
-										/>
-									</a>
-								</div>
-								<div>
-									<a href="http://">
-										<img
-											class="iconos"
-											id="icono"
-											href=""
-											src="./img/icons/icono trabaja con nosotros.png"
-											alt="icono-trabajaconnosotros"
-										/>
-									</a>
-								</div>
-							</div>
-						</div>
+            
+		<main>
+			<div class="container">
+				<div class="row  ">
+					<div class="col-3">
+						<div class="card"></div>
+						<div class="card post-card"></div>
 					</div>
-				</div>
 
-				<!-- CENTRO  -->
-				<div class="col-md-8 col-lg-9 flex-grow-1">
-					<div class="container">
-						<!-- TU PERFIL + FOTO -->
-						<div class="row justify-content-center">
-							<div class="col card post-card">
-								<h2 id="nombre-usuario-h1">Tu perfil</h2>
-								<img
-									class="avatar-lg rounded"
-									src="./img/friends/avatar13.png"
-									alt="avatar"
-								/>
-								<div class="mt-3">
-									<input type="file" name="fotoperfil" id="fotoperfil" />
-								</div>
-								<div>
-									<h3>Biografía</h3>
-								</div>
-								<div>
-									<p>
-										Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-										Recusandae, voluptatem! Ab reiciendis laudantium culpa?
-										Nobis dolor labore, natus nisi laudantium ad amet dolorem
-										error corrupti quisquam optio, quae doloremque expedita.
-									</p>
-									<button
-										class="btn btn-sm btn-dark sombra mt-3"
-										onclick="window.open('./funciones.html', '_blank');"
-									>
-										Explora los ejercicios de mi equipo
-									</button>
-								</div>
-							</div>
-						</div>
+					<div class="col-9 ">
+                                    <!-- tarjeta con titulo y search-bar -->
+                                    <div class="card post-card">
+                                          <div>
+                                                <h4>Busca publicaciones de los Teclers</h4>
+                                          </div>
 
-						<!-- DATOS PERSONALES -->
-						<div class="row justify-content-center">
-							<div class="col-md-5 col-lg-5 card w-40">
-								<h2>Datos personales:</h2>
-
-								<ul id="datos-personales-list ">
-									<li>
-										<p>Nombre: Sandra-Dev</p>
-									</li>
-									<li>
-										<p>Apellido: Mouse</p>
-									</li>
-									<li>
-										<p>Email: sandra-dev-mouse@example.com</p>
-									</li>
-								</ul>
-								<div class="w-100">
-									<input
-										type="text"
-										name="nombre"
-										id="nombre"
-										placeholder="Cambia tu alias"
-									/>
-									<input
-										type="text"
-										name="apellido"
-										id="apellido"
-										placeholder="Cambia tu apellido"
-									/>
-									<input
-										type="email"
-										id="email"
-										name="email"
-										placeholder="Nuevo email"
-									/>
-								</div>
-								<div class="w-100">
-									<button
-										class="btn btn-sm btn-dark sombra mt-3"
-										type="submit"
-										value="Submit"
-									>
-										Subir cambios
-									</button>
-								</div>
-							</div>
-
-							<!-- DISPONIBILIDAD HORARIA -->
-							<div class="col-md-5 col-lg-6 card post-card w-30">
-								<h2>Disponibilidad horaria:</h2>
-
-								<ul id="disponibilidad-list">
-									<li>
-										<p>Lunes a viernes: 9am - 5pm</p>
-									</li>
-									<li>
-										<p>Sábados: 10am - 2pm</p>
-									</li>
-								</ul>
-
-								<div class="check-disponibilidad w-100">
-									<div class="form-check w-100">
-										<input
-											type="radio"
-											class="form-check-input"
-											id="Mananas"
-											name="Disponibilidad"
-											value="Mañanas"
-										/>
-										<label class="form-check-label" for="Mananas"
-											>Mañanas</label
-										>
-									</div>
-
-									<div class="form-check w-100">
-										<input
-											type="radio"
-											class="form-check-input"
-											id="Tardes"
-											name="Disponibilidad"
-											value="Tardes"
-										/>
-										<label class="form-check-label" for="Tardes">Tardes</label>
-									</div>
-
-									<div class="form-check w-100">
-										<input
-											type="radio"
-											class="form-check-input"
-											id="Completa"
-											name="Disponibilidad"
-											value="Completa"
-										/>
-										<label class="form-check-label" for="Completa"
-											>Completa</label
-										>
-									</div>
-								</div>
-
-								<div class="w-100">
-									<button
-										class="btn btn-sm btn-dark sombra mt-3"
-										type="submit"
-										value="Submit"
-									>
-										Subir cambios
-									</button>
-								</div>
-							</div>
-						</div>
+                                          <div class="search-box">
+                                                <button class="btn-search" onclick="getPubApi()">
+                                                      <img
+                                                            class="search-icon"
+                                                            src="./img/icons/search-icon2.png"
+                                                            alt=""
+                                                      />
+                                                </button>
+                                                <input
+                                                      type="text"
+                                                      class="input-search"
+                                                      placeholder="Type to Search..."
+                                                />
+                                          </div>
+                                    </div>
+                                    <!-- lista que se auto-rellenará con las publicaciones resultado -->
+                                    <ol>
+                                          <li>
+                                                <!-- dejar vacío -->
+                                                <div class="card w-100"></div>
+                                          </li>
+                                    </ol>
+						
 					</div>
+				
 				</div>
+		
 			</div>
 		</main>
-		<!-- REFACTORIZADO HASTA AQUÍ -->
 
 		<!-- SEPARADOR -->
 		<div class="container mt-5 mb-5 border-0"></div>
@@ -398,7 +189,7 @@
 
 		<!-- FOOTER  -->
 		<footer class="container">
-			<div class="row">
+			<div class="row w-100">
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
@@ -415,7 +206,7 @@
 				</div>
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
-						<h4>Links útiles</h4>
+						<h4>Links</h4>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://www.w3schools.com/">Información básica</a>
@@ -474,5 +265,7 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
+		<script src="./javascript/likeDislike.js"></script>
+            <script src="./javascript/getPubApi.js"></script>
 	</body>
 </html>
