@@ -26,6 +26,27 @@ body{
 	}
 }
 
+
+
+/*Hacer tarjeta responsive y que no se salga el texto*/
+
+.card {
+  width: 90%;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 576px) {
+  .card {
+    width: 80%;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    padding: 1.5rem;
+  }
+}
+
 /* @media (max-width: 375px) { */
 	/* Cambiar estilos según sea necesario */
 	/* nav.container {
