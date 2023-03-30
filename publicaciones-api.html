@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Navbar-2</title>
+		<title>Publicaciones</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -140,34 +140,46 @@
             
 		<main>
 			<div class="container">
-				<div class="row">
-					<div class="col">
+				<div class="row  ">
+					<div class="col-3">
 						<div class="card"></div>
 						<div class="card post-card"></div>
 					</div>
-					<div class="col">
-						<div class="card"></div>
-						<div class="card post-card"></div>
+
+					<div class="col-9 ">
+                                    <!-- tarjeta con titulo y search-bar -->
+                                    <div class="card post-card">
+                                          <div>
+                                                <h4>Busca publicaciones de los Teclers</h4>
+                                          </div>
+
+                                          <div class="search-box">
+                                                <button class="btn-search" onclick="getPubApi()">
+                                                      <img
+                                                            class="search-icon"
+                                                            src="./img/icons/search-icon2.png"
+                                                            alt=""
+                                                      />
+                                                </button>
+                                                <input
+                                                      type="text"
+                                                      class="input-search"
+                                                      placeholder="Type to Search..."
+                                                />
+                                          </div>
+                                    </div>
+                                    <!-- lista que se auto-rellenará con las publicaciones resultado -->
+                                    <ol>
+                                          <li>
+                                                <!-- dejar vacío -->
+                                                <div class="card w-100"></div>
+                                          </li>
+                                    </ol>
+						
 					</div>
-					<div class="col">
-						<div class="card"></div>
-						<div class="card post-card"></div>
-					</div>
+				
 				</div>
-				<div class="row">
-					<div class="col">
-						<div class="card"></div>
-						<div class="card post-card"></div>
-					</div>
-					<div class="col">
-						<div class="card"></div>
-						<div class="card post-card"></div>
-					</div>
-					<div class="col">
-						<div class="card"></div>
-						<div class="card post-card"></div>
-					</div>
-				</div>
+		
 			</div>
 		</main>
 
@@ -254,5 +266,6 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="./javascript/likeDislike.js"></script>
+            <script src="./javascript/getPubApi.js"></script>
 	</body>
 </html>
