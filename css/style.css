@@ -66,6 +66,10 @@ ul {
 	list-style: none;
 }
 
+ol {
+	list-style: none;
+}
+
 a {
 	text-decoration: none; /* Elimina el subrayado */
 	color: rgb(8, 8, 8); /* Cambia el color a negro */
