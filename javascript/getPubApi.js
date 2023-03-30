@@ -9,10 +9,15 @@ const options = {
 	}
 };
 
+fetch('https://instagram-scraper-2022.p.rapidapi.com/ig/user_id/?user=spelkit', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
 
-let getPubApi = () => {
 
-      fetch('https://instagram-scraper-2022.p.rapidapi.com/ig/user_id/?user=cr7cristianoronaldo', options)
+async function getPubApi() {
+
+      await fetch('https://instagram-scraper-2022.p.rapidapi.com/ig/user_id/?user=spelkit', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
