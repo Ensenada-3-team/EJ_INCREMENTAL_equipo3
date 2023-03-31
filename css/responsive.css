@@ -30,16 +30,20 @@ body{
 
 /*Hacer tarjeta responsive y que no se salga el texto*/
 
-.card {
-  width: 90%;
-  font-size: 1rem;
-  line-height: 1.5;
-  padding: 1rem;
-  box-sizing: border-box;
+@media only screen and (max-width:768px) {
+	.cardConf {
+		width: 90%;
+		font-size: 1rem;
+		line-height: 1.5;
+		padding: 1rem;
+		box-sizing: border-box;
+	  }	
 }
 
+
+
 @media only screen and (min-width: 576px) {
-  .card {
+  .cardConf {
     width: 80%;
     font-size: 1.25rem;
     line-height: 1.75;
