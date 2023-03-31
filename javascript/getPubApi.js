@@ -1,23 +1,59 @@
 
-//Variable que hay que pasarle a la petición a la api diciendole:
-//1 - El método de la petición http (en este caso es GET porque solicitamos datos)
-//2 - Los encabezados donde se refleja la clave de que estoy registrada y suscrita en la api (en esta concreta se necesita)
-//Nota: he metido la clave en una variable de entorno para que no sea visible para nadie en en el repositorio de gitHub
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': process.env.API_KEY,
-		'X-RapidAPI-Host': 'instagram-scraper-2022.p.rapidapi.com'
-	}
-};
+const pubList = document.getElementById('lista-publicaciones')
 
-// petición a la api que hemos encapsulado en una función asociada al evento onclic del botón de búsqueda
-async function getPubApi() {
+async function getUserPosts() {
 
-      await fetch('https://instagram-scraper-2022.p.rapidapi.com/ig/user_id/?user=cr7cristianoronaldo', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+	let userId = parseInt(prompt('Introduce el id de usuario del que quieres ver sus publicaciones'))
+	await fetch(`https://dummyjson.com/posts/user/${userId}`)
+	.then(res => res.json())
+	.then((data) => {
 
+		pubList.innerHTML = ""
+		data.posts.forEach(element => {
+			let pubContainer = document.createElement('div')
+			pubContainer.classList.add('card')
+			let pubTitle = document.createElement('p')
+			pubTitle.textContent = element.title
 
+			pubContainer.appendChild(pubTitle)
+			pubList.appendChild(pubContainer)
+		});
+	})
+	.catch((error) => {
+		console.error(error)
+		alert('El usuario que tratas de buscar no existe.😪')
+	});
 }
+
+
+
+
+
+
+
+
+
+
+
+//{
+// 	"posts": [
+// 	  {
+// 	    "id": 1,
+// 	    "title": "His mother had always taught him",
+// 	    "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+// 	    "userId": 9,
+// 	    "tags": [
+// 		  "history",
+// 		  "american",
+// 		  "crime"
+// 	    ],
+// 	    "reactions": 2
+// 	  },
+// 	  {...},
+// 	  {...}
+// 	  // 30 items
+// 	],
+// 	"total": 150,
+// 	"skip": 0,
+// 	"limit": 30
+//     }

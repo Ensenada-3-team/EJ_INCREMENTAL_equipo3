@@ -222,29 +222,34 @@
 						</div>
 
 						<div class="busca-publicaciones">
-							<form class="d-flex" role="search">
+							<!-- <form class="d-flex" role="search">
 								<label for="search">Introduce el nombre de tu amigo</label>
 								<input
+									id="search-username"
 									class="form-control me-2"
 									type="search"
 									name="search"
 									placeholder="Search"
 									aria-label="Search"
 								/>
-								<button class="btn btn-dark sombra" type="submit">
+								<button 
+									class="btn btn-dark sombra" 
+									type="submit"
+									>
 									Search
 								</button>
-							</form>
+							</form> -->
+							<button class="btn btn-dark sombra" id="btnFetch" onclick="getUserPosts()">
+								Busca las publicaciones de tus amigos  
+							</button>
 						</div>
 					</div>
 					<!-- lista que se auto-rellenará con las publicaciones resultado -->
-					<div class="container"></div>
-					<ol>
-						<li>
-							<!-- dejar vacío -->
-							<div class="card"></div>
-						</li>
-					</ol>
+					<div class="container">
+						<div id="lista-publicaciones">
+							<!-- se rellena con getPubApi.js -->
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -346,7 +351,7 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
-		<script src="./javascript/likeDislike.js"></script>
+		<!-- <script src="./javascript/likeDislike.js"></script> -->
 		<script src="./javascript/getPubApi.js"></script>
 	</body>
 </html>
