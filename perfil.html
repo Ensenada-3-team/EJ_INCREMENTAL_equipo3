@@ -18,15 +18,14 @@
 	<body>
 		<!-- BARRA DE NAVEGACION -->
 		<nav class="navbar navbar-expand-lg bg-body-transparent container">
-
 			<div class="container-fluid">
-                        <!-- CONTAINER DEL LOGO -->
+				<!-- CONTAINER DEL LOGO -->
 				<div class="container col-2">
-                              <a class="navbar-brand" href="./index.html">
-                                    <img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
-                              </a>
-                        </div>
-                        <!-- MENÚ HAMBURGUESA -->
+					<a class="navbar-brand" href="./index.html">
+						<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+					</a>
+				</div>
+				<!-- MENÚ HAMBURGUESA -->
 				<button
 					class="navbar-toggler"
 					type="button"
@@ -39,102 +38,80 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-                        <!-- DESDE AQUÍ TODO LO QUE SE ESCONDE -->
+				<!-- DESDE AQUÍ TODO LO QUE SE ESCONDE -->
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                              <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                          <h2 class="nav-welcome d-none d-sm-block">
-                                                ¡¡Bienvenido, Tecler!!
-                                          </h2>
-                                    </li>
-                              </ul>
-                              <!-- SEARCHBAR -->
-                              <form class="form-inline search-box ms-auto d-none d-sm-block">
-                                    <button class="btn-search">
-                                          <img
-                                                class="search-icon"
-                                                src="./img/icons/search-icon2.png"
-                                                alt=""
-                                          />
-                                    </button>
-                                    <input
-                                          type="text"
-                                          class="input-search"
-                                          placeholder="Type to Search..."
-                                    />
-                              </form>
-				      <!-- SEARCHBAR HASTA AQUI -->
-
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-                                    <!-- comunidad -->
+					<ul class="navbar-nav">
 						<li class="nav-item">
-                                          <a 
-                                          class="nav-link" 
-                                          aria-current="page" 
-                                          href="./friends.html">
-                                                <i 
-                                                class="bi bi-people-fill"
-                                                style="font-size: 1.8rem; "
-                                                id="icono"
-                                                alt="Comunidad de amigos"
-                                                >
-                                                </i>
-                                          
-                                          </a>
+							<h2 class="nav-welcome d-none d-sm-block">
+								¡¡Bienvenido, Tecler!!
+							</h2>
 						</li>
-                                    <!-- mensajes -->
-						<li class="nav-item">
-							<a class="nav-link " href="./friends.html">
-                                                <i class="bi bi-envelope-exclamation"
-                                                style="font-size: 1.8rem; "
-                                                id="icono"
-                                                alt="Mensajes"></i>
-                                          </a>
-						</li>
-                                    <!-- mi perfil -->
-                                    <li class="nav-item">
-							<a class="nav-link" href="./perfil.html">
-                                                <i class="bi bi-person-fill"
-                                                style="font-size: 1.8rem;"
-                                                id="icono"
-                                                alt="Mi perfil"></i>
-                                          </a>
-						</li>
-                                    <!-- cerrar sesion -->
-                                    <li class="nav-item">
-							<a class="nav-link" href="./login.html">
-                                                <i class="bi bi-box-arrow-right"
-                                                class="bi bi-people-fill"
-                                                style="font-size: 1.8rem;"
-                                                id="icono"
-                                                alt="Cerrar sesión"></i>
-                                          </a>
-						</li>
-						<!-- <li class="nav-item dropdown">
-							<a
-								class="nav-link dropdown-toggle"
-								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								Dropdown
-							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><hr class="dropdown-divider" /></li>
-								<li>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</li>
-							</ul>
-						</li> -->
-						<!-- <li class="nav-item">
-							<a class="nav-link disabled">Disabled</a>
-						</li> -->
 					</ul>
-				
+					<!-- SEARCHBAR -->
+					<form class="form-inline search-box ms-auto d-none d-sm-block">
+						<button class="btn-search">
+							<img
+								class="search-icon"
+								src="./img/icons/search-icon2.png"
+								alt=""
+							/>
+						</button>
+						<input
+							type="text"
+							class="input-search"
+							placeholder="Type to Search..."
+						/>
+					</form>
+					<!-- SEARCHBAR HASTA AQUI -->
+
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<!-- comunidad -->
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="./friends.html">
+								<i
+									class="bi bi-people-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Comunidad de amigos"
+								>
+								</i>
+							</a>
+						</li>
+						<!-- configuracion -->
+						<li class="nav-item">
+							<a class="nav-link" href="./configuracion.html">
+								<i 
+								class="bi bi-gear" 
+								style="font-size: 1.8rem"
+								id="icono"
+								alt="Configuración"></i>
+							</a>
+						</li>
+						<!-- mi perfil -->
+						<li class="nav-item">
+							<a class="nav-link" href="./perfil.html">
+								<i
+									class="bi bi-person-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Mi perfil"
+								></i>
+							</a>
+						</li>
+						<!-- cerrar sesion -->
+						<li class="nav-item">
+							<a class="nav-link" href="./login.html">
+								<i
+									class="bi bi-box-arrow-right"
+									class="bi bi-people-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Cerrar sesión"
+								></i>
+							</a>
+						</li>
+						
+					</ul>
 				</div>
 			</div>
 		</nav>
@@ -149,7 +126,7 @@
 					<div class="container">
 						<!-- izq arriba -->
 						<div class="row">
-							<div class="col card w-100">
+							<div class="col card w-100 text-center">
 								<h4 class="d-lg-block d-md-none">Intereses</h4>
 
 								<div>
@@ -226,13 +203,12 @@
 									</a>
 								</div>
 								<div>
-									<a href="http://">
+									<a href="./publicaciones-api.html">
 										<img
 											class="iconos"
 											id="icono"
-											href=""
 											src="./img/icons/icono trabaja con nosotros.png"
-											alt="icono-trabajaconnosotros"
+											alt="buscar-publicaciones"
 										/>
 									</a>
 								</div>
@@ -327,62 +303,72 @@
 							<div class="col-md-5 col-lg-6 card post-card w-30">
 								<h2>Disponibilidad horaria:</h2>
 
-								<ul id="disponibilidad-list">
+								<ul id="disponibilidad-list" class="mt-4">
 									<li>
-										<p>Lunes a viernes: 9am - 5pm</p>
+										<p>
+											<i class="bi bi-brightness-high"></i>&nbspLunes a viernes:
+											9am - 5pm
+										</p>
 									</li>
 									<li>
-										<p>Sábados: 10am - 2pm</p>
+										<p>
+											<i class="bi bi-brightness-alt-high"></i>&nbspSábados:
+											10am - 2pm
+										</p>
 									</li>
 								</ul>
 
 								<div class="check-disponibilidad w-100">
-									<div class="form-check w-100">
-										<input
-											type="radio"
-											class="form-check-input"
-											id="Mananas"
-											name="Disponibilidad"
-											value="Mañanas"
-										/>
-										<label class="form-check-label" for="Mananas"
-											>Mañanas</label
+									<div class="mt-5">
+										<div class="form-check w-100">
+											<input
+												type="radio"
+												class="form-check-input"
+												id="Mananas"
+												name="Disponibilidad"
+												value="Mañanas"
+											/>
+											<label class="form-check-label" for="Mananas"
+												>Mañanas</label
+											>
+										</div>
+
+										<div class="form-check w-100">
+											<input
+												type="radio"
+												class="form-check-input"
+												id="Tardes"
+												name="Disponibilidad"
+												value="Tardes"
+											/>
+											<label class="form-check-label" for="Tardes"
+												>Tardes</label
+											>
+										</div>
+
+										<div class="form-check w-100">
+											<input
+												type="radio"
+												class="form-check-input"
+												id="Completa"
+												name="Disponibilidad"
+												value="Completa"
+											/>
+											<label class="form-check-label" for="Completa"
+												>Completa</label
+											>
+										</div>
+									</div>
+
+									<div class="w-100">
+										<button
+											class="btn btn-sm btn-dark sombra mt-3"
+											type="submit"
+											value="Submit"
 										>
+											Subir cambios
+										</button>
 									</div>
-
-									<div class="form-check w-100">
-										<input
-											type="radio"
-											class="form-check-input"
-											id="Tardes"
-											name="Disponibilidad"
-											value="Tardes"
-										/>
-										<label class="form-check-label" for="Tardes">Tardes</label>
-									</div>
-
-									<div class="form-check w-100">
-										<input
-											type="radio"
-											class="form-check-input"
-											id="Completa"
-											name="Disponibilidad"
-											value="Completa"
-										/>
-										<label class="form-check-label" for="Completa"
-											>Completa</label
-										>
-									</div>
-								</div>
-
-								<div class="w-100">
-									<button
-										class="btn btn-sm btn-dark sombra mt-3"
-										type="submit"
-										value="Submit"
-									>
-										Subir cambios
-									</button>
 								</div>
 							</div>
 						</div>
@@ -458,6 +444,21 @@
 				</div>
 			</div>
 		</footer>
+
+		<!-- BOTON FLOTANTE -->
+		<div class="container">
+			<button
+				class="btn btn-floating position-fixed bottom-0 end-0 sombra mb-3"
+				style="
+					border-radius: 3rem;
+					background-color: rgba(190, 190, 235, 0.484);
+				"
+				onclick="window.open('./publicaciones-api.html', '_blank')"
+				type="button"
+			>
+				<i class="bi bi-send-fill" style="font-size: 2rem; color: black"></i>
+			</button>
+		</div>
 
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"

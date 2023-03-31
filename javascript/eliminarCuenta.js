@@ -1,4 +1,4 @@
-// INCREMENTAL 17
+// INCREMENTAL 17  - configuracion.html
 
 // Creamos una lista de usuarios y un usuario ficticio
 let usuariosList = [1, 2, 3, "Pepe"];
