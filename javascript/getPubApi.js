@@ -18,7 +18,7 @@ async function getUserPosts() {
 			let pubContainer = document.createElement('div')
 			pubContainer.classList.add('card')
 			//creamos un elemento 'p' y le agregamos el contenido title del elemento del array que estamos recorriendo
-			let pubTitle = document.createElement('p')
+			let pubTitle = document.createElement('h5')
 			pubTitle.textContent = element.title
 			//agregamos 'p' al 'div' y por último agregamos el 'div' ya con todo, al contenedor principal
 			pubContainer.appendChild(pubTitle)
