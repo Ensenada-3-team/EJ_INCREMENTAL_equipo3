@@ -29,20 +29,20 @@ body{
 
 
 /*Hacer tarjeta responsive y que no se salga el texto*/
-
+/* De 576 a 768 la tarjeta ocupa solo 60% de ancho */
 @media only screen and (max-width:768px) {
 	.cardConf {
-		width: 90%;
+		width: 60%;
 		font-size: 1rem;
 		line-height: 1.5;
 		padding: 1rem;
 		box-sizing: border-box;
-	  }	
+	}	
 }
 
 
-
-@media only screen and (min-width: 576px) {
+/* En pantallas de menos de 576 ocupa el 80% */
+@media only screen and (max-width: 576px) {
   .cardConf {
     width: 80%;
     font-size: 1.25rem;
