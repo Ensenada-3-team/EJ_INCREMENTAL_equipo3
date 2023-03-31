@@ -4,17 +4,23 @@ const pubList = document.getElementById('lista-publicaciones')
 async function getUserPosts() {
 
 	let userId = parseInt(prompt('Introduce el id de usuario del que quieres ver sus publicaciones'))
+
 	await fetch(`https://dummyjson.com/posts/user/${userId}`)
 	.then(res => res.json())
 	.then((data) => {
-
+		//en caso de que en el contenedor principal existieran pub antigüas:
+		//inicializamos el contenedor en una string vacía
 		pubList.innerHTML = ""
+
+		//recorremos cada elemento del array 'posts' que está dentro de data
 		data.posts.forEach(element => {
+			//creamos un elemento 'div' y le damos la clase card
 			let pubContainer = document.createElement('div')
 			pubContainer.classList.add('card')
+			//creamos un elemento 'p' y le agregamos el contenido title del elemento del array que estamos recorriendo
 			let pubTitle = document.createElement('p')
 			pubTitle.textContent = element.title
-
+			//agregamos 'p' al 'div' y por último agregamos el 'div' ya con todo, al contenedor principal
 			pubContainer.appendChild(pubTitle)
 			pubList.appendChild(pubContainer)
 		});
