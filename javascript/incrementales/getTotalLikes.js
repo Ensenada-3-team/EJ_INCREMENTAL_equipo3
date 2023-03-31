@@ -14,7 +14,7 @@ let publicacion = {
 async function getTotalLikesAwait(id) {
       alert('Conectando al servidor')
       
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       alert('Servidor conectado')
       
       if (publicacion.id === id) {

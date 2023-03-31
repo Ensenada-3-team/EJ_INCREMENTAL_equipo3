@@ -46,7 +46,7 @@ userData = () => {
                         getMonthName('Maria, fecha alta: 2021-03-11 id: 601')
                         break
 
-                  case 'salir':
+                  case 'Salir':
                         alert('Gracias por utilizar nuestra app 😊')
                         break;
 
@@ -62,7 +62,7 @@ userData = () => {
                         alert('El usuario con ese ID no existe, prueba de nuevo, o teclee "Salir" para finalizar 😊')    
             }; 
 
-      } while (valor !== 'salir' && closeApp !== 'si');
+      } while (valor !== 'Salir' && closeApp !== 'si');
 
 };
 
