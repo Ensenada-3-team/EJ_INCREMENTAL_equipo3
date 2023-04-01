@@ -1,24 +1,31 @@
 const pubList = document.getElementById("lista-publicaciones");
 const form = document.getElementById('form-busca-posts')
 
-
+//creamos un event listener de tipo submit al formulario que recoge la información
+//El submit se completa al clicar el botón, recoge los datos que entran por input y aplica la función getUserPosts
 form.addEventListener('submit', getUserPosts)
 
+//Recogemos el evento anterior y ejecutamos la función
 async function getUserPosts(event) {
 	event.preventDefault();
+
+      //capturamos el valor del input
       const input = document.querySelector('#search-username')
       const searchedUser = input.value 
 
+      //Usamos el valor del input como parámetro en el endpoint que devuelve usario por nombre
       await fetch(`https://dummyjson.com/users/search?q=${searchedUser}`)
             .then(res => res.json())
             .then(async (data) => {
 
-                  let userId = data.users[0].id
+                  //Usamos los datos que necesitamos del usuario y los guardamos en variables
+                  let userId = data.users[0].id //necesitamos el id para el siguiente fetch
                   let username = data.users[0].firstName
                   let lastName = data.users[0].lastName
                   let userImage = data.users[0].image
                   let nickName = data.users[0].maidenName
-                  //Usa userId como parámetro en el endpoint de la petición a la API
+
+                  //Usa userId como parámetro en el endpoint que nos devuelve los posts por ID
                   await fetch(`https://dummyjson.com/posts/user/${userId}`)
                   .then((res) => res.json())
                   .then((data) => {
@@ -29,6 +36,7 @@ async function getUserPosts(event) {
                         //Recorremos cada elemento del array 'posts' que está dentro de data (objeto respuesta de la api)
                         data.posts.forEach((post) => {
                               
+                              //Creamos el esqueleto de tarjeta post por cada post que nos devuelve la api
                               let html = `
                                     <li class="card border p-4">
                                     <div class="container">
@@ -49,9 +57,9 @@ async function getUserPosts(event) {
                                     </div>
                                     <div class="row">
                                     <div class="likesCounter d-flex justify-content-between w-100">
-                                          <div class="d-flex mt-3">
-                                          <div id="sumLikes2">${post.reactions}&nbsp;</div>
-                                          <i class="bi bi-heart" style="color: black;"></i>
+                                          <div class="d-flex mt-2">
+                                          <div id="sumLikes2" class="mt-2">${post.reactions}&nbsp;</div>
+                                          <button class="btn" onclick=""><i class="bi bi-heart" style="color: black;"></i></button>
                                           </div>
                                           <div>
                                           <button id="commentBtn" class="btn" onclick="">
@@ -66,22 +74,22 @@ async function getUserPosts(event) {
                                     </div>
                               </li>
                               ` 
+
+                              //Agregamos todos los nuevos <li> creados a nuestro elemento <ol> del DOM
                               pubList.innerHTML += html;
 
                         });
-                        })
-                        .catch((error) => {
-                              console.error(error);
-                              alert("Ha ocurrido un error al obtener las publicaciones del usuario.");
-                        });
+                  })
+                  .catch((error) => {
+                        console.error(error);
+                        alert("Ha ocurrido un error al obtener las publicaciones del usuario.");
+                  });
 
             })
             .catch((error) => {
                   console.error(error.message)
             })
 
-
-     
 }
 
 //{
