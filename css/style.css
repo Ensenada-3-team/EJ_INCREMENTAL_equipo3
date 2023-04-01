@@ -68,6 +68,15 @@ ul {
 
 ol {
 	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+
+}
+
+ol li {
+	margin-left: 0;
+	padding-left: 1rem;
+	/* text-indent: -1rem; */
 }
 
 a {
