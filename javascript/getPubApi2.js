@@ -8,6 +8,9 @@ async function getUserPosts() {
             .then(async (data) => {
 
                   let userId = data.users[0].id
+                  let username = data.users[0].firstName
+                  let lastName = data.users[0].lastName
+                  let userImage = data.users[0].image
                    //Usa userId como parámetro en el endpoint de la petición a la API
                   await fetch(`https://dummyjson.com/posts/user/${userId}`)
                   .then((res) => res.json())
@@ -17,18 +20,47 @@ async function getUserPosts() {
                         pubList.innerHTML = "";
 
                         //recorremos cada elemento del array 'posts' que está dentro de data
-                        data.posts.forEach((element) => {
-                              //creamos un elemento 'div' y le damos la clase card
-                              let pubContainer = document.createElement("div");
-                              pubContainer.classList.add("card");
+                        data.posts.forEach((post) => {
+                              
+                              let html = `
+                                    <li class="card border p-4">
+                                    <div class="container">
+                                    <div class="row d-flex">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                          <div>
+                                          <img class="img-fluid rounded align-self-start"
+                                          src="${userImage}" alt="${username} ${lastName}">
+                                          <h4 class="mt-3">${username} ${lastName}</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-12">
+                                          <div class="border border-dark sombra rounded p-4">
+                                          <h5>${post.title}</h5>
+                                          <p>${post.body}</p>
+                                          </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="likesCounter d-flex justify-content-between w-100">
+                                          <div class="d-flex mt-3">
+                                          <div id="sumLikes2">${post.reactions}&nbsp;</div>
+                                          <i class="bi bi-heart" style="color: black;"></i>
+                                          </div>
+                                          <div>
+                                          <button id="commentBtn" class="btn" onclick="">
+                                          <i class="bi bi-chat-left-text" style="color: black; font-size: 1.5rem"></i>
+                                          </button>
+                                          <button id="shareBtn" class="btn" onclick="">
+                                          <i class="bi bi-share" style="color: black; font-size: 1.5rem"></i>
+                                          </button>
+                                          </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                              </li>
+                              ` 
+                              document.getElementById('lista-publicaciones').innerHTML += html;
 
-                              //creamos un elemento 'p' y le agregamos el contenido title del elemento del array que estamos recorriendo
-                              let pubTitle = document.createElement("h5");
-                              pubTitle.textContent = element.title;
-
-                              //agregamos 'p' al 'div' y por último agregamos el 'div' ya con todo, al contenedor principal
-                              pubContainer.appendChild(pubTitle);
-                              pubList.appendChild(pubContainer);
                         });
                         })
                         .catch((error) => {
