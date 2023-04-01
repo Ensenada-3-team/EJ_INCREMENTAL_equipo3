@@ -1,9 +1,15 @@
 const pubList = document.getElementById("lista-publicaciones");
+const form = document.getElementById('form-busca-posts')
 
 
-async function getUserPosts() {
-	
-      await fetch('https://dummyjson.com/users/search?q=John')
+form.addEventListener('submit', getUserPosts)
+
+async function getUserPosts(event) {
+	event.preventDefault();
+      const input = document.querySelector('#search-username')
+      const searchedUser = input.value 
+
+      await fetch(`https://dummyjson.com/users/search?q=${searchedUser}`)
             .then(res => res.json())
             .then(async (data) => {
 
@@ -11,15 +17,16 @@ async function getUserPosts() {
                   let username = data.users[0].firstName
                   let lastName = data.users[0].lastName
                   let userImage = data.users[0].image
-                   //Usa userId como parámetro en el endpoint de la petición a la API
+                  let nickName = data.users[0].maidenName
+                  //Usa userId como parámetro en el endpoint de la petición a la API
                   await fetch(`https://dummyjson.com/posts/user/${userId}`)
                   .then((res) => res.json())
                   .then((data) => {
-                        //en caso de que en el contenedor principal existieran pub antigüas:
+                        //Eliminamos posts de búsquedas pasadas:
                         //inicializamos el contenedor en una string vacía
                         pubList.innerHTML = "";
 
-                        //recorremos cada elemento del array 'posts' que está dentro de data
+                        //Recorremos cada elemento del array 'posts' que está dentro de data (objeto respuesta de la api)
                         data.posts.forEach((post) => {
                               
                               let html = `
@@ -34,9 +41,9 @@ async function getUserPosts() {
                                           </div>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-12">
-                                          <div class="border border-dark sombra rounded p-4">
-                                          <h5>${post.title}</h5>
-                                          <p>${post.body}</p>
+                                          <div class="border border-dark sombra rounded p-4 bg-post">
+                                          <h5 class="fw-bold"><p>@${nickName}</p>${post.title}</h5>
+                                          <p style="color: black">${post.body}</p>
                                           </div>
                                     </div>
                                     </div>
@@ -59,7 +66,7 @@ async function getUserPosts() {
                                     </div>
                               </li>
                               ` 
-                              document.getElementById('lista-publicaciones').innerHTML += html;
+                              pubList.innerHTML += html;
 
                         });
                         })
