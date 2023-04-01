@@ -272,6 +272,7 @@
 										<div id="sumLikes">0&nbsp</div>
 										<i class="bi bi-heart-fill" style="color: black"></i>
 									</div>
+
 									<div>
 										<button id="likeBtn" class="btn btn-outline-dark">
 											<i
@@ -312,11 +313,22 @@
 								</div>
 								<div class="likesCounter d-flex justify-content-between w-100">
 									<div class="d-flex">
-										<div id="sumLikes2">0&nbsp</div>
-										<i class="bi bi-heart-fill" style="color: black"></i>
+
+										<div id="sumLikes2">0 &nbsp</div>
+										<!-- <i class="bi bi-heart-fill" style="color: black"></i> -->
+										<button class="like-btn" onclick="toggleLike(this)">
+											<i class="bi bi-heart-fill"></i>
+										</button>
+
+										<div id="sumDisLikes2">0 &nbsp</div>
+										<!-- <i class="bi bi-heart-fill" style="color: black"></i> -->
+										<button class="dislike-btn" onclick="toggleDislike(this)">
+											<i class="bi bi-hand-thumbs-down-fill"></i>
+										</button>
+
 									</div>
 
-									<div>
+									<!-- <div>
 										<button
 											id="meGustaBtn"
 											class="btn btn-outline-dark"
@@ -338,7 +350,7 @@
 											>
 											</i>
 										</button>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>
@@ -541,6 +553,7 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
-		<script src="./javascript/likeDislike.js"></script>
+		<!-- <script src="./javascript/likeDislike.js"></script> -->
+		<script src="./javascript/likeDislike2.js"></script>
 	</body>
 </html>

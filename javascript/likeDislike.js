@@ -1,6 +1,8 @@
+
+// EJ. PUBLICACIÓN 1: CREANDO EVENTO CON addEventListenerr
+
 //Elementos del DOM donde queremos que se renderice el contador actualizado
 let contadorDOM = document.getElementById('sumLikes') // CONTADOR PUBLICACION 1 con addEventListener
-let contadorDOM2 = document.getElementById('sumLikes2') //CONTADOR PUBLICACION 2 con onclick
 
 //Botones del DOM donde añadimos los eventos click (para onclick en el propio botón no hace falta)
 let likeBtn = document.getElementById('likeBtn') //BOTÓN PUBLICACION 1 LIKES
@@ -8,7 +10,6 @@ let dislikeBtn = document.getElementById('dislikeBtn')//BOTÓN PUBLICACION 1 DIS
 
 //Inicializamos en cero ambos contadores
 let contadorLikes = 0
-let contadorLikes2 = 0
 
 // EJ. PUBLICACIÓN 1: CREANDO EVENTO CON addEventListenerr
 sumLikes = () => {
@@ -24,6 +25,15 @@ removeLikes = () => {
 likeBtn.addEventListener('click', sumLikes );
 dislikeBtn.addEventListener('click', removeLikes);
 
+
+
+// EJ. PUBLICACIÓN 2: CREADO EVENTO DIRECTAMENTE EN EL BOTON CON onclick
+
+//Elementos del DOM donde queremos que se renderice el contador actualizado
+let contadorDOM2 = document.getElementById('sumLikes2') //CONTADOR PUBLICACION 2 con onclick
+
+//Inicializamos en cero ambos contadores
+let contadorLikes2 = 0
 
 // EJ. PUBLICACIÓN 2: CREADO EVENTO DIRECTAMENTE EN EL BOTON CON onclick
 //para ello creamos dos funciones nuevas que son llamadas por el onclick.
