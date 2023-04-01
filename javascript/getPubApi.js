@@ -57,9 +57,9 @@ async function getUserPosts(event) {
                                     </div>
                                     <div class="row">
                                     <div class="likesCounter d-flex justify-content-between w-100">
-                                          <div class="d-flex mt-3">
-                                          <div id="sumLikes2">${post.reactions}&nbsp;</div>
-                                          <i class="bi bi-heart" style="color: black;"></i>
+                                          <div class="d-flex mt-2">
+                                          <div id="sumLikes2" class="mt-2">${post.reactions}&nbsp;</div>
+                                          <button class="btn" onclick=""><i class="bi bi-heart" style="color: black;"></i></button>
                                           </div>
                                           <div>
                                           <button id="commentBtn" class="btn" onclick="">
