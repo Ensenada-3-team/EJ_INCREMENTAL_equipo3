@@ -52,10 +52,11 @@ h4 {
 	letter-spacing: 0.06rem;
 }
 
-/* h6 {
+h5 {
+	letter-spacing: 0.06rem;
 	color: black;
-	font-weight: bold;
-} */
+}
+
 
 p {
 	font-family: "Abel", serif;
@@ -68,6 +69,15 @@ ul {
 
 ol {
 	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+
+}
+
+ol li {
+	margin-left: 0;
+	padding-left: 1rem;
+	/* text-indent: -1rem; */
 }
 
 a {
@@ -152,17 +162,13 @@ label {
 }
 
 .bg-friends {
-	background-color:rgba(61, 64, 196, 0.932);
+	background-color:rgba(61, 63, 196, 0.637);	
 }
 
-/* NAVBAR | AÑADIDO A BOOTSTRAP */
-/* .navbar {
-	margin-bottom: 1rem;
-	border-radius: 0.5rem;
-	box-shadow: 0 6px 11px rgba(0, 0, 0, 0.1);
-	position: sticky;
-	top: 0px;
-} */
+.bg-post {
+	background-color: rgba(245, 245, 245, 0.904);
+}
+
 
 .enter {
 	display: flex;
