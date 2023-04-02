@@ -89,7 +89,7 @@ a:hover {
 	color: rgb(190, 190, 235);;
 }
 
-#sumLikes, #sumLikes2, #sumDisLikes2 {
+#sumLikes, #sumDisLikes {
 	color: #0a0303;
 	font-weight: bold;
 }
