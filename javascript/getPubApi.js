@@ -15,8 +15,8 @@ async function getUserPosts(event) {
 	event.preventDefault();
 
       //capturamos el valor del input
-      const input = document.querySelector('#search-username')
-      const searchedUser = input.value 
+      const input = document.querySelector('#search-username');
+      const searchedUser = input.value; 
 
       //Usamos el valor del input como parámetro en el endpoint que devuelve usario por nombre
       await fetch(`https://dummyjson.com/users/search?q=${searchedUser}`)
