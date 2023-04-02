@@ -89,7 +89,7 @@ a:hover {
 	color: rgb(190, 190, 235);;
 }
 
-#sumLikes, #sumLikes2 {
+#sumLikes, #sumLikes2, #sumDisLikes2 {
 	color: #0a0303;
 	font-weight: bold;
 }
@@ -401,6 +401,18 @@ label {
 	-o-transition: background-position 0.1s linear;
 	transition: background-position 0.1s linear;
 }
+
+
+/* LIKES/DISLIKES */
+
+.like-btn.liked {
+	color: #6f1107;
+}
+
+.dislike-btn.disliked {
+	color: whitesmoke;
+}
+
 
 
 
