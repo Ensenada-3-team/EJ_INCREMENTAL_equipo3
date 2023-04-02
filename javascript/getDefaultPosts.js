@@ -105,7 +105,7 @@ async function getAllPosts() {
 		const randomPosts = shuffleArray(onlyOneArrayPosts);
 
             //Agregamos por último al <OL> del dom, cada elemento del array random con .join('')
-		ol.innerHTML = randomPosts.join("");
+		ol.innerHTML = randomPosts.slice(0, 5).join("");
 
 	} catch (error) {
 		console.error(error.message);
@@ -122,6 +122,7 @@ getAllPosts();
 
 //CÓDIGO DESCARTADO POR MALAS PRÁCTICAS.
 //LAS DOS PETICIONES TRABAJABAN DE FORMA ASINCRÓNICA Y AGREGABAN ELEMENTOS AL DOM SIN ESPERAR A LA OTRA
+//POR ESO NO SE PINTABAN DE FORMA RANDOM
 
 // async function getAllPosts() {
 // 	try {
