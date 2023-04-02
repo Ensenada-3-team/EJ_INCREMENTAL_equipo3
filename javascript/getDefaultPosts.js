@@ -81,7 +81,7 @@ async function getAllPosts() {
 								user.image,
 								user.username,
 								user.lastName,
-								user.nickName,
+								user.maidenName,
 								post
 							)
 						);
