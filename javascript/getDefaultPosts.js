@@ -104,7 +104,7 @@ async function getAllPosts() {
             //Aleatorizo el array plano después de haberle aplicado el .flat() con la función shuffleArray()
 		const randomPosts = shuffleArray(onlyOneArrayPosts);
 
-            //Agregamos por último al <OL> del dom, cada elemento del array random con .join('')
+            //Agregamos por último al <OL> del dom, 5 elementos del array random con .join('')
 		ol.innerHTML = randomPosts.slice(0, 5).join("");
 
 	} catch (error) {
