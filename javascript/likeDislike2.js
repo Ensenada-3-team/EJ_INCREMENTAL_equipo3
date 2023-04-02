@@ -22,7 +22,6 @@ function toggleLike(btn) {
     likesSpan.innerHTML = likesCount;
 }
 
-
 function toggleDislike(btn) {
     // Obtener el elemento span que muestra el número de likes
     //var likesSpan = btn.nextElementSibling;

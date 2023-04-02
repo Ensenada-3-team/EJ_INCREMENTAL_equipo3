@@ -401,27 +401,12 @@ label {
 
 /* LIKES/DISLIKES */
 
-.like-btn, .dislike-btn {
-	background-color: transparent;
-	/* padding: 0; */
-	border: none;
-	cursor: pointer;
-}
-
-.like-btn:hover {
-	color: blue;
-}
-
 .like-btn.liked {
-	color: #e74c3c;
-}
-
-.dislike-btn:hover {
-	color: green;
+	color: #6f1107;
 }
 
 .dislike-btn.disliked {
-	color: blueviolet;
+	color: whitesmoke;
 }
 
 
