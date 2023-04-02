@@ -1,3 +1,8 @@
+/* 
+Siguiente implmementación: Refactorizar separando cada una de las tareas en una función, y llamarlas
+posteriormente a cada una para posteriores reutilizaciones. Ejemplo: una función exclusiva que 'pinte' los posts en el DOM.
+*/
+
 const pubList = document.getElementById("lista-publicaciones");
 const form = document.getElementById('form-busca-posts')
 
@@ -77,6 +82,9 @@ async function getUserPosts(event) {
 
                               //Agregamos todos los nuevos <li> creados a nuestro elemento <ol> del DOM
                               pubList.innerHTML += html;
+
+                              //Dejamos a cero el valor antigüo del input
+                              searchedUser.value = ''
 
                         });
                   })
