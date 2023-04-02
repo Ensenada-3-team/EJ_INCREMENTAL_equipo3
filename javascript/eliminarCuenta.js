@@ -16,7 +16,7 @@ async function eliminarCuenta() {
 	try {
 		msjElim.innerHTML = "Conectando al servidor... Eliminando Cuenta...";
 		// Esperamos 2 segundos para simular una solicitud asincrónica al servidor
-		await new Promise((resolve) => setTimeout(resolve, 2000));
+		await new Promise((resolve) => setTimeout(resolve, 3000));
 
 		// Redireccionamos al usuario a la página de inicio de sesión
 		window.location.href = "./login.html";
