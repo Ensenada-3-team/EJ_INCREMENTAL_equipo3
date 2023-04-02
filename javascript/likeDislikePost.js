@@ -1,7 +1,7 @@
 function toggleLike(btn) {
 
       // Obtener el elemento div que muestra el número de likes
-      let likesDiv = document.getElementById('sumLikes')
+      let likesDiv = document.getElementById(`sumLikes${btn.id}`)
   
       // Obtener el número actual de likes
       let likesCount = parseInt(likesDiv.innerHTML);
@@ -20,20 +20,20 @@ function toggleLike(btn) {
       likesDiv.innerHTML = likesCount;
 }
   
-function toggleDislike(btn) {
+function toggleDisLike(btn) {
 
       // Obtener el elemento div que muestra el número de likes
-      let dislikesDiv = document.getElementById('sumDisLikes')
+      let dislikesDiv = document.getElementById(`sumDisLikes${btn.id}`)
 
       // Obtener el número actual de dislikes
       let dislikesCount = parseInt(dislikesDiv.innerHTML);
 
-      // Si el botón fue clickeado y ya tiene la clase "liked", entonces restar un like
+      // Si el botón fue clickeado y ya tiene la clase "disliked", entonces restar un like
       if (btn.classList.contains("disliked")) {
             dislikesCount--;
             btn.classList.remove("disliked");
       } else {
-            // Si el botón no tenía la clase "liked", entonces sumar un like
+            // Si el botón no tenía la clase "disliked", entonces sumar un like
             dislikesCount++;
             btn.classList.add("disliked");
       }
