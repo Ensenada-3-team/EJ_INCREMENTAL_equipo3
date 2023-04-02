@@ -95,16 +95,17 @@ async function getAllPosts() {
 			);
 		});
 
-            //Después del forEach, meto en variable el resultado de esperar a todas las promesas anteriores
+        //Después del forEach, meto en variable el resultado de esperar a todas las promesas anteriores
 		const postArrays = await Promise.all(postPromises);
 
-            //Convierto postArrays en un único array de una sola dimensión  (eliminando los sub-arrays creados antes)
+        //Convierto postArrays en un único array de una sola dimensión  (eliminando los sub-arrays creados antes)
 		const onlyOneArrayPosts = postArrays.flat();
 
-            //Aleatorizo el array plano después de haberle aplicado el .flat() con la función shuffleArray()
+        //Aleatorizo el array plano después de haberle aplicado el .flat() con la función shuffleArray()
 		const randomPosts = shuffleArray(onlyOneArrayPosts);
 
-            //Agregamos por último al <OL> del dom, 5 elementos del array random con .join('')
+        //Agregamos por último al <OL> del dom, 5 elementos del array random con .join('')
+        //sustituir por skip, limit a la peticion ( futura paginación)
 		ol.innerHTML = randomPosts.slice(0, 5).join("");
 
 	} catch (error) {
