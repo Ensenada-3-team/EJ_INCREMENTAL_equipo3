@@ -27,9 +27,7 @@ body {
 			rgba(42, 60, 87, 0.4) 100%
 		),
 		linear-gradient(135deg, hwb(261 9% 50%) 0%, #092756 100%);
-	/* compatibilidad con versiones antiguas de internet explorer. Sintaxis específica de microsoft */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
-	background-size: cover;
+	
 }
 
 h1 {
@@ -80,9 +78,10 @@ ol li {
 	/* text-indent: -1rem; */
 }
 
+/* LINKS */
 a {
 	text-decoration: none; /* Elimina el subrayado */
-	color: rgb(8, 8, 8); /* Cambia el color a negro */
+	color: rgba(8, 8, 8, 0.779); 
 }
 
 a:hover {
@@ -93,7 +92,7 @@ a:hover {
 /* INPUTS  */
 input,
 #textarea,
-#mensaje-publicacion {
+#mensaje-post {
 	margin-bottom: 0.625rem;
 	background: rgba(0, 0, 0, 0.3);
 	border: none;
@@ -118,7 +117,7 @@ input,
 	/* resize: none; */
 }
 
-#mensaje-publicacion::placeholder {
+#mensaje-post::placeholder, #titulo-post::placeholder {
 	color: #aab2ca;
 }
 
@@ -376,27 +375,6 @@ label {
 }
 
 
-/* ICONOS  */
-.iconos {
-	width: 1.6em;
-	height: 1.3em;
-	/* border-radius: 0.3rem; */
-	margin: 0.5em;
-}
-
-.iconos:hover {
-	color: #333333;
-	text-decoration: none;
-	background-color: rgba(212, 212, 245, 0.909);
-	background-position: 0 -15px;
-	border-radius: 0.1rem;
-	box-shadow:  0 0 10px rgba(0,0,0,0.5); 
-	-webkit-transition: background-position 0.1s linear;
-	-moz-transition: background-position 0.1s linear;
-	-ms-transition: background-position 0.1s linear;
-	-o-transition: background-position 0.1s linear;
-	transition: background-position 0.1s linear;
-}
 
 
 /* LIKES/DISLIKES */
@@ -413,6 +391,29 @@ label {
 
 
 /* ELEMENTOS SUSTITUIDOS POR BOOTSTRAP */
+
+
+/* ICONOS  */
+/* .iconos {
+	width: 1.6em;
+	height: 1.3em;
+	margin: 0.5em;
+} */
+
+/* .iconos:hover {
+	color: #333333;
+	text-decoration: none;
+	background-color: rgba(212, 212, 245, 0.909);
+	background-position: 0 -15px;
+	border-radius: 0.1rem;
+	box-shadow:  0 0 10px rgba(0,0,0,0.5); 
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-ms-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+} */
+
 
 /* BOTON GENÉRICO  | SUSTITUIDO POR BOOTSTRAP*/
 /* .btn {

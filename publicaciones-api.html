@@ -117,7 +117,7 @@
 
 		<main class="container">
 			<div class="row">
-				<!-- IZQUIERDA ya pasado a bootstrap-->
+				<!-- IZQUIERDA-->
 				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
 					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 					<div class="container">
@@ -128,47 +128,53 @@
 
 								<div>
 									<a href="https://www.nytimes.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-newspaper"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-noticias.png"
-											alt="icono-noticias"
-										/>
+											alt="noticias"
+										></i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Noticias</h6>
 								</div>
 
 								<div>
 									<a href="https://theuselessweb.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-shuffle"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-aleatorio.png"
-											alt="icono-aleatorio"
-										/>
+											alt="aleatorio"
+										></i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
 								</div>
 
 								<div>
 									<a href="https://www.reuters.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-tag"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-masnuevo.png"
-											alt="icono-masnuevo"
-										/>
+											alt="New"
+										>
+										</i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Nuevo</h6>
 								</div>
 								<div>
-									<a href="http://" target="_blank">
-										<img
-											class="iconos"
+									<a href="./funciones.html" >
+										<i
+											class="bi bi-bookmark"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-guardados.png"
-											alt="icono-guardados"
-										/>
+											alt="guardados"
+										>
+										</i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Guardado</h6>
 								</div>
@@ -181,32 +187,35 @@
 								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
 									<a href="./configuracion.html">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-gear"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-configuracion.png"
-											alt="icono-configuracion"
-										/>
+											alt="configuración"
+										></i>
 									</a>
 								</div>
 								<div>
 									<a href="http://">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-question-circle"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-preguntasfrecuentes.png"
-											alt="icono-preguntasfrecuentes"
-										/>
+											alt="preguntas"
+										></i>
 									</a>
 								</div>
 								<div>
 									<a href="./publicaciones-api.html">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-search"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono trabaja con nosotros.png"
 											alt="buscar-publicaciones"
-										/>
+										></i>
 									</a>
 								</div>
 							</div>
@@ -222,7 +231,7 @@
                                           <div>
                                                 <h4 class="text-center">Busca publicaciones de los //Teclers</h4>
                                           </div>
-                                          <div class="busca-publicaciones w-50">
+                                          <div class="busca-publicaciones ">
                                                 <form id="form-busca-posts" role="search">
                                                       <input
                                                             id="search-username"
@@ -239,9 +248,13 @@
                                                             Search
                                                       </button>
                                                 </form>
-								<!-- https://dummyjson.com/users  en esa dire salen al menos 30 -->
-								<p>(borrar)amigos validos: Terry, Sheldon, Mavis, Alison, Oleta, Ewell, Demetrius, Eleanora... </p>
-                                                
+								<!-- https://dummyjson.com/users -->
+								<div class="row">
+									<div class="col sombra w-50 mt-3 p-2 w-sm-100 text-center"><p>Sugerencias: Terry, Sheldon, Mavis, Alison, Oleta, Ewell, Demetrius, Eleanora... </p></div>
+									<div class="col-sm-1 col-lg-7 align-self-end">
+										<button class="btn" style="font-size: 1.5rem" onclick="getRandomPosts()"><i class="bi bi-arrow-clockwise"></i></button>
+									</div>
+								</div>
                                           </div>
                                     </div>
                                     <!--  PUBLICACIONES -->
@@ -268,13 +281,26 @@
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="">Quiénes somos</a>
+						<a href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3">
+							<i
+								class="bi bi-github"
+								style="font-size: 1.5rem; transform: scale(2)"
+								;
+								id="icono"
+								alt="github"
+							></i>
+						</a>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="http://">copyright © Equpo3</a>
+						<a href="mailto:grupo3@teclers.com">
+							<i
+								class="bi bi-envelope-at-fill"
+								style="font-size: 1.5rem; transform: scale(2)"
+								;
+								id="icono"
+								alt="mail"
+							></i>
+						</a>
 					</div>
 				</div>
 				<div class="col-4">
@@ -282,41 +308,50 @@
 						<h4>Links</h4>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://www.w3schools.com/">Información básica</a>
+						<a href="https://www.w3schools.com/"
+							><strong> Información básica</strong></a
+						>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+						<a href="https://stackoverflow.com/"
+							><strong> Chatea y resuelve</strong></a
+						>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://www.youtube.com/@midudev"
+							><strong> Más recursos</strong></a
+						>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<a href="https://twitter.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-twitter"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-twitter.png"
-								alt="icono-twitter"
-							/>
+								alt="twitter"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://reddit.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-reddit"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-reddit.png"
-								alt="icono-reddit"
-							/>
+								alt="reddit"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://instagram.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-instagram"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-instagram.png"
-								alt="icono-instagram"
-							/>
+								alt="instagram"
+							></i>
 						</a>
 					</div>
 				</div>
