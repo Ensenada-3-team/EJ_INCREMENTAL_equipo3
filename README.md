@@ -110,6 +110,16 @@ Se trabajó en la usabilidad y navegabilidad para mejorar la experiencia del usu
   Hemos cambiado los iconos genéricos por una unificación de iconos de bootstrap. 
   En cuanto a los colores, hemos agregado contrastes de tarjetas para darle más vida y aspecto divertido estilo cómic a la web. 
 
+- **A raíz de la corrección en la presentación del viernes 31**:
+
+  Refactorizamos el Incremental 19, usando exclusivamente los datos de la api para obtener los datos del usuario así como los de los posts. 
+  
+  para ello se han creado dos ficheros :
+  
+    - getDefaultPosts.js : que devuelve por defecto una agregación al DOM de distintos componentes post inyectados con datos de usuario y posts de dos endpoits distintos. Para este  fichero concretamente se ha contemplado el uso de promesas para manejar la asincronía de las dos peticiones distintas. 
+  - 
+    - getPubApi.js : De uso para obtener por input el nombre de usuario ( no alias), y devolver las publicaciones exclusivas de ese usuario. 
+
 
 ### Proyección a futuro 📈
 Se espera incorporar nuevas funcionalidades a la web de manera incremental, aun siendo la consigna de mínimo producto viable para su desarrollo.
