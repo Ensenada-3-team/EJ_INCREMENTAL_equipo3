@@ -231,7 +231,7 @@
                                           <div>
                                                 <h4 class="text-center">Busca publicaciones de los //Teclers</h4>
                                           </div>
-                                          <div class="busca-publicaciones w-50">
+                                          <div class="busca-publicaciones ">
                                                 <form id="form-busca-posts" role="search">
                                                       <input
                                                             id="search-username"
@@ -248,9 +248,13 @@
                                                             Search
                                                       </button>
                                                 </form>
-								<!-- https://dummyjson.com/users  en esa dire salen al menos 30 -->
-								<p>(borrar)amigos validos: Terry, Sheldon, Mavis, Alison, Oleta, Ewell, Demetrius, Eleanora... </p>
-                                                
+								<!-- https://dummyjson.com/users -->
+								<div class="row">
+									<div class="col sombra w-50 mt-3 p-2 w-sm-100 text-center"><p>Sugerencias: Terry, Sheldon, Mavis, Alison, Oleta, Ewell, Demetrius, Eleanora... </p></div>
+									<div class="col-sm-1 col-lg-7 align-self-end">
+										<button class="btn" style="font-size: 1.5rem" onclick="getRandomPosts()"><i class="bi bi-arrow-clockwise"></i></button>
+									</div>
+								</div>
                                           </div>
                                     </div>
                                     <!--  PUBLICACIONES -->

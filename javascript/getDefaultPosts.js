@@ -56,7 +56,7 @@ function createPostHTML(userImage, username, lastName, nickName, post) {
 }
 
 //FUNCIÓN QUE RECIBE LOS DATOS DE LA API Y USA LAS ANTERIORES FUNCIONES PARA PINTAR LOS POST ALEATORIAMENTE EN EL DOM
-async function getAllPosts() {
+async function getRandomPosts() {
 	try {
 		const responseUsers = await fetch("https://dummyjson.com/users");
 		const users = await responseUsers.json();
@@ -113,7 +113,7 @@ async function getAllPosts() {
 	}
 }
 
-getAllPosts();
+getRandomPosts();
 
 
 
