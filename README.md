@@ -1,83 +1,131 @@
-# SEMANA 1
+# EJERCICIO INCREMENTAL EQUIPO 3
+Este es el repositorio del equipo 3 del Bootcamp full-stack Ensenada | Tecla
 
-## HIKING STICK 2____________________________________________
+👥 Componentes: 
+  - Sandra Suárez 
+  - Áurea Pérez 
+  - Jose Antonio Melian  
+  - Silvia Pescador 
+  
+Aquí se encuentra el código fuente del proyecto, así como información relevante sobre su desarrollo.
 
-Ejercicio incremental 1 
+## Stack tecnológico
 
-Mi primer sitio web:
+- HTML5
+- CSS3
+- BOOTSTRAP 5.3.0
+- FONTAWESOME
+- JAVASCRIPT ES6
+- VISUAL STUDIO CODE
+- GIT | GITHUB 
 
-Crear la página principal de ingreso de la red social. (LOGIN)
+## Enlaces de recursos empleados
+💻 Repositorio Github: [https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3]
 
-Usa alguna que te guste de ejemplo.
+📇 TRELLO: [https://trello.com/invite/b/gDDTA1zH/ATTIdf9e182cb087c7dfdb97d1ce8b2f692391618FB6/equipo-3]
 
-Aclaración de clase: página de login.
+📲 SLACK: Canal de Slack creado específicamente para el bootcamp.
 
+- API: [https://dummyjson.com]
+- BOOTSTRAP DOC: [https://getbootstrap.com/docs/5.2/getting-started/introduction/]
 
-## HIKING STICK 3____________________________________________
+- GOOGLE MEET
 
-Comenzando con la red social:
+## Consideraciones generales 👁‍🗨
 
-Crear la página para agregar los datos de los usuarios de nuestra red social (PERFIL)
-Una vez armada la estructura, debes incluir: 
-
-+  La foto.
-+  Datos personales
-+  Disponibilidad horaria para trabajar
-
-Aclaración de clase: página de perfil ( sin funcionalidad por ahora, solo estructura)
-
-## HIKING STICK 4____________________________________________
-
-Ejercicio Incremental 4 
-
-Mi primer formulario:
-Desarrollar un formulario para la creación del usuario de la red social (REGISTRO).
-
-
-## HIKING STICK 5____________________________________________
-
-Ejercicio Incremental 5 
-
-Crear la página principal de la red social. Debe contener un menú en la parte superior. (INDEX / MAIN)
-Modificar la página de perfil y el formulario cambiando los elementos de la página principal utilizando pseudo-elementos y Pseudo-clases.
-
-NOTA: Utiliza este modelo como guía o referencia para resolver el ejercicio. 
-
-
-# SEMANA 2
-
-## HIKING STICK 6____________________________________________ 
-
-Ejercicio incremental 6:
-
-Mejorando el diseño de la red social. 2da parte: 
-
-1. Agregar un botón para enviar mensajes debajo a la derecha, usando el  posicionamiento correspondiente para que siempre quede en el mismo lugar. 
-
-NOTA: Esto debe estar en todas las pantallas de la aplicación.
-
-2. Hacer lo mismo con la barra de menú superior. -Siempre tiene que estar arriba-
+-Directorio raíz:
+  - vistas .html 
+  - fichero .gitignore
+  - fichero README.md
+- 
+- Se ha creado una carpeta específica para:
+  - los ficheros .js
+  - los ficheros .png
+  - los ficheros .css
+  - componentes: fragmentos de código que posteriormente serán reusables con empleo de módulos.
 
 
-## HIKING STICK 7____________________________________________ 
 
-Ejercicio incremental 7:
-Mejorando el diseño de la red social 3ra parte: 
+## Uso de Git/GitHub 🌱
+En este proyecto se hizo uso de: 
 
-1. Crear una página para agregar amigos nuevos con flexbox o grids.
+◻ Git y GitHub para el control de versiones y el trabajo colaborativo. Se trabajó en un repositorio privado, pero posteriormente se trasladó a una organización en GitHub.
 
-NOTA: Utiliza este modelo como guía o referencia para resolver el ejercicio. 
+◻ Coordinación del equipo se llevó a cabo en diferentes ramas, siguiendo la metodología de Git Flow. Se establecieron normas para la rama main, que requieren un pull request y al menos una revisión antes de mergear cualquier rama.
 
-## HIKING STICK 8____________________________________________
+◻ Acceso directo para manipular directamente el contenido de main: Solo el componente más experimentado, siendo así que el resto de compañeros se descargaban en local los cambios. 
 
- ( aún no han puesto ejercicio. Las materias son Bootstrap y Git)
+◻ Revisión y aprobación de la pull-request de otro compañero: al menos 3 componentes lo han realizado.
 
-## HIKING STICK 9____________________________________________ 
+◻ Manejo de Git y GitHub: 
+  - cliente GitHub Desktop como interfaz más amigable para el primer contacto de algunos componentes con Github 
+  - la consola Git Bash  
+  - Visual Studio Code 
 
- ( aún no han puesto ejercicio. Las materias son Bootstrap y Git)
+◻ También se abordó la resolución de conflictos.
 
-## HIKING STICK 10___________________________________________
+Hemos incorporado un fichero .gitignore con contenido a evitar en el repositorio público.
 
- DÍA DE LA PRESENTACIÓN GRUPAL 
 
-prueba
+# METODOLOGÍA 
+## Ejercicios incrementales 📋
+Los ejercicios incrementales se resolvieron e integraron de manera inicial, y posteriormente se realizaron refactorizaciones para mejorar el código y su integración en la web.
+
+
+## Navegación por la web 🚢
+
+La web cuenta con diferentes vistas:
+- Las que atendienden a las consignas de los ejercicios incrementales.
+  - index.html
+  - login.html
+  - registro.html
+  - friends.html
+  - roberto-friend.html 
+  - perfil.html
+  - publicaciones-api.html | Ejercicio incremental 19
+
+- Vistas extra, que surgieron como solución a integrar algunos ejercicios incrementales que no tenían por el momento utilidad directa en la web.
+  - configuracion.html --> En este apartado desarrollamos el ejercicio incremental 17 (simular eliminación de cuenta)
+  - funciones.html --> Aquí integramos los ejercicios incrementales y extras 11, 12, 13, 14, y 18 , resultado del ejercicio incremental 15, que pedía a cada componente mergear una rama con cada ejercicio con main. (Integramos un botón en perfil.html que lleva a este apartado.)
+  
+
+Se trabajó en la usabilidad y navegabilidad para mejorar la experiencia del usuario.
+
+## MEJORAS IMPLEMENTADAS Y SUGERIDAS DESDE LA ENTREGA I:
+
+- **Responsividad general de la web:**  
+  Aunque queda refactorización de algunos apartados se ha invertido en adaptar diseño y código a los distintos tamaños de pantalla. Para eso hemos hecho uso de Bootstrap , media Querys, y clases de CSS personalizadas (tratando de usar la menor cantidad posible). 
+
+- **Mayor resaltamiento del color de fuente:** 
+  
+  Hemos cambiado el color a uno más claro, de forma que sea más amigable el diseño y la experiencia de usuario.
+
+- **Navbar:**
+  
+  Hemos optado por dejar la navbar (provisionalmente) anclada al fondo, para generar coherencia con el footer, y darle mayor protagonismo a las tarjetas del contenido principal.
+
+- **Diseño:** 
+  
+  Hemos cambiado los iconos genéricos por una unificación de iconos de bootstrap. 
+  En cuanto a los colores, hemos agregado contrastes de tarjetas para darle más vida y aspecto divertido estilo cómic a la web. 
+
+
+### Proyección a futuro 📈
+Se espera incorporar nuevas funcionalidades a la web de manera incremental, aun siendo la consigna de mínimo producto viable para su desarrollo.
+
+Entre otras:
+
+- Reorganizar las funciones javascript  y componentes diferenciados para hacer el código más limpio, adecuarse a mejores prácticas y poder facilitar el re-uso.
+- Utilización de módulos importados y exportados para evitar duplicados.
+- Agregar funcionalidad al login y al registro de forma que al intruducir los datos de usuario registrado la experiencia de navegación sea personalizada (registro a través de plataformas como Google)
+- Posibilidad de compartir posts.
+- Uso del localStorage para guardar información útil de uso de experiencia de usuario.
+- Eliminar el contenido y diseño estático del apartado de friends.html y otras vistas por uno dinámico con consumo de api. 
+- Implmentar nuestra propia base de datos.
+- Permitir subida de contenido multimedia al post.
+- Diseñar una mejor imagen de marca y logo.
+- Navegabilidad por la web más realista y a nuevos apartados internos.
+
+
+
+## ⚫ ¡MUCHAS GRACIAS POR LEER! ⚫
