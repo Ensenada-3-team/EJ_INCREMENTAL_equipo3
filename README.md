@@ -95,7 +95,9 @@ Se trabajó en la usabilidad y navegabilidad para mejorar la experiencia del usu
 ## MEJORAS IMPLEMENTADAS Y SUGERIDAS DESDE LA ENTREGA I:
 
 - **Responsividad general de la web:**  
-  Aunque queda refactorización de algunos apartados se ha invertido en adaptar diseño y código a los distintos tamaños de pantalla. Para eso hemos hecho uso de Bootstrap , media Querys, y clases de CSS personalizadas (tratando de usar la menor cantidad posible). 
+  Aunque queda refactorización de algunos apartados se ha invertido en adaptar diseño y código a los distintos tamaños de pantalla. Para eso hemos hecho uso de Bootstrap , mediaQuerys, y clases de CSS personalizadas (tratando de usar la menor cantidad posible). 
+
+  Se han empleado dos ficheros diferenciados, style.css, y responsive.css para mediaQuerys.
 
 - **Mayor resaltamiento del color de fuente:** 
   
