@@ -128,7 +128,8 @@ a:hover {
 /* INPUTS  */
 input,
 #textarea,
-#mensaje-post {
+#mensaje-post,
+#search-username {
 	margin-bottom: 0.625rem;
 	background: rgba(0, 0, 0, 0.3);
 	border: none;
@@ -154,7 +155,8 @@ input,
 }
 
 #mensaje-post::placeholder,
-#titulo-post::placeholder {
+#titulo-post::placeholder,
+#search-username::placeholder {
 	color: #aab2ca;
 }
 
