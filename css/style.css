@@ -78,9 +78,10 @@ ol li {
 	/* text-indent: -1rem; */
 }
 
+/* LINKS */
 a {
 	text-decoration: none; /* Elimina el subrayado */
-	color: rgb(8, 8, 8); /* Cambia el color a negro */
+	color: rgba(8, 8, 8, 0.779); 
 }
 
 a:hover {
@@ -91,7 +92,7 @@ a:hover {
 /* INPUTS  */
 input,
 #textarea,
-#mensaje-publicacion {
+#mensaje-post {
 	margin-bottom: 0.625rem;
 	background: rgba(0, 0, 0, 0.3);
 	border: none;
@@ -116,7 +117,7 @@ input,
 	/* resize: none; */
 }
 
-#mensaje-publicacion::placeholder {
+#mensaje-post::placeholder, #titulo-post::placeholder {
 	color: #aab2ca;
 }
 
