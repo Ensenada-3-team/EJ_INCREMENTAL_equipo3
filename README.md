@@ -45,7 +45,8 @@ Aquí se encuentra el código fuente del proyecto, así como información releva
   - los ficheros .css
   - componentes: fragmentos de código que posteriormente serán reusables con empleo de módulos.
 
-❗ Para ingresar al index, basta con pulsar en el Logo de Tecla desde cualquier parte de la web.( en la navbar ).
+✅ Se puede visitar cualquier apartado de la web una vez se ingresa al LiveServer, navegando con los links.
+❗ Para regresar al index, basta con clicar en el Logo de Tecla desde cualquier parte de la web.( en la navbar ).
 
 ## Uso de Git/GitHub 🌱
 En este proyecto se hizo uso de: 
@@ -118,9 +119,9 @@ Se trabajó en la usabilidad y navegabilidad para mejorar la experiencia del usu
   
   para ello se han creado dos ficheros :
   
-    - getDefaultPosts.js : que devuelve por defecto una agregación al DOM de distintos componentes post inyectados con datos de usuario y posts de dos endpoits distintos. Para este  fichero concretamente se ha contemplado el uso de promesas para manejar la asincronía de las dos peticiones distintas. 
+    - getDefaultPosts.js : que devuelve por defecto una agregación al DOM de cinco posts (random) inyectados con datos de usuario y posts de dos endpoits distintos. Para este  fichero concretamente se ha contemplado el uso de promesas para manejar la asincronía de las dos peticiones distintas. Siguiente implmementación : Agregar paginación
   - 
-    - getPubApi.js : De uso para obtener por input el nombre de usuario ( no alias), y devolver las publicaciones exclusivas de ese usuario. 
+    - getPubApi.js : De uso para obtener por input el nombre de usuario (no alias), y devolver las publicaciones exclusivas de ese usuario. 
 
 
 ### Proyección a futuro 📈
@@ -129,6 +130,7 @@ Se espera incorporar nuevas funcionalidades a la web de manera incremental, aun 
 Entre otras:
 
 - Reorganizar las funciones javascript  y componentes diferenciados para hacer el código más limpio, adecuarse a mejores prácticas y poder facilitar el re-uso.
+- Agregar paginación o scroll infinito.
 - Utilización de módulos importados y exportados para evitar duplicados.
 - Agregar funcionalidad al login y al registro de forma que al intruducir los datos de usuario registrado la experiencia de navegación sea personalizada (registro a través de plataformas como Google)
 - Posibilidad de compartir posts.
