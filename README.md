@@ -45,7 +45,7 @@ Aquí se encuentra el código fuente del proyecto, así como información releva
   - los ficheros .css
   - componentes: fragmentos de código que posteriormente serán reusables con empleo de módulos.
 
-
+❗ Para ingresar al index, basta con pulsar en el Logo de Tecla desde cualquier parte de la web.( en la navbar ).
 
 ## Uso de Git/GitHub 🌱
 En este proyecto se hizo uso de: 
