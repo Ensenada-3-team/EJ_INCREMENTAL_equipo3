@@ -1,6 +1,8 @@
 # EJERCICIO INCREMENTAL EQUIPO 3
 Este es el repositorio del equipo 3 del Bootcamp full-stack Ensenada | Tecla
 
+👩🏻‍🚀¡¡Bienvenidos!!
+
 👥 Componentes: 
   - Sandra Suárez 
   - Áurea Pérez 
@@ -9,7 +11,7 @@ Este es el repositorio del equipo 3 del Bootcamp full-stack Ensenada | Tecla
   
 Aquí se encuentra el código fuente del proyecto, así como información relevante sobre su desarrollo.
 
-## Stack tecnológico
+## Stack tecnológico 👩🏻‍💻
 
 - HTML5
 - CSS3
@@ -28,7 +30,6 @@ Aquí se encuentra el código fuente del proyecto, así como información releva
 
 - API: [https://dummyjson.com]
 - BOOTSTRAP DOC: [https://getbootstrap.com/docs/5.2/getting-started/introduction/]
-
 - GOOGLE MEET
 
 ## Consideraciones generales 👁‍🗨
