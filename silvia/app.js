@@ -294,6 +294,3 @@ async function eliminarCuenta() {
 }
     
     
-    
-    
-    
