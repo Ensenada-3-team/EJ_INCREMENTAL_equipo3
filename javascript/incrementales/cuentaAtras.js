@@ -25,3 +25,34 @@ cuentaAtras = () => {
     };
 
 // cuentaAtras()
+
+
+//resolución silvia 
+
+cuentaAtrasSil = () => {
+    let select
+
+    do {
+          select = prompt("Ingrese '1' si quiere los números impares, '2' si quiere los números pares o 'Salir' para finalizar")
+          
+          if (select === '1' && select !== 'Salir'){
+                for (let i = 19; i >= 0; i-=2 ) {
+                      console.log(i)
+                }
+                alert('Cuenta atrás de números impares⬆ inspecciona la consola 🔍')
+
+          } else if (select === '2'  && select !== 'Salir') {
+                for (let i = 20; i >= 0; i-=2) {
+                      console.log(i)    
+                }
+                alert('Cuenta atrás de números pares⬆ inspecciona la consola 🔍')
+
+          } else if (select !== '1' && select !== '2' && select !== "Salir") {
+                alert('El número introducido no es válido, vuelve a probar')
+
+          } else {
+                alert('Gracias por utilizar nuestra app 😁')
+          }
+
+    } while (select !== 'Salir')
+};

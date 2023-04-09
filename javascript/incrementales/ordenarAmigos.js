@@ -17,5 +17,5 @@ sortFriends = () => {
     console.table(friendsSortedAlphabetically)
 };
 
-//sortFriends()
+
 
