@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous"
+		/>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				background-color: #000;
+			}
+
+                  a {
+                        color: black;
+                  }
+
+                  a:hover {
+                        color: rgba(0, 0, 0, 0.582);
+                  }
+
+			.card {
+				width: 350px;
+				background-color: #efefef;
+				border: none;
+				cursor: pointer;
+				transition: all 0.5s;
+			}
+
+			.image img {
+				transition: all 0.5s;
+			}
+
+			.card:hover .image img {
+				transform: scale(1.5);
+			}
+
+			.btn {
+				height: 140px;
+				width: 140px;
+				border-radius: 50%;
+			}
+
+			.name {
+				font-size: 22px;
+				font-weight: bold;
+			}
+
+			.idd {
+				font-size: 14px;
+				font-weight: 600;
+			}
+
+			.idd1 {
+				font-size: 12px;
+			}
+
+			.number {
+				font-size: 22px;
+				font-weight: bold;
+			}
+
+			.follow {
+				font-size: 12px;
+				font-weight: 500;
+				color: #444444;
+			}
+
+			.btn1 {
+				height: 40px;
+				width: 150px;
+				border: none;
+				background-color: #000;
+				color: #aeaeae;
+				font-size: 15px;
+			}
+
+			.text span {
+				font-size: 13px;
+				color: #545454;
+				font-weight: 500;
+			}
+
+			.icons i {
+				font-size: 19px;
+			}
+
+			hr .new1 {
+				border: 1px solid;
+			}
+
+			.join {
+				font-size: 14px;
+				color: #a0a0a0;
+				font-weight: bold;
+			}
+
+			.date {
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+			<div class="card p-4">
+				<div
+					class="image d-flex flex-column justify-content-center align-items-center"
+				>
+					<button class="btn btn-secondary">
+						<img
+							src="../img/icons/avatar.png"
+							height="100"
+							width="100"
+						/>
+					</button>
+					<span class="name mt-3">Silvia Pescador</span>
+					<span class="idd">@spelkit</span>
+					<div
+						class="d-flex flex-row justify-content-center align-items-center gap-2"
+					>
+						<span class="idd1">Oxc4c16a645_b21a</span>
+						<span>
+							<i class="bi bi-clipboard"></i>
+						</span>
+					</div>
+					<div
+						class="d-flex flex-row justify-content-center align-items-center mt-3"
+					>
+						<span class="number"
+							>1069
+							<span class="follow">Followers</span>
+						</span>
+					</div>
+					<div class="d-flex mt-2">
+						<button class="btn1 btn-dark">Edit Profile</button>
+					</div>
+					<div class="text mt-3">
+						<span
+							>Hi! I´m a developer student, and I´m currently working on a social media web page.<br /><br />
+							Full Stack Junior all day and singer at night.
+						</span>
+					</div>
+					<div
+						class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"
+					>
+						<span>
+                                          <a href="https://twitter.com/sidreral" target="_blank"><i class="bi bi-twitter"></i></a>	
+						</span>
+						
+						<span>
+                                          <a href="https://www.instagram.com/_spelkit" target="_blank"><i class="bi bi-instagram"></i></a>
+							
+						</span>
+						<span>
+                                          <a href="https://www.linkedin.com/in/silviapescadorlopez/" target="_blank"><i class="bi bi-linkedin"></i></a>
+							
+						</span>
+                                    <span>
+                                          <a href="https://github.com/SilviaPescador" target="_blank"><i class="bi bi-github"></i></a>
+							
+						</span>
+                                    
+					</div>
+					<div class="px-2 rounded mt-4 date">
+						<span class="join">Joined October,2020</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+            <script>
+                  let user = {
+                        age: "",
+                        name: "",
+                        secondName: "",
+                        email: "",
+                        location: "",
+                  };
+                  
+                  const updateUser = () => {
+                        // Solicitar los atributos del usuario por teclado y asignarlos al objeto
+                        user.age = prompt("Introduce tu edad:");
+                        user.name = prompt("Introduce tu nombre:");
+                        user.secondName = prompt("Introduce tu apellido:");
+                        user.email = prompt("Introduce tu email ✉:");
+                        user.location = prompt("Introduzca su ubicación:");
+                  
+                        //Mostrar los atributos del usuario en el perfil
+                        document.getElementById("age").innerHTML = user.age;
+                        document.getElementById("name").innerHTML = user.name;
+                        document.getElementById("secondName").innerHTML = user.secondName;
+                        document.getElementById("email").innerHTML = user.email;
+                        document.getElementById("location").innerHTML = user.location;
+                  };
+                  
+            </script>
+	</body>
+</html>

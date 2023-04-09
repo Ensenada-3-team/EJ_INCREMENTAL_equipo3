@@ -230,82 +230,86 @@
 					<div class="container">
 						<!-- TU PERFIL + FOTO -->
 						<div class="row justify-content-center">
-							<div class="col card post-card">
-								<h2 id="nombre-usuario-h1">Tu perfil</h2>
-								<img
-									class="avatar-lg rounded"
-									src="../img/friends/avatar13.png"
-									alt="avatar"
-								/>
-								<div class="mt-3">
-									<input type="file" name="fotoperfil" id="fotoperfil" />
-								</div>
-								<div>
-									<h3>Biografía</h3>
-								</div>
-								<div>
-									<p>
-										Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-										Recusandae, voluptatem! Ab reiciendis laudantium culpa?
-										Nobis dolor labore, natus nisi laudantium ad amet dolorem
-										error corrupti quisquam optio, quae doloremque expedita.
-									</p>
-									<button
-										class="btn btn-sm btn-dark sombra mt-3"
-										onclick="window.open('./funciones.html', '_blank');"
-									>
-										Explora los ejercicios de mi equipo
-									</button>
-								</div>
-							</div>
+                                   
+                                          <section class="col card post-card">
+                                                      <!-- nombre usuario -->
+                                                <h2 id="nombre-usuario-h1">Tu perfil </h2>
+                                                <!-- avatar -->
+                                                <a href="#">
+                                                      <i class="bi bi-camera"></i>
+                                                      <img class="avatar-lg rounded" src="../img/friends/avatar13.png" alt="avatar" />
+                                                </a>
+                                                <!-- biografia -->
+                                                <div>
+                                                      <h3>Biografía</h3>
+                                                </div>
+                                                <!-- texto + boton explorar -->
+                                                <div>
+                                                      <p>
+                                                            Hola! Soy una bootcamper reinventándome!!
+                                                      </p>
+                                                      <button
+                                                            class="btn btn-sm btn-dark sombra mt-3"
+                                                            onclick="window.open('./funciones.html', '_blank');"
+                                                      >
+                                                            Explora los ejercicios de mi equipo
+                                                      </button>
+                                                </div>
+
+                                          </section>
+                                          <section class="col card" >
+                                                <h2>Datos personales:</h2>
+                                                <button class="btn" onclick="updateUser()"><i class="bi bi-arrow-clockwise"></i></button>
+                                                <div class="container d-flex justify-content-between" >
+                                                      <!-- Lista datos de usuario  -->
+                                                      <ul id="datos-personales-list" >
+                                                            <li class="">
+                                                                  <p>Edad</p>
+                                                            </li>
+                                                            <li class="">
+                                                                  <p><i class="bi bi-person-circle"></i></p>
+                                                            </li>
+                                                            <li class="">
+                                                                  <p><i class="bi bi-person"></i></p>
+      
+                                                            </li>
+                                                            <li>
+                                                                  <p><i class="bi bi-envelope-at"></i></p>
+                                                            </li>
+                                                            <li>
+                                                                  <p><i class="bi bi-geo-alt"></i></p>
+                                                            </li>
+                                                      </ul>
+                                                      <!-- lista valores de datos de usuario -->
+                                                      <ul id="datos-personales-list-values">
+                                                            <li class="">
+                                                                  <p id="age"></p>
+                                                            </li>
+                                                            <li class="">
+                                                                  <p id="name"></p>
+                                                            </li>
+                                                            <li class="">
+                                                                  <p id="secondName"></p>
+      
+                                                            </li>
+                                                            <li>
+                                                                  <p id="email"></p>
+                                                            </li>
+                                                            <li>
+                                                                  <p id="location"></p>
+                                                            </li>
+                                                      </ul>
+                                                </div>
+
+
+
+                                          </section>
+                                                
 						</div>
 
 						<!-- DATOS PERSONALES -->
 						<div class="row justify-content-center">
-							<div class="col-md-5 col-lg-5 card w-40">
-								<h2>Datos personales:</h2>
-
-								<ul id="datos-personales-list ">
-									<li>
-										<p>Nombre: Sandra-Dev</p>
-									</li>
-									<li>
-										<p>Apellido: Mouse</p>
-									</li>
-									<li>
-										<p>Email: sandra-dev-mouse@example.com</p>
-									</li>
-								</ul>
-								<div class="w-100">
-									<input
-										type="text"
-										name="nombre"
-										id="nombre"
-										placeholder="Cambia tu alias"
-									/>
-									<input
-										type="text"
-										name="apellido"
-										id="apellido"
-										placeholder="Cambia tu apellido"
-									/>
-									<input
-										type="email"
-										id="email"
-										name="email"
-										placeholder="Nuevo email"
-									/>
-								</div>
-								<div class="w-100">
-									<button
-										class="btn btn-sm btn-dark sombra mt-3"
-										type="submit"
-										value="Submit"
-									>
-										Subir cambios
-									</button>
-								</div>
-							</div>
+                                         
 
 							<!-- DISPONIBILIDAD HORARIA -->
 							<div class="col-md-5 col-lg-6 card post-card w-30">
@@ -505,5 +509,6 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
+            <script src="./incrementalExtra21.js"></script>
 	</body>
 </html>
