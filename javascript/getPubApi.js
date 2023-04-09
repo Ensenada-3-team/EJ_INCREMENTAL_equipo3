@@ -107,6 +107,8 @@ async function getUserPosts(event) {
 
 }
 
+//EJEMPLOS DE DEVOLUCIÓN DE LA API:
+
 //{
 // 	"posts": [
 // 	  {
