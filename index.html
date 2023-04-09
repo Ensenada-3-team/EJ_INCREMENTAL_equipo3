@@ -103,7 +103,6 @@
 							<a class="nav-link" href="./login.html">
 								<i
 									class="bi bi-box-arrow-right"
-									class="bi bi-people-fill"
 									style="font-size: 1.8rem"
 									id="icono"
 									alt="Cerrar sesión"
@@ -119,7 +118,7 @@
 		<main class="container">
 			<!-- 1 fila, 3 columnas, las 2 primeras con grid -->
 			<div class="row">
-				<!-- IZQUIERDA ya pasado a bootstrap-->
+				<!-- IZQUIERDA-->
 				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
 					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 					<div class="container">
@@ -130,47 +129,53 @@
 
 								<div>
 									<a href="https://www.nytimes.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-newspaper"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-noticias.png"
-											alt="icono-noticias"
-										/>
+											alt="noticias"
+										></i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Noticias</h6>
 								</div>
 
 								<div>
 									<a href="https://theuselessweb.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-shuffle"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-aleatorio.png"
-											alt="icono-aleatorio"
-										/>
+											alt="aleatorio"
+										></i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
 								</div>
 
 								<div>
 									<a href="https://www.reuters.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-tag"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-masnuevo.png"
-											alt="icono-masnuevo"
-										/>
+											alt="New"
+										>
+										</i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Nuevo</h6>
 								</div>
 								<div>
-									<a href="http://" target="_blank">
-										<img
-											class="iconos"
+									<a href="./funciones.html" >
+										<i
+											class="bi bi-bookmark"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-guardados.png"
-											alt="icono-guardados"
-										/>
+											alt="guardados"
+										>
+										</i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Guardado</h6>
 								</div>
@@ -183,32 +188,35 @@
 								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
 									<a href="./configuracion.html">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-gear"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-configuracion.png"
-											alt="icono-configuracion"
-										/>
+											alt="configuración"
+										></i>
 									</a>
 								</div>
 								<div>
 									<a href="http://">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-question-circle"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-preguntasfrecuentes.png"
-											alt="icono-preguntasfrecuentes"
-										/>
+											alt="preguntas"
+										></i>
 									</a>
 								</div>
 								<div>
 									<a href="./publicaciones-api.html">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-search"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono trabaja con nosotros.png"
 											alt="buscar-publicaciones"
-										/>
+										></i>
 									</a>
 								</div>
 							</div>
@@ -223,11 +231,15 @@
 						<div class="row">
 							<div class="col card post-card">
 								<h2 class=" ">Comparte algo con tu comunidad:</h2>
-								<form class="w-100" id="form-publicacion" novalidate>
+								<form id="form-publicacion" class="w-100"  novalidate>
+									<input 
+										id="titulo-post"
+										type="text"
+										placeholder="Título de tu post">
 									<textarea
-										id="mensaje-publicacion"
+										id="mensaje-post"
 										class="form-control"
-										placeholder="Max 256 caracteres"
+										placeholder="Cuéntanos algo interesante! (Pero en menos de 256 caracteres ;)"
 										maxlength="256"
 										rows="2"
 									></textarea>
@@ -243,105 +255,13 @@
 								</form>
 							</div>
 						</div>
-						<!-- PUBLICACIÓN 1 -->
-						<div class="row">
-							<div class="col card">
-								<div class="media">
-									<img
-										src="./img/friends/avatar10.png"
-										class="avatar rounded-circle mr-3 d-flex flex-row-reverse"
-										alt="Foto del autor"
-									/>
-									<div class="media-body w-100">
-										<h2>¡Hola a todos!</h2>
-										<p class="text-justify">
-											Acabo de lanzar una nueva aplicación web que creo que les
-											gustará. Tiene muchas características interesantes y puede
-											ser útil para diferentes propósitos. Puedes echar un
-											vistazo a la aplicación en mi sitio web
-											<a href="https://www.misitio.com">www.misitio.com</a>. Si
-											tienes algún comentario o sugerencia, por favor házmelo
-											saber. "La programación no se trata de lo que sabes, se
-											trata de lo que puedes aprender."
-										</p>
-									</div>
-								</div>
-								<!-- probar con grid -->
-								<div class="likesCounter d-flex justify-content-between w-100">
-									<div class="d-flex">
-										<div id="sumLikes">0&nbsp</div>
-										<i class="bi bi-heart-fill" style="color: black"></i>
-									</div>
-									<div>
-										<button id="likeBtn" class="btn btn-outline-dark">
-											<i
-												class="bi bi-emoji-smile-fill"
-												style="color: black"
-											></i>
-										</button>
-
-										<button id="dislikeBtn" class="btn btn-outline-dark">
-											<i
-												class="bi bi-emoji-smile-upside-down-fill"
-												style="color: black"
-											>
-											</i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- PUBLICACIÓN 2 -->
-						<div class="row">
-							<div class="col card">
-								<div class="media">
-									<img
-										src="./img/friends/avatar6.png"
-										class="avatar rounded-circle mr-3 d-flex flex-row-reverse"
-										alt="Foto del autor"
-									/>
-									<div class="media-body">
-										<h2>¡Hola a todos!</h2>
-										<p>
-											Lorem ipsum dolor sit amet consectetur adipisicing elit.
-											Quis quia consequuntur doloribus, distinctio, minus fugiat
-											voluptatem id incidunt vel temporibus amet consequatur
-											aspernatur quisquam omnis molestiae ab, ullam nemo. Vero.
-										</p>
-									</div>
-								</div>
-								<div class="likesCounter d-flex justify-content-between w-100">
-									<div class="d-flex">
-										<div id="sumLikes2">0&nbsp</div>
-										<i class="bi bi-heart-fill" style="color: black"></i>
-									</div>
-
-									<div>
-										<button
-											id="meGustaBtn"
-											class="btn btn-outline-dark"
-											onclick="sumLikesOn()"
-										>
-											<i
-												class="bi bi-emoji-smile-fill"
-												style="color: black"
-											></i>
-										</button>
-										<button
-											id="noMeGustaBtn"
-											class="btn btn-outline-dark"
-											onclick="removeLikesOn()"
-										>
-											<i
-												class="bi bi-emoji-smile-upside-down-fill"
-												style="color: black"
-											>
-											</i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
+						<!--  PUBLICACIONES -->
+                                    <div>
+                                          <ol id="lista-publicaciones">
+                                                <!-- se rellena con los datos de la api -->
+                                                <!-- Diseño del elemento tarjeta en carpeta componentes/post.js -->
+                                          </ol>
+                                    </div>
 
 						<!-- CENTRO HASTA AQUI -->
 					</div>
@@ -456,13 +376,24 @@
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="">Quiénes somos</a>
+						<a href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3">
+							<i
+								class="bi bi-github"
+								style="font-size: 1.5rem; transform: scale(2)"
+								id="icono"
+								alt="github"
+							></i>
+						</a>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="http://">copyright © Equpo3</a>
+						<a href="mailto:grupo3@teclers.com">
+							<i
+								class="bi bi-envelope-at-fill"
+								style="font-size: 1.5rem; transform: scale(2)"
+								id="icono"
+								alt="mail"
+							></i>
+						</a>
 					</div>
 				</div>
 				<div class="col-4">
@@ -470,41 +401,50 @@
 						<h4>Links</h4>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://www.w3schools.com/">Información básica</a>
+						<a class="link" href="https://www.w3schools.com/"
+							><strong> Información básica</strong></a
+						>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+						<a class="link" href="https://stackoverflow.com/"
+							><strong> Chatea y resuelve</strong></a
+						>
+					</div>
+					<div  class="d-flex justify-content-center">
+						<a class="link" href="https://www.youtube.com/@midudev"
+							><strong> Más recursos</strong></a
+						>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<a href="https://twitter.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-twitter"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-twitter.png"
-								alt="icono-twitter"
-							/>
+								alt="twitter"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://reddit.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-reddit"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-reddit.png"
-								alt="icono-reddit"
-							/>
+								alt="reddit"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://instagram.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-instagram"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-instagram.png"
-								alt="icono-instagram"
-							/>
+								alt="instagram"
+							></i>
 						</a>
 					</div>
 				</div>
@@ -541,6 +481,7 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
-		<script src="./javascript/likeDislike.js"></script>
+		<script src="./javascript/likeDislikePost.js"></script>
+		<script src="./javascript/getDefaultPosts.js"></script>
 	</body>
 </html>
