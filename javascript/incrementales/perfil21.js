@@ -50,6 +50,10 @@ class User {
 	}
 }
 
+let jose = new User("", "Jose", "Hernandez", "", ""); // tienen que ir todos, y en el mismo orden que en el constructor
+let pepe = new User(); //se puede crear sin valores para agregarselos luego
+
+
 //Ejemplo de creacion de clase con constructor que recibe objeto como parámetro
 //De esta forma no hace falta pasar los parámetros en el mismo orden
 
@@ -80,6 +84,17 @@ class User2 {
 	}
 }
 
+
+let maria = new User2({            // agrego los valores de los atributos a través de un objeto
+	secondName: "Pescador",      // el orden ya no importa (si el constructor recibe objetos (destructuring))
+	age: 33,
+	email: "mariapescador@gmail.com",
+	location: "Gijón",
+	name: "María",
+});
+
+
+
 //sin valores por defecto
 class User3 {
 	constructor({
@@ -107,18 +122,8 @@ class User3 {
 	}
 }
 
-let jose = new User("", "Jose", "Hernandez", "", "");
-let pepe = new User();
 
-let maria = new User2({
-	secondName: "Pescador",
-	age: 33,
-	email: "mariapescador@gmail.com",
-	location: "Gijón",
-	name: "María",
-});
-
-let sandra = new User3({
+let sandra = new User3({           // puedo no pasar algun atributo y no da problemas
 	secondName: "Martinez",
 	age: 33,
 	location: "Las Bahamas",
@@ -127,6 +132,8 @@ let sandra = new User3({
 
 let edgar = new User3({});
 
+
+// FUNCION ONCLICK DEL BOTÓN QUE PINTA LOS VALORES EN EL DOM
 const updateUser = () => {
 // 	sandra.age = prompt("Introduce tu edad:");
 // 	sandra.name = prompt("Introduce tu nombre:");
