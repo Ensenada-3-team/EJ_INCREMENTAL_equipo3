@@ -84,14 +84,15 @@
                                           
                                           </a>
 						</li>
-                                    <!-- mensajes -->
+                                    <!-- configuracion -->
 						<li class="nav-item">
-							<a class="nav-link " href="./friends.html">
-                                                <i class="bi bi-envelope-exclamation"
-                                                style="font-size: 1.8rem; "
-                                                id="icono"
-                                                alt="Mensajes"></i>
-                                          </a>
+							<a class="nav-link" href="./configuracion.html">
+								<i 
+								class="bi bi-gear" 
+								style="font-size: 1.8rem"
+								id="icono"
+								alt="Configuración"></i>
+							</a>
 						</li>
                                     <!-- mi perfil -->
                                     <li class="nav-item">
@@ -112,28 +113,7 @@
                                                 alt="Cerrar sesión"></i>
                                           </a>
 						</li>
-						<!-- <li class="nav-item dropdown">
-							<a
-								class="nav-link dropdown-toggle"
-								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								Dropdown
-							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><hr class="dropdown-divider" /></li>
-								<li>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</li>
-							</ul>
-						</li> -->
-						<!-- <li class="nav-item">
-							<a class="nav-link disabled">Disabled</a>
-						</li> -->
+						
 					</ul>
 				
 				</div>
@@ -143,7 +123,7 @@
 		<main>
 			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-md-4 card enter-card">
+					<div class="col-md-4 card enter-card cardConf">
 						<h2 class="text-center">Inicia sesión en Tecla</h2>
 						<form>
 							<label for="usuario"
@@ -173,8 +153,8 @@
 								Iniciar sesión
 							</button>
 						</form>
-						<p>
-							¿No tienes una cuenta?<a href="./registro.html">Regístrate aquí</a
+						<p class="mt-2">
+							¿No tienes una cuenta?<a href="./registro.html">&nbspRegístrate aquí</a
 							>.
 						</p>
 					</div>
@@ -188,61 +168,83 @@
 
 		<!-- FOOTER  -->
 		<footer class="container">
-			<div class="row">
-				<div class="col-4 footer-query">
+			<div class="row w-100">
+				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="">Quiénes somos</a>
+						<a href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3">
+							<i
+								class="bi bi-github"
+								style="font-size: 1.5rem; transform: scale(2)"
+								;
+								id="icono"
+								alt="github"
+							></i>
+						</a>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="http://">copyright © Equpo3</a>
+						<a href="mailto:grupo3@teclers.com">
+							<i
+								class="bi bi-envelope-at-fill"
+								style="font-size: 1.5rem; transform: scale(2)"
+								;
+								id="icono"
+								alt="mail"
+							></i>
+						</a>
 					</div>
 				</div>
-				<div class="col-4 footer-query">
+				<div class="col-4">
 					<div class="d-flex justify-content-center">
-						<h4>Links útiles</h4>
+						<h4>Links</h4>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://www.w3schools.com/">Información básica</a>
+						<a href="https://www.w3schools.com/"
+							><strong> Información básica</strong></a
+						>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+						<a href="https://stackoverflow.com/"
+							><strong> Chatea y resuelve</strong></a
+						>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://www.youtube.com/@midudev"
+							><strong> Más recursos</strong></a
+						>
 					</div>
 				</div>
-				<div class="col-4 footer-query">
+				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<a href="https://twitter.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-twitter"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-twitter.png"
-								alt="icono-twitter"
-							/>
+								alt="twitter"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://reddit.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-reddit"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-reddit.png"
-								alt="icono-reddit"
-							/>
+								alt="reddit"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://instagram.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-instagram"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-instagram.png"
-								alt="icono-instagram"
-							/>
+								alt="instagram"
+							></i>
 						</a>
 					</div>
 				</div>

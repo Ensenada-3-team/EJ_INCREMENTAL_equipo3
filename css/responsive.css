@@ -1,23 +1,4 @@
 
-body{
-	background: 
-      -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),
-      -moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), 
-      -moz-linear-gradient(-45deg, hwb(261 9% 50%) 0%, #092756 100%);
-      background: 
-      -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), 
-      -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), 
-      -webkit-linear-gradient(-45deg, hwb(261 9% 50%) 0%,#092756 100%);
-      background: 
-      -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), 
-      -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), 
-      -o-linear-gradient(-45deg, hwb(261 9% 50%) 0%,#092756 100%);
-      background: 
-      -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), 
-      -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), 
-      -ms-linear-gradient(-45deg, hwb(261 9% 50%) 0%,#092756 100%);
-}
-
 
 @media (max-width: 767px) {
 	.iconos-sm .iconos {
@@ -26,56 +7,30 @@ body{
 	}
 }
 
-/* @media (max-width: 375px) { */
-	/* Cambiar estilos según sea necesario */
-	/* nav.container {
-		flex-wrap: wrap;
-		justify-content:flex-end;
-	}
-	.search-box, .navegate {
-		display: none;
-	}
 
-	.nav-welcome {
-		
-	}
 
-} */
-	
-/* Estilos para pantalla mediana (hasta 600px) */
-/* @media (max-width: 600px) { */
-	/* Cambiar estilos según sea necesario */
-	/* nav.container {
-		align-self: center;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	.search-box {
-		flex-basis: 100%;
-		margin-top: 20px;
-	}
-	.enter-card {
-		margin-top: 20px;
-	}
-	.nav .logo {
-		width: 10px;
-	}
-} */
-/* @media only screen and (max-width: 800px){
-      nav.container {
-		flex-wrap: wrap;
-		justify-content:flex-start;
-	}
-} */
+/*Hacer tarjeta responsive y que no se salga el texto*/
+/* De 576 a 768 la tarjeta ocupa solo 60% de ancho */
+@media only screen and (max-width:768px) {
+	.cardConf {
+		width: 60%;
+		font-size: 1rem;
+		line-height: 1.5;
+		padding: 1rem;
+		box-sizing: border-box;
+	}	
+}
 
-/* 
-@media only screen and (max-width: 1024px){
-      body{
-            width: fit-content
-      
-      }
-      .footer-query {font-size: large }
-} */
 
-  
+/* En pantallas de menos de 576 ocupa el 80% */
+@media only screen and (max-width: 576px) {
+  .cardConf {
+    width: 80%;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    padding: 1.5rem;
+  }
+}
+
+
 
