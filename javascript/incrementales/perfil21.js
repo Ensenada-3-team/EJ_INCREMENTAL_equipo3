@@ -23,35 +23,122 @@ Crear una clase llamada "Cuenta" que tendrá los siguientes atributos:
 
 */
 
-class User  {
-	constructor (age, name, secondName, email, location, picture, followers, following, bio, links) {
+//Creación de clase con atributos en forma de parámetro
+class User {
+	constructor(
+		age,
+		name,
+		secondName,
+		email,
+		location,
+		picture,
+		followers,
+		following,
+		bio,
+		links
+	) {
 		this.age = age;
 		this.name = name;
 		this.secondName = secondName;
-		this.email= email;
-		this.location=location;
+		this.email = email;
+		this.location = location;
+		this.picture = picture || null;
+		this.followers = followers || null;
+		this.following = following || null;
+		this.bio = bio || null;
+		this.links = links || null;
 	}
+}
 
-};
+//Ejemplo de creacion de clase con constructor que recibe objeto como parámetro
+//De esta forma no hace falta pasar los parámetros en el mismo orden
 
+// con valores por defecto
+class User2 {
+	constructor({
+		age = 0,
+		name = "",
+		secondName = "",
+		email = "",
+		location = "",
+		picture = "",
+		followers = 0,
+		following = 0,
+		bio = "",
+		links = {},
+	} = {}) {
+		this.age = age;
+		this.name = name;
+		this.secondName = secondName;
+		this.email = email;
+		this.location = location;
+		this.picture = picture;
+		this.followers = followers;
+		this.following = following;
+		this.bio = bio;
+		this.links = links;
+	}
+}
 
-let jose = new User("","Jose","Hernandez", "", "")
+//sin valores por defecto
+class User3 {
+	constructor({
+		age,
+		name,
+		secondName,
+		email,
+		location,
+		picture,
+		followers,
+		following,
+		bio,
+		links,
+	}) {
+		this.age = age;
+		this.name = name;
+		this.secondName = secondName;
+		this.email = email;
+		this.location = location;
+		this.picture = picture;
+		this.followers = followers;
+		this.following = following;
+		this.bio = bio;
+		this.links = links;
+	}
+}
 
-let pepe = new User()
+let jose = new User("", "Jose", "Hernandez", "", "");
+let pepe = new User();
 
+let maria = new User2({
+	secondName: "Pescador",
+	age: 33,
+	email: "mariapescador@gmail.com",
+	location: "Gijón",
+	name: "María",
+});
+
+let sandra = new User3({
+	secondName: "Martinez",
+	age: 33,
+	location: "Las Bahamas",
+	name: "Sandra",
+});
+
+let edgar = new User3({});
 
 const updateUser = () => {
-	
-	jose.age = prompt("Introduce tu edad:");
-	// jose.name = prompt("Introduce tu nombre:");
-	// jose.secondName = prompt("Introduce tu apellido:");
-	jose.email = prompt("Introduce tu email ✉:");
-	jose.location = prompt("Introduzca su ubicación:");
+// 	sandra.age = prompt("Introduce tu edad:");
+// 	sandra.name = prompt("Introduce tu nombre:");
+// 	sandra.secondName = prompt("Introduce tu apellido:");
+	sandra.email = prompt("Introduce tu email ✉:");
+// 	sandra.location = prompt("Introduzca su ubicación:");
 
 	//Mostrar los atributos del usuario en el perfil
-	document.getElementById("age").innerHTML = jose.age;
-	document.getElementById("name").innerHTML = jose.name;
-	document.getElementById("secondName").innerHTML = jose.secondName;
-	document.getElementById("email").innerHTML = jose.email;
-	document.getElementById("location").innerHTML = jose.location;
+	document.getElementById("age").innerHTML = sandra.age;
+	document.getElementById("name").innerHTML = sandra.name;
+	document.getElementById("secondName").innerHTML = sandra.secondName;
+	document.getElementById("email").innerHTML = sandra.email;
+	document.getElementById("location").innerHTML = sandra.location;
+	
 };
