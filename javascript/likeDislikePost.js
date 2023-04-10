@@ -28,12 +28,12 @@ function toggleDisLike(btn) {
       // Obtener el número actual de dislikes
       let dislikesCount = parseInt(dislikesDiv.innerHTML);
 
-      // Si el botón fue clickeado y ya tiene la clase "disliked", entonces restar un like
+      // Si el botón fue clickeado y ya tiene la clase "disliked", entonces restar un dislike
       if (btn.classList.contains("disliked")) {
             dislikesCount--;
             btn.classList.remove("disliked");
       } else {
-            // Si el botón no tenía la clase "disliked", entonces sumar un like
+            // Si el botón no tenía la clase "disliked", entonces sumar un dislike
             dislikesCount++;
             btn.classList.add("disliked");
       }
