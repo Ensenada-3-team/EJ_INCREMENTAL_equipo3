@@ -76,15 +76,14 @@
 								</i>
 							</a>
 						</li>
-						<!-- mensajes -->
+						<!-- configuracion -->
 						<li class="nav-item">
-							<a class="nav-link" href="./friends.html">
-								<i
-									class="bi bi-envelope-exclamation"
-									style="font-size: 1.8rem"
-									id="icono"
-									alt="Mensajes"
-								></i>
+							<a class="nav-link" href="./configuracion.html">
+								<i 
+								class="bi bi-gear" 
+								style="font-size: 1.8rem"
+								id="icono"
+								alt="Configuración"></i>
 							</a>
 						</li>
 						<!-- mi perfil -->
@@ -110,28 +109,7 @@
 								></i>
 							</a>
 						</li>
-						<!-- <li class="nav-item dropdown">
-							<a
-								class="nav-link dropdown-toggle"
-								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								Dropdown
-							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><hr class="dropdown-divider" /></li>
-								<li>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</li>
-							</ul>
-						</li> -->
-						<!-- <li class="nav-item">
-							<a class="nav-link disabled">Disabled</a>
-						</li> -->
+						
 					</ul>
 				</div>
 			</div>
@@ -140,58 +118,64 @@
 
 		<main class="container">
 			<div class="row">
-				<!-- IZQUIERDA ya pasado a bootstrap-->
+				<!-- IZQUIERDA-->
 				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
 					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 					<div class="container">
 						<!-- izq arriba -->
 						<div class="row">
-							<div class="col card w-100">
+							<div class="col card w-100 text-center">
 								<h4 class="d-lg-block d-md-none">Intereses</h4>
 
 								<div>
 									<a href="https://www.nytimes.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-newspaper"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-noticias.png"
-											alt="icono-noticias"
-										/>
+											alt="noticias"
+										></i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Noticias</h6>
 								</div>
 
 								<div>
 									<a href="https://theuselessweb.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-shuffle"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-aleatorio.png"
-											alt="icono-aleatorio"
-										/>
+											alt="aleatorio"
+										></i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
 								</div>
 
 								<div>
 									<a href="https://www.reuters.com/" target="_blank">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-tag"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-masnuevo.png"
-											alt="icono-masnuevo"
-										/>
+											alt="New"
+										>
+										</i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Nuevo</h6>
 								</div>
 								<div>
-									<a href="http://" target="_blank">
-										<img
-											class="iconos"
+									<a href="./funciones.html" >
+										<i
+											class="bi bi-bookmark"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-guardados.png"
-											alt="icono-guardados"
-										/>
+											alt="guardados"
+										>
+										</i>
 									</a>
 									<h6 class="d-lg-block d-md-none">Guardado</h6>
 								</div>
@@ -204,33 +188,35 @@
 								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
 									<a href="./configuracion.html">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-gear"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-configuracion.png"
-											alt="icono-configuracion"
-										/>
+											alt="configuración"
+										></i>
 									</a>
 								</div>
 								<div>
 									<a href="http://">
-										<img
-											class="iconos"
+										<i
+											class="bi bi-question-circle"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											src="./img/icons/icono-preguntasfrecuentes.png"
-											alt="icono-preguntasfrecuentes"
-										/>
+											alt="preguntas"
+										></i>
 									</a>
 								</div>
 								<div>
-									<a href="http://">
-										<img
-											class="iconos"
+									<a href="./publicaciones-api.html">
+										<i
+											class="bi bi-search"
+											style="font-size: 1.5rem; transform: scale(2)"
+											;
 											id="icono"
-											href=""
-											src="./img/icons/icono trabaja con nosotros.png"
-											alt="icono-trabajaconnosotros"
-										/>
+											alt="buscar-publicaciones"
+										></i>
 									</a>
 								</div>
 							</div>
@@ -275,7 +261,7 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar1.png"
 													alt=""
 												/>
@@ -288,7 +274,7 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar2.png"
 													alt=""
 												/>
@@ -301,7 +287,7 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar3.png"
 													alt=""
 												/>
@@ -314,7 +300,7 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar4.png"
 													alt=""
 												/>
@@ -326,11 +312,11 @@
 										</div>
 									</div>
 									<!-- segunda fila con 4 teclers -->
-									<div class="row w-100">
+									<div class="row w-100 mt-4">
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar5.png"
 													alt=""
 												/>
@@ -343,7 +329,7 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar6.png"
 													alt=""
 												/>
@@ -356,12 +342,12 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar7.png"
 													alt=""
 												/>
 												<h6>Rober-dev</h6>
-												<button class="btn">
+												<button class="btn btn-sm btn-primary">
 													<a href="./roberto-friend.html">Friend</a>
 												</button>
 											</div>
@@ -369,7 +355,7 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar8.png"
 													alt=""
 												/>
@@ -381,26 +367,26 @@
 										</div>
 									</div>
 									<!-- tercera fila con 4 teclers -->
-									<div class="row w-100">
+									<div class="row w-100 mt-4">
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar9.png"
 													alt=""
 												/>
 												<h6>Nuria Responsive</h6>
-												<button class="btn">Friend</button>
+												<button class="btn btn-sm btn-dark sombra mb-3">Conectar</button>
 											</div>
 										</div>
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar10.png"
 													alt=""
 												/>
-												<h6>Dev-punk Gutierrez</h6>
+												<h6>Dev-punk </h6>
 												<button class="btn btn-sm btn-dark sombra mb-3">
 													Conectar
 												</button>
@@ -409,7 +395,7 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar11.png"
 													alt=""
 												/>
@@ -422,11 +408,11 @@
 										<div class="col-6 col-md-3">
 											<div class="text-center">
 												<img
-													class="avatar"
+													class="avatar rounded"
 													src="./img/friends/avatar12.png"
 													alt=""
 												/>
-												<h6>paula Footer</h6>
+												<h6>Paula Footer</h6>
 												<button class="btn btn-sm btn-dark sombra mb-3">
 													Conectar
 												</button>
@@ -446,68 +432,103 @@
 
 		<!-- FOOTER  -->
 		<footer class="container">
-			<div class="row">
+			<div class="row w-100">
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
-						<a href="http://">
-							<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3">
+							<i
+								class="bi bi-github"
+								style="font-size: 1.5rem; transform: scale(2)"
+								;
+								id="icono"
+								alt="github"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="">Quiénes somos</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="http://">copyright © Equpo3</a>
+						<a href="mailto:grupo3@teclers.com">
+							<i
+								class="bi bi-envelope-at-fill"
+								style="font-size: 1.5rem; transform: scale(2)"
+								;
+								id="icono"
+								alt="mail"
+							></i>
+						</a>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
-						<h4>Links útiles</h4>
+						<h4>Links</h4>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://www.w3schools.com/">Información básica</a>
+						<a href="https://www.w3schools.com/"
+							><strong> Información básica</strong></a
+						>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+						<a href="https://stackoverflow.com/"
+							><strong> Chatea y resuelve</strong></a
+						>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://www.youtube.com/@midudev"
+							><strong> Más recursos</strong></a
+						>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<a href="https://twitter.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-twitter"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-twitter.png"
-								alt="icono-twitter"
-							/>
+								alt="twitter"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://reddit.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-reddit"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-reddit.png"
-								alt="icono-reddit"
-							/>
+								alt="reddit"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://instagram.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-instagram"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-instagram.png"
-								alt="icono-instagram"
-							/>
+								alt="instagram"
+							></i>
 						</a>
 					</div>
 				</div>
 			</div>
 		</footer>
+
+		<!-- BOTON FLOTANTE -->
+		<div class="container">
+			<button
+				class="btn btn-floating position-fixed bottom-0 end-0 sombra mb-3"
+				style="
+					border-radius: 3rem;
+					background-color: rgba(190, 190, 235, 0.484);
+				"
+				onclick="window.open('./publicaciones-api.html', '_blank')"
+				type="button"
+			>
+				<i class="bi bi-send-fill" style="font-size: 2rem; color: black"></i>
+			</button>
+		</div>
 
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"

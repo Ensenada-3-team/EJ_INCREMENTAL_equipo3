@@ -1,0 +1,70 @@
+<!--  PUBLICACIONES -->
+<div>
+	<ol id="lista-publicaciones">
+		<!-- Elemento que se replica y rellena los campos desde getPubApi.js -->
+		<li class="card border p-4">
+			<!-- CONTENEDOR DEL POST -->
+			<div class="container">
+				<!-- FILA DEL CONTENIDO DEL POST -->
+				<div class="row d-flex">
+					<!-- COLUMNA IMAGEN Y NOMBRE AUTOR -->
+					<div class="col-lg-4 col-md-4 col-sm-12">
+						<div>
+							<img class="img-fluid rounded align-self-start" src="${userImage}"
+								alt="${username} ${lastName}" />
+							<h4 class="mt-3">${username} ${lastName}</h4>
+						</div>
+					</div>
+					<!-- COLUMNA NICKNAME + TITULO + CUERPO DEL POST -->
+					<div class="col-lg-8 col-md-8 col-sm-12">
+						<div class="border border-dark sombra rounded p-4 bg-post">
+							<h5 class="fw-bold">
+								<p>@${nickName}</p>
+								${post.title}
+							</h5>
+							<p style="color: black">${post.body}</p>
+						</div>
+					</div>
+				</div>
+				<!-- FILA DE LOS BOTONES DE INTERACCIÓN -->
+				<div class="row">
+					<!-- DIVISION QUE CONTIENE TODOS LOS BOTONES -->
+					<div class="d-flex justify-content-between w-100">
+						<!-- BOTONES Y CONTADORES DE LIKE + DISLIKE -->
+						<div class="d-flex mt-2">
+							<div id="sumLikes${post.id}" class="mt-2"
+								style="color: black; font-weight: bold">
+								${post.reactions}
+							</div>
+							<button id="${post.id}" class="btn like-btn" onclick="toggleLike(this)">
+								<i class="bi bi-heart-fill"></i>
+							</button>
+
+							<div id="sumDisLikes${post.id}" class="mt-2"
+								style="color: black; font-weight: bold">
+								0
+							</div>
+							<button id="${post.id}" class="btn dislike-btn" onclick="toggleDisLike(this)">
+								<i class="bi bi-hand-thumbs-down-fill"></i>
+							</button>
+						</div>
+						<!-- BOTONES COMENTAR Y COMPARTIR -->
+						<div>
+							<button id="commentBtn" class="btn" onclick="">
+								<i class="bi bi-chat-left-text"
+									style="color: black; font-size: 1.5rem"></i>
+							</button>
+							<button id="shareBtn" class="btn" onclick="">
+								<i class="bi bi-share" style="color: black; font-size: 1.5rem"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ol>
+</div>
+
+<!-- SCRIPT -->
+
+<script></script>
