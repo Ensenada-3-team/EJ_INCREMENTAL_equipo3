@@ -5,12 +5,11 @@ let A, B, C;
 //los convierta con parseInt() en números enteros
 //los asigna a las variables A, B y C respectivamente.
 function ingresaValores() {
-	alert(
-		"Ingresa el nº de likes de tus 3 fotos\nRecuerda que han de ser números distintos."
-	);
-	A = parseInt(prompt("Likes de la Foto 1:"));
-	B = parseInt(prompt("Likes de la Foto 2:"));
-	C = parseInt(prompt("Likes de la Foto 3:"));
+	alert("Ingresa el nº de likes de tus 3 fotos\nRecuerda que han de ser números distintos.")
+
+	A = parseInt(prompt("Likes de la Foto 1:"))
+	B = parseInt(prompt("Likes de la Foto 2:"))
+	C = parseInt(prompt("Likes de la Foto 3:"))
 }
 
 //Nº primo = número natural mayor que 1 que tiene únicamente dos divisores positivos distintos: él mismo y el 1
@@ -37,16 +36,16 @@ function esNumeroPrimo(num) {
 // Función que inicializa el programa y usa las funciones anteriores para hallar el resultado
 function init() {
       //llamo a la función "ingresaValores()" para obtener los valores de likes de las fotos del usuario.
-	ingresaValores();
+	ingresaValores()
 
 	// Verifico si los valores son distintos
 	if (A === B || A === C || B === C) {
             //si no son distintos, muestre una alerta pidiendo al usuario que ingrese tres valores distintos.
-		alert("Por favor, introduce tres valores distintos");
+		alert("Por favor, introduce tres valores distintos")
 	} else {
 		//Si son distintos identifico qué número es mayor y qué número es menor
-		let mayor = A > B ? (A > C ? A : C) : B > C ? B : C;
-		let menor = A < B ? (A < C ? A : C) : B < C ? B : C;
+		let mayor = A > B ? (A > C ? A : C) : (B > C ? B : C)
+		let menor = A < B ? (A < C ? A : C) : (B < C ? B : C)
 
             //Verifico si el mayor y menor valor son mayores que 0 y si son números primos utilizando la función "esNumeroPrimo(num)".
 		if (
@@ -57,9 +56,9 @@ function init() {
 		) {
                   //Muestro número mayor y menor 
                   //si son números primos y positivos lo añade a la alerta si no, no.
-			alert(`El mayor valor es: ${mayor} y el menor valor es: ${menor}. Además, ambos son números primos y positivos.`);
+			alert(`El mayor valor es: ${mayor} y el menor valor es: ${menor}. Además, ambos son números primos y positivos.`)
 		} else {
-			alert(`El mayor valor es: ${mayor} y el menor valor es: ${menor}.`);
+			alert(`El mayor valor es: ${mayor} y el menor valor es: ${menor}.`)
 		}
 	}
 }
