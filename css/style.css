@@ -344,6 +344,12 @@ label {
 	border-width: 0.1rem;
 }
 
+.card-bio {
+	border-radius: 10px;
+	background-color: rgba(18, 235, 83, 0.281);
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+}
+
 /* BOTONES */
 
 /* BOTÓN PRINCIPAL DE PÁGINA MÁS VISIBLE */

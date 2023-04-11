@@ -230,13 +230,14 @@
 					<div class="container">
 						<!-- TU PERFIL + FOTO -->
 						<div class="row justify-content-center">
-                                          <!-- PORTADA + FOTO+ NOMBRE + PROFESION + LOCACION + EDITAR -->
+                                          <!-- CARD IZQUIERDA PERFIL  -->
                                           <section class="col-md-5 col-sm-1 order-sm-1 order-1 card-left mt-md-3 mr-sm-3 cardConf">
-                                                <div><img src="./img/portada/portada.jpg" alt="foto de portada" class="img-fluid"></div>
+                                                <!-- PORTADA-->
+                                                <div class=""><img src="./img/portada/portada.jpg" alt="foto de portada" class="img-fluid "></div>
+                                                <!--FOTO+ NOMBRE + PROFESION + LOCACION + BOTONES -->
                                                 <div>
                                                       <div class="d-flex justify-content-between">
                                                             <button class="btn">
-                                                                  
                                                                   <img class="avatar rounded rounded-circle" src="./img/friends/avatar13.png" alt="avatar"><i class="bi bi-camera"></i></img>
                                                             </button>
                                                             <button class="btn">
@@ -244,69 +245,62 @@
                                                             </button>
                                                            
                                                       </div>
+                                                      <!-- contenido principal datos -->
                                                       <div>
-                                                            nombre apellidos + ocupacion + ubicacion + link
+                                                            <!-- nombre y apellidos -->
+                                                            <h2>Sandra Jimenez</h2>
+                                                            <!-- ocupacion -->
+                                                            <h3>Full Stack Developer </h3>
+                                                            <p> <i class="bi bi-geo-alt"></i> Gijón, Principado de Asturias, España</p>
+                                                            <div class="d-flex justify-content-around w-75">
+                                                                  <p>3456 Followers</p>
+                                                                  <p>56 Following</p>
+                                                            </div>
+                                          
                                                       </div>
+                                                      <!-- botones links mi perfil -->
                                                       <div>
-                                                            botones 
-                                                      </div>
-                                                </div>
-
-                                                <!-- texto + boton explorar -->
-                                                <div>
-                                                      <button
-                                                            class="btn btn-sm btn-dark sombra mt-3"
+                                                            <button class="btn btn-sm btn-primary ">crea publicacion</button>
+                                                            <button class="btn btn-sm btn-primary"></button>
+                                                            <button
+                                                            class="btn btn-sm btn-primary"
                                                             onclick="window.open('./funciones.html', '_blank');"
                                                       >
                                                             Explora los ejercicios de mi equipo
                                                       </button>
+                                                      </div>
                                                 </div>
 
                                           </section>
-                                          <!-- BIO + ICONOS REDES LINK + MAS INFO -->
+                                          <!-- CARD DERECHA : BIO + ICONOS REDES LINK + MAS INFO -->
                                           <section class="col-md-5 col-sm-1 order-sm-1 order-2 card-left post-card mt-md-3 mr-sm-3 cardConf" >
-                                                <h2>Datos personales:</h2>
-                                                <button class="btn" onclick="updateUser()"><i class="bi bi-arrow-clockwise"></i></button>
-                                                <div class="container d-flex justify-content-between" >
-                                                      <!-- Lista datos de usuario  -->
-                                                      <ul id="datos-personales-list" >
-                                                            <li class="">
-                                                                  <p>Edad</p>
-                                                            </li>
-                                                            <li class="">
-                                                                  <p><i class="bi bi-person-circle"></i></p>
-                                                            </li>
-                                                            <li class="">
-                                                                  <p><i class="bi bi-person"></i></p>
-      
-                                                            </li>
-                                                            <li>
-                                                                  <p><i class="bi bi-envelope-at"></i></p>
-                                                            </li>
-                                                            <li>
-                                                                  <p><i class="bi bi-geo-alt"></i></p>
-                                                            </li>
-                                                      </ul>
-                                                      <!-- lista valores de datos de usuario -->
-                                                      <ul id="datos-personales-list-values">
-                                                            <li class="">
-                                                                  <p id="age"></p>
-                                                            </li>
-                                                            <li class="">
-                                                                  <p id="name"></p>
-                                                            </li>
-                                                            <li class="">
-                                                                  <p id="secondName"></p>
-      
-                                                            </li>
-                                                            <li>
-                                                                  <p id="email"></p>
-                                                            </li>
-                                                            <li>
-                                                                  <p id="location"></p>
-                                                            </li>
-                                                      </ul>
+                                                <h2>Acerca de:</h2>
+                                                <!-- bio -->
+                                                <div>
+                                                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem ipsam reprehenderit qui rem magni suscipit, illum quia facilis tempore magnam totam laborum minus ea minima cum. Labore, id culpa?
                                                 </div>
+
+                                                <!-- mas info -->
+                                                <div class="mt-3">
+                                                      <a href="http://"><i class="bi bi-file-person"></i> Más info</a>
+                                                </div>
+
+                                                <!-- links redes sociales -->
+                                                <div class="d-flex justify-content-center mt-4 align-self-end">
+                                                      <!-- github -->
+                                                      <button class="btn ">
+                                                            <i class="bi bi-github"></i>
+                                                      </button>
+                                                      <!-- linkedin -->
+                                                      <button class="btn">
+                                                            <i class="bi bi-linkedin"></i>
+                                                      </button class="btn">
+                                                      <!--  -->
+                                                      <button class="btn">
+                                                            <i class="bi bi-instagram"></i>
+                                                      </button>
+                                                </div>
+                                               
 
                                           </section>
                                                 
