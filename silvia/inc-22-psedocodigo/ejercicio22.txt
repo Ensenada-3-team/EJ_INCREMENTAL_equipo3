@@ -1,0 +1,17 @@
+
+1. Definir tres variables globales A, B y C,que almacenen los valores ingresados por el usuario para el número de likes de tres fotos.
+
+2. Definir una función llamada "ingresaValores()" que pida al usuario que ingresar los números de likes de las tres fotos, y los convierta con parseInt()  en números enteros y asignarlos a las variables A, B y C respectivamente.
+
+3. Definir una función llamada "esNumeroPrimo(num)" que verifica si un número dado es un número primo. 
+      - La función recibe un número y utiliza un bucle for para iterar desde 2 hasta la raíz cuadrada del número 
+      - si el número es divisible por algún número entero devuelve false; de lo contrario, devuelve verdadero.
+
+4. Definir una función llamada "init()" que:
+      - llame a la función "ingresaValores()" para obtener los valores de likes de las fotos del usuario.
+      - Verifique si los valores ingresados son distintos. 
+      - Si no son distintos, muestre una alerta pidiendo al usuario que ingrese tres valores distintos.
+      - Si los valores son distintos, encuentre el mayor y menor valor entre A, B y C.
+      - Verifique si el mayor y menor valor son mayores que 0 y si son números primos utilizando la función "esNumeroPrimo(num)".
+      - Muestre una alerta con el mayor y menor valor, 
+            - si son números primos y positivos lo añade a la alerta si no, no.
