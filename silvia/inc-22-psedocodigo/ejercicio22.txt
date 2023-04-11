@@ -1,17 +1,32 @@
 
-1. Definir tres variables globales A, B y C,que almacenen los valores ingresados por el usuario para el número de likes de tres fotos.
+1. Inicio
 
-2. Definir una función llamada "ingresaValores()" que pida al usuario que ingresar los números de likes de las tres fotos, y los convierta con parseInt()  en números enteros y asignarlos a las variables A, B y C respectivamente.
+2.Defino TRES VARIABLES globales A, B y C,que almacenen los valores ingresados por el usuario para el número de likes de tres fotos.
 
-3. Definir una función llamada "esNumeroPrimo(num)" que verifica si un número dado es un número primo. 
-      - La función recibe un número y utiliza un bucle for para iterar desde 2 hasta la raíz cuadrada del número 
-      - si el número es divisible por algún número entero devuelve false; de lo contrario, devuelve verdadero.
+3.FUNCIÓN que pide al usuario que ingresar los números de likes de las tres fotos -- ingresaValores()
+      //los convierta con parseInt() en números enteros
+      //los asigna a las variables A, B y C respectivamente.
+      
+      
 
-4. Definir una función llamada "init()" que:
-      - llame a la función "ingresaValores()" para obtener los valores de likes de las fotos del usuario.
-      - Verifique si los valores ingresados son distintos. 
-      - Si no son distintos, muestre una alerta pidiendo al usuario que ingrese tres valores distintos.
-      - Si los valores son distintos, encuentre el mayor y menor valor entre A, B y C.
-      - Verifique si el mayor y menor valor son mayores que 0 y si son números primos utilizando la función "esNumeroPrimo(num)".
-      - Muestre una alerta con el mayor y menor valor, 
-            - si son números primos y positivos lo añade a la alerta si no, no.
+4.FUNCIÓN que verifica si un número dado es un número primo. -- esNumeroPrimo()
+      // comprobar si un número es divisible por algún número entero de 2 a su raíz cuadrada, y devolver verdadero si no se encuentra ningún divisor.
+
+            // si el número es menor o igual a uno devuelve false.
+      // utilizo un bucle for para iterar desde 2 hasta la raíz cuadrada del número
+            // si el número es divisible por algún número entero devuelve false;
+            // de lo contrario, devuelve true.
+
+5. FUNCIÓN que inicializa el programa y usa las funciones anteriores para hallar el resultado -- init()
+      // llamo a la función "ingresaValores()" para obtener los valores de likes de las fotos del usuario.
+      // Verifico si los valores son distintos
+            // si no son distintos, muestre una alerta pidiendo al usuario que ingrese tres valores distintos.
+      // Si son distintos identifico qué número es mayor y qué número es menor
+      // Verifico si el mayor y menor valor son mayores que 0 y si son números primos utilizando la función "esNumeroPrimo(num)".
+      // Muestro número mayor y menor 
+      // si son números primos y positivos lo añade a la alerta si no, no.
+
+6. Fin
+
+
+((NOTA: Nº primo = número natural mayor que 1 que tiene únicamente dos divisores positivos distintos: él mismo y el 1))
