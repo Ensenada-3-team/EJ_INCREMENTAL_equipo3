@@ -12,7 +12,7 @@ function shuffleArray(array) {
 //FUNCIÓN QUE CREA UN POST CON NUESTRA ESTRUCTURA HTML
 function createPostHTML(userImage, username, lastName, nickName, post) {
 	return `
-          <li class="card border p-4">
+          <li class="card border p-4 mt-3">
               <div class="container">
                   <div class="row d-flex">
                       <div class="col-lg-4 col-md-4 col-sm-12">

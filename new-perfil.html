@@ -231,11 +231,11 @@
 						<!-- TU PERFIL + FOTO -->
 						<div class="row justify-content-center">
                                           <!-- CARD IZQUIERDA PERFIL  -->
-                                          <section class="col-md-5 col-sm-1 order-sm-1 order-1 card-left mt-md-3 mr-sm-3 cardConf">
+                                          <section class="col-md-5 col-sm-1 order-sm-1 order-1 card mt-md-3 mr-sm-3 cardConf">
                                                 <!-- PORTADA-->
-                                                <div class=""><img src="./img/portada/portada.jpg" alt="foto de portada" class="img-fluid "></div>
+                                                <div class="card-header"><img src="./img/portada/portada.jpg" alt="foto de portada" class="img-fluid "></div>
                                                 <!--FOTO+ NOMBRE + PROFESION + LOCACION + BOTONES -->
-                                                <div>
+                                                <div class="card-body">
                                                       <div class="d-flex justify-content-between">
                                                             <button class="btn">
                                                                   <img class="avatar rounded rounded-circle" src="./img/friends/avatar13.png" alt="avatar"><i class="bi bi-camera"></i></img>
@@ -258,25 +258,26 @@
                                                             </div>
                                           
                                                       </div>
+								</div>
                                                       <!-- botones links mi perfil -->
-                                                      <div>
-                                                            <button class="btn btn-sm btn-primary ">crea publicacion</button>
-                                                            <button class="btn btn-sm btn-primary"></button>
-                                                            <button
-                                                            class="btn btn-sm btn-primary"
-                                                            onclick="window.open('./funciones.html', '_blank');"
-                                                      >
-                                                            Explora los ejercicios de mi equipo
-                                                      </button>
-                                                      </div>
-                                                </div>
+								<div class="card-footer d-flex">
+									<button class="btn btn-sm btn-primary ">crea </button>
+									<button class="btn btn-sm btn-primary"></button>
+									<button
+									class="btn btn-sm btn-primary"
+									onclick="window.open('./funciones.html', '_blank');"
+									>
+										Explora 
+									</button>
+								</div>
+                                                
 
                                           </section>
                                           <!-- CARD DERECHA : BIO + ICONOS REDES LINK + MAS INFO -->
-                                          <section class="col-md-5 col-sm-1 order-sm-1 order-2 card-left post-card mt-md-3 mr-sm-3 cardConf" >
-                                                <h2>Acerca de:</h2>
+                                          <section class="col-md-5 col-sm-1 order-sm-1 order-2 card post-card mt-md-3 mr-sm-3 cardConf" >
+                                                <h4 class="card-header">Acerca de:</h4>
                                                 <!-- bio -->
-                                                <div>
+                                                <div class="card-body">
                                                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem ipsam reprehenderit qui rem magni suscipit, illum quia facilis tempore magnam totam laborum minus ea minima cum. Labore, id culpa?
                                                 </div>
 
@@ -286,7 +287,7 @@
                                                 </div>
 
                                                 <!-- links redes sociales -->
-                                                <div class="d-flex justify-content-center mt-4 align-self-end">
+                                                <div class="card-footer d-flex justify-content-center mt-4 ">
                                                       <!-- github -->
                                                       <button class="btn ">
                                                             <i class="bi bi-github"></i>

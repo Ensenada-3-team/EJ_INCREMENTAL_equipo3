@@ -11,11 +11,11 @@ body {
 	width: 100%;
 	min-height: 100vh;
 	font-family: "Abel", sans-serif;
-	color: rgb(190, 190, 235);
+	color: rgb(20, 20, 20);
 	/* font-weight: bold; */
 	opacity: 0.95;
-	background: #092756;
-	background: -webkit-radial-gradient(
+	background: #bcc2bdd8;
+	/* background: -webkit-radial-gradient(
 			0% 100%,
 			ellipse cover,
 			rgba(104, 128, 138, 0.4) 10%,
@@ -67,7 +67,7 @@ body {
 		),
 		-ms-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4)
 					100%),
-		-ms-linear-gradient(-45deg, hwb(261 9% 50%) 0%, #092756 100%);
+		-ms-linear-gradient(-45deg, hwb(261 9% 50%) 0%, #092756 100%); */
 }
 
 h1 {
@@ -126,7 +126,7 @@ a:hover {
 }
 
 /* INPUTS  */
-input,
+/* input,
 #textarea,
 #mensaje-post,
 #search-username {
@@ -147,24 +147,34 @@ input,
 	-o-transition: box-shadow 0.5s ease;
 	-ms-transition: box-shadow 0.5s ease;
 	transition: box-shadow 0.5s ease;
+} */
+
+/* #textarea {
+	width: 100%; 
+	resize: none;
+} */
+
+input,
+#textarea,
+#mensaje-post,
+#search-username {
+	background-color: rgba(202, 196, 223, 0.342);
+	border-radius: .3rem;
 }
 
-#textarea {
-	width: 100%;
-	/* resize: none; */
-}
 
 #mensaje-post::placeholder,
 #titulo-post::placeholder,
 #search-username::placeholder {
-	color: #aab2ca;
+	color: #6d6f75;
+	
 }
 
-input:focus,
+/* input:focus,
 textarea:focus {
 	box-shadow: inset 0 -10% 4.5% rgba(100, 100, 100, 0.4),
 		0 0.2em 0.2em rgba(255, 255, 255, 0.2);
-}
+} */
 
 form {
 	display: flex;
@@ -196,7 +206,7 @@ label {
 }
 
 .bg-friends {
-	background-color: rgba(61, 63, 196, 0.637);
+	background-color: rgba(202, 196, 223, 0.342);
 }
 
 .bg-post {
@@ -304,51 +314,51 @@ label {
 /* CONTENEDORES ESTILO TARJETA */
 
 /* CARDS DE PÁGINAS DE LA WEB */
-.card,
+/* .card,
 .enter-card {
 	align-items: center;
 	border-radius: 10px;
 	background-color: rgba(18, 235, 83, 0.281);
 	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
 	padding: 3rem;
-}
+} */
 
-.card {
+/* .card {
 	margin: 0.5rem;
-}
+} */
 
-.card-left {
+/* .card-left {
 	border-radius: 10px;
 	background-color: rgba(18, 235, 83, 0.281);
 	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
 	padding: 3rem;
 	margin: 0.5rem;
-}
+} */
 
 /* login y registro  */
-.enter-card {
+/* .enter-card {
 	max-width: 25rem;
-	/* text-align: center */
-}
+	
+} */
 
-.enter-card h1 {
+/* .enter-card h1 {
 	color: white;
 	text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
 	letter-spacing: 0.06rem;
-	/* text-align:center;  */
-}
+	
+} */
 
-.post-card {
+/* .post-card {
 	background-color: rgba(247, 62, 247, 0.336);
 	border-color: #092756;
 	border-width: 0.1rem;
-}
+} */
 
-.card-bio {
+/* .card-bio {
 	border-radius: 10px;
 	background-color: rgba(18, 235, 83, 0.281);
 	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
-}
+} */
 
 /* BOTONES */
 
