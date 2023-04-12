@@ -84,7 +84,7 @@ h2 {
 }
 
 h4 {
-	font-weight: bold;
+	/* font-weight: bold; */
 	/* text-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3); */
 	letter-spacing: 0.06rem;
 }
