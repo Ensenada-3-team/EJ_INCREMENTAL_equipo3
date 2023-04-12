@@ -313,6 +313,17 @@ label {
 
 /* CONTENEDORES ESTILO TARJETA */
 
+/*añadido a bootstrap*/
+
+.card {
+	/* padding: 1rem; */
+	box-shadow: 0 0.375rem 0.625rem rgba(0, 0, 0, 0.356);
+}
+
+.bg-custom {
+	background-color: #0bec294d;
+}
+
 /* CARDS DE PÁGINAS DE LA WEB */
 /* .card,
 .enter-card {
