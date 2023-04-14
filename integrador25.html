@@ -118,11 +118,11 @@
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 		<main class="container">
-			<div class="row justify-content-center w-100">
+			<div class="row justify-content-around w-100">
 
                         <!-- TARJETA IZQUIEDA  -->
 				<div class="col-md-4 card p-3 g-3">
-					<h2 class="text-center">Añade Amigos</h2>
+					<h2 class="card-header text-center">Añade Amigos <i class="bi bi-people"></i></h2>
 
                               <!-- FORMULARIO AÑADIR PERSONAS -->
 					<form id="form-añadir-personas">
@@ -136,7 +136,7 @@
 						/>
                                     <input
 							class="form-control"
-							type="text"
+							type="number"
 							id="edad-usuario-añadido"
 							name="usuario"
                                           placeholder="Agrega su edad"
@@ -147,10 +147,12 @@
 							Agregar
 						</button>
 					</form>
+                              <!-- Lista de resultados -->
+					<ul id="lista-nuevas-personas" class="card-footer"></ul>
 				</div>
 				<!-- ordenar personas -->
 				<div class="col-md-4 card g-3">
-					<div class="d-flex">
+					<div class="d-flex align-items-center p-4">
 						<!-- Boton ordenar por edad -->
 						<button
 							id="ordenar-edad"
@@ -159,6 +161,7 @@
 						>
                                     <i class="bi bi-sort-numeric-down" style="font-size: 1.5rem;"></i>
 						</button>
+                                    
 						<!-- Formulario de búsqueda por edad -->
 						<form id="form-busca-user-por-edad" class="d-flex flex-grow-1 mt-3">
 							<input
@@ -173,8 +176,7 @@
 							</button>
 						</form>
 					</div>
-					<!-- Lista de resultados -->
-					<ul id="lista-nuevas-personas"></ul>
+					
 				</div>
 			</div>
 		</main>

@@ -26,9 +26,21 @@ function agregarPersona(name, age) {
 // ORDENAR POR EDAD
 function ordenarPorEdad() {
      
-	personas.sort(function (a, b) {
-	      return a.age - b.age
-	});
+	// personas.sort(function (a, b) {
+	//       return a.age - b.age
+	// });
+
+      let len = personas.length;
+      for (let i = 0; i < len; i++) {
+            for(let j = 0; j < len-i-1; j++){
+            if (personas[j].age > personas[j + 1].age) {
+                        let temp = personas[j];
+                        personas[j] = personas[j+1];
+                        personas[j + 1] = temp;
+                  }
+            }
+      }
+      
 
       pintaPersonasDOM(personas)
       return
