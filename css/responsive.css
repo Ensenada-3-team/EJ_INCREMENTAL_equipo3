@@ -1,55 +1,36 @@
-@media (max-width: 375px) {
-	/* Cambiar estilos según sea necesario */
-	nav.container {
-		flex-wrap: wrap;
-		justify-content:flex-end;
-	}
-	.search-box, .navegate {
-		display: none;
-	}
 
-      .nav-welcome {
-            
-      }
 
-}
-      
-/* Estilos para pantalla mediana (hasta 600px) */
-@media (max-width: 600px) {
-	/* Cambiar estilos según sea necesario */
-	nav.container {
-            align-self: center;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	.search-box {
-		flex-basis: 100%;
-		margin-top: 20px;
-	}
-	.enter-card {
-		margin-top: 20px;
-	}
-      .nav .logo {
-            width: 10px;
-      }
-}
-      
-  
-@media only screen and (max-width: 800px){
-      nav.container {
-		flex-wrap: wrap;
-		justify-content:flex-start;
+@media (max-width: 767px) {
+	.iconos-sm .iconos {
+		width: 20px;
+		height: 20px;
 	}
 }
 
 
-@media only screen and (max-width: 1024px){
-      body{
-            width: fit-content
-      
-      }
-      .footer-query {font-size: large }
+
+/*Hacer tarjeta responsive y que no se salga el texto*/
+/* De 576 a 768 la tarjeta ocupa solo 60% de ancho */
+@media only screen and (max-width:768px) {
+	.cardConf {
+		width: 60%;
+		font-size: 1rem;
+		line-height: 1.5;
+		padding: 1rem;
+		box-sizing: border-box;
+	}	
 }
 
-  
+
+/* En pantallas de menos de 576 ocupa el 80% */
+@media only screen and (max-width: 576px) {
+  .cardConf {
+    width: 80%;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    padding: 1.5rem;
+  }
+}
+
+
 

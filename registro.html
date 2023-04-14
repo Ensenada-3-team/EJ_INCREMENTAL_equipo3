@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,223 +12,294 @@
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 			crossorigin="anonymous"
 		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-			integrity="sha512-P8Wj/bVJvNefjGTCsliJlNkm+7fNkYjZPzQPjhHe+9D1zOpmC0JtSjKmLmL3Iq+0m/VhzB4f4tjH9QhqR4+gcQ=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
 		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/responsive.css" />
 	</head>
+
 	<body>
+
 		<!-- BARRA DE NAVEGACION -->
-		<nav class="container">
-			<div class="row d-flex justify-content-around align-items-center">
-				<div class="col-1">
-					<a href="./index.html" target="_blank">
-						<img
-							class="logo"
-							id="logo"
-							href="./index.html"
-							src="./img/enter-black.png"
-							alt="Logo-Tecla"
-						/>
+		<nav class="navbar navbar-expand-lg bg-body-transparent container">
+			<div class="container-fluid">
+				<!-- CONTAINER DEL LOGO -->
+				<div class="container col-2">
+					<a class="navbar-brand" href="./index.html">
+						<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
 					</a>
 				</div>
+				<!-- MENÚ HAMBURGUESA -->
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-				<div class="col-2">
-					<h1>¡¡Bienvenido, Tecler!!</h1>
-				</div>
-
-				<div class="col-7 search-box">
-					<button class="btn-search">
-						<img
-							class="search-icon"
-							src="./img/icons/search-icon2.png"
-							alt=""
+				<!-- DESDE AQUÍ TODO LO QUE SE ESCONDE -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<h2 class="nav-welcome d-none d-sm-block">
+								¡¡Bienvenido, Tecler!!
+							</h2>
+						</li>
+					</ul>
+					<!-- SEARCHBAR -->
+					<form class="form-inline search-box ms-auto d-none d-sm-block">
+						<button class="btn-search">
+							<img
+								class="search-icon"
+								src="./img/icons/search-icon2.png"
+								alt=""
+							/>
+						</button>
+						<input
+							type="text"
+							class="input-search"
+							placeholder="Type to Search..."
 						/>
-					</button>
-					<input
-						type="text"
-						class="input-search"
-						placeholder="Type to Search..."
-					/>
-				</div>
+					</form>
+					<!-- SEARCHBAR HASTA AQUI -->
 
-				<div class="col-2 d-flex">
-					<div>
-						<a href="./friends.html" target="_blank">
-							<img
-								class="iconos"
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<!-- comunidad -->
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="./friends.html">
+								<i
+									class="bi bi-people-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Comunidad de amigos"
+								>
+								</i>
+							</a>
+						</li>
+						<!-- configuracion -->
+						<li class="nav-item">
+							<a class="nav-link" href="./configuracion.html">
+								<i 
+								class="bi bi-gear" 
+								style="font-size: 1.8rem"
 								id="icono"
-								src="./img/icons/equipo.png"
-								alt="icono-comunidad"
-							/>
-						</a>
-					</div>
-					<div>
-						<a href="./friends.html" target="_blank">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/mensaje-bold.png"
-								alt="mensaje"
-							/>
-						</a>
-					</div>
-					<div>
-						<a href="./perfil.html" target="_blank">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/avatar-2.png"
-								alt="Mi perfil"
-							/>
-						</a>
-					</div>
-					<div>
-						<a href="./login.html" target="_blank">
-							<img
-								class="iconos"
-								id="icono"
-								src="./img/icons/logout.png"
-								alt="icono-comunidad"
-							/>
-						</a>
-					</div>
-					<!-- <div>
-						<i class="fi fi-br-menu-burger"></i>
-					</div> -->
+								alt="Configuración"></i>
+							</a>
+						</li>
+						<!-- mi perfil -->
+						<li class="nav-item">
+							<a class="nav-link" href="./perfil.html">
+								<i
+									class="bi bi-person-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Mi perfil"
+								></i>
+							</a>
+						</li>
+						<!-- cerrar sesion -->
+						<li class="nav-item">
+							<a class="nav-link" href="./login.html">
+								<i
+									class="bi bi-box-arrow-right"
+									class="bi bi-people-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Cerrar sesión"
+								></i>
+							</a>
+						</li>
+
+					</ul>
 				</div>
 			</div>
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
-		<main class="d-flex justify-content-between">
-			<div class="enter-card txt-bienvenida">
-				<h1>
+		<!-- MAIN -->
+		<main class="container">
+			<div class="row justify-content-center m-2">
+				<!-- BIENVENIDA -->
+				<div class="col-md-5 col-sm-1 order-sm-1 order-1 card-left mt-md-3 mr-sm-3 cardConf">
+					<div class="d-flex flex-column justify-content-center">
+
+					<img
+					class="avatar-md rounded mb-3"
+					src="./img/icons/logoRegistro.jpg"
+					alt="avatar"
+					/>
+
+					<h3 class="text-center">
 					Bienvenido a la página para developers. Descubre nuevos amigos y
 					disfruta de esta web donde encontrarás todo lo que te apasiona.
-				</h1>
-			</div>
+					</h3>
 
-			<div class="enter-card">
-				<h1>Unete a la comunidad:</h1>
-				<form action="procesar_registro.js" method="post">
-					<label for="nombre">Nombre:</label>
-					<input class="form-input" type="text" id="nombre" name="nombre" />
+					</div>
+				</div>
 
-					<label for="apellido">Apellido:</label>
-					<input class="form-input" type="text" id="apellido" name="apellido" />
+				<!-- REGISTRO -->
+				<div class="col-md-5 col-sm-1 order-sm-1 order-2 card-left post-card mt-md-3 mr-sm-3 cardConf">
 
-					<label for="email">Email:</label>
-					<input
-						class="form-input"
-						type="email"
-						id="email"
-						name="email"
-						placeholder="ejemplo@mail.com"
-					/>
+					<h1>Unete a la comunidad:</h1>
 
-					<label for="contrasena">Contraseña:</label>
-					<input
-						class="form-input"
-						type="password"
-						id="contrasena"
-						name="contrasena"
-					/>
+					<form action="procesar_registro.js" method="post">
 
-					<label for="conf_contrasena">Confirmar contraseña:</label>
-					<input
-						class="form-input"
-						type="password"
-						id="conf_contrasena"
-						name="conf_contrasena"
-					/>
+						<label for="nombre">Nombre:</label>
+						<input class="form-input" type="text" id="nombre" name="nombre" />
 
-					<!-- provisional, en un futuro será submit -->
-					<button
-						type="button"
-						value="Registrarse"
-						class="btn btn-primary btn-block btn-large"
-					>
-						<a href="./login.html">Listo</a>
-					</button>
-				</form>
+						<label for="apellido">Apellido:</label>
+						<input class="form-input" type="text" id="apellido" name="apellido" />
+
+						<label for="email">Email:</label>
+						<input
+							class="form-input"
+							type="email"
+							id="email"
+							name="email"
+							placeholder="ejemplo@mail.com"
+						/>
+
+						<label for="contrasena">Contraseña:</label>
+						<input
+							class="form-input"
+							type="password"
+							id="contrasena"
+							name="contrasena"
+						/>
+
+						<label for="conf_contrasena">Confirmar contraseña:</label>
+						<input
+							class="form-input"
+							type="password"
+							id="conf_contrasena"
+							name="conf_contrasena"
+						/>
+
+						<!-- provisional, en un futuro será submit -->
+						<button
+							type="button"
+							value="Registrarse"
+							class="btn btn-dark btn-block btn-large sombra mb-3"
+							onclick="window.open('./login.html')"
+						>
+							<!-- <a href="./login.html"></a> -->
+							Enviar
+						</button>
+
+					</form>
+
+				</div>
+
 			</div>
 		</main>
-		<!-- SEPARADOR ENTRE EL MAIN Y EL FOOTER -->
-		<div class="container">
-			<div class="row">
-				<div class="col text-align-center">
-					<p></p>
-				</div>
-			</div>
-		</div>
+
+		<!-- SEPARADOR -->
+		<div class="container mt-5 mb-5 border-0"></div>
 		<!-- SEPARADOR HASTA AQUI -->
 
 		<!-- FOOTER  -->
 		<footer class="container">
-			<div class="row">
+			<div class="row w-100">
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="">Quiénes somos</a>
+						<a href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3">
+							<i
+								class="bi bi-github"
+								style="font-size: 1.5rem; transform: scale(2)"
+								;
+								id="icono"
+								alt="github"
+							></i>
+						</a>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="mailto:grupo3@teclers.com">Contáctanos</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="http://">copyright © Equpo3</a>
+						<a href="mailto:grupo3@teclers.com">
+							<i
+								class="bi bi-envelope-at-fill"
+								style="font-size: 1.5rem; transform: scale(2)"
+								;
+								id="icono"
+								alt="mail"
+							></i>
+						</a>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
-						<h4>Links útiles</h4>
+						<h4>Links</h4>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://www.w3schools.com/">Información básica</a>
+						<a href="https://www.w3schools.com/"
+							><strong> Información básica</strong></a
+						>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://openai.com/blog/chatgpt/">Chatea y resuelve</a>
+						<a href="https://stackoverflow.com/"
+							><strong> Chatea y resuelve</strong></a
+						>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://www.youtube.com/@midudev"
+							><strong> Más recursos</strong></a
+						>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
 						<a href="https://twitter.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-twitter"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-twitter.png"
-								alt="icono-twitter"
-							/>
+								alt="twitter"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://reddit.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-reddit"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-reddit.png"
-								alt="icono-reddit"
-							/>
+								alt="reddit"
+							></i>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://instagram.com/" target="_blank">
-							<img
-								class="iconos"
+							<i
+								class="bi bi-instagram"
+								style="font-size: 1.5rem; transform: scale(2)"
 								id="icono"
-								src="./img/icons/icono-instagram.png"
-								alt="icono-instagram"
-							/>
+								alt="instagram"
+							></i>
 						</a>
 					</div>
 				</div>
 			</div>
 		</footer>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+			integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+			crossorigin="anonymous"
+		></script>
+
 	</body>
+
 </html>
