@@ -47,7 +47,6 @@ function pintaPersonasDOM(lista) {
       lista.forEach( persona => {
             listaNuevasPersonasDOM.innerHTML += `
             <li class='border'>
-
                   <p><i class="bi bi-person"></i> ${persona.name}, Edad: ${persona.age}</p>
             </li>
       `
@@ -79,7 +78,7 @@ formBuscaEdad.addEventListener('submit', (event) =>{
       event.preventDefault()
 
       let edadInput = parseInt(document.getElementById('busca-edad').value)
-      
+
       // filtro la búsqueda y pinto el resultado 
       let ListabusquedaPorEdad = buscarPorEdad(edadInput)
       pintaPersonasDOM(ListabusquedaPorEdad)

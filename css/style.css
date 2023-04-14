@@ -15,8 +15,7 @@ body {
 	color: rgb(20, 20, 20);
 	opacity: 0.95;
 	background-image: url('../img/muro.jpg');
-	/* background-size: contain; */
-	background-size: cover;
+	background-size: contain;
   	background-position: center center; 
 	
 }
