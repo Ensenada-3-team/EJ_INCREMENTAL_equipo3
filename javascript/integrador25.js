@@ -5,13 +5,19 @@ let formBuscaEdad = document.getElementById('form-busca-user-por-edad')
 
 class Persona {
       constructor (name, age) {
-            this.name = name;
-            this.age = age;
+            this.name = name
+            this.age = age
       }
 
 }
 
-let personas = [];
+let personas = [
+      { name: "Juan", age: 25 },
+      { name: "Maria", age: 30 },
+      { name: "Pedro", age: 20 }
+];
+
+
 
 // AGREGAR PERSONAS
 function agregarPersona(name, age) {
@@ -19,13 +25,14 @@ function agregarPersona(name, age) {
 	if (age < 0 || name.trim() === "") {
 		return;
 	}
-	let persona = new Persona(name, age);
+
+	let persona = new Persona(name, age)
+
 	personas.push(persona);
 }
 
 // ORDENAR POR EDAD
 function ordenarPorEdad() {
-     
 	// personas.sort(function (a, b) {
 	//       return a.age - b.age
 	// });
@@ -41,7 +48,6 @@ function ordenarPorEdad() {
             }
       }
       
-
       pintaPersonasDOM(personas)
       return
 }
@@ -98,3 +104,19 @@ formBuscaEdad.addEventListener('submit', (event) =>{
       document.getElementById('busca-edad').value = ''
       
 })
+
+
+/*
+
+ANOTACIONES BURBUJA
+ len-i-1 estaría haciendo referencia al índice del último elemento de la porción no ordenada del array. 
+ 
+ En cada iteración del bucle exterior, i representa el número de elementos ya ordenados del array, de modo que la porción no ordenada se encuentra entre personas[0] y personas[len-i-1]. 
+ 
+ En la primera iteración, i es 0, por lo que el índice del último elemento de la porción no ordenada es len-0-1, es decir len-1. 
+ 
+ En la segunda iteración, i es 1, por lo que el índice del último elemento de la porción no ordenada es len-1-1, es decir len-2. Y así sucesivamente hasta que todo el array se encuentra ordenado.
+
+
+
+*/
