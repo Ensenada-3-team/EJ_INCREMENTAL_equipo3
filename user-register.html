@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Incremental con Javascript</title>
+		<title>Registro</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -14,7 +15,9 @@
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/responsive.css" />
 	</head>
+
 	<body>
+
 		<!-- BARRA DE NAVEGACION -->
 		<nav class="navbar navbar-expand-lg bg-body-transparent container">
 			<div class="container-fluid">
@@ -109,125 +112,87 @@
 								></i>
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
+		<!-- MAIN -->
 		<main class="container">
 			<div class="row justify-content-center m-2">
-				<!-- EJERCICIOS INCREMENTALES -->
-				<div
-					class="col-md-5 col-sm-1 order-sm-1 order-1 card-left mt-md-3 mr-sm-3 cardConf"
-				>
-					<h4>Incrementales</h4>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="buscadorJuniors()"
-						/>
-						11- Buscador de Juniors 🐥💻👾
-					</p>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="contadorLikes()"
-						/>
-						12- Contador de Likes 🖤
-					</p>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="userData()"
-						/>
-						13- Id switch 👥 && Mes del año
-					</p>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="sortFriends()"
-						/>
-						14- Ordenar Amigos 🔤👬👭
-					</p>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="mostrarLikes()"
-						/>
-						18- Obtener nº de likes de la publicación
-					</p>
-					<!-- <p>
-						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
-					</p>
-					<p>
-						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
-					</p>
-					<p>
-						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
-					</p> -->
+				<!-- BIENVENIDA -->
+				<div class="col-md-5 col-sm-1 order-sm-1 order-1 card-left mt-md-3 mr-sm-3 cardConf">
+					<div class="d-flex flex-column justify-content-center">
+
+					<img
+					class="avatar-md rounded mb-3"
+					src="./img/icons/logoRegistro.jpg"
+					alt="avatar"
+					/>
+
+					<h3 class="text-center">
+					Bienvenido a la página para developers. Descubre nuevos amigos y
+					disfruta de esta web donde encontrarás todo lo que te apasiona.
+					</h3>
+
+					</div>
 				</div>
 
-				<!-- EJERCICIOS EXTRA -->
-				<div
-					class="col-md-5 col-sm-1 order-sm-1 order-2 card-left post-card mt-md-3 mr-sm-3 cardConf"
-				>
-					<h4>Extras</h4>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="inicioSesion()"
-						/>
-						11- Inicio de sesión 📥👀✔💻
-					</p>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="cuentaAtras()"
-						/>
-						12- Cuenta atrás pares || impares 👩🏻‍🤝‍👩🏻
-					</p>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="diaSemana()"
-						/>
-						13- Día de la semana 📅
-					</p>
-					<p>
-						<input
-							type="button"
-							class="btn btn-sm btn-dark sombra"
-							value="Probar"
-							onclick="coches()"
-						/>
-						14- Coches
-					</p>
+				<!-- REGISTRO -->
+				<div class="col-md-5 col-sm-1 order-sm-1 order-2 card-left post-card mt-md-3 mr-sm-3 cardConf">
 
-					<!-- <p>
-						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
-					</p>
-					<p>
-						<input type="button" class="btn btn-sm btn-dark sombra" value="Probar" onclick="" />
-					</p> -->
+					<h1>Unete a la comunidad:</h1>
+
+					<form action="procesar_registro.js" method="post">
+
+						<label for="nombre">Nombre:</label>
+						<input class="form-input" type="text" id="nombre" name="nombre" />
+
+						<label for="apellido">Apellido:</label>
+						<input class="form-input" type="text" id="apellido" name="apellido" />
+
+						<label for="email">Email:</label>
+						<input
+							class="form-input"
+							type="email"
+							id="email"
+							name="email"
+							placeholder="ejemplo@mail.com"
+						/>
+
+						<label for="contrasena">Contraseña:</label>
+						<input
+							class="form-input"
+							type="password"
+							id="contrasena"
+							name="contrasena"
+						/>
+
+						<label for="conf_contrasena">Confirmar contraseña:</label>
+						<input
+							class="form-input"
+							type="password"
+							id="conf_contrasena"
+							name="conf_contrasena"
+						/>
+
+						<!-- provisional, en un futuro será submit -->
+						<button
+							type="button"
+							value="Registrarse"
+							class="btn btn-dark btn-block btn-large sombra mb-3"
+							onclick="window.open('./user-login.html')"
+						>
+							<!-- <a href="./user-login.html"></a> -->
+							Enviar
+						</button>
+
+					</form>
+
 				</div>
+
 			</div>
 		</main>
 
@@ -319,22 +284,6 @@
 				</div>
 			</div>
 		</footer>
-		
-		<!-- BOTON FLOTANTE -->
-		<div class="container">
-			<button
-				class="btn btn-floating position-fixed bottom-0 end-0 sombra mb-3"
-				style="
-					border-radius: 3rem;
-					background-color: rgba(190, 190, 235, 0.484);
-				"
-				onclick="window.open('./search-posts.html', '_blank')"
-				type="button"
-			>
-				<i class="bi bi-send-fill" style="font-size: 2rem; color: black"></i>
-			</button>
-		</div>
-
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
@@ -351,10 +300,6 @@
 			crossorigin="anonymous"
 		></script>
 
-		<!-- INCREMENTALES -->
-		<script src="./javascript/incrementales/incrementales.js"></script>
-
-		<!-- EXTRAS -->
-		<script src="./javascript/incrementales/extras.js"></script>
 	</body>
+
 </html>

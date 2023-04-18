@@ -1,4 +1,4 @@
-// INCREMENTAL 17  - configuracion.html
+// INCREMENTAL 17  - config-account.html
 
 const eliminarCuentaBtn = document.querySelector("#eliminar-cuenta");
 eliminarCuentaBtn.addEventListener("click", confirmarEliminacionCuenta);
@@ -19,7 +19,7 @@ async function eliminarCuenta() {
 		await new Promise((resolve) => setTimeout(resolve, 3000));
 
 		// Redireccionamos al usuario a la página de inicio de sesión
-		window.location.href = "./login.html";
+		window.location.href = "./user-login.html";
 
 	} catch (error) {
 		console.error(error);

@@ -44,8 +44,8 @@ async function eliminarCuenta() {
 		await new Promise((resolve) => setTimeout(resolve, 10000));
 
 		// Redireccionamos al usuario a la página de inicio de sesión
-		// window.location.href = '../login.html';
-		window.open("./login.html", "_blank");
+		// window.location.href = '../user-login.html';
+		window.open("./user-login.html", "_blank");
 
 	} catch (error) {
 		console.error(error);
@@ -94,5 +94,5 @@ async function eliminarCuentaFetch() {
 }
 
 function redirigirALogin() {
-	window.location.href = "./login.html";
+	window.location.href = "./user-login.html";
 }

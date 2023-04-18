@@ -3,13 +3,14 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Publicaciones</title>
+		<title>Friends</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 			crossorigin="anonymous"
 		/>
+
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/responsive.css" />
 	</head>
@@ -65,7 +66,7 @@
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<!-- comunidad -->
 						<li class="nav-item">
-							<a class="nav-link" aria-current="page" href="./friends.html">
+							<a class="nav-link" aria-current="page" href="./user-friends.html">
 								<i
 									class="bi bi-people-fill"
 									style="font-size: 1.8rem"
@@ -75,9 +76,9 @@
 								</i>
 							</a>
 						</li>
-						<!-- configuracion -->
+						<!-- config-account -->
 						<li class="nav-item">
-							<a class="nav-link" href="./configuracion.html">
+							<a class="nav-link" href="./config-account.html">
 								<i 
 								class="bi bi-gear" 
 								style="font-size: 1.8rem"
@@ -87,7 +88,7 @@
 						</li>
 						<!-- mi perfil -->
 						<li class="nav-item">
-							<a class="nav-link" href="./perfil.html">
+							<a class="nav-link" href="./user-logged-profile.html">
 								<i
 									class="bi bi-person-fill"
 									style="font-size: 1.8rem"
@@ -98,7 +99,7 @@
 						</li>
 						<!-- cerrar sesion -->
 						<li class="nav-item">
-							<a class="nav-link" href="./login.html">
+							<a class="nav-link" href="./user-login.html">
 								<i
 									class="bi bi-box-arrow-right"
 									class="bi bi-people-fill"
@@ -108,7 +109,7 @@
 								></i>
 							</a>
 						</li>
-
+						
 					</ul>
 				</div>
 			</div>
@@ -186,7 +187,7 @@
 							<div class="col card w-100">
 								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
-									<a href="./configuracion.html">
+									<a href="./config-account.html">
 										<i
 											class="bi bi-gear"
 											style="font-size: 1.5rem; transform: scale(2)"
@@ -208,7 +209,7 @@
 									</a>
 								</div>
 								<div>
-									<a href="./publicaciones-api.html">
+									<a href="./search-posts.html">
 										<i
 											class="bi bi-search"
 											style="font-size: 1.5rem; transform: scale(2)"
@@ -223,52 +224,73 @@
 					</div>
 				</div>
 
-                        <!-- CENTRO - PUBLICACIONES -->
-				<div class="col-sm-9 col-md-7 col-lg-9 ">
-                              <div class="container">
-                                    <!-- tarjeta con titulo y search-bar -->
-                                    <div class="card post-card cardConfig">
-                                          <div>
-                                                <h4 class="text-center">Busca publicaciones de los //Teclers</h4>
-                                          </div>
-                                          <div class="busca-publicaciones">
-                                                <form id="form-busca-posts" role="search">
-                                                      <input
-                                                            id="search-username"
-                                                            class="form-control me-2"
-                                                            type="search"
-                                                            name="search"
-                                                            placeholder="Introduce el nombre de tu amigo"
-                                                            aria-label="Search"
-                                                      />
-                                                      <button 
-                                                            class="btn btn-dark sombra" 
-                                                            type="submit"
-                                                            >
-                                                            Search
-                                                      </button>
-                                                </form>
-								<!-- https://dummyjson.com/users -->
-								<div class="row">
-									<div class="col sombra w-50 mt-3 p-2 w-sm-100 text-center"><p>Sugerencias: Terry, Sheldon, Mavis, Alison, Oleta, Ewell, Demetrius, Eleanora... </p></div>
-									<div class="col-sm-1 col-lg-7 align-self-end">
-										<button class="btn" style="font-size: 1.5rem" onclick="getRandomPosts()"><i class="bi bi-arrow-clockwise"></i></button>
-									</div>
+				<!-- CENTRO -->
+				<div class="col-md-8 col-lg-9 flex-grow-1">
+					<!-- CONTENEDOR CENTRO CON DOS ROWS -->
+					<div class="container">
+						<!-- ROW 1: ENCABEZADO Y BUSQUEDA DE TECLERS -->
+						<div class="row">
+							<div class="col card post-card">
+								<div>
+									<h2>Teclers</h2>
 								</div>
-                                          </div>
-                                    </div>
-                                    <!--  PUBLICACIONES -->
-                                    <div>
-                                          <ol id="lista-publicaciones">
-                                                <!-- se rellena con getPubApi.js -->
-                                                <!-- Diseño del elemento tarjeta en carpeta componentes/post.html -->
-                                          </ol>
-                                    </div>
+
+								<div class="search-box">
+									<button class="btn-search">
+										<img
+											class="search-icon"
+											src="./img/icons/search-icon2.png"
+											alt=""
+										/>
+									</button>
+									<input
+										type="text"
+										class="input-search"
+										placeholder="Type to Search..."
+									/>
+								</div>
+							</div>
+						</div>
+
+						<!-- ROW 2: GRID DE TECLERS -->
+						<div class="container-fluid">
+							<!-- una row por cada amigo -->
+							<div class="row">
+								<div class="col-1">
+									<img class="avatar rounded" src="./img/friends/avatar1.png" alt="">
+								</div>
+								<div class="col-3">
+									<h5>CarmenCss</h5>
+									<h6>Desarrollador Web</h6>
+								</div>
+								<div class="col-8 text-end">
+									<button class="btn btn-sm btn-dark sombra mb-3">
+										Enviar mensaje
+									</button>
+								</div>
+
+								
+							</div>
+							<!-- otro amigo -->
+							<div class="row">
+								<div class="col-1">
+									<img class="avatar rounded" src="./img/friends/avatar2.png" alt="">
+								</div>
+								<div class="col-3">
+									<h5>Federico Grid</h5>
+									<h6>Desarrollador Web</h6>
+								</div>
+								<div class="col-8 text-end">
+									<button class="btn btn-sm btn-dark sombra mb-3">
+										Enviar mensaje
+									</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</main>
-
 		<!-- SEPARADOR -->
 		<div class="container mt-5 mb-5 border-0"></div>
 		<!-- SEPARADOR HASTA AQUI -->
@@ -366,7 +388,7 @@
 					border-radius: 3rem;
 					background-color: rgba(190, 190, 235, 0.484);
 				"
-				onclick="window.open('./publicaciones-api.html', '_blank')"
+				onclick="window.open('./search-posts.html', '_blank')"
 				type="button"
 			>
 				<i class="bi bi-send-fill" style="font-size: 2rem; color: black"></i>
@@ -388,8 +410,5 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
-		<script src="./javascript/likeDislikePost.js"></script>
-		<script src="./javascript/getPubApi.js"></script>
-		<script src="./javascript/getDefaultPosts.js"></script>
 	</body>
 </html>
