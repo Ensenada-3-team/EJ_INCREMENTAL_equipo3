@@ -7,7 +7,6 @@ const cursos = [
 
 cursos.forEach(element => console.log(element))
 console.log('__________________________________________')
-console.log('estamos aprendiendo node por las buenas')
 
 
 function decirHola() {
