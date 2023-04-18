@@ -226,38 +226,12 @@
 				</div>
 
 				<!-- CENTRO  -->
-				<div class="col-md-8 col-lg-9 flex-grow-1">
+				<div class="col-md-8 col-lg-9 col-sm-12 flex-grow-1">
 					<div class="container">
 						<!-- TU PERFIL + FOTO -->
 						<div class="row justify-content-center">
                                    
-                                          <section class="col card post-card">
-                                                      <!-- nombre usuario -->
-                                                <h2 id="nombre-usuario-h1">Tu perfil </h2>
-                                                <!-- avatar -->
-                                                <a href="#">
-                                                      <i class="bi bi-camera"></i>
-                                                      <img class="avatar-lg rounded" src="./img/friends/avatar13.png" alt="avatar" />
-                                                </a>
-                                                <!-- biografia -->
-                                                <div>
-                                                      <h3>Biografía</h3>
-                                                </div>
-                                                <!-- texto + boton explorar -->
-                                                <div>
-                                                      <p>
-                                                            Hola! Soy una bootcamper reinventándome!!
-                                                      </p>
-                                                      <button
-                                                            class="btn btn-sm btn-dark sombra mt-3"
-                                                            onclick="window.open('./funciones.html', '_blank');"
-                                                      >
-                                                            Explora los ejercicios de mi equipo
-                                                      </button>
-                                                </div>
-
-                                          </section>
-                                          <section class="col card" >
+                                          <section class="col card post-card" >
                                                 <h2>Datos personales:</h2>
                                                 <button class="btn" onclick="updateUser()"><i class="bi bi-arrow-clockwise"></i></button>
                                                 <div class="container d-flex justify-content-between" >
@@ -309,80 +283,7 @@
 
 						<!-- DATOS PERSONALES -->
 						<div class="row justify-content-center">
-                                         
-
-							<!-- DISPONIBILIDAD HORARIA -->
-							<div class="col-md-5 col-lg-6 card post-card w-30">
-								<h2>Disponibilidad horaria:</h2>
-
-								<ul id="disponibilidad-list" class="mt-4">
-									<li>
-										<p>
-											<i class="bi bi-brightness-high"></i>&nbspLunes a viernes:
-											9am - 5pm
-										</p>
-									</li>
-									<li>
-										<p>
-											<i class="bi bi-brightness-alt-high"></i>&nbspSábados:
-											10am - 2pm
-										</p>
-									</li>
-								</ul>
-
-								<div class="check-disponibilidad w-100">
-									<div class="mt-5">
-										<div class="form-check w-100">
-											<input
-												type="radio"
-												class="form-check-input"
-												id="Mananas"
-												name="Disponibilidad"
-												value="Mañanas"
-											/>
-											<label class="form-check-label" for="Mananas"
-												>Mañanas</label
-											>
-										</div>
-
-										<div class="form-check w-100">
-											<input
-												type="radio"
-												class="form-check-input"
-												id="Tardes"
-												name="Disponibilidad"
-												value="Tardes"
-											/>
-											<label class="form-check-label" for="Tardes"
-												>Tardes</label
-											>
-										</div>
-
-										<div class="form-check w-100">
-											<input
-												type="radio"
-												class="form-check-input"
-												id="Completa"
-												name="Disponibilidad"
-												value="Completa"
-											/>
-											<label class="form-check-label" for="Completa"
-												>Completa</label
-											>
-										</div>
-									</div>
-
-									<div class="w-100">
-										<button
-											class="btn btn-sm btn-dark sombra mt-3"
-											type="submit"
-											value="Submit"
-										>
-											Subir cambios
-										</button>
-									</div>
-								</div>
-							</div>
+                                    
 						</div>
 					</div>
 				</div>
@@ -510,6 +411,6 @@
 			crossorigin="anonymous"
 		></script>
             
-		<script src="./javascript/incrementales/perfil21.js"></script>
+		<script src="./javascript/incrementales/incremental21.js"></script>
 	</body>
 </html>
