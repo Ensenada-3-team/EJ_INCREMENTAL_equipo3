@@ -125,8 +125,9 @@
 					<div class="container">
 						<!-- izq arriba -->
 						<div class="row">
+							<!-- INTERESES -->
 							<div class="col card w-100 text-center">
-								<h4 class="d-lg-block d-md-none">Intereses</h4>
+								<h4 class="d-lg-block d-md-none card-header">Intereses</h4>
 
 								<div>
 									<a href="https://www.nytimes.com/" target="_blank">
@@ -180,13 +181,14 @@
 									</a>
 									<h6 class="d-lg-block d-md-none">Guardado</h6>
 								</div>
+								<div class="card-footer"></div>
 							</div>
 						</div>
 
 						<!-- izq abajo  -->
 						<div class="row">
-							<div class="col card w-100">
-								<h4 class="d-lg-block d-md-none">Cuenta</h4>
+							<div class="col card w-100 text-center g-3 z-index">
+								<h4 class="d-lg-block d-md-none card-header">Cuenta</h4>
 								<div>
 									<a href="./configuracion.html">
 										<i
@@ -226,87 +228,129 @@
 				</div>
 
 				<!-- CENTRO  -->
-				<div class="col-md-8 col-lg-9 flex-grow-1">
+				<div class="col-md-8 col-lg-9 ">
 					<div class="container">
 						<!-- TU PERFIL + FOTO -->
 						<div class="row justify-content-center">
-                                          <!-- CARD IZQUIERDA PERFIL  -->
-                                          <section class="col-md-5 col-sm-1 order-sm-1 order-1 card-left mt-md-3 mr-sm-3 cardConf">
-                                                <!-- PORTADA-->
-                                                <div class=""><img src="./img/portada/portada.jpg" alt="foto de portada" class="img-fluid "></div>
-                                                <!--FOTO+ NOMBRE + PROFESION + LOCACION + BOTONES -->
-                                                <div>
-                                                      <div class="d-flex justify-content-between">
-                                                            <button class="btn">
-                                                                  <img class="avatar rounded rounded-circle" src="./img/friends/avatar13.png" alt="avatar"><i class="bi bi-camera"></i></img>
-                                                            </button>
-                                                            <button class="btn">
-                                                                  <i class="bi bi-pencil"></i>
-                                                            </button>
-                                                           
-                                                      </div>
-                                                      <!-- contenido principal datos -->
-                                                      <div>
-                                                            <!-- nombre y apellidos -->
-                                                            <h2>Sandra Jimenez</h2>
-                                                            <!-- ocupacion -->
-                                                            <h3>Full Stack Developer </h3>
-                                                            <p> <i class="bi bi-geo-alt"></i> Gijón, Principado de Asturias, España</p>
-                                                            <div class="d-flex justify-content-around w-75">
-                                                                  <p>3456 Followers</p>
-                                                                  <p>56 Following</p>
-                                                            </div>
-                                          
-                                                      </div>
-                                                      <!-- botones links mi perfil -->
-                                                      <div>
-                                                            <button class="btn btn-sm btn-primary ">crea publicacion</button>
-                                                            <button class="btn btn-sm btn-primary"></button>
-                                                            <button
-                                                            class="btn btn-sm btn-primary"
-                                                            onclick="window.open('./funciones.html', '_blank');"
-                                                      >
-                                                            Explora los ejercicios de mi equipo
-                                                      </button>
-                                                      </div>
-                                                </div>
-
-                                          </section>
-                                          <!-- CARD DERECHA : BIO + ICONOS REDES LINK + MAS INFO -->
-                                          <section class="col-md-5 col-sm-1 order-sm-1 order-2 card-left post-card mt-md-3 mr-sm-3 cardConf" >
-                                                <h2>Acerca de:</h2>
-                                                <!-- bio -->
-                                                <div>
-                                                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem ipsam reprehenderit qui rem magni suscipit, illum quia facilis tempore magnam totam laborum minus ea minima cum. Labore, id culpa?
-                                                </div>
-
-                                                <!-- mas info -->
-                                                <div class="mt-3">
-                                                      <a href="http://"><i class="bi bi-file-person"></i> Más info</a>
-                                                </div>
-
-                                                <!-- links redes sociales -->
-                                                <div class="d-flex justify-content-center mt-4 align-self-end">
-                                                      <!-- github -->
-                                                      <button class="btn ">
-                                                            <i class="bi bi-github"></i>
-                                                      </button>
-                                                      <!-- linkedin -->
-                                                      <button class="btn">
-                                                            <i class="bi bi-linkedin"></i>
-                                                      </button class="btn">
-                                                      <!--  -->
-                                                      <button class="btn">
-                                                            <i class="bi bi-instagram"></i>
-                                                      </button>
-                                                </div>
-                                               
-
-                                          </section>
-                                                
-						</div>
-
+							<!-- CARD IZQUIERDA PERFIL  -->
+							<section
+								class="col-md-5 col-sm-1 order-sm-1 order-1 card mx-sm-1 mx-md-0 mb-3 mb-md-0 "
+							>
+								<!-- PORTADA-->
+								<div class="card-header p-0 m-0">
+									<img
+										src="./img/portada/portada.jpg"
+										alt="foto de portada"
+										class="img-fluid"
+									/>
+								</div>
+								<!--FOTO+ NOMBRE + PROFESION + LOCACION + BOTONES -->
+								<div class="card-body">
+									<div class="d-flex justify-content-between h-25 " >
+										<button class="btn">
+											<img
+												id="imagen-usuario"
+												class="avatar rounded rounded-circle position-relative"
+												src="https://randomuser.me/api/portraits/med/men/75.jpg"
+												alt="avatar"
+												style="top: -5rem; width: 6.25rem; height: 6.25rem"
+											/>
+											<i
+												class="bi bi-camera"
+												style="position: relative; top: -4.063rem; right: 7.5rem"
+											></i>
+										</button>
+										<button class="btn">
+											<i
+												class="bi bi-pencil position-relative "
+												style="top: -2rem"
+											></i>
+										</button>
+									</div>
+									<!-- contenido principal datos -->
+									
+									<!-- nombre y apellidos -->
+									<div >
+										<h2 id="nombre-apellido">Rosa Vega</h2>
+									</div>
+									<!-- ocupacion -->
+									<div ">
+										<h5 id="ocupacion">Full Stack Developer</h5>
+									</div>
+									<div class="d-flex mt-5">
+										<i class="bi bi-geo-alt"></i>
+										<p id="ubicacion">
+											Gijón, Principado de
+												Asturias, España
+										</p>
+									</div>
+									<div class="d-flex justify-content-between w-75 ">
+										<p id="followers-counter">3456 Followers</p>
+										<p id="following-counter">56 Following</p>
+									</div>
+									
+								</div>
+								<!-- botones links mi perfil -->
+								<div class="card-footer d-flex">
+									<button class="btn btn-sm btn-outline-primary">crea</button>
 						
+									<button
+										class="btn btn-sm btn-outline-dark mx-1"
+										onclick="window.open('./funciones.html', '_blank');"
+									>
+										Explora
+									</button>
+								</div>
+							</section>
+							<!-- CARD DERECHA : BIO + ICONOS REDES LINK + MAS INFO -->
+							<section
+								class="col-md-5 col-sm-1 order-sm-1 order-2 card mx-sm-0 mx-md-3"
+							>
+								<h4 class="card-header text-center">Acerca de:</h4>
+								<!-- bio -->
+								<div class="card-body">
+									<p id="acerca-de">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+										autem ipsam reprehenderit qui rem magni suscipit, illum quia
+										facilis tempore magnam totam laborum minus ea minima cum.
+										Labore, id culpa? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+										Eos rerum nisi deleniti vero quibusdam, asperiores a voluptatum soluta animi eligendi expedita 
+										reiciendis inventore eaque dolorum numquam officiis quia optio explicabo.
+									</p>
+								</div>
+									
+								<div class=""></div>
+
+								<!-- mas info -->
+								<div>
+									<i class="bi bi-file-person"></i>
+									<a id="link-hoja-de-vida" href="http://"
+										> Más info</a
+									>
+								</div>
+								<div>
+									<i class="bi bi-envelope-at"></i>
+									<a id="email" href="http://"
+										>Email</a
+									>
+								</div>
+
+								<!-- links redes sociales -->
+								<div class="card-footer d-flex justify-content-center mt-4">
+									<!-- github -->
+									<button class="btn">
+										<i class="bi bi-github"></i>
+									</button>
+									<!-- linkedin -->
+									<button class="btn">
+										<i class="bi bi-linkedin"></i>
+									</button>
+									<!--  insta-->
+									<button class="btn">
+										<i class="bi bi-instagram"></i>
+									</button>
+								</div>
+							</section>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -329,7 +373,6 @@
 							<i
 								class="bi bi-github"
 								style="font-size: 1.5rem; transform: scale(2)"
-								;
 								id="icono"
 								alt="github"
 							></i>
@@ -340,7 +383,6 @@
 							<i
 								class="bi bi-envelope-at-fill"
 								style="font-size: 1.5rem; transform: scale(2)"
-								;
 								id="icono"
 								alt="mail"
 							></i>
@@ -433,6 +475,6 @@
 			crossorigin="anonymous"
 		></script>
             
-		<script src="./javascript/incrementales/perfil21.js"></script>
+		<script src="./javascript/randomUserPerfil.js"></script>
 	</body>
 </html>
