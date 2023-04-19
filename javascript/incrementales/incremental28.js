@@ -20,15 +20,7 @@ form.addEventListener("submit", async (event) => {
 	});
 
 	const data = await response.json();
-	//data = {text, user, date, likes}
-	// const newPost = document.createElement("div");
-	// const postText = document.createElement("span");
-	// postText.value = data.text;
-	// newPost.appendChild(postText);
-	//...
-	// const feed = document.querySelector("#feed");
-	// feed.appendChild(newPost);
-
+	
       const nuevoPost = `
             <li>
                   <div class='card border border-dark w-75'>
