@@ -1,0 +1,14 @@
+{
+  "name": "extra_29",
+  "version": "1.0.0",
+  "description": "",
+  "main": "extra_29.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "equipo 3",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
