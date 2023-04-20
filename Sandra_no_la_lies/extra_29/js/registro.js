@@ -25,7 +25,7 @@ form.addEventListener("submit",async (event)=>{
     })  
     const data = await response.json()
     console.log("data")
-    window.location.href = './login'
+    window.location.href = 'login.html'
     console.log(data)
 
 

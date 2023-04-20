@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
 
 app.use(express.json())
+app.use(cors())
 
 // Middleware para validar el formato del email
 const validarEmail = (req, res, next) => {
@@ -24,9 +26,9 @@ const validarEdad = (req, res, next) => {
 
 // Middleware para validar que la contraseña sea segura
 const validarContraseña = (req, res, next) => {
-  const contraseña = req.body.contraseña;
+  const contrasena = req.body.contrasena;
   const regexContraseña = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  if (!regexContraseña.test(contraseña)) {
+  if (!regexContraseña.test(contrasena)) {
     return res.status(400).send('La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial.');
   }
   next();
@@ -46,6 +48,6 @@ app.post('/registro', validarEmail, validarEdad, validarContraseña, (req, res) 
   res.status(200).send(nuevoUsuario)
 });
 
-app.listen(3000, () => {
-  console.log('Servidor escuchando en el puerto 3000');
+app.listen(3001, () => {
+  console.log('Servidor escuchando en el puerto 3001');
 });
