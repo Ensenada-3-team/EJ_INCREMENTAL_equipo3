@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json())
+
 // Middleware para validar el formato del email
 const validarEmail = (req, res, next) => {
   const email = req.body.email;

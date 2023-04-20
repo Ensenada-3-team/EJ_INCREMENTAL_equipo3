@@ -1,4 +1,4 @@
-const { url } = require("inspector");
+
 
 const form = document.getElementById("form-registro");
 
@@ -24,8 +24,9 @@ form.addEventListener("submit",async (event)=>{
     })
     })  
     const data = await response.json()
-
+    console.log("data")
     window.location.href = './login'
+    console.log(data)
 
 
 })
