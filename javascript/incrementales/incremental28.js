@@ -8,6 +8,7 @@ form.addEventListener("submit", async (event) => {
 	const textArea = document.querySelector("#mensaje-post");
 	// const user = await JSON.parse(localStorage.getItem("user"));
       const autor = document.querySelector('#author-post')
+      
 	const response = await fetch("http://localhost:3001/publicaciones", {
 		method: "POST",
 		headers: {
