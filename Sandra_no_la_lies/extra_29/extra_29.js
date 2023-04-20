@@ -41,6 +41,7 @@ app.post('/registro', validarEmail, validarEdad, validarContraseña, (req, res) 
     edad,
     contrasena
   }
+  res.status(200).send(nuevoUsuario)
 });
 
 app.listen(3000, () => {
