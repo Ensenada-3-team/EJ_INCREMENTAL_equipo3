@@ -9,7 +9,7 @@ form.addEventListener("submit", async (event) => {
 	// const user = await JSON.parse(localStorage.getItem("user"));
       const autor = document.querySelector('#author-post')
       
-	const response = await fetch("http://localhost:3001/publicaciones", {
+	const response = await fetch("http://localhost:3000/posts/publicaciones", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
