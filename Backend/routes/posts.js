@@ -21,7 +21,7 @@ router.post("/publicaciones", async (req, res) => {
 		likes: parseInt(Math.random() * 10), // dato aleatorio parseInt(Math.random()*10)
 		image: coolImages.one(),
 	};
-	res.status(200)
+	res.status(200).send(publicacion);
 })
 
 
