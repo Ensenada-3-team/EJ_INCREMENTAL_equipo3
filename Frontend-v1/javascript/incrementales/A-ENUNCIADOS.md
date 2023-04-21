@@ -11,9 +11,9 @@
 1. Comprobar el inicio de sesión
 2. Escribir un código que pregunte por el inicio de sesión con prompt.
 
-NOTA: Si el visitante ingresa ""Admin"", entonces prompt(pregunta) por una contraseña, si la entrada es una linea vacía o Esc – muestra “Cancelado.”, si es otra cadena de texto – entonces muestra “No te conozco”.
+NOTA: Si el visitante ingresa ""Admin"", entonces prompt(pregunta) por una password, si la entrada es una linea vacía o Esc – muestra “Cancelado.”, si es otra cadena de texto – entonces muestra “No te conozco”.
 
-- Comprobacion de contraseña: + Si es igual a “TheMaster”, entonces muestra “Bienvenido!”, + Si es otra cadena de texto – muetra “Contraseña incorrecta”, + Para una cadena de texto vacía o una entrada cancelada, muestra “Cancelado.”"
+- Comprobacion de password: + Si es igual a “TheMaster”, entonces muestra “Bienvenido!”, + Si es otra cadena de texto – muetra “password incorrecta”, + Para una cadena de texto vacía o una entrada cancelada, muestra “Cancelado.”"
 
 ## Incremental 12 - Ciclos de likes
 

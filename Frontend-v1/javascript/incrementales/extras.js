@@ -10,12 +10,12 @@ inicioSesion = () => {
   
       //Condicional para determinar si es el Administrador
       if (user === 'Admin') {
-          let password = prompt('Ingrese su contraseña:');
+          let password = prompt('Ingrese su password:');
   
-          //Condicional para verificar la contraseña
+          //Condicional para verificar la password
           (password === 'TheMaster') ? alert('Bienvenido!') :
           (password === '' || password === null) ? alert('Cancelado') :
-          alert('Contraseña incorrecta');
+          alert('password incorrecta');
   
       } else if (user === '' || user === null) {
           alert('Cancelado');

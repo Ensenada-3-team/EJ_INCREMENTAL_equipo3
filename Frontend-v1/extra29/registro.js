@@ -7,7 +7,7 @@ form.addEventListener("submit",async (event)=>{
     const apellido = document.getElementById("apellido");
     const email = document.getElementById("email");
     const edad = document.getElementById("edad");
-    const contrasena = document.getElementById("contrasena");
+    const password = document.getElementById("password");
 
     const response = await fetch("http://localhost:3000/auth/registro",{
 
@@ -18,7 +18,7 @@ form.addEventListener("submit",async (event)=>{
         apellido: apellido.value,
         email: email.value,
         edad: edad.value,
-        contrasena: contrasena.value
+        password: password.value
     })
     })  
     const data = await response.json()

@@ -24,16 +24,16 @@ const validarEdad = (req, res, next) => {
     next();
 };
 
-// Middleware para validar que la contrasena sea segura
-const validarContrasena = (req, res, next) => {
-    const contrasena = req.body.contrasena;
-    const regexContrasena =
+// Middleware para validar que la password sea segura
+const validarpassword = (req, res, next) => {
+    const password = req.body.password;
+    const regexpassword =
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!regexContrasena.test(contrasena)) {
+    if (!regexpassword.test(password)) {
         return res
             .status(400)
             .send(
-                "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial."
+                "La password debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial."
             );
     }
     next();
@@ -47,16 +47,16 @@ router.post(
     "/registro",
     validarEmail,
     validarEdad,
-    validarContrasena,
+    validarpassword,
     (req, res) => {
         // Aquí se puede procesar el formulario de registro
-        const { nombre, apellido, email, edad, contrasena } = req.body;
+        const { nombre, apellido, email, edad, password } = req.body;
         const nuevoUsuario = {
             nombre,
             apellido,
             email,
             edad,
-            contrasena,
+            password,
         };
         res.status(200).send(nuevoUsuario);
     }
@@ -65,17 +65,17 @@ router.post(
 //Endpoint de login
 //http://localhost:3000/auth/login
 router.post('/login', async (req, res) => {
-    const { nombre, contrasena } = req.body;
+    const { nombre, password } = req.body;
     // Aquí se verificarían las credenciales del usuario.
 
     try {
         const user = await users.findOne({ nombre });
         if (!user) {
-            return res.status(401).json({ message: 'Nombre de usuario o contraseña incorrectos' });
+            return res.status(401).json({ message: 'Nombre de usuario o password incorrectos' });
         }
-        const match = await users.findOne({ contrasena });
+        const match = await users.findOne({ password });
         if (!match) {
-            return res.status(401).json({ message: 'Nombre de usuario o contraseña incorrectos' });
+            return res.status(401).json({ message: 'Nombre de usuario o password incorrectos' });
         }
         // Si las credenciales son correctas, se puede enviar una respuesta de éxito.
         // De lo contrario, se debe enviar una respuesta de error.
