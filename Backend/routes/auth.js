@@ -1,4 +1,4 @@
-import { users } from "../bd-usuarios";
+const { users } = require("../bd-usuarios");
 
 var express = require('express');
 var router = express.Router();
