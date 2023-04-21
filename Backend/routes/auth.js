@@ -65,11 +65,11 @@ router.post(
 //Endpoint de login
 //http://localhost:3000/auth/login
 router.post('/login', async (req, res) => {
-    const { nombre, password } = req.body;
+    const { name, password } = req.body;
     // Aquí se verificarían las credenciales del usuario.
 
     try {
-        const user = await users.findOne({ nombre });
+        const user = await users.findOne({ name });
         if (!user) {
             return res.status(401).json({ message: 'Nombre de usuario o password incorrectos' });
         }
@@ -77,7 +77,10 @@ router.post('/login', async (req, res) => {
         if (!match) {
             return res.status(401).json({ message: 'Nombre de usuario o password incorrectos' });
         }
+
         // Si las credenciales son correctas, se puede enviar una respuesta de éxito.
+        res.status(200).send('Usuario logueado con éxito se redirigirá a la Home Page');
+
         // De lo contrario, se debe enviar una respuesta de error.
     } catch (err) {
         console.error(err);
