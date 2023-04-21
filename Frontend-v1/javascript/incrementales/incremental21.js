@@ -135,7 +135,7 @@ let edgar = new User3({});
 
 // FUNCION ONCLICK DEL BOTÓN QUE PINTA LOS VALORES EN EL DOM
 const updateUser = () => {
-// 	sandra.age = prompt("Introduce tu edad:");
+// 	sandra.age = prompt("Introduce tu age:");
 // 	sandra.name = prompt("Introduce tu nombre:");
 // 	sandra.secondName = prompt("Introduce tu apellido:");
 	sandra.email = prompt("Introduce tu email ✉:");

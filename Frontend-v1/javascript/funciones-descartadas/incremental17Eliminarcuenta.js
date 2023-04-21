@@ -5,8 +5,8 @@ let usuariosList = [1, 2, 3, "Pepe"];
 
 const usuarioFicticio = {
 	id: 600,
-	nombre: "Jose",
-	apellido: "Gutierrez",
+	name: "Jose",
+	firstname: "Gutierrez",
 	email: "equipazo3@example.com",
 };
 

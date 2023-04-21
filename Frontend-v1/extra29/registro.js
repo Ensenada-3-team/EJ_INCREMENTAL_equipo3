@@ -3,10 +3,10 @@ const form = document.getElementById("form-registro");
 form.addEventListener("submit",async (event)=>{
 
     event.preventDefault();
-    const nombre = document.getElementById("nombre");
-    const apellido = document.getElementById("apellido");
+    const name = document.getElementById("name");
+    const firstname = document.getElementById("firstname");
     const email = document.getElementById("email");
-    const edad = document.getElementById("edad");
+    const age = document.getElementById("age");
     const password = document.getElementById("password");
 
     const response = await fetch("http://localhost:3000/auth/registro",{
@@ -14,10 +14,10 @@ form.addEventListener("submit",async (event)=>{
     method:"POST",
     headers:{"Content-Type": "application/json"},
     body: JSON.stringify({
-        nombre: nombre.value,
-        apellido: apellido.value,
+        name: name.value,
+        firstname: firstname.value,
         email: email.value,
-        edad: edad.value,
+        age: age.value,
         password: password.value
     })
     })  

@@ -95,20 +95,20 @@
 
                   form16.addEventListener('submit', (event) => {
                         event.preventDefault()
-                        const nombreInput = document.getElementById('name').value
+                        const nameInput = document.getElementById('name').value
                         const emailInput = document.getElementById('email').value
 
                   
                         let html = `
                               <div class='contact'>
-                              <h2 id='nombre-lista'>${nombreInput}<button class='delete' onclick="deleteBtn('nombre-lista')">🗑</button></h2>
-                              <p id='correo-lista'>${emailInput}<button class='delete' onclick="deleteBtn('correo-lista')">🗑</button></p>
+                              <h2 id='name-lista'>${nameInput}<button class='delete' onclick="deleteBtn('name-lista')">🗑</button></h2>
+                              <p id='email-list'>${emailInput}<button class='delete' onclick="deleteBtn('email-list')">🗑</button></p>
                               </div>
                         `
 
                         lista.innerHTML += html
 
-                        console.log(nombreInput)
+                        console.log(nameInput)
                         console.log(emailInput)
 
                         document.getElementById('name').value = ''

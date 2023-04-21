@@ -5,7 +5,7 @@ const users = [
         firstname: "Pescador",
         email: "pescador@grupo3.com",
         age: 37,
-        password: "Grupo3.1",
+        password: "Grupo3!!",
     },
 
     {
@@ -14,7 +14,7 @@ const users = [
         firstname: "Suarez",
         email: "suarez@grupo3.com",
         age: 39,
-        password: "Grupo3.1",
+        password: "Grupo3!!",
     },
 
     {
@@ -23,7 +23,7 @@ const users = [
         firstname: "Melian",
         email: "melian@grupo3.com",
         age: 50,
-        password: "Grupo3.1",
+        password: "Grupo3!!",
     },
 
     {
@@ -32,7 +32,7 @@ const users = [
         firstname: "Perez",
         email: "perez@grupo3.com",
         age: 40,
-        password: "Grupo3.1",
+        password: "Grupo3!!",
     },
 ];
 

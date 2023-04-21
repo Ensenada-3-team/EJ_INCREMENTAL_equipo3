@@ -1,5 +1,5 @@
 let userImg = document.getElementById('imagen-usuario')
-let firstSecondName = document.getElementById('nombre-apellido')
+let firstSecondName = document.getElementById('name-firstname')
 let userOcupation = document.getElementById('ocupacion')
 let userLocation = document.getElementById('ubicacion')
 let userBio = document.getElementById('acerca-de')

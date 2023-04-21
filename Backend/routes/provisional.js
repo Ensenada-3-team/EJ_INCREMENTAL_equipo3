@@ -10,11 +10,11 @@ const validarEmail = (req, res, next) => {
   next();
 };
 
-// Middleware para validar que la edad sea un entero
-const validarEdad = (req, res, next) => {
-  const edad = req.body.edad;
-  if (!Number.isInteger(parseInt(edad))) {
-    return res.status(400).send('La edad debe ser un número entero.');
+// Middleware para validar que la age sea un entero
+const ageValidation = (req, res, next) => {
+  const age = req.body.age;
+  if (!Number.isInteger(parseInt(age))) {
+    return res.status(400).send('La age debe ser un número entero.');
   }
   next();
 };
@@ -30,14 +30,14 @@ const validarpassword = (req, res, next) => {
 };
 
 // Ruta para procesar el formulario de registro con los middlewares de validación
-app.post('/registro', validarEmail, validarEdad, validarpassword, (req, res) => {
+app.post('/registro', validarEmail, ageValidation, validarpassword, (req, res) => {
   // Aquí se puede procesar el formulario de registro
-  const {nombre,apellido,email,edad,password} = req.body
+  const {name,firstname,email,age,password} = req.body
   const nuevoUsuario = {
-    nombre,
-    apellido,
+    name,
+    firstname,
     email,
-    edad,
+    age,
     password
   }
   res.status(200).send(nuevoUsuario)
