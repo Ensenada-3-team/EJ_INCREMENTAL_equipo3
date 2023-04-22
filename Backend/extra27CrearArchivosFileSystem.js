@@ -30,7 +30,7 @@ function crearArchivos() {
 	}
 }
 
-crearArchivos()
+// crearArchivos()
 
 // function crearArchivo() {
 //   return new Promise((resolve, reject) => {

@@ -137,7 +137,7 @@ const updateUser = () => {
 
 
 
-/* INCREMENTAL 22 */
+/* INCREMENTAL + EXRA (resuelto en el mismo ejercicio) 22 */
 
 //PSEUDOCÓDIGO
 /*
