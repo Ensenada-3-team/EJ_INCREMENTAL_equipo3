@@ -187,15 +187,15 @@ label {
 
 /* ICONOS DE AVATAR DE USUARIO */
 .avatar {
-	height: 3rem;
-	width: 4rem;
+	height: 5rem;
+	width: 5rem;
 	border-radius: 3rem;
 }
 
-.avatar-sm {
+/* .avatar-sm {
 	height: 25px;
 	width: 25px;
-}
+} */
 
 /* SEARCHBAR | BARRA DE BÚSQUEDA */
 .search-box {
