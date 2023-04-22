@@ -189,14 +189,21 @@ label {
 .avatar {
 	height: 5rem;
 	width: 5rem;
-	border-radius: 3rem;
+}
+.avatar-lg {
+	height: 6rem;
+	width: 6rem;
 }
 
-/* .avatar-sm {
-	height: 25px;
-	width: 25px;
-} */
+.avatar-md {
+	height: 4rem;
+	width: 4rem;
+}
 
+.avatar-sm {
+	height: 3rem;
+	width: 3rem;
+}
 /* SEARCHBAR | BARRA DE BÚSQUEDA */
 .search-box {
 	width: fit-content;
@@ -261,38 +268,22 @@ label {
 
 /* CARDS DE PÁGINAS DE LA WEB */
 .card,
-.enter-card {
-	align-items: center;
+.card-left {
 	border-radius: 10px;
 	background-color: rgba(153, 202, 168, 0.877);
 	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
-	padding: 3rem;
+	padding: 1rem;
 }
 
 .card {
 	margin: 0.5rem;
+	align-items: center;
 }
 
 .card-left {
-	border-radius: 10px;
-	background-color: rgba(18, 235, 83, 0.281);
-	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
-	padding: 3rem;
 	margin: 0.5rem;
 }
 
-/* login y registro  */
-.enter-card {
-	max-width: 25rem;
-	/* text-align: center */
-}
-
-.enter-card h1 {
-	color: white;
-	text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
-	letter-spacing: 0.06rem;
-	/* text-align:center;  */
-}
 
 .post-card {
 	background-color: rgba(247, 62, 247, 0.336);
@@ -300,11 +291,10 @@ label {
 	border-width: 0.1rem;
 }
 
-.card-bio {
-	border-radius: 10px;
-	background-color: rgba(18, 235, 83, 0.281);
-	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+.white-card {
+	background-color: rgba(255, 255, 255, 0.705);
 }
+
 
 /* BOTONES */
 
