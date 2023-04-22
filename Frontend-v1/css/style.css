@@ -370,6 +370,11 @@ footer {
 	position: 0px;
 }
 
+/* ICONOS COLLAPSE DE LA NAVBAR - SEPARACION ENTRE ELLOS EN PANTALLAS PEQUEÑAS */
+.navbar-collapse-icons > .nav-link {
+	margin-right: 10px; /* ajusta el valor según tu preferencia */
+}
+
 /* ELEMENTOS SUSTITUIDOS POR BOOTSTRAP */
 
 /* ICONOS  */
