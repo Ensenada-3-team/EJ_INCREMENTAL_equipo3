@@ -48,7 +48,7 @@ router.get("/user/:id", isNumber, (req, res) => {
 });
 
 // endpoint que devuelve un usuario por nombre
-app.get("/user/name/:name", isChar, (req, res) => {
+router.get("/user/name/:name", isChar, (req, res) => {
 	const persona = users.find((item) => item.name === req.params.name);
 
 	if (!persona) {

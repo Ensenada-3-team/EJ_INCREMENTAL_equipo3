@@ -7,7 +7,7 @@ form.addEventListener("submit", async (event) => {
 
 	const textArea = document.querySelector("#mensaje-post");
 	// const user = await JSON.parse(localStorage.getItem("user"));
-      const autor = document.querySelector('#author-post')
+      // const autor = document.querySelector('#author-post')
       
 	const response = await fetch("http://localhost:3000/posts/publicaciones", {
 		method: "POST",
@@ -16,7 +16,7 @@ form.addEventListener("submit", async (event) => {
 		},
 		body: JSON.stringify({
 			text: textArea.value,
-			user: autor.value
+			// user: autor.value
 		}),
 	});
 
@@ -27,7 +27,7 @@ form.addEventListener("submit", async (event) => {
                   <div class='card border border-dark w-75'>
                         <div class='d-flex justify-content-between w-100'>
                               <div>
-                                    <h4>@${data.user}</h4>
+                                    <h4>@${data.author}</h4>
                               </div>
                               <div>
                                     <h5>${data.date}</h5>
