@@ -15,6 +15,7 @@ body {
 	
 	font-family: "Abel", sans-serif;
 	color: rgb(20, 20, 20);
+	font-weight: bold;
 	opacity: 0.95;
 	background-image: url("../img/muro.jpg");
 	background-size: cover;
@@ -45,11 +46,17 @@ h4 {
 h5 {
 	letter-spacing: 0.06rem;
 	color: black;
+	font-weight: bold;
+}
+
+h6 {
+	font-weight: bold;
 }
 
 p {
 	font-family: "Abel", serif;
 	font-size: 1rem;
+	font-weight: bold;
 }
 
 ul {
@@ -83,7 +90,8 @@ input,
 #textarea,
 #mensaje-post,
 #author-post,
-#search-username {
+#search-username,
+.form-control {
 	margin-bottom: 0.625rem;
 	background: rgba(0, 0, 0, 0.3);
 	border: none;
@@ -133,6 +141,7 @@ label {
 	margin-top: auto;
 	/* font-weight: bold; */
 }
+
 
 /* CLASES ESPECÍFICAS CREADAS */
 
@@ -260,7 +269,7 @@ label {
 	width: 300px;
 	border-radius: 0px;
 	background-color: transparent;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	border-bottom: 1px solid rgba(98, 180, 135, 0.5);
 	transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 
@@ -270,8 +279,10 @@ label {
 .card,
 .card-left {
 	border-radius: 10px;
-	background-color: rgba(153, 202, 168, 0.877);
-	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+	/* background-color: rgba(242, 245, 241, 0.217); */
+	background-color: rgba(255, 255, 255, 0.644);
+	/* rgba(153, 202, 168, 0.877); */
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.868);
 	padding: 1rem;
 }
 

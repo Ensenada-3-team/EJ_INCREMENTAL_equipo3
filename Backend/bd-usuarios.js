@@ -6,7 +6,6 @@ const users = [
 		email: "pescador@grupo3.com",
 		age: 37,
 		password: "Grupo3!!",
-		followers: [2, 4],
 		following: [
 			{
 				id: 2,
@@ -17,6 +16,8 @@ const users = [
 				name: "Aurea Perez",
 			},
 		],
+		followRequests: [],
+		followMeRequests: [],
 		occupation: "Software Engineer",
 		location: {
 			city: "Madrid",
@@ -41,7 +42,6 @@ const users = [
 		email: "suarez@grupo3.com",
 		age: 39,
 		password: "Grupo3!!",
-		followers: [1, 3],
 		following: [
 			{
 				id: 1,
@@ -76,7 +76,6 @@ const users = [
 		email: "melian@grupo3.com",
 		age: 50,
 		password: "Grupo3!!",
-		followers: [2],
 		following: [
 			{
 				id: 2,
@@ -99,7 +98,6 @@ const users = [
 		email: "perez@grupo3.com",
 		age: 40,
 		password: "Grupo3!!",
-		followers: [1],
 		following: [
 			{
 				id: 1,
