@@ -33,9 +33,12 @@ router.post("/publicaciones", async (req, res) => {
 
 	const publicacion = {
 		text,
+		title: 'quitar',
+		postId: parseInt(Math.random() * 1000),
 		author: "Anonimus",
+		avatar: 'https://randomuser.me/api/portraits/men/92.jpg',
 		// date: moment().format("DD-MM-YY HH:MM:SS"),
-		date: diffTime,
+		publishDate: diffTime,
 		likes: parseInt(Math.random() * 10), // dato aleatorio parseInt(Math.random()*10)
 		image: coolImages.one(),
 	};
