@@ -73,7 +73,7 @@ router.post("/login", async (req, res) => {
 		if (!user) {
 			return res
 				.status(401)
-				.json({ message: "Nombre de usuario o correo electrónico o contraseña incorrectos" });
+				.json({ message: "Nombre de usuario o correo electrónico incorrectos" });
 		}
 		if (user.password !== password) {
 			return res
