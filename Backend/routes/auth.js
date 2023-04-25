@@ -84,9 +84,10 @@ router.post("/login", async (req, res) => {
 		}
 
 		// Si las credenciales son correctas, se puede enviar una respuesta de éxito.
+		const userData = { name: user.name, password: user.password };
 		res
 			.status(200)
-			.send({redirectUrl: "./index.html"});
+			.send({redirectUrl: "./index.html",  user: userData});
 
 		// De lo contrario, se debe enviar una respuesta de error.
 	} catch (err) {

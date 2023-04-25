@@ -23,13 +23,17 @@ loginForm.addEventListener('submit', async (event)=> {
       if (data.redirectUrl) {
             
             window.location.href = data.redirectUrl;
+
+            localStorage.setItem('userData',  JSON.stringify(data.user))
+            console.log(data.user)
+
       } else {
             
             console.log("Credenciales incorrectas");
       }
 
       //guardo en el localstorage el nombre del usuario para usarlo en el index luego con getItem
-      localStorage.setItem("username", data.name);
+      
 
       document.getElementById('username-email').value = ''
       document.getElementById('password').value = ''
