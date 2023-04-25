@@ -86,7 +86,7 @@ router.post("/login", async (req, res) => {
 		// Si las credenciales son correctas, se puede enviar una respuesta de éxito.
 		res
 			.status(200)
-			.send("Usuario logueado con éxito se redirigirá a la Home Page");
+			.send({redirectUrl: "./index.html"});
 
 		// De lo contrario, se debe enviar una respuesta de error.
 	} catch (err) {
