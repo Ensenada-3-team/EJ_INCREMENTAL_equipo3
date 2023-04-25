@@ -23,12 +23,11 @@ const users = [
 			city: "Madrid",
 			country: "Spain",
 		},
-		nickname: "silkepil",
+		nickname: "spelkit",
 		posts: [
 			{
 				id: 1,
-				title: "My first post",
-				body: "This is my first post on this platform",
+				text: "This is my first post on this platform",
 				date: "2023-04-20",
 				likes: 2,
 			},
@@ -57,12 +56,11 @@ const users = [
 			city: "Barcelona",
 			country: "Spain",
 		},
-		nickname: "SS",
+		nickname: "SanDev",
 		posts: [
 			{
 				id: 2,
-				title: "My second post",
-				body: "This is my second post on this platform",
+				text: "This is my second post on this platform",
 				date: "2023-04-22",
 				likes: 1,
 			},
@@ -87,7 +85,7 @@ const users = [
 			city: "Madrid",
 			country: "Spain",
 		},
-		nickname: "JM",
+		nickname: "MelianDev",
 		posts: [],
 		likedPosts: [1],
 	},
@@ -109,12 +107,11 @@ const users = [
 			city: "Valencia",
 			country: "Spain",
 		},
-		nickname: "AP",
+		nickname: "AureaPerezDev",
 		posts: [
 			{
 				id: 3,
-				title: "My third post",
-				body: "This is my third post on this platform",
+				text: "This is my third post on this platform",
 				date: "2023-04-23",
 				likes: 0,
 			},

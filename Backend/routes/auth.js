@@ -66,10 +66,10 @@ router.post(
 //Endpoint de login
 //http://localhost:3000/auth/login
 router.post("/login", async (req, res) => {
-	const { nameOrEmail, password } = req.body;
+	const { nicknameOrEmail, password } = req.body;
 
 	try {
-		const user = users.find((u) => u.name === nameOrEmail || u.email === nameOrEmail);
+		const user = users.find((u) => u.nickname === nicknameOrEmail || u.email === nicknameOrEmail);
 		if (!user) {
 			return res
 				.status(401)
@@ -81,10 +81,9 @@ router.post("/login", async (req, res) => {
 				.json({ message: "Nombre de usuario o correo electrónico o contraseña incorrectos" });
 		}
 
-		const userData = { name: user.name, email: user.email, nickname: user.nickname };
 		res
 			.status(200)
-			.send({redirectUrl: "./index.html",  user: userData});
+			.send({redirectUrl: "./index.html",  user: user});
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ message: "Error interno del servidor" });

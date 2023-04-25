@@ -1,3 +1,4 @@
+
 let ol = document.getElementById("lista-publicaciones");
 
 //FUNCIÓN QUE ALEATORIZA UN ARRAY
@@ -112,6 +113,7 @@ async function getRandomPosts() {
 		console.error(error.message);
 	}
 }
+
 
 getRandomPosts();
 

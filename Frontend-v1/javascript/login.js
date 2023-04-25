@@ -12,7 +12,7 @@ loginForm.addEventListener('submit', async (event)=> {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
-			nameOrEmail: userEmailUsername.value,
+			nicknameOrEmail: userEmailUsername.value,
                   password: password.value
 			
 		}),
