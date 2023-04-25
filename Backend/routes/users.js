@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
-const users = require("../bd-usuarios");
+const pool = require('../db/connection');
 
+const users = require("../bd-usuarios");
 
 // Middleware que comprueba si el numero de id es un número
 function isNumber(req, res, next) {
@@ -30,10 +31,18 @@ function isChar(req, res, next) {
 // ENDPOINTS_________________________________________________
 
 /* GET users listing. */
-router.get("/", function (req, res, next) {
-	res.send("respond with a resource");
+router.get("/", (req, res) => {
+	
+	pool
+		.query("SELECT * FROM users")
+		.then((results) => {
+			res.json(results);
+		})
+		.catch((error) => {
+			console.error(error);
+			res.sendStatus(500);
+		});
 });
-
 
 // enpoint que devuelve un usuario por id
 router.get("/user/:id", isNumber, (req, res) => {
@@ -56,7 +65,5 @@ router.get("/user/name/:name", isChar, (req, res) => {
 	}
 	res.send(persona);
 });
-
-
 
 module.exports = router;
