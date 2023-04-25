@@ -12,7 +12,7 @@ loginForm.addEventListener('submit', async (event)=> {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
-			name: userEmailUsername.value,
+			nameOrEmail: userEmailUsername.value,
                   password: password.value
 			
 		}),
@@ -32,11 +32,6 @@ loginForm.addEventListener('submit', async (event)=> {
             console.log("Credenciales incorrectas");
       }
 
-      //guardo en el localstorage el nombre del usuario para usarlo en el index luego con getItem
-      
-
       document.getElementById('username-email').value = ''
       document.getElementById('password').value = ''
-
-
-})
+});

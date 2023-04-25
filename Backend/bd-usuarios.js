@@ -23,7 +23,7 @@ const users = [
 			city: "Madrid",
 			country: "Spain",
 		},
-		nickname: "SP",
+		nickname: "silkepil",
 		posts: [
 			{
 				id: 1,
