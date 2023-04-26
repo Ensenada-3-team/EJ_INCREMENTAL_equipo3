@@ -27,7 +27,7 @@ const users = [
 		posts: [
 			{
 				id: 1,
-				text: "This is my first post on this platform",
+				text: "Este post es de prueba y está en nuestra bd-fake",
 				date: "2023-04-20",
 				likes: 2,
 			},

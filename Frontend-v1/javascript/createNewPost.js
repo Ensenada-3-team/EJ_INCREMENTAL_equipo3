@@ -1,14 +1,14 @@
 const form = document.querySelector("#form-publicacion");
 const publicacionesDOM = document.getElementById("lista-publicaciones");
 
-function createPostDOM(name, firstname, nickname, data) {
+function createPostDOM(name, firstname, nickname, userAvatar, data) {
 	return `
     <li class="card border p-4">
         <div class="container">
             <div class="row d-flex">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div>
-                        <img class="avatar rounded rounded-circle align-self-start" src="${data.avatar}" alt="foto de autor x">
+                        <img class="avatar rounded rounded-circle align-self-start" src="${userAvatar}" alt="foto de autor x">
                         <h4 class="mt-3">${name} ${firstname}  </h4>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ form.addEventListener("submit", async (event) => {
 	const user = await JSON.parse(localStorage.getItem("userData"));
 
 	console.log(user.posts);
-
+	
 	const response = await fetch("http://localhost:3000/posts/publicaciones", {
 		method: "POST",
 		headers: {
@@ -80,6 +80,7 @@ form.addEventListener("submit", async (event) => {
 		user.name,
 		user.firstname,
 		user.nickname,
+		user.avatar,
 		data
 	);
 
@@ -101,6 +102,7 @@ async function loadSavedPosts() {
 			user.name,
 			user.firstname,
 			user.nickname,
+			user.avatar,
 			data
 		);
 		publicacionesDOM.insertAdjacentHTML("afterbegin", nuevoPost);
