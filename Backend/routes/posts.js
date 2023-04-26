@@ -53,6 +53,7 @@ router.get("/", async (req, res) => {
 // 		});
 // });
 //GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS  /private /:user_id Y ADEMÁS LOS DATOS DE LOS AMIGOS QUE ESCRIBIERON EL POST
+//revisar
 router.get("/private/:user_id", async (req, res) => {
 	const user = req.params.user_id;
 	pool
