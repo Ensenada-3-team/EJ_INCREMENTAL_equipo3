@@ -43,6 +43,39 @@ router.get("/", (req, res) => {
 		});
 });
 
+
+//GET - OBTIENE UN USUARIO POR SU ID
+router.get("/user/:id", isNumber, async (req, res) => {
+	const userId = parseInt(req.params.user_id);
+	try {
+		const results = await pool.query("SELECT * FROM users WHERE id = ?", [userId]);
+		if (results.length === 0) {
+			return res.status(404).send("Usuario no encontrado");
+		}
+		res.send(results[0]);
+	} catch (error) {
+		console.error(error);
+		res.status(500).send("Error al buscar usuario");
+	}
+});
+
+//GET - OBTIENE UN USUARIO POR SU NICKNAME
+router.get("/user/nickname/:nickname", isChar, async (req, res) => {
+	const nickname = req.params.nickname;
+	try {
+		const results = await pool.query("SELECT * FROM users WHERE nickname = ?", [
+			nickname,
+		]);
+		if (results.length === 0) {
+			return res.status(404).send("Usuario no encontrado");
+		}
+		res.send(results[0]);
+	} catch (error) {
+		console.error(error);
+		res.status(500).send("Error al buscar usuario");
+	}
+});
+
 // GET - OBTENER AMIGOS DE UN USUARIO POR SU ID
 router.get("/friends/:user_id", async (req, res) => {
 	try {
@@ -63,39 +96,15 @@ router.get("/friends/:user_id", async (req, res) => {
 	}
 });
 
-//GET - OBTIENE UN USUARIO POR SU ID
-router.get("/user/:id", isNumber, async (req, res) => {
-	const userId = parseInt(req.params.user_id);
-	try {
-		const results = await pool.query("SELECT * FROM users WHERE id = ?", [userId]);
-		if (results.length === 0) {
-			return res.status(404).send("Usuario no encontrado");
-		}
-		res.send(results[0]);
-	} catch (error) {
-		console.error(error);
-		res.status(500).send("Error al buscar usuario");
-	}
-});
 
-//GET - OBTIENE UN USUARIO POR SU NICKNAME
-router.get("/user/nickname/:nickname", isChar, async (req, res) => {
-	const name = req.params.nickname;
-	try {
-		const results = await pool.query("SELECT * FROM users WHERE nickname = ?", [
-			nickname,
-		]);
-		if (results.length === 0) {
-			return res.status(404).send("Usuario no encontrado");
-		}
-		res.send(results[0]);
-	} catch (error) {
-		console.error(error);
-		res.status(500).send("Error al buscar usuario");
-	}
-});
+// POST- AGREGAR AMIGO           /:user1_id/friendship/:user2_id
+//INSERT INTO `friends`(`user1_id`, `user2_id`) VALUES ('6', '5');
 
+//DELETE- ELIMINAR AMIGO         /:user1_id/friendship/:user2_id  
+//UPDATE `friends` SET `status` = '0' WHERE friends.user1_id = '5' AND friends.user2_id = '7';
 
+//DELETE- ELIMINAR USUARIO DE LA BD (CERRAR CUENTA)       /:user_id 
+//DELETE FROM `users` WHERE user_id = 8;    
 
 
 module.exports = router;

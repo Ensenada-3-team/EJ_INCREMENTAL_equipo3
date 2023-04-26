@@ -3,7 +3,7 @@ const pool = require("../db/connection");
 var express = require("express");
 var router = express.Router();
 
-// Middleware para validar el formato del email
+// MIDDLEWARE - VALIDA FORMATO DEL EMAIL
 const validarEmail = (req, res, next) => {
 	const email = req.body.email;
 	const regexEmail = /\S+@\S+\.\S+/;
@@ -15,7 +15,7 @@ const validarEmail = (req, res, next) => {
 	next();
 };
 
-// Middleware para validar que la age sea un entero
+// MIDDLEWARE - VALIDA SI LA EDAD ES NUMERO ENTERO
 const ageValidation = (req, res, next) => {
 	const age = req.body.age;
 	if (!Number.isInteger(parseInt(age))) {
@@ -24,7 +24,7 @@ const ageValidation = (req, res, next) => {
 	next();
 };
 
-// Middleware para validar que la password sea segura
+// MIDDLEWARE - VALIDA SI LA CONTRASEÑA ES SEGURA 
 const validarPassword = (req, res, next) => {
 	const password = req.body.password;
 	const regexpassword =
@@ -39,9 +39,9 @@ const validarPassword = (req, res, next) => {
 	next();
 };
 
-//Endpoints de tipo POST
+//ENDPOINTS______________________________________________________
 
-//Endpoint de registro
+//POST - REGISTRAR USUARIO EN LA BD 
 //http://localhost:3000/auth/registro
 router.post(
 	"/registro",
@@ -63,7 +63,7 @@ router.post(
 );
 
 
-
+// POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {
 	const { nicknameOrEmail, password } = req.body;
 

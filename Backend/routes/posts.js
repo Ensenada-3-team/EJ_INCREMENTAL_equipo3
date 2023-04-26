@@ -1,27 +1,42 @@
 const publicaciones = require("../bd-posts");
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const pool = require("../db/connection");
+
 const coolImages = require('cool-images');
 const moment = require('moment');
 
 
 
-/* GET */
-//obtener todas las publicaciones
-router.get("/", async (req, res) => {
-	try {
-		
-	} catch (error) {
-		console.error(error)
-	}
+// ENDPOINTS_________________________________________________________
 
+//GET - OBTENER TODAS LAS PUBLICACIONES EXISTENTES
+router.get("/", async (req, res) => {
+	pool
+		.query("SELECT * FROM posts ")
+		.then((results) => {
+			res.json(results);
+		})
+		.catch((error) => {
+			console.error(error);
+			res.sendStatus(500);
+		});
 })
 
-/* POST */
 
-// Agregar una nueva publicación  
-//peticion fetch desde el frontend a http://localhost:3000/posts/publicaciones
-//(añadir objeto a la peticion con method:POST, headers y body con el contenido pasado a JSON (JSON.stringify) de text y user)
+//GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS  /private /:user_id 
+/*
+	SELECT * FROM `posts` WHERE posts.user_id = 1
+	UNION
+	SELECT posts.* FROM `posts`
+	INNER JOIN friends on friends.user2_id = posts.user_id
+	WHERE friends.user1_id = 1 and friends.status = 1;
+	
+*/
+
+
+// POST- AGREGAR NUEVA PUBLICACION
+//http://localhost:3000/posts/publicaciones
 router.post("/publicaciones", async (req, res) => {
 	console.log(req.body)
 
@@ -53,6 +68,14 @@ router.post("/publicaciones", async (req, res) => {
 	.catch((err) => res.status(500).json(err));
 	// res.status(200).send(publicacion);
 })
+
+
+//DELETE- BORRAR UN POST POR SU POST_ID            /:post_id   
+
+
+
+//POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id 
+//DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
 
 
 // router.get('/minutesAgo', (req, res) => {
