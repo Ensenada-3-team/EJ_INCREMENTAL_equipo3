@@ -79,7 +79,7 @@ Los ejercicios incrementales se resolvieron e integraron de manera inicial, y po
 
 La web cuenta con diferentes vistas:
 - Las que atendienden a las consignas de los ejercicios incrementales.
-  - index.html
+  - feed.html
   - login.html
   - registro.html
   - friends.html

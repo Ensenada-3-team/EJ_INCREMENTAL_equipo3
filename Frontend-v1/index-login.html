@@ -22,7 +22,7 @@
 			<div class="container-fluid">
 				<!-- CONTAINER DEL LOGO -->
 				<div class="container col-2">
-					<a class="navbar-brand" href="./index.html">
+					<a class="navbar-brand" href="./feed.html">
 						<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
 					</a>
 				</div>
@@ -106,7 +106,7 @@
 						</li>
 						<!-- cerrar sesion -->
 						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="./user-login.html">
+							<a class="nav-link" href="./index-login.html">
 								<i
 									class="bi bi-box-arrow-right"
 									class="bi bi-people-fill"
@@ -150,15 +150,15 @@
 						<div class="card cardConf">
 							<h2 class="card-header text-center">Inicia sesión en Tecla</h2>
 							<div class="card-body">
-								<form>
+								<form id="form-login">
 									<div class="mb-1">
 										<label for="usuario" class="form-label"
 											>Nombre de usuario o correo electrónico:</label
 										>
 										<input
+											id="username-email"
 											type="text"
 											class="form-control"
-											id="usuario"
 											name="usuario"
 											required
 										/>
@@ -166,9 +166,9 @@
 									<div class="mb-3">
 										<label for="password" class="form-label">Password:</label>
 										<input
+											id="password"
 											type="password"
 											class="form-control"
-											id="password"
 											name="password"
 											required
 										/>
@@ -295,5 +295,7 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
+
+		<script src="./javascript/login.js"></script>
 	</body>
 </html>
