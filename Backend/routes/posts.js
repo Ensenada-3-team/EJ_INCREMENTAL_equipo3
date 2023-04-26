@@ -31,39 +31,8 @@ router.get("/", async (req, res) => {
 	
 */
 
-// POST- AGREGAR NUEVA PUBLICACION
-//http://localhost:3000/posts/publicaciones
-// router.post("/publicaciones", async (req, res) => {
-// 	console.log(req.body)
 
-// 	const { text } = req.body;
-// 	let time = moment()
-// 	let postTime = moment((time), "DD/MM/YYYY hh:mm")
-// 	let getTime = moment()
-// 	let diffTime = moment(postTime).from(getTime)
-
-// 	if (!text) {
-// 		res.sendStatus(400).send('El campo text es requerido')
-// 		return
-// 	}
-
-// 	const publicacion = {
-// 		text,
-// 		postId: parseInt(Math.random() * 1000),
-// 		author: "Anonimus",
-// 		avatar: 'https://randomuser.me/api/portraits/men/92.jpg',
-// 		// date: moment().format("DD-MM-YY HH:MM:SS"),
-// 		publishDate: diffTime,
-// 		likes: parseInt(Math.random() * 10), // dato aleatorio parseInt(Math.random()*10)
-// 		image: coolImages.one(),
-// 	};
-
-// 	Promise.resolve(publicacion)
-// 	.then((pub) => res.status(200).json(pub))
-// 	.catch((err) => res.status(500).json(err));
-// 	// res.status(200).send(publicacion);
-// })
-
+//POST- CREA UN POST + LO AÑADE A LA BASE DE DATOS + LO DEVUELVE JUNTO CON VALOR EXTRA PUBLISHDATE
 router.post("/new-post/", async (req, res) => {
 
 	const { text, user_id } = req.body;
@@ -103,13 +72,6 @@ router.post("/new-post/", async (req, res) => {
 //POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id
 //DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
 
-// router.get('/minutesAgo', (req, res) => {
-// 	let time = moment()
-// 	let postTime = moment((time), "DD/MM/YYY hh:mm")
-// 	let getTime = moment()
-// 	let diffTime = moment(postTime).from(getTime)
-// 	res.json({time: diffTime})
-// })
 
 function minutesAgo() {
 	let time = moment()

@@ -27,10 +27,7 @@ function createPostDOM(name, firstname, nickname, userAvatar, data) {
                         <button id="${data.post_id}" class="btn like-btn" onclick="toggleLike(this)">
                             <i class="bi bi-heart-fill"></i>
                         </button>
-                        <div id="sumDisLikes${data.post_id}" class="mt-2"  style="color: black; font-weight: bold;">0</div>
-                        <button id="${data.post_id}" class="btn dislike-btn" onclick="toggleDisLike(this)">
-                            <i class="bi bi-hand-thumbs-down-fill"></i>
-                        </button>
+                        
                     </div>
                     <div>
                         <button id="commentBtn" class="btn" onclick="">
