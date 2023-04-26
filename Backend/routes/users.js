@@ -43,6 +43,26 @@ router.get("/", (req, res) => {
 		});
 });
 
+// traer los amigos de un usuario
+router.get("/friends/:user_id", async (req, res) => {
+	try {
+		const [rows, fields] = await pool.query(
+			"SELECT * FROM users " +
+			"INNER JOIN friends on friends.user2_id = users.user_id " +
+			"WHERE friends.user1_id = ?",
+			// "SELECT friends.friendhip_id, users.name " +
+			// 	"FROM friends " +
+			// 	"JOIN users ON (friends.user1_id = users.user_id OR friends.user2_id = users.user_id) " +
+			// 	"WHERE friends.status = 1 AND (friends.user1_id = ? OR friends.user2_id = ?)",
+			[req.params.user_id]
+		);
+		res.json(rows);
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({ error: "Error al obtener los amigos del usuario" });
+	}
+});
+
 // enpoint que devuelve un usuario por id
 // router.get("/user/:id", isNumber, (req, res) => {
 // 	const id = parseInt(req.params.id);
@@ -94,5 +114,8 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 		res.status(500).send("Error al buscar usuario");
 	}
 });
+
+
+
 
 module.exports = router;
