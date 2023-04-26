@@ -1,12 +1,10 @@
 const publicaciones = require("../bd-posts");
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const pool = require("../db/connection");
 
-const coolImages = require('cool-images');
-const moment = require('moment');
-
-
+const coolImages = require("cool-images");
+const moment = require("moment");
 
 // ENDPOINTS_________________________________________________________
 
@@ -21,10 +19,9 @@ router.get("/", async (req, res) => {
 			console.error(error);
 			res.sendStatus(500);
 		});
-})
+});
 
-
-//GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS  /private /:user_id 
+//GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS  /private /:user_id
 /*
 	SELECT * FROM `posts` WHERE posts.user_id = 1
 	UNION
@@ -34,49 +31,77 @@ router.get("/", async (req, res) => {
 	
 */
 
-
 // POST- AGREGAR NUEVA PUBLICACION
 //http://localhost:3000/posts/publicaciones
-router.post("/publicaciones", async (req, res) => {
-	console.log(req.body)
+// router.post("/publicaciones", async (req, res) => {
+// 	console.log(req.body)
 
-	const { text } = req.body;
-	let time = moment()
-	let postTime = moment((time), "DD/MM/YYYY hh:mm")
-	let getTime = moment()
-	let diffTime = moment(postTime).from(getTime)
+// 	const { text } = req.body;
+// 	let time = moment()
+// 	let postTime = moment((time), "DD/MM/YYYY hh:mm")
+// 	let getTime = moment()
+// 	let diffTime = moment(postTime).from(getTime)
+
+// 	if (!text) {
+// 		res.sendStatus(400).send('El campo text es requerido')
+// 		return
+// 	}
+
+// 	const publicacion = {
+// 		text,
+// 		postId: parseInt(Math.random() * 1000),
+// 		author: "Anonimus",
+// 		avatar: 'https://randomuser.me/api/portraits/men/92.jpg',
+// 		// date: moment().format("DD-MM-YY HH:MM:SS"),
+// 		publishDate: diffTime,
+// 		likes: parseInt(Math.random() * 10), // dato aleatorio parseInt(Math.random()*10)
+// 		image: coolImages.one(),
+// 	};
+
+// 	Promise.resolve(publicacion)
+// 	.then((pub) => res.status(200).json(pub))
+// 	.catch((err) => res.status(500).json(err));
+// 	// res.status(200).send(publicacion);
+// })
+
+router.post("/new-post/", async (req, res) => {
+
+	const { text, user_id } = req.body;
 
 	if (!text) {
-		res.sendStatus(400).send('El campo text es requerido')
-		return 
+		res.status(400).send("El campo text es requerido");
+		return;
 	}
 
-	const publicacion = {
-		text,
-		title: 'quitar',
-		postId: parseInt(Math.random() * 1000),
-		author: "Anonimus",
-		avatar: 'https://randomuser.me/api/portraits/men/92.jpg',
-		// date: moment().format("DD-MM-YY HH:MM:SS"),
-		publishDate: diffTime,
-		likes: parseInt(Math.random() * 10), // dato aleatorio parseInt(Math.random()*10)
-		image: coolImages.one(),
-	};
+	try {
+		const query = `INSERT INTO posts (text, image, like_number, user_id) VALUES (?, ?, ?, ?)`;
+		const image = coolImages.one();
+		const like_number = parseInt(Math.random() * 10);
+		const [result] = await pool.query(query, [
+			text,
+			image,
+			like_number,
+			user_id,
+		]);
+		
+		res.status(200).json({
+			post_id: result.insertId,
+			text,
+			user_id,
+			image,
+			like_number,
+			publishDate: minutesAgo(),
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).json(error);
+	}
+});
 
-	Promise.resolve(publicacion)
-	.then((pub) => res.status(200).json(pub))
-	.catch((err) => res.status(500).json(err));
-	// res.status(200).send(publicacion);
-})
+//DELETE- BORRAR UN POST POR SU POST_ID            /:post_id
 
-
-//DELETE- BORRAR UN POST POR SU POST_ID            /:post_id   
-
-
-
-//POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id 
+//POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id
 //DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
-
 
 // router.get('/minutesAgo', (req, res) => {
 // 	let time = moment()
@@ -84,10 +109,13 @@ router.post("/publicaciones", async (req, res) => {
 // 	let getTime = moment()
 // 	let diffTime = moment(postTime).from(getTime)
 // 	res.json({time: diffTime})
-// }) 
+// })
 
-
-
-
+function minutesAgo() {
+	let time = moment()
+	let postTime = moment((time), "DD/MM/YYY hh:mm")
+	let getTime = moment()
+	return  moment(postTime).from(getTime)
+}
 
 module.exports = router;

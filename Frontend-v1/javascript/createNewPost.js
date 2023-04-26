@@ -23,12 +23,12 @@ function createPostDOM(name, firstname, nickname, userAvatar, data) {
             <div class="row">
                 <div class="d-flex justify-content-between w-100">
                     <div class="d-flex mt-2">
-                        <div id="sumLikes${data.postId}" class="mt-2" style="color: black; font-weight: bold;">${data.likes}</div>
-                        <button id="${data.postId}" class="btn like-btn" onclick="toggleLike(this)">
+                        <div id="sumLikes${data.post_id}" class="mt-2" style="color: black; font-weight: bold;">${data.like_number}</div>
+                        <button id="${data.post_id}" class="btn like-btn" onclick="toggleLike(this)">
                             <i class="bi bi-heart-fill"></i>
                         </button>
-                        <div id="sumDisLikes${data.postId}" class="mt-2"  style="color: black; font-weight: bold;">0</div>
-                        <button id="${data.postId}" class="btn dislike-btn" onclick="toggleDisLike(this)">
+                        <div id="sumDisLikes${data.post_id}" class="mt-2"  style="color: black; font-weight: bold;">0</div>
+                        <button id="${data.post_id}" class="btn dislike-btn" onclick="toggleDisLike(this)">
                             <i class="bi bi-hand-thumbs-down-fill"></i>
                         </button>
                     </div>
@@ -55,18 +55,19 @@ form.addEventListener("submit", async (event) => {
 
 	console.log(user.posts);
 	
-	const response = await fetch("http://localhost:3000/posts/publicaciones", {
+	const response = await fetch("http://localhost:3000/posts/new-post/", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
 			text: textArea.value,
+			user_id : user.user_id
 		}),
 	});
 
 	const data = await response.json();
-
+	console.log(data)
 	// Obtenemos los posts del usuario del LocalStorage o inicializamos un array vacío si no hay ninguno
 	let userPosts = JSON.parse(localStorage.getItem("userData")).posts || [];
 	console.log(userPosts);
