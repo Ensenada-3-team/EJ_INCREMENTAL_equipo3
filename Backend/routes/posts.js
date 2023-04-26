@@ -9,6 +9,11 @@ const moment = require('moment');
 /* GET */
 //obtener todas las publicaciones
 router.get("/", async (req, res) => {
+	try {
+		
+	} catch (error) {
+		console.error(error)
+	}
 
 })
 

@@ -4,9 +4,9 @@ const pool = require("../db/connection");
 
 const users = require("../bd-usuarios");
 
-// Middleware que comprueba si el numero de id es un número
+// MIDDLEWARE: COMPRUEBA SI ID ES UN NUMERO
 function isNumber(req, res, next) {
-	const id = parseInt(req.params.id); // Parseamos el parámetro como un número entero
+	const id = parseInt(req.params.user_id); // Parseamos el parámetro como un número entero
 	if (isNaN(id)) {
 		// Verificamos si no es un número válido
 		return res.status(400).send("El parámetro id debe ser un número entero"); // Devolvemos el error bad request
@@ -15,10 +15,10 @@ function isNumber(req, res, next) {
 	next();
 }
 
-//Middleware que comprueba si el nombre del parámetro no es un número
+//MIDDLEWARE: COMPRUEBA SI NINCNAME NO ES UN NUMERO
 function isChar(req, res, next) {
-	const name = req.params.name;
-	if (!isNaN(name)) {
+	const nickname = req.params.nickname;
+	if (!isNaN(nickname)) {
 		// Verificamos si el parámetro es un número
 		return res
 			.status(400)
@@ -30,7 +30,7 @@ function isChar(req, res, next) {
 
 // ENDPOINTS_________________________________________________
 
-/* GET users listing. http://localhost:3000/users */
+/* GET - LISTA DE TODOS LOS USUARIOS  http://localhost:3000/users */
 router.get("/", (req, res) => {
 	pool
 		.query("SELECT * FROM users")
@@ -43,17 +43,17 @@ router.get("/", (req, res) => {
 		});
 });
 
-// traer los amigos de un usuario
+// GET - OBTENER AMIGOS DE UN USUARIO POR SU ID
 router.get("/friends/:user_id", async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
 			"SELECT * FROM users " +
 			"INNER JOIN friends on friends.user2_id = users.user_id " +
-			"WHERE friends.user1_id = ?",
-			// "SELECT friends.friendhip_id, users.name " +
-			// 	"FROM friends " +
-			// 	"JOIN users ON (friends.user1_id = users.user_id OR friends.user2_id = users.user_id) " +
-			// 	"WHERE friends.status = 1 AND (friends.user1_id = ? OR friends.user2_id = ?)",
+			"WHERE friends.user1_id = ? and friends.status = 1",
+			// "SELECT * " +
+			// "FROM friends " +
+			// "JOIN users ON (friends.user1_id = users.user_id OR friends.user2_id = users.user_id) " +
+			// "WHERE friends.status = 1 AND (friends.user1_id = ? OR friends.user2_id = ?)",
 			[req.params.user_id]
 		);
 		res.json(rows);
@@ -63,22 +63,11 @@ router.get("/friends/:user_id", async (req, res) => {
 	}
 });
 
-// enpoint que devuelve un usuario por id
-// router.get("/user/:id", isNumber, (req, res) => {
-// 	const id = parseInt(req.params.id);
-// 	const persona = users.find((item) => item.id === id);
-// 	console.log(persona);
-
-// 	if (!persona) {
-// 		return res.status(404).send("Persona no econtrada");
-// 	}
-// 	res.send(persona);
-// });
-
+//GET - OBTIENE UN USUARIO POR SU ID
 router.get("/user/:id", isNumber, async (req, res) => {
-	const id = parseInt(req.params.id);
+	const userId = parseInt(req.params.user_id);
 	try {
-		const results = await pool.query("SELECT * FROM users WHERE id = ?", [id]);
+		const results = await pool.query("SELECT * FROM users WHERE id = ?", [userId]);
 		if (results.length === 0) {
 			return res.status(404).send("Usuario no encontrado");
 		}
@@ -89,16 +78,7 @@ router.get("/user/:id", isNumber, async (req, res) => {
 	}
 });
 
-// endpoint que devuelve un usuario por nombre
-// router.get("/user/name/:name", isChar, (req, res) => {
-// 	const persona = users.find((item) => item.name === req.params.name);
-
-// 	if (!persona) {
-// 		return res.status(404).send("Persona no econtrada");
-// 	}
-// 	res.send(persona);
-// });
-
+//GET - OBTIENE UN USUARIO POR SU NICKNAME
 router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	const name = req.params.nickname;
 	try {

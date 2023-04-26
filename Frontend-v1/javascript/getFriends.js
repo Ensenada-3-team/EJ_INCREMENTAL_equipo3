@@ -42,7 +42,7 @@ async function getUserFriends() {
 
       try {
             const userData = JSON.parse(localStorage.getItem("userData"));
-            const userId = userData.id
+            const userId = userData.user_id
 
             const response = await fetch(`http://localhost:3000/users/friends/${userId}`)
             const friends = await response.json()

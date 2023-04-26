@@ -1,5 +1,5 @@
 const users = require("../bd-usuarios");
-
+const pool = require("../db/connection");
 var express = require("express");
 var router = express.Router();
 
@@ -41,7 +41,6 @@ const validarPassword = (req, res, next) => {
 
 //Endpoints de tipo POST
 
-
 //Endpoint de registro
 //http://localhost:3000/auth/registro
 router.post(
@@ -63,33 +62,34 @@ router.post(
 	}
 );
 
-//Endpoint de login
-//http://localhost:3000/auth/login
+
+
 router.post("/login", async (req, res) => {
 	const { nicknameOrEmail, password } = req.body;
 
 	try {
-		const user = users.find((u) => u.nickname === nicknameOrEmail || u.email === nicknameOrEmail);
-		if (!user) {
+		
+		const [rows, fields] = await pool.query(
+			"SELECT * FROM users WHERE (nickname = ? OR email = ?) AND password = ?",
+			[nicknameOrEmail, nicknameOrEmail, password]
+		);
+		
+		if (rows.length === 0) {
 			return res
 				.status(401)
-				.json({ message: "Nombre de usuario o correo electrónico incorrectos" });
-		}
-		if (user.password !== password) {
-			return res
-				.status(401)
-				.json({ message: "Nombre de usuario o correo electrónico o contraseña incorrectos" });
+				.json({
+					message:
+						"Nombre de usuario o correo electrónico o contraseña incorrectos",
+				});
 		}
 
-		res
-			.status(200)
-			.send({redirectUrl: "./feed.html",  user: user});
+		const user = rows[0];
+		res.status(200).send({ redirectUrl: "./feed.html", user: user });
+
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ message: "Error interno del servidor" });
 	}
 });
-
-
 
 module.exports = router;
