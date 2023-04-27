@@ -65,7 +65,7 @@ router.post(
 			hobbie,
 		} = req.body;
 		try {
-			const result = await pool.execute(
+			const result = await pool.query(
 				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 				[
 					name,
@@ -84,7 +84,7 @@ router.post(
 					hobbie,
 				]
 			);
-			
+
 			res.status(200).send(result);
 
 		} catch (error) {
