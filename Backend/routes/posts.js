@@ -52,22 +52,32 @@ router.get("/", async (req, res) => {
 // 			res.sendStatus(500);
 // 		});
 // });
-//GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS  /private /:user_id Y ADEMÁS LOS DATOS DE LOS AMIGOS QUE ESCRIBIERON EL POST
+//GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS Y ADEMÁS LOS DATOS DE LOS AMIGOS QUE ESCRIBIERON EL POST
 //revisar
 router.get("/private/:user_id", async (req, res) => {
 	const user = req.params.user_id;
 	pool
 		.query(
 			`
-	    SELECT posts.*, users.*
-	    FROM posts
-	    INNER JOIN friends ON friends.user2_id = posts.user_id
-	    INNER JOIN users ON users.user_id = posts.user_id OR users.user_id = friends.user1_id
-	    WHERE friends.user1_id = ?
-	    AND friends.status = 1
-	`,
-			[user]
-		)
+			SELECT posts.*, users.*
+			FROM posts
+			INNER JOIN users ON users.user_id = posts.user_id
+			WHERE posts.user_id = ? -- Obtener los posts del usuario logueado
+			OR posts.user_id IN (
+			  -- Obtener los posts de los amigos del usuario logueado
+			  SELECT user2_id FROM friends WHERE user1_id = ?
+			)
+			UNION
+			SELECT posts.*, users.*
+			FROM posts
+			INNER JOIN users ON users.user_id = posts.user_id
+			WHERE posts.user_id IN (
+			  -- Obtener los posts del usuario correspondiente a cada amigo del usuario logueado
+			  SELECT user2_id FROM friends WHERE user1_id = ?
+			)
+		    `,
+			[user, user, user]
+		    )
 		.then((results) => {
 			res.json(results);
 		})

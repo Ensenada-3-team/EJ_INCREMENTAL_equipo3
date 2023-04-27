@@ -43,24 +43,47 @@ const validarPassword = (req, res, next) => {
 
 //POST - REGISTRAR USUARIO EN LA BD 
 //http://localhost:3000/auth/registro
+// router.post(
+// 	"/registro",
+// 	validarEmail,
+// 	ageValidation,
+// 	validarPassword,
+// 	(req, res) => {
+// 		// Aquí se puede procesar el formulario de registro
+// 		const { name, firstname, email, age, password } = req.body;
+// 		const nuevoUsuario = {
+// 			name,
+// 			firstname,
+// 			email,
+// 			age,
+// 			password,
+// 		};
+// 		res.status(200).send(nuevoUsuario);
+// 	}
+// );
+
+//POST - REGISTRO DEL USUARIO EN LA BD
 router.post(
 	"/registro",
 	validarEmail,
 	ageValidation,
 	validarPassword,
-	(req, res) => {
-		// Aquí se puede procesar el formulario de registro
-		const { name, firstname, email, age, password } = req.body;
-		const nuevoUsuario = {
-			name,
-			firstname,
-			email,
-			age,
-			password,
-		};
-		res.status(200).send(nuevoUsuario);
+	async (req, res) => {
+	    const { name, firstname, nickname, password, email } = req.body;
+	    try {
+		  const result = await pool.execute(
+			'INSERT INTO users (name, firstname, nickname, password, email) VALUES (?, ?, ?, ?, ?)',
+			[name, firstname, nickname, password, email]
+		  );
+		  res.status(200).send(result);
+	    } catch (error) {
+		  console.error(error);
+		  res.status(500).send('Error al insertar el usuario en la base de datos');
+	    }
 	}
-);
+  );
+
+
 
 
 // POST- LOGUEARSE EN LA RED SOCIAL
