@@ -8,7 +8,7 @@ function createPostDOM(name, firstname, nickname, userAvatar, data) {
             <div class="row d-flex">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div>
-                        <img class="avatar rounded rounded-circle align-self-start" src="${userAvatar}" alt="foto de autor x">
+                        <img class="avatar rounded rounded-circle align-self-start border border-dark" src="${userAvatar}" alt="foto de autor x">
                         <h4 class="mt-3">${name} ${firstname}  </h4>
                     </div>
                 </div>

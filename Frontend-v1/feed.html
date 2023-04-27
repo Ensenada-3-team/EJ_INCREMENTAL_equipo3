@@ -236,12 +236,13 @@
 						<!-- CREAR PUBLICACIONES -->
 						<div class="row">
 							<div class="col card post-card">
-								<h2 id="username"></h2><h2>comparte algo con tu comunidad:</h2>
+								<div class="d-flex w-100">
+									<img id="logged-user-image" class="avatar rounded rounded-circle border border-dark" alt="imagen usuario logueado">
+									<h2 id="username" class="mt-3"></h3>
+								</div>
+								<h2>Comparte algo con tu comunidad:</h2>
 								<form id="form-publicacion" class="w-100"  novalidate>
-									<!-- <input 
-										id="titulo-post"
-										type="text"
-										placeholder="Título de tu post"> -->
+									
 									<textarea
 										id="mensaje-post"
 										class="form-control"
