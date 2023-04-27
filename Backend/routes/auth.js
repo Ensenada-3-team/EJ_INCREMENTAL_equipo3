@@ -45,14 +45,12 @@ const validarPassword = (req, res, next) => {
 router.post(
 	"/register",
 	validarEmail,
-	ageValidation,
 	validarPassword,
 	async (req, res) => {
 		const {
 			name,
 			firstname,
 			nickname,
-			birthdate,
 			gender,
 			avatar,
 			password,
@@ -64,6 +62,11 @@ router.post(
 			language,
 			hobbie,
 		} = req.body;
+		const birthdate = req.body.birthdate
+		console.log(birthdate)
+		const birthdateDate = new Date(birthdate);
+		console.log(birthdateDate)
+
 		try {
 			const result = await pool.query(
 				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -85,7 +88,7 @@ router.post(
 				]
 			);
 
-			res.status(200).send(result);
+			res.status(200).send(result)
 
 		} catch (error) {
 			console.error(error);
