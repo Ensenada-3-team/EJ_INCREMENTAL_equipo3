@@ -75,9 +75,10 @@ router.get("/private/:user_id", async (req, res) => {
 			  -- Obtener los posts del usuario correspondiente a cada amigo del usuario logueado
 			  SELECT user2_id FROM friends WHERE user1_id = ?
 			)
+			ORDER BY post_date ASC
 		    `,
 			[user, user, user]
-		    )
+		)
 		.then((results) => {
 			res.json(results);
 		})

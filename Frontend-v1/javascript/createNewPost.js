@@ -92,16 +92,14 @@ form.addEventListener("submit", async (event) => {
 	document.querySelector("#mensaje-post").value = "";
 });
 
-// función que pinta todos los post que haya en el localstorage
+// FUNCION QUE PINTA TODOS LOS POSTS DE EL USER Y DE SUS AMIGOS ORDENADOS POR MÁS RECIENTE ARRIBA
 async function loadSavedPosts() {
 	try {
 		const user = JSON.parse(localStorage.getItem("userData"));
 		const response = await fetch(`http://localhost:3000/posts/private/${user.user_id}`);
 		const userFriendsPosts = await response.json();
-		console.log(userFriendsPosts)
+		console.log(userFriendsPosts[0])
 
-		// ordenar los posts por fecha de publicación descendente
-		userFriendsPosts[0].sort((a, b) => new Date(a.post_date) - new Date(b.post_date));
 
 		userFriendsPosts[0].forEach((data)=> {
 			const nuevoPost = createPostDOM(
