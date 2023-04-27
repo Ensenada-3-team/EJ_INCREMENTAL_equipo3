@@ -124,7 +124,7 @@
 		<main class="container">
 			<div class="row">
 				<!-- IZQUIERDA-->
-				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
+				<div class="col-md-2 col-lg-2  d-none d-md-block">
 					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 					<div class="container">
 						<!-- izq arriba -->
@@ -238,12 +238,12 @@
 						<div class="row justify-content-center">
 							<!-- CARD IZQUIERDA PERFIL  -->
 							<section
-								class="col-md-5 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-3 mb-md-0 card white-card p-0"
+								class="col-md-5 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-3 mb-md-0 card white-card p-0 h-75"
 							>
 								<!-- PORTADA-->
-								<div class="">
+								<div id="user-banner">
 									<img
-										src="./img/portada/portada.jpg"
+										src="./img/portada/geom-dark.jpg"
 										alt="foto de portada"
 										class="img-fluid rounded"
 									/>
@@ -274,12 +274,13 @@
 									<!-- contenido principal datos -->
 									
 									<!-- nombre y apellidos -->
-									<div >
+									<div>
 										<h2 id="name-firstname"></h2>
+										<h5 id="user-nickname"></h5>
 									</div>
 									<!-- ocupacion -->
-									<div ">
-										<h5 id="ocupacion">Full Stack Developer</h5>
+									<div>
+										<p id="ocupacion">Full Stack Developer</p>
 									</div>
 									<div class="d-flex mt-5">
 										<i class="bi bi-geo-alt"></i>
@@ -296,18 +297,18 @@
 									<button class="btn btn-sm btn-outline-primary">crea</button>
 						
 									<button
-										class="btn btn-sm btn-outline-dark mx-1"
+										class="btn btn-sm btn-dark mx-1"
 										onclick="window.open('./funciones.html', '_blank');"
 									>
-										Explora
+										Explora mi trabajo en equipo
 									</button>
 								</div>
 							</section>
 							<!-- CARD DERECHA : BIO + ICONOS REDES LINK + MAS INFO -->
 							<section
-								class="col-md-5 col-sm-1 order-sm-1 order-2 card mx-sm-0 mx-md-3"
+								class="col-md-5 col-sm-1 order-sm-1 order-2 card mx-sm-0 mx-md-3 h-75"
 							>
-								<h4 class="card-header text-center">Acerca de:</h4>
+								<h4 class="card-header text-center">Acerca de mi:</h4>
 								<!-- bio -->
 								<div class="card-body">
 									<p id="acerca-de">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
@@ -476,6 +477,7 @@
 			crossorigin="anonymous"
 		></script>
             
-		<script src="./javascript/randomUserPerfil.js"></script>
+		<!-- <script src="./javascript/randomUserPerfil.js"></script> -->
+		<script src="./javascript/logged-perfil.js"></script>
 	</body>
 </html>
