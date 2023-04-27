@@ -13,19 +13,26 @@ let userEmail = document.getElementById('email')
 let bioNick = document.getElementById('nickname')
 
 
-
-async function getLinkedUserData() {
+//FUNCIÓN QUE COGE DE LA URL EL PARÁMETRO QUE ENVIAMOS CON LA ID DEL USUARIO DEL CUAL SE CLICÓ LA TARJETA DE AMIGO
+//USA SU ID PARA COGER DE LA BD LOS DATOS DEL USUARIO Y PINTARLOS EN SU PERFIL
+async function getLinkedlinkedUserData() {
       try  {
-            const userData = await JSON.parse(localStorage.getItem("userData"));
+            const params = new URLSearchParams(window.location.search);
+            const userId = JSON.parse(decodeURIComponent(params.get('user_id')));
+            console.log(typeof userId, userId)
+
+            const response = await fetch(`http://localhost:3000/users/user/${userId}`)
+            const linkedUserData = await response.json()
+            console.log(linkedUserData)
             
-            userImg.setAttribute('src', userData.avatar)
-            firstSecondName.innerHTML= `${userData.name} ${userData.firstname}`
-            userNickname.innerHTML = `@${userData.nickname}`
-            userOcupation.innerHTML =`${userData.ocupation} at ${userData.grade}`
-            userLocation.innerHTML = `${userData.location}, España`
-            userEmail.setAttribute('href', `mailto:${userData.email}`)
-            userEmail.innerHTML = userData.email
-            bioNick.innerHTML = `Acerca de ${userData.name}:`
+            userImg.setAttribute('src', linkedUserData[0].avatar)
+            firstSecondName.innerHTML= `${linkedUserData[0].name} ${linkedUserData[0].firstname}`
+            userNickname.innerHTML = `@${linkedUserData[0].nickname}`
+            userOcupation.innerHTML =`${linkedUserData[0].ocupation} at ${linkedUserData[0].grade}`
+            userLocation.innerHTML = `${linkedUserData[0].location}, España`
+            userEmail.setAttribute('href', `mailto:${linkedUserData[0].email}`)
+            userEmail.innerHTML = linkedUserData[0].email
+            bioNick.innerHTML = `Acerca de ${linkedUserData[0].name}:`
 
 
       } catch(error) {
@@ -33,4 +40,4 @@ async function getLinkedUserData() {
       }
 }
 
-getLinkedUserData()
+getLinkedlinkedUserData()

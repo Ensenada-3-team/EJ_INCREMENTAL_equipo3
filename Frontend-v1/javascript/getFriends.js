@@ -4,10 +4,11 @@
 let friendsListDOM = document.getElementById('friends-list')
 
 
-function createFriendCard(userAvatar, userName, userFirstname, userOcupation, userGrade,userNickname ) {
+function createFriendCard(userAvatar, userName, userFirstname, userOcupation, userNickname, userId ) {
       return `
       <li class="list-group-item border p-2" 
             style="background-color: rgba(255, 255, 255, 0.644);box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);">
+            <a href="./user-profile.html?user_id=${encodeURIComponent(JSON.stringify(userId))}" style="display: block;">
             <div class="row align-items-center">
                   <div class="col-md-5 d-flex justify-content-around">
                         <img
@@ -32,6 +33,7 @@ function createFriendCard(userAvatar, userName, userFirstname, userOcupation, us
                         </div>
                   </div>
             </div>
+            </a>
       </li>
       
       `
@@ -55,10 +57,10 @@ async function getUserFriends() {
                   const userName = friend.name
                   const userFirstname = friend.firstname
                   const userOcupation = friend.ocupation
-                  const userGrade = friend.grade
                   const  userNickname = friend.nickname
+                  const userId = friend.user_id
 
-                  const friendCard = createFriendCard(userAvatar, userName, userFirstname, userOcupation, userGrade,userNickname)
+                  const friendCard = createFriendCard(userAvatar, userName, userFirstname, userOcupation, userNickname, userId)
 
                   friendsListDOM.innerHTML += friendCard
 

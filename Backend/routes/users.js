@@ -6,8 +6,8 @@ const users = require("../bd-usuarios");
 
 // MIDDLEWARE: COMPRUEBA SI ID ES UN NUMERO
 function isNumber(req, res, next) {
-	const id = parseInt(req.params.user_id); // Parseamos el parámetro como un número entero
-	if (isNaN(id)) {
+	const userId = parseInt(req.params.user_id) // Parseamos el parámetro como un número entero
+	if (isNaN(userId)) {
 		// Verificamos si no es un número válido
 		return res.status(400).send("El parámetro id debe ser un número entero"); // Devolvemos el error bad request
 	}
@@ -45,16 +45,17 @@ router.get("/", (req, res) => {
 
 
 //GET - OBTIENE UN USUARIO POR SU ID
-router.get("/user/:id", isNumber, async (req, res) => {
+router.get("/user/:user_id", isNumber, async (req, res) => {
 	const userId = parseInt(req.params.user_id);
 	try {
-		const results = await pool.query("SELECT * FROM users WHERE id = ?", [userId]);
+		const results = await pool.query("SELECT * FROM users WHERE user_id = ?", [userId]);
 		if (results.length === 0) {
 			return res.status(404).send("Usuario no encontrado");
 		}
 		res.send(results[0]);
 	} catch (error) {
 		console.error(error);
+		console.log('SQL error:', error.sql);
 		res.status(500).send("Error al buscar usuario");
 	}
 });
