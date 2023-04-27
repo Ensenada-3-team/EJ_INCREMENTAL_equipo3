@@ -1,7 +1,28 @@
 //AUTH________________________________________________________________
 
 
-//Endpoint de login
+//POST - REGISTRAR USUARIO EN LA BD 
+//http://localhost:3000/auth/registro
+// router.post(
+// 	"/registro",
+// 	validarEmail,
+// 	ageValidation,
+// 	validarPassword,
+// 	(req, res) => {
+// 		// Aquí se puede procesar el formulario de registro
+// 		const { name, firstname, email, age, password } = req.body;
+// 		const nuevoUsuario = {
+// 			name,
+// 			firstname,
+// 			email,
+// 			age,
+// 			password,
+// 		};
+// 		res.status(200).send(nuevoUsuario);
+// 	}
+// );
+
+//POST- LOGUEAR AL USUARIO
 //http://localhost:3000/auth/login
 // router.post("/login", async (req, res) => {
 // 	const { nicknameOrEmail, password } = req.body;
