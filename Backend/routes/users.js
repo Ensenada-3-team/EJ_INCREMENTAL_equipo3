@@ -84,10 +84,7 @@ router.get("/friends/:user_id", async (req, res) => {
 			"SELECT * FROM users " +
 			"INNER JOIN friends on friends.user2_id = users.user_id " +
 			"WHERE friends.user1_id = ? and friends.status = 1",
-			// "SELECT * " +
-			// "FROM friends " +
-			// "JOIN users ON (friends.user1_id = users.user_id OR friends.user2_id = users.user_id) " +
-			// "WHERE friends.status = 1 AND (friends.user1_id = ? OR friends.user2_id = ?)",
+		
 			[req.params.user_id]
 		);
 		res.json(rows);
@@ -96,6 +93,28 @@ router.get("/friends/:user_id", async (req, res) => {
 		res.status(500).json({ error: "Error al obtener los amigos del usuario" });
 	}
 });
+
+// GET - OBTENER USUARIOS NO AMIGOS DE UN USUARIO POR SU ID
+router.get("/nonfriends/:user_id", async (req, res) => {
+	const userId = req.params.user_id
+	try {
+		const [rows, fields] = await pool.query(
+			"SELECT * FROM users " +
+			"WHERE user_id NOT IN (SELECT user2_id FROM friends WHERE user1_id = ?) " +
+			"AND user_id <> ? ",
+			
+			[userId, userId]
+		);
+		res.json(rows);
+
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({ error: "Error al obtener los datos de los usuarios no seguidos por el usuario" });
+	}
+});
+
+
+
 
 
 // POST- AGREGAR AMIGO           /:user1_id/friendship/:user2_id
