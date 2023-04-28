@@ -32,6 +32,7 @@ ORDER BY posts.post_date ASC;
 
 router.get("/private/search/:nickname", async (req, res) => {
 	const nickname = req.params.nickname;
+	console.log(nickname);
 	pool
 		.query(
 			`
@@ -39,7 +40,7 @@ router.get("/private/search/:nickname", async (req, res) => {
 			FROM posts 
 			INNER JOIN users ON users.user_id = posts.user_id 
 			WHERE users.nickname =  ? 
-			ORDER BY posts.post_date ASC;
+			ORDER BY posts.post_date ASC
 		    `,
 			[nickname]
 		)
@@ -51,7 +52,6 @@ router.get("/private/search/:nickname", async (req, res) => {
 			res.sendStatus(500);
 		});
 });
-
 
 //GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS Y ADEMÁS LOS DATOS DE LOS AMIGOS QUE ESCRIBIERON EL POST
 router.get("/private/:user_id", async (req, res) => {
@@ -101,7 +101,7 @@ router.post("/new-post/", async (req, res) => {
 		const query = `INSERT INTO posts (text, image, post_date, like_number, user_id) VALUES (?, ?, ?, ?, ?)`;
 		const image = coolImages.one();
 		const like_number = parseInt(Math.random() * 10);
-		const post_date = new Date()
+		const post_date = new Date();
 		const [result] = await pool.query(query, [
 			text,
 			image,
@@ -124,14 +124,6 @@ router.post("/new-post/", async (req, res) => {
 		res.status(500).json(error);
 	}
 });
-
-
-
-
-
-
-
-
 
 //DELETE- BORRAR UN POST POR SU POST_ID            /:post_id
 
