@@ -14,7 +14,7 @@ function createPostDOM(name, firstname, nickname, userAvatar, data) {
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12">
                     <div class="border border-dark sombra rounded p-4 bg-post">
-                        <h5 class="fw-bold d-flex justify-content-between"><p>@${nickname}</p> <p style='font-weigt: normal; font-size: small'>${new Date(data.post_date).toLocaleString()}</p></h5>
+                        <h5 class="fw-bold d-flex justify-content-between"><p>@${nickname}</p> <p style='font-weigt: normal; font-size: small'>${new Date(Date.parse(data.post_date)).toLocaleString()}</p></h5>
                         <p>${data.text}</p>
                     </div>
                     <img class='img-fluid rounded sombra mt-2' src='${data.image}'>
@@ -65,18 +65,22 @@ form.addEventListener("submit", async (event) => {
 
 	const data = await response.json();
 	console.log(data);
+	
+
+	//LOCALSTORAGE_______________________________________________________
 	// Obtenemos los posts del usuario del LocalStorage o inicializamos un array vacío si no hay ninguno
 	let userPosts = JSON.parse(localStorage.getItem("userData")).posts || [];
 	console.log(userPosts);
 	// Agregamos el nuevo post al array de posts del usuario
 	userPosts.push(data);
-	// Guardamos los posts del usuario actualizados en el LocalStorage
+	// Guardamos los posts del usuario actualizados en el LocalStorage (se guarda una copia)
 	localStorage.setItem(
 		"userData",
 		JSON.stringify({ ...user, posts: userPosts })
 	);
+	//________________________________________________________________
 
-	//se crea el post
+	//CREAMOS EL ELEMENTO POST
 	 const nuevoPost = createPostDOM(
 		user.name,
 		user.firstname,

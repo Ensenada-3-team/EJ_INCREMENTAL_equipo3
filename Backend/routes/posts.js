@@ -1,4 +1,3 @@
-const publicaciones = require("../bd-posts");
 const express = require("express");
 const router = express.Router();
 const pool = require("../db/connection");
@@ -98,12 +97,14 @@ router.post("/new-post/", async (req, res) => {
 	}
 
 	try {
-		const query = `INSERT INTO posts (text, image, like_number, user_id) VALUES (?, ?, ?, ?)`;
+		const query = `INSERT INTO posts (text, image, post_date, like_number, user_id) VALUES (?, ?, ?, ?, ?)`;
 		const image = coolImages.one();
 		const like_number = parseInt(Math.random() * 10);
+		const post_date = new Date()
 		const [result] = await pool.query(query, [
 			text,
 			image,
+			post_date,
 			like_number,
 			user_id,
 		]);
@@ -113,6 +114,7 @@ router.post("/new-post/", async (req, res) => {
 			text,
 			user_id,
 			image,
+			post_date,
 			like_number,
 			publishDate: minutesAgo(),
 		});
