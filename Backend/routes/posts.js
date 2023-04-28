@@ -20,39 +20,40 @@ router.get("/", async (req, res) => {
 		});
 });
 
-//GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS  /private /:user_id
-
-// router.get('/private/:user_id', async(req, res) =>)
+//GET - TRAE LOS POSTS DE UN USUARIO POR SU NICKNAME
 /*
-	SELECT * FROM `posts` WHERE posts.user_id = 1
-	UNION
-	SELECT posts.* FROM `posts`
-	INNER JOIN friends on friends.user2_id = posts.user_id
-	WHERE friends.user1_id = 1 and friends.status = 1;
-	
+SELECT posts.*, users.* 
+FROM posts 
+INNER JOIN users ON users.user_id = posts.user_id 
+WHERE users.nickname =  ? 
+ORDER BY posts.post_date ASC;
+
 */
-// router.get("/private/:user_id", async (req, res) => {
-// 	const user = req.params.user_id
-// 	pool
-// 		.query("SELECT * FROM posts WHERE posts.user_id = ? " +
-// 		"UNION " +
-// 		"SELECT posts.* FROM posts " +
-// 		"INNER JOIN friends on friends.user2_id = posts.user_id " +
-// 		"WHERE friends.user1_id = ? and friends.status = 1 ",
-// 		[user , user]
 
-// 		)
+router.get("/private/search/:nickname", async (req, res) => {
+	const nickname = req.params.nickname;
+	pool
+		.query(
+			`
+			SELECT posts.*, users.* 
+			FROM posts 
+			INNER JOIN users ON users.user_id = posts.user_id 
+			WHERE users.nickname =  ? 
+			ORDER BY posts.post_date ASC;
+		    `,
+			[nickname]
+		)
+		.then((results) => {
+			res.json(results);
+		})
+		.catch((error) => {
+			console.error(error);
+			res.sendStatus(500);
+		});
+});
 
-// 		.then((results) => {
-// 			res.json(results);
-// 		})
-// 		.catch((error) => {
-// 			console.error(error);
-// 			res.sendStatus(500);
-// 		});
-// });
+
 //GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS Y ADEMÁS LOS DATOS DE LOS AMIGOS QUE ESCRIBIERON EL POST
-//revisar
 router.get("/private/:user_id", async (req, res) => {
 	const user = req.params.user_id;
 	pool
@@ -123,6 +124,14 @@ router.post("/new-post/", async (req, res) => {
 		res.status(500).json(error);
 	}
 });
+
+
+
+
+
+
+
+
 
 //DELETE- BORRAR UN POST POR SU POST_ID            /:post_id
 

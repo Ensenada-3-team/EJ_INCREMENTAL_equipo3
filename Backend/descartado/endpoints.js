@@ -121,3 +121,36 @@
 // 	let diffTime = moment(postTime).from(getTime)
 // 	res.json({time: diffTime})
 // })
+
+
+//GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS  /private /:user_id
+
+// router.get('/private/:user_id', async(req, res) =>)
+/*
+	SELECT * FROM `posts` WHERE posts.user_id = 1
+	UNION
+	SELECT posts.* FROM `posts`
+	INNER JOIN friends on friends.user2_id = posts.user_id
+	WHERE friends.user1_id = 1 and friends.status = 1;
+	
+*/
+// router.get("/private/:user_id", async (req, res) => {
+// 	const user = req.params.user_id
+// 	pool
+// 		.query("SELECT * FROM posts WHERE posts.user_id = ? " +
+// 		"UNION " +
+// 		"SELECT posts.* FROM posts " +
+// 		"INNER JOIN friends on friends.user2_id = posts.user_id " +
+// 		"WHERE friends.user1_id = ? and friends.status = 1 ",
+// 		[user , user]
+
+// 		)
+
+// 		.then((results) => {
+// 			res.json(results);
+// 		})
+// 		.catch((error) => {
+// 			console.error(error);
+// 			res.sendStatus(500);
+// 		});
+// });

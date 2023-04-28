@@ -1,7 +1,7 @@
 const form = document.querySelector("#form-publicacion");
 const publicacionesDOM = document.getElementById("lista-publicaciones");
 
-function createPostDOM(name, firstname, nickname, userAvatar, data) {
+export function createPostDOM(name, firstname, nickname, userAvatar, data) {
 	return `
     <li class="card border p-4">
         <div class="container">
@@ -44,6 +44,7 @@ function createPostDOM(name, firstname, nickname, userAvatar, data) {
 `;
 }
 
+//EVENT LISTENER DEL FORMULARIO (TEXTAREA) QUE CREA UN POST
 form.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
