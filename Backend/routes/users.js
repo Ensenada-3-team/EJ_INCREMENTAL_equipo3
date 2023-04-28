@@ -109,12 +109,10 @@ router.get("/nonfriends/:user_id", async (req, res) => {
 		res.json(rows);
 	} catch (err) {
 		console.error(err);
-		res
-			.status(500)
-			.json({
-				error:
-					"Error al obtener los datos de los usuarios no seguidos por el usuario",
-			});
+		res.status(500).json({
+			error:
+				"Error al obtener los datos de los usuarios no seguidos por el usuario",
+		});
 	}
 });
 
@@ -124,18 +122,20 @@ router.get("/nonfriends/:user_id", async (req, res) => {
 //DELETE- ELIMINAR AMIGO         /:user1_id/friendship/:user2_id
 //UPDATE `friends` SET `status` = '0' WHERE friends.user1_id = '5' AND friends.user2_id = '7';
 
-//DELETE- ELIMINAR USUARIO DE LA BD (CERRAR CUENTA)       /:user_id
-//DELETE FROM `users` WHERE user_id = 8;
-//DELETE - ELIMINAR CUENTA DE USUARIO
-//FROM `users` WHERE user_id = 8;
-
+//DELETE- ELIMINAR USUARIO DE LA BD (CERRAR CUENTA)   
 router.delete("/delete/:user_id", async (req, res) => {
 	const userId = req.params.user_id;
 	try {
-		const result = await pool.query("DELETE FROM users WHERE user_id = ? ", [
-			userId,
-		]);
-		if (result.affectedRows === 0) {
+		// Borrar los registros en la tabla "posts" relacionados al usuario a eliminar
+		await pool.query("DELETE FROM posts WHERE posts.user_id = ? ", [userId]);
+
+		// Borrar el usuario
+		const usersResult = await pool.query(
+			"DELETE FROM users WHERE users.user_id = ? ",
+			[userId]
+		);
+
+		if (usersResult.affectedRows === 0) {
 			res.status(404).json({ error: "User not found" });
 		} else {
 			res.status(200).json({ message: "User deleted successfully" });
@@ -144,5 +144,7 @@ router.delete("/delete/:user_id", async (req, res) => {
 		res.status(500).json({ error: err.message });
 	}
 });
+
+
 
 module.exports = router;
