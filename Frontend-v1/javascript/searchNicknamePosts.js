@@ -1,6 +1,6 @@
 const publicacionesDOM = document.getElementById("lista-publicaciones");
 const formSearchPostsNickname = document.getElementById("form-search-posts-nickname")
-import { createPostDOM } from "./createNewPost";
+// import { createPostDOM } from "./createNewPost";
 
 formSearchPostsNickname.addEventListener('submit', async (event)=> {
       event.preventDefault()

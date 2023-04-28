@@ -1,7 +1,7 @@
 const form = document.querySelector("#form-publicacion");
 const publicacionesDOM = document.getElementById("lista-publicaciones");
 
-export function createPostDOM(name, firstname, nickname, userAvatar, data) {
+function createPostDOM(name, firstname, nickname, userAvatar, data) {
 	return `
     <li class="card border p-4">
         <div class="container">
