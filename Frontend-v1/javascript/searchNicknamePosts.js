@@ -62,7 +62,11 @@ formSearchPostsNickname.addEventListener('submit', async (event)=> {
             nicknamePosts[0].forEach((post) =>{
                   const userPost = createPostDOM(post.name, post.firstname, post.nickname, post.avatar, post)
                   publicacionesDOM.insertAdjacentHTML("afterbegin", userPost);
+
+                  document.getElementById("input-search-nickname").value = ''
             })
+
+
       } catch (error) {
             console.error(error.message)   
       }

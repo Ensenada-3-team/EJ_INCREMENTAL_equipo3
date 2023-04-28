@@ -21,15 +21,6 @@ router.get("/", async (req, res) => {
 });
 
 //GET - TRAE LOS POSTS DE UN USUARIO POR SU NICKNAME
-/*
-SELECT posts.*, users.* 
-FROM posts 
-INNER JOIN users ON users.user_id = posts.user_id 
-WHERE users.nickname =  ? 
-ORDER BY posts.post_date ASC;
-
-*/
-
 router.get("/private/search/:nickname", async (req, res) => {
 	const nickname = req.params.nickname;
 	console.log(nickname);
@@ -62,22 +53,10 @@ router.get("/private/:user_id", async (req, res) => {
 			SELECT posts.*, users.*
 			FROM posts
 			INNER JOIN users ON users.user_id = posts.user_id
-			WHERE posts.user_id = ? -- Obtener los posts del usuario logueado
-			OR posts.user_id IN (
-			  -- Obtener los posts de los amigos del usuario logueado
-			  SELECT user2_id FROM friends WHERE user1_id = ?
-			)
-			UNION
-			SELECT posts.*, users.*
-			FROM posts
-			INNER JOIN users ON users.user_id = posts.user_id
-			WHERE posts.user_id IN (
-			  -- Obtener los posts del usuario correspondiente a cada amigo del usuario logueado
-			  SELECT user2_id FROM friends WHERE user1_id = ?
-			)
+			WHERE posts.user_id = ? OR posts.user_id IN (SELECT user2_id FROM friends WHERE user1_id = ?)
 			ORDER BY post_date ASC
 		    `,
-			[user, user, user]
+			[user, user]
 		)
 		.then((results) => {
 			res.json(results);
