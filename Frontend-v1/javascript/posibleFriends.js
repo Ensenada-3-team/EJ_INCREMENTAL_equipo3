@@ -25,13 +25,11 @@ function createPosibleFriendCard(userAvatar, userNickname) {
 
 async function getPosibleFriends() {
 
-      const userData = localStorage.getItem('userData')
-      const userId = userData.user_id
-
+      const user = JSON.parse(localStorage.getItem("userData"));
       try {
-            const response = await fetch(`http://localhost:3000/users/nonfriends/${userId}`)
+            const response = await fetch(`http://127.0.0.1:3000/users/nonfriends/${user.user_id}`)
             const nonFriends = await response.json()
-            console.log('nonfriends' , nonFriends)
+            console.log('nonfriends', nonFriends)
 
             if (!Array.isArray(nonFriends)) {
                   console.error('Error: La respuesta no es un array de objetos.')
