@@ -137,12 +137,17 @@
 									<div class="col-md-4 border border-dark rounded sombra ">
 										<h2 class="text-center">Datos de la cuenta</h2>
 										<div class="card white-card text-start">
-											<p>Nombre: Jose</p>
-											<p>Apellido: Melian</p>
-											<p>Email: john-doe@example.com</p>
+											<img
+												id="logged-user-image"
+												class="avatar rounded rounded-circle border border-dark"
+												alt="imagen usuario logueado"
+											/>
+											<p id="name"></p>
+											<p id="firstname"></p>
+											<p id="email"></p>
 										</div>
 
-										<div id="msj-elim"></div>
+										<div id="msj-elim" class="h3"></div>
 
 										<div class="mt-4 text-center">
 											<button id="eliminar-cuenta" class=" btn btn-danger sombra">
@@ -350,5 +355,6 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="./javascript/eliminarCuenta.js"></script>
+		<script src="./javascript/drawConfigUser.js"></script>
 	</body>
 </html>
