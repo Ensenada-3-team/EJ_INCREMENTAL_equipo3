@@ -2,8 +2,9 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Friends</title>
+		<title>Mi Perfil</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -11,17 +12,17 @@
 			crossorigin="anonymous"
 		/>
 
-		<link rel="stylesheet" href="./css/style.css" />
-		<link rel="stylesheet" href="./css/responsive.css" />
+		<link rel="stylesheet" href="../css/style.css" />
 	</head>
+
 	<body>
 		<!-- BARRA DE NAVEGACION -->
 		<nav class="navbar navbar-expand-lg bg-body-transparent container">
 			<div class="container-fluid">
 				<!-- CONTAINER DEL LOGO -->
 				<div class="container col-2">
-					<a class="navbar-brand" href="./feed.html">
-						<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+					<a class="navbar-brand" href="../views/feed.html">
+						<img class="logo" src="../img/enter-black.png" alt="Logo-Tecla" />
 					</a>
 				</div>
 				<!-- MENÚ HAMBURGUESA -->
@@ -51,7 +52,7 @@
 						<button class="btn-search">
 							<img
 								class="search-icon"
-								src="./img/icons/search-icon2.png"
+								src="../img/icons/search-icon2.png"
 								alt=""
 							/>
 						</button>
@@ -69,7 +70,7 @@
 							<a
 								class="nav-link"
 								aria-current="page"
-								href="./user-friends.html"
+								href="../views/user-friends.html"
 							>
 								<i
 									class="bi bi-people-fill"
@@ -82,7 +83,7 @@
 						</li>
 						<!-- config-account -->
 						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="./config-account.html">
+							<a class="nav-link" href="../views/config-account.html">
 								<i
 									class="bi bi-gear"
 									style="font-size: 1.8rem"
@@ -93,7 +94,7 @@
 						</li>
 						<!-- mi perfil -->
 						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="./user-logged-profile.html">
+							<a class="nav-link" href="../views/user-logged-profile.html">
 								<i
 									class="bi bi-person-fill"
 									style="font-size: 1.8rem"
@@ -104,7 +105,7 @@
 						</li>
 						<!-- cerrar sesion -->
 						<li class="nav-item navbar-collapse-icons">
-							<a id="logout-link" class="nav-link" href="./index-login.html">
+							<a id="logout-link" class="nav-link" href="../index-login.html">
 								<i
 									class="bi bi-box-arrow-right"
 									class="bi bi-people-fill"
@@ -123,13 +124,14 @@
 		<main class="container">
 			<div class="row">
 				<!-- IZQUIERDA-->
-				<div class="col-md-1 col-lg-2 flex-grow-1 d-none d-md-block">
+				<div class="col-md-2 col-lg-2  d-none d-md-block">
 					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 					<div class="container">
 						<!-- izq arriba -->
 						<div class="row">
+							<!-- INTERESES -->
 							<div class="col card w-100 text-center">
-								<h4 class="d-lg-block d-md-none">Intereses</h4>
+								<h4 class="d-lg-block d-md-none card-header">Intereses</h4>
 
 								<div>
 									<a href="https://www.nytimes.com/" target="_blank">
@@ -171,7 +173,7 @@
 									<h6 class="d-lg-block d-md-none">Nuevo</h6>
 								</div>
 								<div>
-									<a href="./funciones.html">
+									<a href="../views/funciones.html" >
 										<i
 											class="bi bi-bookmark"
 											style="font-size: 1.5rem; transform: scale(2)"
@@ -183,15 +185,16 @@
 									</a>
 									<h6 class="d-lg-block d-md-none">Guardado</h6>
 								</div>
+								<div class="card-footer"></div>
 							</div>
 						</div>
 
 						<!-- izq abajo  -->
 						<div class="row">
-							<div class="col card w-100">
-								<h4 class="d-lg-block d-md-none">Cuenta</h4>
+							<div class="col card w-100 text-center g-3 z-index">
+								<h4 class="d-lg-block d-md-none card-header">Cuenta</h4>
 								<div>
-									<a href="./config-account.html">
+									<a href="../views/config-account.html">
 										<i
 											class="bi bi-gear"
 											style="font-size: 1.5rem; transform: scale(2)"
@@ -213,7 +216,7 @@
 									</a>
 								</div>
 								<div>
-									<a href="./search-posts.html">
+									<a href="../views/search-posts.html">
 										<i
 											class="bi bi-search"
 											style="font-size: 1.5rem; transform: scale(2)"
@@ -228,44 +231,129 @@
 					</div>
 				</div>
 
-				<!-- CENTRO -->
-				<div class="col-md-8 col-lg-9 flex-grow-1">
-					<!-- CONTENEDOR CENTRO CON DOS ROWS -->
+				<!-- CENTRO  -->
+				<div class="col-md-8 col-lg-9 ">
 					<div class="container">
-						<!-- ROW 1: ENCABEZADO Y BUSQUEDA DE TECLERS -->
-						<div class="row">
-							<div class="col card post-card">
-								<div>
-									<h2>Teclers</h2>
-								</div>
-
-								<div class="search-box">
-									<button class="btn-search">
-										<img
-											class="search-icon"
-											src="./img/icons/search-icon2.png"
-											alt=""
-										/>
-									</button>
-									<input
-										type="text"
-										class="input-search"
-										placeholder="Type to Search..."
+						<!-- TU PERFIL + FOTO -->
+						<div class="row justify-content-center">
+							<!-- CARD IZQUIERDA PERFIL  -->
+							<section
+								class="col-md-5 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-3 mb-md-0 card white-card p-0 h-75"
+							>
+								<!-- PORTADA-->
+								<div id="user-banner">
+									<img
+										src="../img/portada/geom-dark.jpg"
+										alt="foto de portada"
+										class="img-fluid rounded"
 									/>
 								</div>
-							</div>
-						</div>
+								<!--FOTO+ NOMBRE + PROFESION + LOCACION + BOTONES -->
+								<div class="card-body">
+									<div class="d-flex justify-content-between" >
+										<button class="btn">
+											<img
+												id="imagen-usuario"
+												class="avatar rounded rounded-circle position-relative border border-dark"
+												src="https://randomuser.me/api/portraits/med/men/75.jpg"
+												alt="avatar"
+												style="top: -5rem; width: 6.25rem; height: 6.25rem"
+											/>
+											<i
+												class="bi bi-camera"
+												style="position: relative; top: -4.063rem; right: 7.5rem"
+											></i>
+										</button>
+										<button class="btn">
+											<i
+												class="bi bi-pencil position-relative "
+												style="top: -2rem"
+											></i>
+										</button>
+									</div>
+									<!-- contenido principal datos -->
+									
+									<!-- nombre y apellidos -->
+									<div>
+										<h2 id="name-firstname"></h2>
+										<h5 id="user-nickname"></h5>
+									</div>
+									<!-- ocupacion -->
+									<div>
+										<p id="ocupacion">Full Stack Developer</p>
+									</div>
+									<div class="d-flex mt-5">
+										<i class="bi bi-geo-alt"></i>
+										<p id="ubicacion"></p>
+									</div>
+									<div class="d-flex justify-content-between w-75 ">
+										<p id="followers-counter">3456 Followers</p>
+										<p id="following-counter">56 Following</p>
+									</div>
+									
+								</div>
+								<!-- botones links mi perfil -->
+								<div class="card-footer d-flex">
+									<button class="btn btn-sm btn-primary" onclick="window.open('./views/user-friends.html');">Seguidos</button>
+						
+									<button
+										class="btn btn-sm btn-dark mx-1"
+										onclick="window.open('./views/funciones.html')"
+									>
+										Explora mi trabajo en equipo
+									</button>
+								</div>
+							</section>
+							<!-- CARD DERECHA : BIO + ICONOS REDES LINK + MAS INFO -->
+							<section
+								class="col-md-5 col-sm-1 order-sm-1 order-2 card mx-sm-0 mx-md-3 h-75"
+							>
+								<h4 class="card-header text-center">Acerca de mi:</h4>
+								<!-- bio -->
+								<div class="card-body">
+									<p id="acerca-de">Soy una persona apasionada por la aventura y la exploración al aire libre, especialmente en la montaña⛰ y en el surf🏄🏻‍♂️. Además, me encanta el mundo de la programación💻 y la tecnología, y estoy constantemente buscando nuevas oportunidades de aprendizaje en este campo.<br> Me apasiona compartir mis experiencias y conocimientos con otros, y me encanta por la posibilidad de inspirar a otros a explorar sus pasiones.<br> Para mí, la vida se trata de descubrir nuevas posibilidades y desafiar los límites, tanto en la naturaleza🌲🌱🍂 como en la tecnología.
+									</p>
+								</div>
+									
+								<div class=""></div>
 
-						<!-- ROW 2: GRID DE TECLERS -->
-						<div class="container-fluid">
-							<ul id="friends-list" style="margin-bottom: 10%">
-								
-							</ul>
+								<!-- mas info -->
+								<div>
+									<i class="bi bi-file-person"></i>
+									<a id="link-hoja-de-vida" href="http://"
+										> Más info</a
+									>
+								</div>
+								<div>
+									<i class="bi bi-envelope-at"></i>
+									<a id="email" href="http://"
+										>Email</a
+									>
+								</div>
+
+								<!-- links redes sociales -->
+								<div class="card-footer d-flex justify-content-center mt-4">
+									<!-- github -->
+									<button class="btn">
+										<i class="bi bi-github"></i>
+									</button>
+									<!-- linkedin -->
+									<button class="btn">
+										<i class="bi bi-linkedin"></i>
+									</button>
+									<!--  insta-->
+									<button class="btn">
+										<i class="bi bi-instagram"></i>
+									</button>
+								</div>
+							</section>
 						</div>
 					</div>
 				</div>
 			</div>
 		</main>
+		<!-- REFACTORIZADO HASTA AQUÍ -->
+
 		<!-- SEPARADOR -->
 		<div class="container mt-5 mb-5 border-0"></div>
 		<!-- SEPARADOR HASTA AQUI -->
@@ -275,7 +363,7 @@
 			<div class="row w-100">
 				<div class="col-4">
 					<div class="d-flex justify-content-center">
-						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+						<img class="logo-sl" src="../img/enter-black.png" alt="Logo" />
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3">
@@ -361,7 +449,7 @@
 					border-radius: 3rem;
 					background-color: rgba(190, 190, 235, 0.484);
 				"
-				onclick="window.open('./search-posts.html', '_blank')"
+				onclick="window.open('./views/search-posts.html', '_blank')"
 				type="button"
 			>
 				<i class="bi bi-send-fill" style="font-size: 2rem; color: black"></i>
@@ -383,7 +471,10 @@
 			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
 			crossorigin="anonymous"
 		></script>
-		<script src="./javascript/getFriends.js"></script>
-		<script src="./javascript/logout.js"></script>	
+            
+		<!-- <script src="../javascript/randomUserPerfil.js"></script> -->
+		<script src="../javascript/logged-perfil.js"></script>
+		<script src="../javascript/logout.js"></script>
+
 	</body>
 </html>

@@ -176,7 +176,7 @@ router.post("/login", async (req, res) => {
 		}
 
 		const user = rows[0];
-		res.status(200).send({ redirectUrl: "./feed.html", user: user });
+		res.status(200).send({ redirectUrl: "./views/feed.html", user: user });
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ message: "Error interno del servidor" });

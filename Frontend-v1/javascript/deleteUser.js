@@ -45,7 +45,7 @@ async function deleteUser() {
 			// Si se ha eliminado el usuario, redirigir a la página "bye-bye.html"
 			msjElim.innerHTML = "Conectando al servidor... Eliminando Cuenta...";
 			await new Promise((resolve) => setTimeout(resolve, 3000));
-			window.location.href = "./bye-bye.html";
+			window.location.href = "./views/bye-bye.html";
 		} else {
 			// Si no se ha eliminado el usuario, mostrar una alerta
 			alert("No se ha podido eliminar al usuario.");
