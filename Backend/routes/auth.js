@@ -114,17 +114,16 @@ router.post("/register", validarEmail, validarPassword, async (req, res) => {
 	try {
 		// Verificar si el usuario ya existe en la base de datos
 		const isAlreadyUser = await pool.query(
-			"SELECT * FROM users WHERE nickname = ? OR email = ? OR password = ? OR linkedin = ?",
-			[nickname, email, password, linkedin]
+			"SELECT * FROM users WHERE nickname = ? OR email = ? ",
+			[nickname, email]
 		);
+		console.log(isAlreadyUser)
 
 		// Si el usuario ya existe, enviar una respuesta de error
-		if (isAlreadyUser.length > 0) {
+		if (isAlreadyUser[0].length > 0) {
 			return res
 				.status(400)
-				.json(
-					{message: "Ya existe un usuario con ese nickname, email, password o linkedin"}
-				);
+				.json({ message: "Ya existe un usuario con ese nickname o email" });
 		}
 
 		// Si el usuario no existe, insertar los nuevos datos en la base de datos
@@ -151,12 +150,11 @@ router.post("/register", validarEmail, validarPassword, async (req, res) => {
 		res.status(200).send(result);
 	} catch (error) {
 		console.error(error);
-		res.status(500).json({message: "Error al insertar el usuario en la base de datos"});
+		res
+			.status(500)
+			.json({ message: "Error al insertar el usuario en la base de datos" });
 	}
 });
-
-
-
 
 // POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {

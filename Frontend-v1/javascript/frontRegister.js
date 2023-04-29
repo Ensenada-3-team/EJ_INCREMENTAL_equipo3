@@ -55,7 +55,7 @@ registerForm.addEventListener('submit', async (event)=> {
                         alert('El usuario ya existe en la base de datos, prueba con otro Nickname, otra contraseña, otro email u otro perfil de linkedin')
                   } else {
                         // Si está todo bien, redirige al index
-                        window.location.href = './index-login.html'
+                        window.location.href = '../index-login.html'
                   }
                   
             
