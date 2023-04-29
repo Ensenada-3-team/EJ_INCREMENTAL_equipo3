@@ -5,6 +5,8 @@ const pool = require("../db/connection");
 const coolImages = require("cool-images");
 const moment = require("moment");
 
+
+
 // ENDPOINTS_________________________________________________________
 
 //GET - OBTENER TODAS LAS PUBLICACIONES EXISTENTES

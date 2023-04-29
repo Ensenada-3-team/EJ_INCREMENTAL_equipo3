@@ -1,7 +1,6 @@
-const users = require("../bd-usuarios");
-const pool = require("../db/connection");
 var express = require("express");
 var router = express.Router();
+const pool = require("../db/connection");
 
 // MIDDLEWARE - VALIDA FORMATO DEL EMAIL
 const validarEmail = (req, res, next) => {
@@ -42,64 +41,122 @@ const validarPassword = (req, res, next) => {
 //ENDPOINTS______________________________________________________
 
 //POST - REGISTRO DEL USUARIO EN LA BD
-router.post(
-	"/register",
-	validarEmail,
-	validarPassword,
-	async (req, res) => {
-		const {
-			name,
-			firstname,
-			nickname,
-			gender,
-			avatar,
-			password,
-			email,
-			ocupation,
-			location,
-			grade,
-			linkedin,
-			language,
-			hobbie,
-		} = req.body;
-		const birthdate = req.body.birthdate
-		console.log(birthdate)
-		const birthdateDate = new Date(birthdate);
-		console.log(birthdateDate)
+// router.post(
+// 	"/register",
+// 	validarEmail,
+// 	validarPassword,
+// 	async (req, res) => {
+// 		const {
+// 			name,
+// 			firstname,
+// 			nickname,
+// 			birthdate,
+// 			gender,
+// 			avatar,
+// 			password,
+// 			email,
+// 			ocupation,
+// 			location,
+// 			grade,
+// 			linkedin,
+// 			language,
+// 			hobbie,
+// 		} = req.body;
 
-		try {
-			const result = await pool.query(
-				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-				[
-					name,
-					firstname,
-					nickname,
-					birthdate,
-					gender,
-					avatar,
-					password,
-					email,
-					ocupation,
-					location,
-					grade,
-					linkedin,
-					language,
-					hobbie,
-				]
-			);
+// 		try {
+// 			const result = await pool.query(
+// 				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+// 				[
+// 					name,
+// 					firstname,
+// 					nickname,
+// 					birthdate,
+// 					gender,
+// 					avatar,
+// 					password,
+// 					email,
+// 					ocupation,
+// 					location,
+// 					grade,
+// 					linkedin,
+// 					language,
+// 					hobbie,
+// 				]
+// 			);
 
-			res.status(200).send(result)
+// 			res.status(200).send(result)
 
-		} catch (error) {
-			console.error(error);
-			res.status(500).send("Error al insertar el usuario en la base de datos");
+// 		} catch (error) {
+// 			console.error(error);
+// 			res.status(500).send("Error al insertar el usuario en la base de datos");
+// 		}
+// 	}
+// );
+
+router.post("/register", validarEmail, validarPassword, async (req, res) => {
+	const {
+		name,
+		firstname,
+		nickname,
+		birthdate,
+		gender,
+		avatar,
+		password,
+		email,
+		ocupation,
+		location,
+		grade,
+		linkedin,
+		language,
+		hobbie,
+	} = req.body;
+
+	try {
+		// Verificar si el usuario ya existe en la base de datos
+		const isAlreadyUser = await pool.query(
+			"SELECT * FROM users WHERE nickname = ? OR email = ? OR password = ? OR linkedin = ?",
+			[nickname, email, password, linkedin]
+		);
+
+		// Si el usuario ya existe, enviar una respuesta de error
+		if (isAlreadyUser.length > 0) {
+			return res
+				.status(400)
+				.json(
+					{message: "Ya existe un usuario con ese nickname, email, password o linkedin"}
+				);
 		}
-	}
-);
 
-/**
- (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie)
- */
+		// Si el usuario no existe, insertar los nuevos datos en la base de datos
+		const result = await pool.query(
+			"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+			[
+				name,
+				firstname,
+				nickname,
+				birthdate,
+				gender,
+				avatar,
+				password,
+				email,
+				ocupation,
+				location,
+				grade,
+				linkedin,
+				language,
+				hobbie,
+			]
+		);
+
+		res.status(200).send(result);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({message: "Error al insertar el usuario en la base de datos"});
+	}
+});
+
+
+
 
 // POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {
@@ -125,8 +182,5 @@ router.post("/login", async (req, res) => {
 		res.status(500).json({ message: "Error interno del servidor" });
 	}
 });
-
-
-
 
 module.exports = router;
