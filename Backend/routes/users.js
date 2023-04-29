@@ -2,14 +2,15 @@ var express = require("express");
 var router = express.Router();
 const pool = require("../db/connection");
 
-const users = require("../bd-usuarios");
+
 
 // MIDDLEWARE: COMPRUEBA SI ID ES UN NUMERO
 function isNumber(req, res, next) {
-	const userId = parseInt(req.params.user_id); // Parseamos el parámetro como un número entero
+	// Parseamos el parámetro como un número entero
+	const userId = parseInt(req.params.user_id); 
 	if (isNaN(userId)) {
-		// Verificamos si no es un número válido
-		return res.status(400).send("El parámetro id debe ser un número entero"); // Devolvemos el error bad request
+		// Si no es un número válido devolvemos el error bad request
+		return res.status(400).send("El parámetro id debe ser un número entero"); 
 	}
 	// Si llegamos aquí es porque el parámetro es un número válido, entonces llamamos al siguiente middleware
 	next();

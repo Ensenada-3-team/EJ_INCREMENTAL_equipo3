@@ -50,11 +50,18 @@ registerForm.addEventListener('submit', async (event)=> {
 
                   const newUser = await response.json()
                   console.log(newUser)
-                  window.location.href = './index-login.html'
+                  //Si el nickname, la contraseña, el email, o la direccion de linkedin ya están en la bd no registra al usuario
+                  if (newUser.message) {
+                        alert('El usuario ya existe en la base de datos, prueba con otro Nickname, otra contraseña, otro email u otro perfil de linkedin')
+                  } else {
+                        // Si está todo bien, redirige al index
+                        window.location.href = './index-login.html'
+                  }
+                  
             
             }catch(error){
-
                   console.error(error.message);
+
             }
       } else {
             alert('Por favor introduzca la misma contraseña.\nHa de tener como mínimo 8 caracteres que contengan al menos:\nun número,\nun caracter especial,\nuna letra mayúscula y una minúscula.')
