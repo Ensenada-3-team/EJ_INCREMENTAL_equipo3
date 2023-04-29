@@ -15,14 +15,28 @@ const validarEmail = (req, res, next) => {
 };
 
 // MIDDLEWARE - VALIDA SI LA EDAD ES NUMERO ENTERO
+// const ageValidation = (req, res, next) => {
+// 	const age = req.body.age;
+// 	if (!Number.isInteger(parseInt(age))) {
+// 		return res.status(400).send("La age debe ser un número entero.");
+// 	}
+// 	next();
+// };
+
+//MIDDLEWARE - COMPRUEBA SI USUARIO ES MAYOR DE 18 AÑOS
 const ageValidation = (req, res, next) => {
-	const age = req.body.age;
-	if (!Number.isInteger(parseInt(age))) {
-		return res.status(400).send("La age debe ser un número entero.");
+	const birthdateStr = req.params.birthdate;
+	const birthdate = new Date(birthdateStr);
+	const ageDiffMs = Date.now() - birthdate.getTime();
+	const ageDate = new Date(ageDiffMs);
+	const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+	if (age < 18) {
+		return res.status(400).send("Debes ser mayor de 18 años para registrarte.");
 	}
+
 	next();
 };
-
 // MIDDLEWARE - VALIDA SI LA CONTRASEÑA ES SEGURA
 const validarPassword = (req, res, next) => {
 	const password = req.body.password;
@@ -40,121 +54,75 @@ const validarPassword = (req, res, next) => {
 
 //ENDPOINTS______________________________________________________
 
-//POST - REGISTRO DEL USUARIO EN LA BD
-// router.post(
-// 	"/register",
-// 	validarEmail,
-// 	validarPassword,
-// 	async (req, res) => {
-// 		const {
-// 			name,
-// 			firstname,
-// 			nickname,
-// 			birthdate,
-// 			gender,
-// 			avatar,
-// 			password,
-// 			email,
-// 			ocupation,
-// 			location,
-// 			grade,
-// 			linkedin,
-// 			language,
-// 			hobbie,
-// 		} = req.body;
+//POST - REGISTRO DE USUARIO EN LA BD - 1ºcomprueba si ya existe el nickname y el email.
+router.post(
+	"/register",
+	validarEmail,
+	ageValidation,
+	validarPassword,
+	async (req, res) => {
+		const {
+			name,
+			firstname,
+			nickname,
+			birthdate,
+			gender,
+			avatar,
+			password,
+			email,
+			ocupation,
+			location,
+			grade,
+			linkedin,
+			language,
+			hobbie,
+		} = req.body;
 
-// 		try {
-// 			const result = await pool.query(
-// 				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-// 				[
-// 					name,
-// 					firstname,
-// 					nickname,
-// 					birthdate,
-// 					gender,
-// 					avatar,
-// 					password,
-// 					email,
-// 					ocupation,
-// 					location,
-// 					grade,
-// 					linkedin,
-// 					language,
-// 					hobbie,
-// 				]
-// 			);
+		try {
+			// Verificar si el usuario ya existe en la base de datos
+			const isAlreadyUser = await pool.query(
+				"SELECT * FROM users WHERE nickname = ? OR email = ? ",
+				[nickname, email]
+			);
+			console.log(isAlreadyUser); //el resultado es en la posicion [0]
 
-// 			res.status(200).send(result)
+			// Si el usuario ya existe, enviar una respuesta de error
+			if (isAlreadyUser[0].length > 0) {
+				return res
+					.status(400)
+					.json({ message: "Ya existe un usuario con ese nickname o email" });
+			}
 
-// 		} catch (error) {
-// 			console.error(error);
-// 			res.status(500).send("Error al insertar el usuario en la base de datos");
-// 		}
-// 	}
-// );
+			// Si el usuario no existe, insertar los nuevos datos en la base de datos
+			const result = await pool.query(
+				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				[
+					name,
+					firstname,
+					nickname,
+					birthdate,
+					gender,
+					avatar,
+					password,
+					email,
+					ocupation,
+					location,
+					grade,
+					linkedin,
+					language,
+					hobbie,
+				]
+			);
 
-router.post("/register", validarEmail, validarPassword, async (req, res) => {
-	const {
-		name,
-		firstname,
-		nickname,
-		birthdate,
-		gender,
-		avatar,
-		password,
-		email,
-		ocupation,
-		location,
-		grade,
-		linkedin,
-		language,
-		hobbie,
-	} = req.body;
-
-	try {
-		// Verificar si el usuario ya existe en la base de datos
-		const isAlreadyUser = await pool.query(
-			"SELECT * FROM users WHERE nickname = ? OR email = ? ",
-			[nickname, email]
-		);
-		console.log(isAlreadyUser)
-
-		// Si el usuario ya existe, enviar una respuesta de error
-		if (isAlreadyUser[0].length > 0) {
-			return res
-				.status(400)
-				.json({ message: "Ya existe un usuario con ese nickname o email" });
+			res.status(200).send(result);
+		} catch (error) {
+			console.error(error);
+			res
+				.status(500)
+				.json({ message: "Error al insertar el usuario en la base de datos" });
 		}
-
-		// Si el usuario no existe, insertar los nuevos datos en la base de datos
-		const result = await pool.query(
-			"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-			[
-				name,
-				firstname,
-				nickname,
-				birthdate,
-				gender,
-				avatar,
-				password,
-				email,
-				ocupation,
-				location,
-				grade,
-				linkedin,
-				language,
-				hobbie,
-			]
-		);
-
-		res.status(200).send(result);
-	} catch (error) {
-		console.error(error);
-		res
-			.status(500)
-			.json({ message: "Error al insertar el usuario en la base de datos" });
 	}
-});
+);
 
 // POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {
