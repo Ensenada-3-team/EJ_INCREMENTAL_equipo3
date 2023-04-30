@@ -1,5 +1,3 @@
-
-
 @media (max-width: 767px) {
 	.iconos-sm .iconos {
 		width: 20px;
@@ -7,30 +5,51 @@
 	}
 }
 
-
-
 /*Hacer tarjeta responsive y que no se salga el texto*/
 /* De 576 a 768 la tarjeta ocupa solo 60% de ancho */
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
 	.cardConf {
 		width: 60%;
 		font-size: 1rem;
 		line-height: 1.5;
 		padding: 1rem;
 		box-sizing: border-box;
-	}	
+	}
 }
-
 
 /* En pantallas de menos de 576 ocupa el 80% */
 @media only screen and (max-width: 576px) {
-  .cardConf {
-    width: 80%;
-    font-size: 1.25rem;
-    line-height: 1.75;
-    padding: 1.5rem;
-  }
+	.cardConf {
+		width: 80%;
+		font-size: 1.25rem;
+		line-height: 1.75;
+		padding: 1.5rem;
+	}
 }
 
+/* POST RESPONSIVO EN IPAD  pantallas de 768px a 1024px */
+@media (min-width: 768px) and (max-width: 1000px) {
+	.post-nick-date {
+		flex-direction: column;
+	}
+	.post-name-firstname {
+		font-size: 1rem;
+		margin: -0.5rem;
+	}
+	.ipad-avatar {
+		margin: -0.5rem;
+	}
+}
 
+/*PROFILE RESPONSIVO EN IPAD pequeño*/
+@media (min-width: 576px) and (max-width: 768px) {
+	
+	.ipad-container {
+		flex-direction: column;
+	}
 
+	.ipad-profile {
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+}

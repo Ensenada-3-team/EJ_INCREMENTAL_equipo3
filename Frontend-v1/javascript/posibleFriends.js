@@ -2,7 +2,7 @@ const posibleFriendsDOM = document.getElementById("posible-friends");
 
 function createPosibleFriendCard(userAvatar, userNickname) {
 	return `
-      <div class="mt-3 p-lg-3 p-md-2 border border-dark border-0 rounded sombra bg-friends d-flex">
+      <div class="mt-3 p-lg-3 p-md-2 border border-dark border-1 rounded sombra bg-friends d-flex">
             <img
                   class="avatar avatar-sm rounded rounded-circle border border-dark mx-auto d-block"
                   style="max-width: 100%"
@@ -11,7 +11,7 @@ function createPosibleFriendCard(userAvatar, userNickname) {
             />
             <h6 class="fs-6 fs-md-8 mt-2">@${userNickname}</h6>
       </div>
-      <div class="d-flex justify-content-around w-100 mt-3">
+      <div class="d-flex justify-content-around w-100 mt-2">
             <button class="btn btn-sm btn-dark sombra" type="button">
                   <i class="bi bi-plus-lg" style="font-size: 1rem"></i>
             </button>

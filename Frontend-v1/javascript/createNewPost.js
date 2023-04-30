@@ -8,13 +8,13 @@ function createPostDOM(name, firstname, nickname, userAvatar, data) {
             <div class="row d-flex">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div>
-                        <img class="avatar rounded rounded-circle align-self-start border border-dark" src="${userAvatar}" alt="foto de autor x">
-                        <h4 class="mt-3">${name} ${firstname}  </h4>
+                        <img class="avatar rounded rounded-circle align-self-start border border-dark ipad-avatar" src="${userAvatar}" alt="foto de autor x">
+                        <h4 class="mt-3 p-0 post-name-firstname">${name} ${firstname}</h4>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <div class="border border-dark sombra rounded p-4 bg-post">
-                        <h5 class="fw-bold d-flex justify-content-between"><p>@${nickname}</p> <p style='font-weigt: normal; font-size: small'>${new Date(Date.parse(data.post_date)).toLocaleString()}</p></h5>
+                    <div class="border border-dark sombra rounded p-4 p-md-2 bg-post">
+                        <h5 class="fw-bold d-flex justify-content-between post-nick-date"><p>@${nickname}</p> <p style='font-weigt: normal; font-size: small'>${new Date(Date.parse(data.post_date)).toLocaleString()}</p></h5>
                         <p>${data.text}</p>
                     </div>
                     <img class='img-fluid rounded sombra mt-2' src='${data.image}'>
