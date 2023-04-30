@@ -53,3 +53,10 @@
 		margin-bottom: 1rem;
 	}
 }
+
+/* 991 a 1199 */
+@media (min-width: 1024px) and (max-width: 1200px) {
+	.ipad-nickname {
+		font-size: 0.8rem;
+	}
+}
