@@ -60,12 +60,23 @@
 						<input
 							type="text"
 							class="input-search"
-							placeholder="Type to Search..."
+							placeholder="Busca los posts de un tecler..."
 						/>
 					</form>
 					<!-- SEARCHBAR HASTA AQUI -->
 
 					<ul class="navbar-nav flex-row ms-auto mb-2 mb-lg-0">
+						<!-- VOLVER ATRÁS -->
+						<li class="nav-item navbar-collapse-icons">
+							<a class="nav-link" href="javascript:history.back()">
+								<i
+									class="bi bi-arrow-bar-left"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Volver atrás"
+								></i>
+							</a>
+						</li>
 						<!-- comunidad -->
 						<li class="nav-item navbar-collapse-icons">
 							<a
@@ -136,7 +147,7 @@
 									<h4 class="d-lg-block d-md-none card-header">Intereses</h4>
 
 									<div>
-										<a href="../views/public.html" target="_blank">
+										<a href="../views/public.html">
 											<i
 												class="bi bi-newspaper"
 												style="font-size: 1.5rem; transform: scale(2)"
