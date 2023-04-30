@@ -95,7 +95,7 @@
 						</li>
 						<!-- mi perfil -->
 						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="../views/user-logged-profile.html">
+							<a class="nav-link" href="../views/user-profile.html">
 								<i
 									class="bi bi-person-fill"
 									style="font-size: 1.8rem"
@@ -125,9 +125,96 @@
 		<main>
 			
 			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-8 col-md-10">
-						<div class="card" style="background-color: rgba(41, 39, 39, 0.418)">
+				<div class="row justify-content-between">
+					<!-- IZQUIERDA-->
+					<div class="col-md-2 col-lg-2  d-none d-md-block">
+						<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
+						<div class="container">
+							<!-- izq arriba -->
+							<div class="row">
+								<div class="col card w-100 text-center">
+									<h4 class="d-lg-block d-md-none card-header">Intereses</h4>
+
+									<div>
+										<a href="../views/public.html" target="_blank">
+											<i
+												class="bi bi-newspaper"
+												style="font-size: 1.5rem; transform: scale(2)"
+												;
+												id="icono"
+												alt="noticias"
+											></i>
+										</a>
+										<h6 class="d-lg-block d-md-none">Reciente</h6>
+									</div>
+
+									<div>
+										<a href="" target="">
+											<i
+												class="bi bi-chat-dots"
+												style="font-size: 1.5rem; transform: scale(2)"
+												;
+												id="icono"
+												alt="aleatorio"
+											></i>
+										</a>
+										<h6 class="d-lg-block d-md-none">Mensajes</h6>
+									</div>
+
+									<div>
+										<a href="" target="">
+											<i
+												class="bi bi-search"
+												style="font-size: 1.5rem; transform: scale(2)"
+												;
+												id="icono"
+												alt="New"
+											>
+											</i>
+										</a>
+										<h6 class="d-lg-block d-md-none">Empleo</h6>
+									</div>
+									
+								</div>
+							</div>
+
+							<!-- izq abajo  -->
+							<div class="row">
+								<div class="col card w-100">
+									<h4 class="d-lg-block d-md-none card-header">Cuenta</h4>
+									<div>
+										<a href="../views/user-profile.html">
+											<i
+												class="bi bi-person"
+												style="font-size: 1.5rem; transform: scale(2)"
+												;
+												id="icono"
+												alt="guardados"
+											>
+											</i>
+										</a>
+										
+									</div>
+									<div>
+										<a href="../views/config-account.html">
+											<i
+												class="bi bi-gear"
+												style="font-size: 1.5rem; transform: scale(2)"
+												;
+												id="icono"
+												alt="configuración"
+											></i>
+										</a>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- DERECHA-CONFIGURACIÓN -->
+					<div class="col-lg-10 col-md-10">
+						<div class="card" style="background-color: rgba(41, 39, 39, 0.146)">
 							<div class="card-header">
 								<h2>Configuración&nbsp;<i class="bi bi-gear"></i></h2>
 							</div>
@@ -191,7 +278,7 @@
 											</button>
 										</form>
 										<hr />
-										<h3>Cambiar contraseña</h3>
+										<h2 class="text-center">Cambiar contraseña</h2>
 										<form>
 											<div class="form-group">
 												<label for="password">Contraseña actual</label>

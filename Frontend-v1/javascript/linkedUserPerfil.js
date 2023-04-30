@@ -1,5 +1,5 @@
 /*
-Carga los datos del Tecler del cual quieres ver su perfil en user-profile.html
+Carga los datos del Tecler del cual quieres ver su perfil en tecler-profile.html
 
 */
 

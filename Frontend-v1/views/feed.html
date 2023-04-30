@@ -98,7 +98,7 @@
 						</li>
 						<!-- mi perfil -->
 						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="../views/user-logged-profile.html">
+							<a class="nav-link" href="../views/user-profile.html">
 								<i
 									class="bi bi-person-fill"
 									style="font-size: 1.8rem"
@@ -135,10 +135,10 @@
 						<!-- izq arriba -->
 						<div class="row">
 							<div class="col card w-100 text-center">
-								<h4 class="d-lg-block d-md-none">Intereses</h4>
+								<h4 class="d-lg-block d-md-none card-header">Intereses</h4>
 
 								<div>
-									<a href="https://www.nytimes.com/" target="_blank">
+									<a href="../views/public.html" target="_blank">
 										<i
 											class="bi bi-newspaper"
 											style="font-size: 1.5rem; transform: scale(2)"
@@ -147,26 +147,26 @@
 											alt="noticias"
 										></i>
 									</a>
-									<h6 class="d-lg-block d-md-none">Noticias</h6>
+									<h6 class="d-lg-block d-md-none">Reciente</h6>
 								</div>
 
 								<div>
-									<a href="https://theuselessweb.com/" target="_blank">
+									<a href="" target="">
 										<i
-											class="bi bi-shuffle"
+											class="bi bi-chat-dots"
 											style="font-size: 1.5rem; transform: scale(2)"
 											;
 											id="icono"
 											alt="aleatorio"
 										></i>
 									</a>
-									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
+									<h6 class="d-lg-block d-md-none">Mensajes</h6>
 								</div>
 
 								<div>
-									<a href="https://www.reuters.com/" target="_blank">
+									<a href="" target="">
 										<i
-											class="bi bi-tag"
+											class="bi bi-search"
 											style="font-size: 1.5rem; transform: scale(2)"
 											;
 											id="icono"
@@ -174,12 +174,20 @@
 										>
 										</i>
 									</a>
-									<h6 class="d-lg-block d-md-none">Nuevo</h6>
+									<h6 class="d-lg-block d-md-none">Empleo</h6>
 								</div>
+								
+							</div>
+						</div>
+
+						<!-- izq abajo  -->
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none card-header">Cuenta</h4>
 								<div>
-									<a href="../views/funciones.html">
+									<a href="../views/user-profile.html">
 										<i
-											class="bi bi-bookmark"
+											class="bi bi-person"
 											style="font-size: 1.5rem; transform: scale(2)"
 											;
 											id="icono"
@@ -187,15 +195,8 @@
 										>
 										</i>
 									</a>
-									<h6 class="d-lg-block d-md-none">Guardado</h6>
+									
 								</div>
-							</div>
-						</div>
-
-						<!-- izq abajo  -->
-						<div class="row">
-							<div class="col card w-100">
-								<h4 class="d-lg-block d-md-none">Cuenta</h4>
 								<div>
 									<a href="../views/config-account.html">
 										<i
@@ -207,28 +208,7 @@
 										></i>
 									</a>
 								</div>
-								<div>
-									<a href="http://">
-										<i
-											class="bi bi-question-circle"
-											style="font-size: 1.5rem; transform: scale(2)"
-											;
-											id="icono"
-											alt="preguntas"
-										></i>
-									</a>
-								</div>
-								<div>
-									<a href="../views/search-posts.html">
-										<i
-											class="bi bi-search"
-											style="font-size: 1.5rem; transform: scale(2)"
-											;
-											id="icono"
-											alt="buscar-publicaciones"
-										></i>
-									</a>
-								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -240,19 +220,23 @@
 						<!-- CREAR PUBLICACIONES -->
 						<div class="row">
 							<div class="col card post-card">
-								<div class="d-flex w-100">
+								<!-- HEADER: CUENTA -->
+								<div class="d-flex w-100 card-header rounded mb-2 p-0">
 									<img
 										id="logged-user-image"
 										class="avatar rounded rounded-circle border border-dark"
 										alt="imagen usuario logueado"
 									/>
-									<h2 id="username" class="mt-3"></h2>
+									<div class="d-column m-1">
+										<h4 id="username" class="mt-1"></h2>
+										<p id="ocupation"></p>
+									</div>
 								</div>
-								<h2 class="border border-dark p-1 sombra rounded">Comparte algo con tu comunidad:</h2>
+								<h4 class="align-self-start"><i class="bi bi-send"></i> Comparte algo con tu comunidad:</h4>
 								<form id="form-publicacion" class="w-100" novalidate>
 									<textarea
 										id="mensaje-post"
-										class="form-control sombra"
+										class="form-control sombra rounded"
 										placeholder="Cuéntanos algo interesante! (Pero en menos de 256 caracteres ;)"
 										maxlength="256"
 										rows="3"
@@ -285,7 +269,7 @@
 					id="posible-friends"
 					class="col-md-2 col-lg-2 card flex-grow-1 d-none d-md-block"
 				>
-					<h4 class="text-center fs-md-5">Sugerencias</h4>
+					<h4 class="text-center fs-md-5 card-header">Sugerencias</h4>
 				</div>
 			</div>
 		</main>

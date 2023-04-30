@@ -86,7 +86,7 @@ export let navbarPrivateElement = `
 						</li>
 						<!-- mi perfil -->
 						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="../views/user-logged-profile.html">
+							<a class="nav-link" href="../views/user-profile.html">
 								<i
 									class="bi bi-person-fill"
 									style="font-size: 1.8rem"

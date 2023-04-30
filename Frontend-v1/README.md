@@ -84,12 +84,12 @@ La web cuenta con diferentes vistas:
   - registro.html
   - friends.html
   - roberto-friend.html 
-  - user-logged-profile.html
+  - user-profile.html
   - search-posts.html | Ejercicio incremental 19
 
 - Vistas extra, que surgieron como solución a integrar algunos ejercicios incrementales que no tenían por el momento utilidad directa en la web.
   - config-account.html --> En este apartado desarrollamos el ejercicio incremental 17 (simular eliminación de cuenta)
-  - funciones.html --> Aquí integramos los ejercicios incrementales y extras 11, 12, 13, 14, y 18 , resultado del ejercicio incremental 15, que pedía a cada componente mergear una rama con cada ejercicio con main. (Integramos un botón en user-logged-profile.html que lleva a este apartado.)
+  - funciones.html --> Aquí integramos los ejercicios incrementales y extras 11, 12, 13, 14, y 18 , resultado del ejercicio incremental 15, que pedía a cada componente mergear una rama con cada ejercicio con main. (Integramos un botón en user-profile.html que lleva a este apartado.)
   
 
 Se trabajó en la usabilidad y navegabilidad para mejorar la experiencia del usuario.

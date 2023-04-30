@@ -8,7 +8,7 @@ function createFriendCard(userAvatar, userName, userFirstname, userOcupation, us
       return `
       <li class="list-group-item border p-2" 
             style="background-color: rgba(255, 255, 255, 0.644);box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);">
-            <a href="./user-profile.html?user_id=${encodeURIComponent(JSON.stringify(userId))}" style="display: block;">
+            <a href="./tecler-profile.html?user_id=${encodeURIComponent(JSON.stringify(userId))}" style="display: block;">
             <div class="row align-items-center">
                   <div class="col-md-5 d-flex justify-content-around">
                         <img

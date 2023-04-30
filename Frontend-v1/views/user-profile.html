@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Perfil TECLER</title>
+		<title>Mi Perfil</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -94,7 +94,7 @@
 						</li>
 						<!-- mi perfil -->
 						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="../views/user-logged-profile.html">
+							<a class="nav-link" href="../views/user-profile.html">
 								<i
 									class="bi bi-person-fill"
 									style="font-size: 1.8rem"
@@ -122,19 +122,18 @@
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
 		<main class="container">
-			<div class="row">
+			<div class="row justify-content-between">
 				<!-- IZQUIERDA-->
 				<div class="col-md-2 col-lg-2  d-none d-md-block">
 					<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 					<div class="container">
 						<!-- izq arriba -->
 						<div class="row">
-							<!-- INTERESES -->
 							<div class="col card w-100 text-center">
 								<h4 class="d-lg-block d-md-none card-header">Intereses</h4>
 
 								<div>
-									<a href="https://www.nytimes.com/" target="_blank">
+									<a href="../views/public.html" target="_blank">
 										<i
 											class="bi bi-newspaper"
 											style="font-size: 1.5rem; transform: scale(2)"
@@ -143,26 +142,26 @@
 											alt="noticias"
 										></i>
 									</a>
-									<h6 class="d-lg-block d-md-none">Noticias</h6>
+									<h6 class="d-lg-block d-md-none">Reciente</h6>
 								</div>
 
 								<div>
-									<a href="https://theuselessweb.com/" target="_blank">
+									<a href="" target="">
 										<i
-											class="bi bi-shuffle"
+											class="bi bi-chat-dots"
 											style="font-size: 1.5rem; transform: scale(2)"
 											;
 											id="icono"
 											alt="aleatorio"
 										></i>
 									</a>
-									<h6 class="d-lg-block d-md-none">Aleatorio</h6>
+									<h6 class="d-lg-block d-md-none">Mensajes</h6>
 								</div>
 
 								<div>
-									<a href="https://www.reuters.com/" target="_blank">
+									<a href="" target="">
 										<i
-											class="bi bi-tag"
+											class="bi bi-search"
 											style="font-size: 1.5rem; transform: scale(2)"
 											;
 											id="icono"
@@ -170,12 +169,20 @@
 										>
 										</i>
 									</a>
-									<h6 class="d-lg-block d-md-none">Nuevo</h6>
+									<h6 class="d-lg-block d-md-none">Empleo</h6>
 								</div>
+								
+							</div>
+						</div>
+
+						<!-- izq abajo  -->
+						<div class="row">
+							<div class="col card w-100">
+								<h4 class="d-lg-block d-md-none card-header">Cuenta</h4>
 								<div>
-									<a href="../views/funciones.html" >
+									<a href="../views/user-profile.html">
 										<i
-											class="bi bi-bookmark"
+											class="bi bi-person"
 											style="font-size: 1.5rem; transform: scale(2)"
 											;
 											id="icono"
@@ -183,16 +190,8 @@
 										>
 										</i>
 									</a>
-									<h6 class="d-lg-block d-md-none">Guardado</h6>
+									
 								</div>
-								<div class="card-footer"></div>
-							</div>
-						</div>
-
-						<!-- izq abajo  -->
-						<div class="row">
-							<div class="col card w-100 text-center g-3 z-index">
-								<h4 class="d-lg-block d-md-none card-header">Cuenta</h4>
 								<div>
 									<a href="../views/config-account.html">
 										<i
@@ -204,42 +203,19 @@
 										></i>
 									</a>
 								</div>
-								<div>
-									<a href="http://">
-										<i
-											class="bi bi-question-circle"
-											style="font-size: 1.5rem; transform: scale(2)"
-											;
-											id="icono"
-											alt="preguntas"
-										></i>
-									</a>
-								</div>
-								<div>
-									<a href="../views/search-posts.html">
-										<i
-											class="bi bi-search"
-											style="font-size: 1.5rem; transform: scale(2)"
-											;
-											id="icono"
-											alt="buscar-publicaciones"
-										></i>
-									</a>
-								</div>
+								
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- CENTRO  -->
-				<div class="col-md-8 col-lg-9 ">
+				<div class="col-md-10 col-lg-10">
 					<div class="container">
 						<!-- TU PERFIL + FOTO -->
-						<div class="row justify-content-center">
+						<div class="row">
 							<!-- CARD IZQUIERDA PERFIL  -->
-							<section
-								class="col-md-5 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-3 mb-md-0 card white-card p-0 h-75"
-							>
+							<section class="col-md-6 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-3 mb-md-0 card white-card p-0 h-75">
 								<!-- PORTADA-->
 								<div id="user-banner">
 									<img
@@ -286,7 +262,7 @@
 										<i class="bi bi-geo-alt"></i>
 										<p id="ubicacion"></p>
 									</div>
-									<div class="d-flex justify-content-between w-75 ">
+									<div class="d-flex justify-content-between w-75">
 										<p id="followers-counter">3456 Followers</p>
 										<p id="following-counter">56 Following</p>
 									</div>
@@ -294,11 +270,11 @@
 								</div>
 								<!-- botones links mi perfil -->
 								<div class="card-footer d-flex">
-									<button class="btn btn-sm btn-primary">Sígueme</button>
+									<button class="btn btn-sm btn-primary" onclick="window.open('./views/user-friends.html');">Seguidos</button>
 						
 									<button
 										class="btn btn-sm btn-dark mx-1"
-										onclick="window.open('./views/funciones.html', '_blank');"
+										onclick="window.open('./views/funciones.html')"
 									>
 										Explora mi trabajo en equipo
 									</button>
@@ -308,7 +284,7 @@
 							<section
 								class="col-md-5 col-sm-1 order-sm-1 order-2 card mx-sm-0 mx-md-3 h-75"
 							>
-								<h4 id="nickname" class="card-header text-center d-flex">Acerca de: </h4>
+								<h4 class="card-header text-center">Acerca de mi:</h4>
 								<!-- bio -->
 								<div class="card-body">
 									<p id="acerca-de">Soy una persona apasionada por la aventura y la exploración al aire libre, especialmente en la montaña⛰ y en el surf🏄🏻‍♂️. Además, me encanta el mundo de la programación💻 y la tecnología, y estoy constantemente buscando nuevas oportunidades de aprendizaje en este campo.<br> Me apasiona compartir mis experiencias y conocimientos con otros, y me encanta por la posibilidad de inspirar a otros a explorar sus pasiones.<br> Para mí, la vida se trata de descubrir nuevas posibilidades y desafiar los límites, tanto en la naturaleza🌲🌱🍂 como en la tecnología.
@@ -472,7 +448,8 @@
 		></script>
             
 		<!-- <script src="../javascript/randomUserPerfil.js"></script> -->
-		<script src="../javascript/linkedUserPerfil.js"></script>
+		<script src="../javascript/logged-perfil.js"></script>
 		<script src="../javascript/logout.js"></script>
+
 	</body>
 </html>

@@ -121,7 +121,8 @@ input,
 #titulo-post::placeholder,
 #author-post::placeholder,
 #search-username::placeholder {
-	color: #070707;
+	color: #0f0f0f;
+	font-size: medium;
 }
 
 input:focus,
@@ -298,9 +299,12 @@ label {
 
 .post-card {
 	background-color: rgba(247, 62, 247, 0.336);
-	border-color: #092756;
+	/* background-image: url('../img/portada/geom-dark.jpg');
+	color: rgba(252, 252, 249, 0.963); */
+	border-color: #1f202289;
 	border-width: 0.1rem;
 }
+
 
 .white-card {
 	background-color: rgba(255, 255, 255, 0.705);
