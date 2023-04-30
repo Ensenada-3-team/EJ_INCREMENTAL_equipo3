@@ -78,11 +78,11 @@ ol li {
 /* LINKS */
 a {
 	text-decoration: none; /* Elimina el subrayado */
-	color: rgba(8, 8, 8, 0.779);
+	color: rgb(0, 0, 0);
 }
 
 a:hover {
-	color: rgb(190, 190, 235);
+	color: rgba(107, 107, 110, 0.813);
 }
 
 /* INPUTS  */
