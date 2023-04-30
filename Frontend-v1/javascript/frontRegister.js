@@ -52,7 +52,11 @@ registerForm.addEventListener('submit', async (event)=> {
                   console.log(newUser)
                   //Si el nickname, la contraseña, el email, o la direccion de linkedin ya están en la bd no registra al usuario
                   if (newUser.message) {
-                        alert('El usuario ya existe en la base de datos, prueba con otro Nickname, otra contraseña, otro email u otro perfil de linkedin')
+                        if (newUser.message === 'Usuario menor de 18 años') {
+                              alert('Debes ser mayor de 18 años para registrarte.');
+                          } else {
+                              alert('El usuario ya existe en la base de datos, prueba con otro Nickname o email.');
+                          }
                   } else {
                         // Si está todo bien, redirige al index
                         window.location.href = '../index-login.html'

@@ -25,14 +25,15 @@ const validarEmail = (req, res, next) => {
 
 //MIDDLEWARE - COMPRUEBA SI USUARIO ES MAYOR DE 18 AÑOS
 const ageValidation = (req, res, next) => {
-	const birthdateStr = req.params.birthdate;
+	const birthdateStr = req.body.birthdate;
+	
 	const birthdate = new Date(birthdateStr);
 	const ageDiffMs = Date.now() - birthdate.getTime();
 	const ageDate = new Date(ageDiffMs);
 	const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 
 	if (age < 18) {
-		return res.status(400).send("Debes ser mayor de 18 años para registrarte.");
+		return res.status(400).json({message: "Usuario menor de 18 años"});
 	}
 
 	next();
@@ -84,7 +85,7 @@ router.post(
 				"SELECT * FROM users WHERE nickname = ? OR email = ? ",
 				[nickname, email]
 			);
-			console.log(isAlreadyUser); //el resultado es en la posicion [0]
+			//console.log(isAlreadyUser); ---> el resultado está en la posicion [0]
 
 			// Si el usuario ya existe, enviar una respuesta de error
 			if (isAlreadyUser[0].length > 0) {
