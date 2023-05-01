@@ -2,58 +2,10 @@ var express = require("express");
 var router = express.Router();
 const pool = require("../db/connection");
 
-// MIDDLEWARE - VALIDA FORMATO DEL EMAIL
-const validarEmail = (req, res, next) => {
-	const email = req.body.email;
-	const regexEmail = /\S+@\S+\.\S+/;
-	if (!regexEmail.test(email)) {
-		return res
-			.status(400)
-			.send("El email ingresado no tiene el formato correcto.");
-	}
-	next();
-};
+const {validarEmail, ageValidation, validarPassword} = require('../lib/middlewares')
 
-// MIDDLEWARE - VALIDA SI LA EDAD ES NUMERO ENTERO
-// const ageValidation = (req, res, next) => {
-// 	const age = req.body.age;
-// 	if (!Number.isInteger(parseInt(age))) {
-// 		return res.status(400).send("La age debe ser un número entero.");
-// 	}
-// 	next();
-// };
 
-//MIDDLEWARE - COMPRUEBA SI USUARIO ES MAYOR DE 18 AÑOS
-const ageValidation = (req, res, next) => {
-	const birthdateStr = req.body.birthdate;
-	
-	const birthdate = new Date(birthdateStr);
-	const ageDiffMs = Date.now() - birthdate.getTime();
-	const ageDate = new Date(ageDiffMs);
-	const age = Math.abs(ageDate.getUTCFullYear() - 1970);
-
-	if (age < 18) {
-		return res.status(400).json({message: "Usuario menor de 18 años"});
-	}
-
-	next();
-};
-// MIDDLEWARE - VALIDA SI LA CONTRASEÑA ES SEGURA
-const validarPassword = (req, res, next) => {
-	const password = req.body.password;
-	const regexpassword =
-		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-	if (!regexpassword.test(password)) {
-		return res
-			.status(400)
-			.send(
-				"La password debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial."
-			);
-	}
-	next();
-};
-
-//ENDPOINTS______________________________________________________
+/* ENDPOINTS */
 
 //POST - REGISTRO DE USUARIO EN LA BD - 1ºcomprueba si ya existe el nickname y el email.
 router.post(

@@ -134,11 +134,10 @@
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 
 		<main>
-			
 			<div class="container">
 				<div class="row justify-content-between">
 					<!-- IZQUIERDA-->
-					<div class="col-md-2 col-lg-2  d-none d-md-block">
+					<div class="col-md-2 col-lg-2 d-none d-md-block">
 						<!-- CONTENEDOR IZQUIERDA CON DOS ROWS -->
 						<div class="container">
 							<!-- izq arriba -->
@@ -185,7 +184,6 @@
 										</a>
 										<h6 class="d-lg-block d-md-none">Empleo</h6>
 									</div>
-									
 								</div>
 							</div>
 
@@ -204,7 +202,6 @@
 											>
 											</i>
 										</a>
-										
 									</div>
 									<div>
 										<a href="../views/config-account.html">
@@ -217,7 +214,6 @@
 											></i>
 										</a>
 									</div>
-									
 								</div>
 							</div>
 						</div>
@@ -231,7 +227,6 @@
 							</div>
 							<div class="card-body w-100">
 								<div class="row">
-
 									<div class="col-md-4 border border-dark rounded sombra">
 										<h2 class="text-center">Datos de la cuenta</h2>
 										<div class="card white-card text-start">
@@ -248,15 +243,18 @@
 										<div id="msj-elim" class="h3"></div>
 
 										<div class="mt-4 text-center">
-											<button id="eliminar-cuenta" class=" btn btn-danger sombra">
+											<button
+												id="eliminar-cuenta"
+												class="btn btn-danger sombra"
+											>
 												Eliminar cuenta
 											</button>
 										</div>
-										
 									</div>
 									<div class="col-md-8">
 										<h2 class="text-center">Modificar datos</h2>
-										<form>
+										<!-- MODIFICAR DATOS DE USUARIO -->
+										<form id="modify-user-data">
 											<div class="form-group">
 												<label for="name">Nombre:</label>
 												<input
@@ -264,10 +262,9 @@
 													type="text"
 													id="name"
 													name="name"
-													required
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="firstname">Apellido:</label>
 												<input
@@ -275,10 +272,9 @@
 													type="text"
 													id="firstname"
 													name="firstname"
-													required
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="nickname">Nickname:</label>
 												<input
@@ -286,10 +282,9 @@
 													type="text"
 													id="nickname"
 													name="nickname"
-													required
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="birthdate">Fecha de nacimiento:</label>
 												<input
@@ -297,19 +292,23 @@
 													type="date"
 													id="birthdate"
 													name="birthdate"
-													
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="gender">Género:</label>
-												<select class="form-control" id="gender" name="gender" required>
+												<select
+													class="form-control"
+													id="gender"
+													name="gender"
+									
+												>
 													<option value="M">Masculino</option>
 													<option value="F">Femenino</option>
 													<option value="O">Otro</option>
 												</select>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="avatar">Avatar:</label>
 												<input
@@ -317,7 +316,6 @@
 													type="text"
 													id="avatar"
 													name="avatar"
-													
 												/>
 											</div>
 
@@ -329,10 +327,9 @@
 													id="email"
 													name="email"
 													placeholder="ejemplo@mail.com"
-													required
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="ocupation">Ocupación:</label>
 												<input
@@ -340,10 +337,9 @@
 													type="text"
 													id="ocupation"
 													name="ocupation"
-													required
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="location">Ubicación:</label>
 												<input
@@ -351,10 +347,9 @@
 													type="text"
 													id="location"
 													name="location"
-													required
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="grade">Grado académico:</label>
 												<input
@@ -362,10 +357,9 @@
 													type="text"
 													id="grade"
 													name="grade"
-													required
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="linkedin">Perfil de LinkedIn:</label>
 												<input
@@ -373,10 +367,9 @@
 													type="text"
 													id="linkedin"
 													name="linkedin"
-													required
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="language">Idioma:</label>
 												<input
@@ -384,10 +377,9 @@
 													type="text"
 													id="language"
 													name="language"
-													
 												/>
 											</div>
-					
+
 											<div class="form-group">
 												<label for="hobbies">Pasatiempos:</label>
 												<textarea
@@ -402,7 +394,8 @@
 										</form>
 										<hr />
 										<h2 class="text-center">Cambiar contraseña</h2>
-										<form>
+										<!-- MODIFICAR CONTRASEÑA -->
+										<form id="modify-user-password">
 											<div class="form-group">
 												<label for="password">Contraseña actual</label>
 												<input
@@ -437,7 +430,6 @@
 											</button>
 										</form>
 										<hr />
-										
 									</div>
 								</div>
 							</div>
@@ -538,13 +530,11 @@
 		<div class="container">
 			<button
 				class="btn border border-dark rounded rounded-circle position-fixed bottom-0 end-0 sombra m-3"
-				style="
-					background-color: rgba(233, 233, 241, 0.484);
-				"
+				style="background-color: rgba(233, 233, 241, 0.484)"
 				onclick="window.open('./user-friends.html')"
 				type="button"
 			>
-				<i class="bi bi-chat" style="font-size: 2rem;"></i>
+				<i class="bi bi-chat" style="font-size: 2rem"></i>
 			</button>
 		</div>
 

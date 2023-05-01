@@ -6,8 +6,7 @@ const coolImages = require("cool-images");
 const moment = require("moment");
 
 
-
-// ENDPOINTS_________________________________________________________
+/* ENDPOINTS  */
 
 //GET - OBTENER TODAS LAS PUBLICACIONES EXISTENTES
 router.get("/", async (req, res) => {

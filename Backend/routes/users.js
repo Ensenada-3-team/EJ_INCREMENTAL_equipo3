@@ -2,32 +2,9 @@ var express = require("express");
 var router = express.Router();
 const pool = require("../db/connection");
 
-// MIDDLEWARE: COMPRUEBA SI ID ES UN NUMERO
-function isNumber(req, res, next) {
-	// Parseamos el parámetro como un número entero
-	const userId = parseInt(req.params.user_id);
-	if (isNaN(userId)) {
-		// Si no es un número válido devolvemos el error bad request
-		return res.status(400).send("El parámetro id debe ser un número entero");
-	}
-	// Si llegamos aquí es porque el parámetro es un número válido, entonces llamamos al siguiente middleware
-	next();
-}
+const {validarEmail, ageValidation, validarPassword , isNumber, isChar} = require('../lib/middlewares')
 
-//MIDDLEWARE: COMPRUEBA SI NINCNAME NO ES UN NUMERO
-function isChar(req, res, next) {
-	const nickname = req.params.nickname;
-	if (!isNaN(nickname)) {
-		// Verificamos si el parámetro es un número
-		return res
-			.status(400)
-			.send("El parámetro name debe ser una cadena de caracteres"); // Devolvemos un error
-	}
-	// Si llegamos aquí es porque el parámetro es una cadena de caracteres, entonces llamamos al siguiente middleware
-	next();
-}
-
-// ENDPOINTS_________________________________________________
+/* ENPOINTS */
 
 /* GET - LISTA DE TODOS LOS USUARIOS  http://localhost:3000/users */
 router.get("/", (req, res) => {
@@ -115,14 +92,9 @@ router.get("/nonfriends/:user_id", async (req, res) => {
 	}
 });
 
-// POST- AGREGAR AMIGO           /:user1_id/friendship/:user2_id
-//INSERT INTO `friends`(`user1_id`, `user2_id`) VALUES ('6', '5');
-
-//DELETE- ELIMINAR AMIGO         /:user1_id/friendship/:user2_id
-//UPDATE `friends` SET `status` = '0' WHERE friends.user1_id = '5' AND friends.user2_id = '7';
 
 // PUT - UPDATE USER DATA - 1º busca los datos del usuario en la BD y los actualiza con los datos del body
-router.put("/user/:user_id", async (req, res) => {
+router.put("/user/:user_id", validarEmail, ageValidation, validarPassword, async (req, res) => {
 	const userId = req.params.user_id;
 	const userData = req.body;
 
@@ -148,7 +120,7 @@ router.put("/user/:user_id", async (req, res) => {
 
 		// Enviamos respuesta al cliente con el resultado
 		res.status(200).json(updatedUserData);
-		
+
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ message: "Internal server error" });
@@ -177,5 +149,12 @@ router.delete("/delete/:user_id", async (req, res) => {
 		res.status(500).json({ error: err.message });
 	}
 });
+
+
+// POST- AGREGAR AMIGO           /:user1_id/friendship/:user2_id
+//INSERT INTO `friends`(`user1_id`, `user2_id`) VALUES ('6', '5');
+
+//DELETE- ELIMINAR AMIGO         /:user1_id/friendship/:user2_id
+//UPDATE `friends` SET `status` = '0' WHERE friends.user1_id = '5' AND friends.user2_id = '7';
 
 module.exports = router;
