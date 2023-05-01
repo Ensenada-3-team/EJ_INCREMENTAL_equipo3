@@ -1,6 +1,6 @@
 //VALIDA FORMATO DEL EMAIL
 const validarEmail = (req, res, next) => {
-	const email = req.body.email;
+	const email = req.body.email.trim();
 	const regexEmail = /\S+@\S+\.\S+/;
 	if (!regexEmail.test(email)) {
 		return res
@@ -12,7 +12,7 @@ const validarEmail = (req, res, next) => {
 
 //VALIDA SI LA EDAD ES NUMERO ENTERO
 const ageNumberValidation = (req, res, next) => {
-	const age = req.body.age;
+	const age = req.body.age.trim();
 	if (!Number.isInteger(parseInt(age))) {
 		return res.status(400).send("La age debe ser un número entero.");
 	}
@@ -21,7 +21,7 @@ const ageNumberValidation = (req, res, next) => {
 
 //COMPRUEBA SI USUARIO ES MAYOR DE 18 AÑOS
 const ageValidation = (req, res, next) => {
-	const birthdateStr = req.body.birthdate;
+	const birthdateStr = req.body.birthdate.trim();
 
 	const birthdate = new Date(birthdateStr);
 	const ageDiffMs = Date.now() - birthdate.getTime();
@@ -36,7 +36,7 @@ const ageValidation = (req, res, next) => {
 };
 //VALIDA SI LA CONTRASEÑA ES SEGURA
 const validarPassword = (req, res, next) => {
-	const password = req.body.password;
+	const password = req.body.password.trim();
 	const regexpassword =
 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 	if (!regexpassword.test(password)) {
@@ -63,7 +63,7 @@ function isNumber(req, res, next) {
 
 //COMPRUEBA SI NINCNAME NO ES UN NUMERO
 function isChar(req, res, next) {
-	const nickname = req.params.nickname;
+	const nickname = req.params.nickname.trim();
 	if (!isNaN(nickname)) {
 		// Verificamos si el parámetro es un número
 		return res

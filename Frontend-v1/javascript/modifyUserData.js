@@ -6,50 +6,89 @@ const formModifyUserPasswordDOM = document.getElementById(
 formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
-      const userData = JSON.parse(localStorage.getItem('userData'))
-      const userId = userData.user_id
+	const userData = JSON.parse(localStorage.getItem("userData"));
+	const userId = userData.user_id;
 
-	const name = document.getElementById("name").value;
-	const firstname = document.getElementById("firstname").value;
-	const nickname = document.getElementById("nickname").value;
-	const birthdate = document.getElementById("birthdate").value;
-	const gender = document.getElementById("gender").value;
-	const avatar = document.getElementById("avatar").value;
-	const email = document.getElementById("email").value;
-	const ocupation = document.getElementById("ocupation").value;
-	const location = document.getElementById("location").value;
-	const grade = document.getElementById("grade").value;
-	const linkedin = document.getElementById("linkedin").value;
-	const language = document.getElementById("language").value;
-	const hobbie = document.getElementById("hobbies").value;
+	const name = document.getElementById("inputname").value;
+	const firstname = document.getElementById("inputfirstname").value;
+	const nickname = document.getElementById("inputnickname").value || userData.nickname;
+      console.log(nickname)
+	const birthdate = document.getElementById("inputbirthdate").value;
+	const gender = document.getElementById("inputgender").value;
+	const avatar = document.getElementById("inputavatar").value;
+	const email = document.getElementById("inputemail").value || userData.email;
+	const ocupation = document.getElementById("inputocupation").value;
+	const location = document.getElementById("inputlocation").value;
+	const grade = document.getElementById("inputgrade").value;
+	const linkedin = document.getElementById("inputlinkedin").value;
+	const language = document.getElementById("inputlanguage").value;
+	const hobbie = document.getElementById("inputhobbies").value;
 
 	try {
-		const response = await fetch(`http://127.0.0.1:3000/users/${userId}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				name: name,
-				firstname: firstname,
-				nickname: nickname,
-				birthdate: birthdate,
-				gender: gender,
-				avatar: avatar,
-				email: email,
-				ocupation: ocupation,
-				location: location,
-				grade: grade,
-				linkedin: linkedin,
-				language: language,
-				hobbie: hobbie,
-			}),
-		});
+		//Petición para contrastar si el nickname o el email ya existen en la bd sin contar con los del usuario
+		if (nickname !== userData.nickname || email !== userData.email) {
+			const checkResponse = await fetch(
+				`http://127.0.0.1:3000/users/check/${userId}?nickname=${nickname}&email=${email}`
+			);
 
-		const newUser = await response.json();
-		console.log(newUser);
+			const checkResult = await checkResponse.json();
 
+			if (checkResult.message) {
+				alert(checkResult.message);
+				return;
+			}
+		}
 
+		//Petición PUT  para modificar los datos
+		const response = await fetch(
+			`http://127.0.0.1:3000/users/user/${userId}`,
+			{
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					name: name,
+					firstname: firstname,
+					nickname: nickname,
+					birthdate: birthdate,
+					gender: gender,
+					avatar: avatar,
+					email: email,
+					ocupation: ocupation,
+					location: location,
+					grade: grade,
+					linkedin: linkedin,
+					language: language,
+					hobbie: hobbie,
+				}),
+			}
+		);
+
+		const updatedUser = await response.json();
+		console.log(updatedUser);
+
+		if (updatedUser.message) {
+			alert(updatedUser.message);
+		} else {
+			// If everything is OK, redirect to index
+			alert("Tus cambios han sido guardados con éxito");
+		}
+
+		// Clear input fields
+		document.getElementById("inputname").value = "";
+		document.getElementById("inputfirstname").value = "";
+		document.getElementById("inputnickname").value = "";
+		document.getElementById("inputbirthdate").value = "";
+		document.getElementById("inputgender").value = "";
+		document.getElementById("inputavatar").value = "";
+		document.getElementById("inputemail").value = "";
+		document.getElementById("inputocupation").value = "";
+		document.getElementById("inputlocation").value = "";
+		document.getElementById("inputgrade").value = "";
+		document.getElementById("inputlinkedin").value = "";
+		document.getElementById("inputlanguage").value = "";
+		document.getElementById("inputhobbies").value = "";
 	} catch (error) {
 		console.error(error.message);
 		alert("Tus datos no han podido modificarse, prueba de nuevo.");
