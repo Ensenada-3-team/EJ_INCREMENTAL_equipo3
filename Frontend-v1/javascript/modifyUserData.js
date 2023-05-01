@@ -71,8 +71,9 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 		if (updatedUser.message) {
 			alert(updatedUser.message);
 		} else {
-			// If everything is OK, redirect to index
+			
 			alert("Tus cambios han sido guardados con éxito");
+			//AQUÍ GUARDAR LOS NUEVOS CAMBIOS AL LOCALSTORAGE CUANDO FUNCIONE
 		}
 
 		// Clear input fields
