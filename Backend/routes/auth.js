@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+require('dotenv').config();
 const pool = require("../db/connection");
 
 const {validarEmail, ageValidation, validarPassword} = require('../lib/middlewares')

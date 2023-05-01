@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+require('dotenv').config();
 const pool = require("../db/connection");
 
 const coolImages = require("cool-images");

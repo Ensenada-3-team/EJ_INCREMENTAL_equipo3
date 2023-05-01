@@ -1,11 +1,9 @@
-const mysql = require("mysql2/promise");
-require('dotenv').config()
-
-
 /**
 Conexión con la base de datos con mysql2
 ( instalacion ---> npm i mysql2) --- Sustituto de sequelize
 */
+const mysql = require("mysql2/promise");
+require('dotenv').config()
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST, // IP del servidor de la base de datos
