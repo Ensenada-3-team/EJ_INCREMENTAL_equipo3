@@ -1,4 +1,17 @@
 # EJERCICIO INCREMENTAL EQUIPO 3
+
+NOTA ENTREGA FINAL SPRINT 1:
+- Correciones anterior entrega: Mejora diseño + toggle bar en linea en vez de en columna
+- Añadida carpeta backend con el servidor. (npm run dev  - arranca el servidor con nodemon en modo dev)
+  - variables de entorno para la conexión con la database
+  - Cre
+
+
+
+
+
+
+
 Este es el repositorio del equipo 3 del Bootcamp full-stack Ensenada | Tecla
 
 
