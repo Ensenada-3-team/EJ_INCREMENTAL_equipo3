@@ -25,6 +25,8 @@ loginForm.addEventListener('submit', async (event)=> {
             window.location.href = data.redirectUrl;
 
             localStorage.setItem('userData',  JSON.stringify(data.user))
+            localStorage.setItem('token', JSON.stringify(data.token))
+            console.log(data.token)
             console.log(data.user)
 
       } else {
