@@ -4,11 +4,7 @@ NOTA ENTREGA FINAL SPRINT 1:
 - Correciones anterior entrega: Mejora diseño + toggle bar en linea en vez de en columna
 - Añadida carpeta backend con el servidor. (npm run dev  - arranca el servidor con nodemon en modo dev)
   - variables de entorno para la conexión con la database
-  - Cre
-
-
-
-
+  - 
 
 
 
