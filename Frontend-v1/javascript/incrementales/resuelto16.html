@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Formulario de contacto</title>
+		<style>
+			body {
+				font-family: sans-serif;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+			form {
+				margin-bottom: 1em;
+			}
+			label {
+				display: block;
+				margin-bottom: 0.5em;
+			}
+			input[type="text"] {
+				width: 100%;
+				padding: 0.5em;
+				border: 1px solid #ccc;
+				border-radius: 0.5em;
+			}
+			button[type="submit"] {
+				display: block;
+				margin: 1em auto 0;
+				padding: 0.5em;
+				border: none;
+				border-radius: 0.5em;
+				background-color: #007bff;
+				color: #fff;
+				cursor: pointer;
+			}
+			button[type="submit"]:hover {
+				background-color: #0069d9;
+			}
+			.contact {
+                        display: flex;
+                        flex-direction: column;
+				margin-bottom: 1em;
+				padding: 1em;
+				border: 1px solid #ccc;
+				border-radius: 0.5em;
+				background-color: #f8f8f8;
+			}
+			.contact h2 {
+                        display: flex;
+                        justify-content: space-between;
+				margin-top: 0;
+			}
+			.contact p {
+                        display: flex;
+                        justify-content: space-between;
+				margin-bottom: 0;
+			}
+			.delete {
+				margin-left: 1em;
+				padding: 0.5em;
+				border: none;
+				border-radius: 0.5em;
+				background-color: #dc3545;
+				color: #fff;
+				cursor: pointer;
+			}
+			.delete:hover {
+				background-color: #c82333;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Formulario de contacto</h1>
+		<form id="contact-form">
+			<label for="name">Nombre:</label>
+			<input type="text" id="name" name="name" required />
+			<label for="email">Correo electrónico:</label>
+			<input type="text" id="email" name="email" required />
+			<button type="submit">Enviar</button>
+		</form>
+		<div id="contact-list"></div>
+		<script>
+                  //Ejercicio con resolución 16
+                  const form16 = document.getElementById('contact-form')
+                  const lista = document.getElementById('contact-list')
+
+                  function deleteBtn(id) {
+                        const element = document.getElementById(id)
+                        console.log(element)
+                        element.remove()
+                  }
+
+
+                  form16.addEventListener('submit', (event) => {
+                        event.preventDefault()
+                        const nameInput = document.getElementById('name').value
+                        const emailInput = document.getElementById('email').value
+
+                  
+                        let html = `
+                              <div class='contact'>
+                              <h2 id='name-lista'>${nameInput}<button class='delete' onclick="deleteBtn('name-lista')">🗑</button></h2>
+                              <p id='email-list'>${emailInput}<button class='delete' onclick="deleteBtn('email-list')">🗑</button></p>
+                              </div>
+                        `
+
+                        lista.innerHTML += html
+
+                        console.log(nameInput)
+                        console.log(emailInput)
+
+                        document.getElementById('name').value = ''
+                        document.getElementById('email').value = ''
+
+                  })
+                  
+
+            </script>
+	</body>
+</html>
