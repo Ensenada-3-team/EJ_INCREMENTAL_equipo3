@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
 
 const createError = require('http-errors');
 const path = require('path');
@@ -8,6 +9,7 @@ const cookieParser = require('cookie-parser');
 // Dependencias instaladas 
 const logger = require('morgan');
 const cors = require('cors');
+// .setHeader('Access-Control-Allow-Origin', '*');
 
 // Importamos los router de cada ruta para usarlos por la app
 const indexRouter = require('./routes/index');

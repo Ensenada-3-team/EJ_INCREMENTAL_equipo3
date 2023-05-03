@@ -1,100 +1,106 @@
-const users = require("../bd-usuarios");
-
 var express = require("express");
 var router = express.Router();
+require('dotenv').config();
+const pool = require("../db/connection");
 
-// Middleware para validar el formato del email
-const validarEmail = (req, res, next) => {
-	const email = req.body.email;
-	const regexEmail = /\S+@\S+\.\S+/;
-	if (!regexEmail.test(email)) {
-		return res
-			.status(400)
-			.send("El email ingresado no tiene el formato correcto.");
-	}
-	next();
-};
-
-// Middleware para validar que la age sea un entero
-const ageValidation = (req, res, next) => {
-	const age = req.body.age;
-	if (!Number.isInteger(parseInt(age))) {
-		return res.status(400).send("La age debe ser un número entero.");
-	}
-	next();
-};
-
-// Middleware para validar que la password sea segura
-const validarPassword = (req, res, next) => {
-	const password = req.body.password;
-	const regexpassword =
-		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-	if (!regexpassword.test(password)) {
-		return res
-			.status(400)
-			.send(
-				"La password debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial."
-			);
-	}
-	next();
-};
-
-//Endpoints de tipo POST
+const {validarEmail, ageValidation, validarPassword} = require('../lib/middlewares')
 
 
-//Endpoint de registro
-//http://localhost:3000/auth/registro
+/* ENDPOINTS */
+
+//POST - REGISTRO DE USUARIO EN LA BD - 1ºcomprueba si ya existe el nickname y el email.
 router.post(
-	"/registro",
+	"/register",
 	validarEmail,
 	ageValidation,
 	validarPassword,
-	(req, res) => {
-		// Aquí se puede procesar el formulario de registro
-		const { name, firstname, email, age, password } = req.body;
-		const nuevoUsuario = {
+	async (req, res) => {
+		const {
 			name,
 			firstname,
-			email,
-			age,
+			nickname,
+			birthdate,
+			gender,
+			avatar,
 			password,
-		};
-		res.status(200).send(nuevoUsuario);
+			email,
+			ocupation,
+			location,
+			grade,
+			linkedin,
+			language,
+			hobbie,
+		} = req.body;
+
+		try {
+			// Verificar si el usuario ya existe en la base de datos
+			const isAlreadyUser = await pool.query(
+				"SELECT * FROM users WHERE nickname = ? OR email = ? ",
+				[nickname, email]
+			);
+			//console.log(isAlreadyUser); ---> el resultado está en la posicion [0]
+
+			// Si el usuario ya existe, enviar una respuesta de error
+			if (isAlreadyUser[0].length > 0) {
+				return res
+					.status(400)
+					.json({ message: "Ya existe un usuario con ese nickname o email" });
+			}
+
+			// Si el usuario no existe, insertar los nuevos datos en la base de datos
+			const result = await pool.query(
+				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				[
+					name,
+					firstname,
+					nickname,
+					birthdate,
+					gender,
+					avatar,
+					password,
+					email,
+					ocupation,
+					location,
+					grade,
+					linkedin,
+					language,
+					hobbie,
+				]
+			);
+
+			res.status(200).send(result);
+		} catch (error) {
+			console.error(error);
+			res
+				.status(500)
+				.json({ message: "Error al insertar el usuario en la base de datos" });
+		}
 	}
 );
 
-//Endpoint de login
-//http://localhost:3000/auth/login
+// POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {
-	const { name, password } = req.body;
-	// Aquí se verificarían las credenciales del usuario.
+	const { nicknameOrEmail, password } = req.body;
 
 	try {
-		const user = users.find((u) => u.name === name);
-		if (!user) {
-			return res
-				.status(401)
-				.json({ message: "Nombre de usuario o password incorrectos" });
-		}
-		const match = users.find((u) => u.password === password);
-		if (!match) {
-			return res
-				.status(401)
-				.json({ message: "Nombre de usuario o password incorrectos" });
+		const [rows, fields] = await pool.query(
+			"SELECT * FROM users WHERE (nickname = ? OR email = ?) AND password = ?",
+			[nicknameOrEmail, nicknameOrEmail, password]
+		);
+
+		if (rows.length === 0) {
+			return res.status(401).json({
+				message:
+					"Nombre de usuario o correo electrónico o contraseña incorrectos",
+			});
 		}
 
-		// Si las credenciales son correctas, se puede enviar una respuesta de éxito.
-		res
-			.status(200)
-			.send("Usuario logueado con éxito se redirigirá a la Home Page");
-
-		// De lo contrario, se debe enviar una respuesta de error.
+		const user = rows[0];
+		res.status(200).send({ redirectUrl: "./views/feed.html", user: user });
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ message: "Error interno del servidor" });
 	}
 });
-
-
 
 module.exports = router;
