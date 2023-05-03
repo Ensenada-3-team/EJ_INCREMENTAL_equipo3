@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>config-account</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous"
+		/>
+
+		<link rel="stylesheet" href="./css/responsive.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+
+	<body>
+		<!-- BARRA DE NAVEGACION -->
+		<nav class="navbar navbar-expand-lg bg-body-transparent container">
+			<div class="container-fluid">
+				<!-- CONTAINER DEL LOGO -->
+				<div class="container col-2">
+					<a class="navbar-brand" href="./feed.html">
+						<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+					</a>
+				</div>
+				<!-- MENÚ HAMBURGUESA -->
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- DESDE AQUÍ TODO LO QUE SE ESCONDE -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<h2 class="nav-welcome d-none d-sm-block">
+								¡¡Bienvenido, Tecler!!
+							</h2>
+						</li>
+					</ul>
+					<!-- SEARCHBAR -->
+					<form class="form-inline search-box ms-auto d-none d-sm-block">
+						<button class="btn-search">
+							<img
+								class="search-icon"
+								src="./img/icons/search-icon2.png"
+								alt=""
+							/>
+						</button>
+						<input
+							type="text"
+							class="input-search"
+							placeholder="Type to Search..."
+						/>
+					</form>
+					<!-- SEARCHBAR HASTA AQUI -->
+
+					<ul class="navbar-nav flex-row ms-auto mb-2 mb-lg-0">
+						<!-- comunidad -->
+						<li class="nav-item navbar-collapse-icons">
+							<a
+								class="nav-link"
+								aria-current="page"
+								href="./user-friends.html"
+							>
+								<i
+									class="bi bi-people-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Comunidad de amigos"
+								>
+								</i>
+							</a>
+						</li>
+						<!-- config-account -->
+						<li class="nav-item navbar-collapse-icons">
+							<a class="nav-link" href="./config-account.html">
+								<i
+									class="bi bi-gear"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Configuración"
+								></i>
+							</a>
+						</li>
+						<!-- mi perfil -->
+						<li class="nav-item navbar-collapse-icons">
+							<a class="nav-link" href="./user-logged-profile.html">
+								<i
+									class="bi bi-person-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Mi perfil"
+								></i>
+							</a>
+						</li>
+						<!-- cerrar sesion -->
+						<li class="nav-item navbar-collapse-icons">
+							<a class="nav-link" href="./index-login.html">
+								<i
+									class="bi bi-box-arrow-right"
+									class="bi bi-people-fill"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Cerrar sesión"
+								></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
+
+		<main>
+			
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-8 col-md-10">
+						<div class="card" style="background-color: rgba(41, 39, 39, 0.418)">
+							<div class="card-header">
+								<h2>Configuración&nbsp;<i class="bi bi-gear"></i></h2>
+							</div>
+							<div class="card-body w-100">
+								<div class="row" style="font-weight: bold">
+
+									<div class="col-md-4 border border-dark rounded sombra ">
+										<h2 class="text-center">Datos de la cuenta</h2>
+										<div class="card white-card text-start">
+											<p>Nombre: Jose</p>
+											<p>Apellido: Melian</p>
+											<p>Email: john-doe@example.com</p>
+										</div>
+
+										<div id="msj-elim"></div>
+
+										<div class="mt-4 text-center">
+											<button id="eliminar-cuenta" class=" btn btn-danger sombra">
+												Eliminar cuenta
+											</button>
+										</div>
+										
+									</div>
+									<div class="col-md-8">
+										<h2 class="text-center">Modificar datos</h2>
+										<form>
+											<div class="form-group">
+												<label for="nombre">Nombre</label>
+												<input
+													type="text"
+													class="form-control"
+													id="nombre"
+													placeholder="Ingresa tu nombre"
+												/>
+											</div>
+											<div class="form-group">
+												<label for="apellido">Apellido</label>
+												<input
+													type="text"
+													class="form-control"
+													id="apellido"
+													placeholder="Ingresa tu apellido"
+												/>
+											</div>
+											<div class="form-group">
+												<label for="email">Email</label>
+												<input
+													type="email"
+													class="form-control"
+													id="email"
+													placeholder="Ingresa tu email"
+												/>
+											</div>
+											<button type="submit" class="btn btn-dark">
+												Guardar cambios
+											</button>
+										</form>
+										<hr />
+										<h3>Cambiar contraseña</h3>
+										<form>
+											<div class="form-group">
+												<label for="password">Contraseña actual</label>
+												<input
+													type="password"
+													class="form-control"
+													id="password"
+													placeholder="Ingresa tu contraseña actual"
+												/>
+											</div>
+											<div class="form-group">
+												<label for="new-password">Nueva contraseña</label>
+												<input
+													type="password"
+													class="form-control"
+													id="new-password"
+													placeholder="Ingresa tu nueva contraseña"
+												/>
+											</div>
+											<div class="form-group">
+												<label for="confirm-password"
+													>Confirmar nueva contraseña</label
+												>
+												<input
+													type="password"
+													class="form-control"
+													id="confirm-password"
+													placeholder="Confirma tu nueva contraseña"
+												/>
+											</div>
+											<button type="submit" class="btn btn-dark">
+												Cambiar contraseña
+											</button>
+										</form>
+										<hr />
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- SEPARADOR -->
+		<div class="container mt-5 mb-5 border-0"></div>
+		<!-- SEPARADOR HASTA AQUI -->
+
+		<!-- FOOTER  -->
+		<footer class="container">
+			<div class="row w-100">
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<img class="logo-sl" src="./img/enter-black.png" alt="Logo" />
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3">
+							<i
+								class="bi bi-github"
+								style="font-size: 1.5rem; transform: scale(2)"
+								id="icono"
+								alt="github"
+							></i>
+						</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="mailto:grupo3@teclers.com">
+							<i
+								class="bi bi-envelope-at-fill"
+								style="font-size: 1.5rem; transform: scale(2)"
+								id="icono"
+								alt="mail"
+							></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<h4>Links</h4>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://www.w3schools.com/"
+							><strong> Información básica</strong></a
+						>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://stackoverflow.com/"
+							><strong> Chatea y resuelve</strong></a
+						>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://www.youtube.com/@midudev"
+							><strong> Más recursos</strong></a
+						>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="d-flex justify-content-center">
+						<a href="https://twitter.com/" target="_blank">
+							<i
+								class="bi bi-twitter"
+								style="font-size: 1.5rem; transform: scale(2)"
+								id="icono"
+								alt="twitter"
+							></i>
+						</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://reddit.com/" target="_blank">
+							<i
+								class="bi bi-reddit"
+								style="font-size: 1.5rem; transform: scale(2)"
+								id="icono"
+								alt="reddit"
+							></i>
+						</a>
+					</div>
+					<div class="d-flex justify-content-center">
+						<a href="https://instagram.com/" target="_blank">
+							<i
+								class="bi bi-instagram"
+								style="font-size: 1.5rem; transform: scale(2)"
+								id="icono"
+								alt="instagram"
+							></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- BOTON FLOTANTE -->
+		<div class="container">
+			<button
+				class="btn btn-floating position-fixed bottom-0 end-0 sombra mb-3"
+				style="
+					border-radius: 3rem;
+					background-color: rgba(190, 190, 235, 0.484);
+				"
+				onclick="window.open('./search-posts.html', '_blank')"
+				type="button"
+			>
+				<i class="bi bi-send-fill" style="font-size: 2rem; color: black"></i>
+			</button>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+			integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+			integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+			crossorigin="anonymous"
+		></script>
+		<script src="./javascript/eliminarCuenta.js"></script>
+	</body>
+</html>
