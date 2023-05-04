@@ -133,14 +133,16 @@ router.get("/check/:user_id", async (req, res) => {
 
 		// Ejecutamos la query contra la bd
 		const results = await pool.query(query, params);
+		console.log(results[0])
 		
-		if (results.length > 0) {
+		//modificar en el futuro para que concrete si es el emai o el nickname
+		if (results[0].length > 0) {
 			return res.status(409).json({
 				message: "El nickname o el email ya existen en la base de datos",
 			});
 		} else {
 			return res.status(200).json({
-				message: "El nickname y el email no existen en la base de datos",
+				message: "Puedes usar el nickname y/o el email",
 			});
 		}
 	} catch (error) {

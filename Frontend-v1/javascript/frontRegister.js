@@ -1,26 +1,27 @@
 // name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie
 
-const registerForm = document.getElementById('procesar-registro')
+const registerForm = document.getElementById('procesar-registro');
+
+const name = document.getElementById('name')
+const firstname = document.getElementById('firstname')
+const nickname = document.getElementById('nickname')
+const birthdate = document.getElementById('birthdate')
+const gender = document.getElementById('gender')
+const avatar = document.getElementById('avatar')
+const password = document.getElementById('password')
+const confPassword = document.getElementById('conf_password')
+const email = document.getElementById('email')
+const ocupation = document.getElementById('ocupation')
+const location = document.getElementById('location')
+const grade = document.getElementById('grade')
+const linkedin = document.getElementById('linkedin')
+const language  = document.getElementById('language')
+const hobbie  = document.getElementById('hobbies')
 
 
 registerForm.addEventListener('submit', async (event)=> {
       event.preventDefault()
 
-      const name = document.getElementById('name').value
-      const firstname = document.getElementById('firstname').value
-      const nickname = document.getElementById('nickname').value
-      const birthdate = document.getElementById('birthdate').value
-      const gender = document.getElementById('gender').value
-      const avatar = document.getElementById('avatar').value
-      const password = document.getElementById('password').value
-      const confPassword = document.getElementById('conf_password').value
-      const email = document.getElementById('email').value
-      const ocupation = document.getElementById('ocupation').value
-      const location = document.getElementById('location').value
-      const grade = document.getElementById('grade').value
-      const linkedin = document.getElementById('linkedin').value
-      const language  = document.getElementById('language').value
-      const hobbie  = document.getElementById('hobbies').value
 
       if (password === confPassword) {
             try {
@@ -30,20 +31,20 @@ registerForm.addEventListener('submit', async (event)=> {
                               "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
-                              name: name, 
-                              firstname: firstname, 
-                              nickname: nickname, 
-                              birthdate: birthdate, 
-                              gender: gender, 
-                              avatar: avatar, 
-                              password: password, 
-                              email: email, 
-                              ocupation: ocupation, 
-                              location: location, 
-                              grade: grade, 
-                              linkedin: linkedin, 
-                              language: language, 
-                              hobbie: hobbie
+                              name: name.value, 
+                              firstname: firstname.value, 
+                              nickname: nickname.value, 
+                              birthdate: birthdate.value, 
+                              gender: gender.value, 
+                              avatar: avatar.value, 
+                              password: password.value, 
+                              email: email.value, 
+                              ocupation: ocupation.value, 
+                              location: location.value, 
+                              grade: grade.value, 
+                              linkedin: linkedin.value, 
+                              language: language.value, 
+                              hobbie: hobbie.value
                               
                         }),
                   })
