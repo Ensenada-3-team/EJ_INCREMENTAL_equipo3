@@ -35,19 +35,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors()); //IMPORTANTE --> ponerlo antes de las rutas
 
-/**
- Rutas de nuestros endpoints
- */
+/*
+Rutas de nuestros endpoints
+*/
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/auth', authRouter);
 
 
-
-/**
- Error handlers
- */
+/*
+Error handlers
+*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

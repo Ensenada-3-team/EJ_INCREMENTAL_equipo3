@@ -6,6 +6,7 @@ const registerForm = document.getElementById('procesar-registro')
 registerForm.addEventListener('submit', async (event)=> {
       event.preventDefault()
 
+      //AÑADIR VALIDACIONES DE LOS DATOS
       const name = document.getElementById('name').value
       const firstname = document.getElementById('firstname').value
       const nickname = document.getElementById('nickname').value
@@ -22,7 +23,7 @@ registerForm.addEventListener('submit', async (event)=> {
       const language  = document.getElementById('language').value
       const hobbie  = document.getElementById('hobbies').value
 
-      if (password === confPassword) {
+      if (password === confPassword && name.length.trim() !== 0) {
             try {
                   const response = await fetch('http://127.0.0.1:3000/auth/register',  {
                         method: "POST",
@@ -63,7 +64,7 @@ registerForm.addEventListener('submit', async (event)=> {
                   }
                   
             
-            }catch(error){
+            } catch(error){
                   console.error(error.message);
 
             }
