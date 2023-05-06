@@ -11,12 +11,12 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 
 	const name = document.getElementById("inputname").value;
 	const firstname = document.getElementById("inputfirstname").value;
-	const nickname = document.getElementById("inputnickname").value || userData.nickname;
+	const nickname = document.getElementById("inputnickname").value.trim() ;
       console.log(nickname)
 	const birthdate = document.getElementById("inputbirthdate").value;
 	const gender = document.getElementById("inputgender").value;
 	const avatar = document.getElementById("inputavatar").value;
-	const email = document.getElementById("inputemail").value || userData.email;
+	const email = document.getElementById("inputemail").value.trim();
 	const ocupation = document.getElementById("inputocupation").value;
 	const location = document.getElementById("inputlocation").value;
 	const grade = document.getElementById("inputgrade").value;
@@ -33,7 +33,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 
 			const checkResult = await checkResponse.json();
 
-			if (checkResult.message) {
+			if (checkResponse.status === 400 || checkResponse.status === 409 ) {
 				alert(checkResult.message);
 				return;
 			}
@@ -43,7 +43,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 		const response = await fetch(
 			`http://127.0.0.1:3000/users/user/${userId}`,
 			{
-				method: "PUT",
+				method: "PATCH",
 				headers: {
 					"Content-Type": "application/json",
 				},

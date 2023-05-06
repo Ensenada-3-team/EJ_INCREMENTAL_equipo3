@@ -107,38 +107,12 @@ router.post(
 	}
 );
 
-// POST- LOGUEARSE EN LA RED SOCIAL
-// router.post("/login", async (req, res) => {
-// 	const { nicknameOrEmail, password } = req.body;
 
-// 	try {
-// 		const [rows, fields] = await pool.query(
-// 			"SELECT * FROM users WHERE (nickname = ? OR email = ?) AND password = ?",
-// 			[nicknameOrEmail, nicknameOrEmail, password]
-// 		);
-
-// 		if (rows.length === 0) {
-// 			return res.status(401).json({
-// 				message:
-// 					"Nombre de usuario o correo electrónico o contraseña incorrectos",
-// 			});
-// 		}
-
-// 		const user = rows[0];
-// 		res.status(200).json({
-// 			redirectUrl: "./views/feed.html",
-// 			user: user,
-// 			token: jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET),
-// 		});
-// 	} catch (err) {
-// 		console.error(err);
-// 		res.status(500).json({ message: "Error interno del servidor" });
-// 	}
-// });
 
 // POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {
 	const { nicknameOrEmail, password } = req.body;
+
 
 	try {
 		// Obtener el usuario de la base de datos

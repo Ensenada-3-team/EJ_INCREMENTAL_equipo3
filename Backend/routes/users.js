@@ -154,7 +154,7 @@ router.get("/check/:user_id", async (req, res) => {
 });
 
 // PUT - MODIFICACIÓN DE DATOS DE USUARIO
-router.put("/user/:user_id", async (req, res) => {
+router.patch("/user/:user_id", async (req, res) => {
 	const userId = req.params.user_id;
 	const userData = req.body;
 
