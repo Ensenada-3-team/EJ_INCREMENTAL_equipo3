@@ -1,10 +1,15 @@
 var express = require("express");
 var router = express.Router();
-require('dotenv').config();
+require("dotenv").config();
 const pool = require("../db/connection");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
-const {validarEmail, ageValidation, validarPassword} = require('../lib/middlewares')
-
+const {
+	validarEmail,
+	ageValidation,
+	validarPassword,
+} = require("../lib/middlewares");
 
 /* ENDPOINTS */
 
@@ -32,6 +37,8 @@ router.post(
 			hobbie,
 		} = req.body;
 
+		const hashedPassword = await bcrypt.hash(password, 10);
+
 		try {
 			// Verificar si el usuario ya existe en la base de datos
 			const isAlreadyUser = await pool.query(
@@ -57,7 +64,7 @@ router.post(
 					birthdate,
 					gender,
 					avatar,
-					password,
+					hashedPassword,
 					email,
 					ocupation,
 					location,
@@ -79,15 +86,46 @@ router.post(
 );
 
 // POST- LOGUEARSE EN LA RED SOCIAL
+// router.post("/login", async (req, res) => {
+// 	const { nicknameOrEmail, password } = req.body;
+
+// 	try {
+// 		const [rows, fields] = await pool.query(
+// 			"SELECT * FROM users WHERE (nickname = ? OR email = ?) AND password = ?",
+// 			[nicknameOrEmail, nicknameOrEmail, password]
+// 		);
+
+// 		if (rows.length === 0) {
+// 			return res.status(401).json({
+// 				message:
+// 					"Nombre de usuario o correo electrónico o contraseña incorrectos",
+// 			});
+// 		}
+
+// 		const user = rows[0];
+// 		res.status(200).json({
+// 			redirectUrl: "./views/feed.html",
+// 			user: user,
+// 			token: jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET),
+// 		});
+// 	} catch (err) {
+// 		console.error(err);
+// 		res.status(500).json({ message: "Error interno del servidor" });
+// 	}
+// });
+
+// POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {
 	const { nicknameOrEmail, password } = req.body;
 
 	try {
+		// Obtener el usuario de la base de datos
 		const [rows, fields] = await pool.query(
-			"SELECT * FROM users WHERE (nickname = ? OR email = ?) AND password = ?",
-			[nicknameOrEmail, nicknameOrEmail, password]
+			"SELECT * FROM users WHERE nickname = ? OR email = ?",
+			[nicknameOrEmail, nicknameOrEmail]
 		);
 
+		// Comprobar si se encontró algún usuario
 		if (rows.length === 0) {
 			return res.status(401).json({
 				message:
@@ -95,6 +133,20 @@ router.post("/login", async (req, res) => {
 			});
 		}
 
+		// Obtener el hash de la contraseña almacenado en la base de datos
+		const hashedPassword = rows[0].password;
+
+		// Comprobar si el hash de la contraseña introducida coincide con el hash almacenado en la base de datos
+		const passwordMatches = await bcrypt.compare(password, hashedPassword);
+
+		if (!passwordMatches) {
+			return res.status(401).json({
+				message:
+					"Nombre de usuario o correo electrónico o contraseña incorrectos",
+			});
+		}
+
+		// Si la contraseña es correcta, enviar una respuesta con los datos del usuario y un token JWT
 		const user = rows[0];
 		res.status(200).json({
 			redirectUrl: "./views/feed.html",

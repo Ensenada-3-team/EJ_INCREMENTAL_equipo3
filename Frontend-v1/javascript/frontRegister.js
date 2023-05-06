@@ -1,26 +1,26 @@
-// name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie
-
 const registerForm = document.getElementById('procesar-registro');
 
-const name = document.getElementById('name')
-const firstname = document.getElementById('firstname')
-const nickname = document.getElementById('nickname')
-const birthdate = document.getElementById('birthdate')
-const gender = document.getElementById('gender')
-const avatar = document.getElementById('avatar')
-const password = document.getElementById('password')
-const confPassword = document.getElementById('conf_password')
-const email = document.getElementById('email')
-const ocupation = document.getElementById('ocupation')
-const location = document.getElementById('location')
-const grade = document.getElementById('grade')
-const linkedin = document.getElementById('linkedin')
-const language  = document.getElementById('language')
-const hobbie  = document.getElementById('hobbies')
 
 
 registerForm.addEventListener('submit', async (event)=> {
       event.preventDefault()
+
+      const name = document.getElementById('name')
+      const firstname = document.getElementById('firstname')
+      const nickname = document.getElementById('nickname')
+      const birthdate = document.getElementById('birthdate')
+      const gender = document.getElementById('gender')
+      const avatar = document.getElementById('avatar')
+      const password = document.getElementById('password')
+      const confPassword = document.getElementById('conf_password')
+      const email = document.getElementById('email')
+      const ocupation = document.getElementById('ocupation')
+      const location = document.getElementById('location')
+      const grade = document.getElementById('grade')
+      const linkedin = document.getElementById('linkedin')
+      const language  = document.getElementById('language')
+      const hobbie  = document.getElementById('hobbies')
+
 
 
       if (password === confPassword) {
@@ -60,7 +60,7 @@ registerForm.addEventListener('submit', async (event)=> {
                           }
                   } else {
                         // Si está todo bien, redirige al index
-                        window.location.href = '../index-login.html'
+                        // window.location.href = '../index-login.html'
                   }
                   
             
