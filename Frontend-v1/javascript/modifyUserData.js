@@ -3,6 +3,8 @@ const formModifyUserPasswordDOM = document.getElementById(
 	"modify-user-password"
 );
 
+
+// MODIFICAR DATOS GENÉRICOS
 formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
@@ -12,7 +14,6 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	const name = document.getElementById("inputname").value;
 	const firstname = document.getElementById("inputfirstname").value;
 	const nickname = document.getElementById("inputnickname").value.trim() ;
-      console.log(nickname)
 	const birthdate = document.getElementById("inputbirthdate").value;
 	const gender = document.getElementById("inputgender").value;
 	const avatar = document.getElementById("inputavatar").value;
@@ -41,7 +42,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 
 		//Petición PUT  para modificar los datos
 		const response = await fetch(
-			`http://127.0.0.1:3000/users/user/${userId}`,
+			`http://127.0.0.1:3000/users/user/data/${userId}`,
 			{
 				method: "PATCH",
 				headers: {
@@ -95,3 +96,17 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 		alert("Tus datos no han podido modificarse, prueba de nuevo.");
 	}
 });
+
+
+//MODIFICAR CONTRASEÑA
+
+formModifyUserPasswordDOM.addEventListener('submit', (event)=>{
+	event.preventDefault()
+
+	const oldPassword = document.getElementById('old-password').value.trim()
+	const newPassword = document.getElementById('new-password').value.trim()
+	const confirmPassword = document.getElementById('confirm-new-password').value.trim()
+
+
+	
+})
