@@ -37,7 +37,7 @@ router.post(
 			hobbie,
 		} = req.body;
 
-		const hashedPassword = await bcrypt.hash(password, 10);
+		const hashedPassword = await bcrypt.hash(password, 20);
 
 		try {
 			// Verificar si el usuario ya existe en la base de datos
@@ -129,20 +129,21 @@ router.post("/login", async (req, res) => {
 		if (rows.length === 0) {
 			return res.status(401).json({
 				message:
-					"Nombre de usuario o correo electrónico o contraseña incorrectos",
+					"Nombre de usuario o correo electrónico incorrectos",
 			});
 		}
 
+		console.log(rows[0])
 		// Obtener el hash de la contraseña almacenado en la base de datos
 		const hashedPassword = rows[0].password;
 
 		// Comprobar si el hash de la contraseña introducida coincide con el hash almacenado en la base de datos
-		const passwordMatches = await bcrypt.compare(password, hashedPassword);
+		const passwordMatches = bcrypt.compareSync(password, hashedPassword);
 
 		if (!passwordMatches) {
 			return res.status(401).json({
 				message:
-					"Nombre de usuario o correo electrónico o contraseña incorrectos",
+					"Contraseña incorrecta",
 			});
 		}
 

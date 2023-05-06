@@ -5,21 +5,21 @@ const registerForm = document.getElementById('procesar-registro');
 registerForm.addEventListener('submit', async (event)=> {
       event.preventDefault()
 
-      const name = document.getElementById('name')
-      const firstname = document.getElementById('firstname')
-      const nickname = document.getElementById('nickname')
-      const birthdate = document.getElementById('birthdate')
-      const gender = document.getElementById('gender')
-      const avatar = document.getElementById('avatar')
-      const password = document.getElementById('password')
-      const confPassword = document.getElementById('conf_password')
-      const email = document.getElementById('email')
-      const ocupation = document.getElementById('ocupation')
-      const location = document.getElementById('location')
-      const grade = document.getElementById('grade')
-      const linkedin = document.getElementById('linkedin')
-      const language  = document.getElementById('language')
-      const hobbie  = document.getElementById('hobbies')
+      const name = document.getElementById('name').value.trim()
+      const firstname = document.getElementById('firstname').value.trim()
+      const nickname = document.getElementById('nickname').value.trim()
+      const birthdate = document.getElementById('birthdate').value.trim()
+      const gender = document.getElementById('gender').value.trim()
+      const avatar = document.getElementById('avatar').value.trim()
+      const password = document.getElementById('password').value.trim()
+      const confPassword = document.getElementById('conf_password').value.trim()
+      const email = document.getElementById('email').value.trim()
+      const ocupation = document.getElementById('ocupation').value.trim()
+      const location = document.getElementById('location').value.trim()
+      const grade = document.getElementById('grade').value.trim()
+      const linkedin = document.getElementById('linkedin').value.trim()
+      const language  = document.getElementById('language').value.trim()
+      const hobbie  = document.getElementById('hobbies').value.trim()
 
 
 
@@ -31,20 +31,20 @@ registerForm.addEventListener('submit', async (event)=> {
                               "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
-                              name: name.value, 
-                              firstname: firstname.value, 
-                              nickname: nickname.value, 
-                              birthdate: birthdate.value, 
-                              gender: gender.value, 
-                              avatar: avatar.value, 
-                              password: password.value, 
-                              email: email.value, 
-                              ocupation: ocupation.value, 
-                              location: location.value, 
-                              grade: grade.value, 
-                              linkedin: linkedin.value, 
-                              language: language.value, 
-                              hobbie: hobbie.value
+                              name: name, 
+                              firstname: firstname, 
+                              nickname: nickname, 
+                              birthdate: birthdate, 
+                              gender: gender, 
+                              avatar: avatar, 
+                              password: password, 
+                              email: email, 
+                              ocupation: ocupation, 
+                              location: location, 
+                              grade: grade, 
+                              linkedin: linkedin, 
+                              language: language, 
+                              hobbie: hobbie
                               
                         }),
                   })
@@ -60,7 +60,7 @@ registerForm.addEventListener('submit', async (event)=> {
                           }
                   } else {
                         // Si está todo bien, redirige al index
-                        // window.location.href = '../index-login.html'
+                        window.location.href = '../index-login.html'
                   }
                   
             

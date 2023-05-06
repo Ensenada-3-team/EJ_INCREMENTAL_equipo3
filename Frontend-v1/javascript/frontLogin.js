@@ -12,8 +12,8 @@ loginForm.addEventListener('submit', async (event)=> {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
-			nicknameOrEmail: userEmailUsername.value,
-                  password: password.value
+			nicknameOrEmail: userEmailUsername.value.trim(),
+                  password: password.value.trim()
 			
 		}),
 	});
