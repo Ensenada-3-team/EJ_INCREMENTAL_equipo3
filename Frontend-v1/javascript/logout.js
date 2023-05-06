@@ -7,3 +7,5 @@ logoutButton.addEventListener('click', function(event) {
  
   window.location.href = './index-login.html';
 });
+
+// hidden class
