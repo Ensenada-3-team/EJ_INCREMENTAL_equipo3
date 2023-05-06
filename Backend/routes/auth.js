@@ -37,7 +37,7 @@ router.post(
 			hobbie,
 		} = req.body;
 
-		const hashedPassword = await bcrypt.hash(password, 20);
+		const hashedPassword = await bcrypt.hash(password, 10);
 
 		try {
 			// Verificar si el usuario ya existe en la base de datos
