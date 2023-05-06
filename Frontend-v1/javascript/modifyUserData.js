@@ -42,7 +42,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 
 		//Petición PUT  para modificar los datos
 		const response = await fetch(
-			`http://127.0.0.1:3000/users/user/data/${userId}`,
+			`http://127.0.0.1:3000/users/change-data/${userId}`,
 			{
 				method: "PATCH",
 				headers: {
@@ -108,5 +108,5 @@ formModifyUserPasswordDOM.addEventListener('submit', (event)=>{
 	const confirmPassword = document.getElementById('confirm-new-password').value.trim()
 
 
-	
+
 })

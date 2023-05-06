@@ -29,7 +29,7 @@ loginForm.addEventListener('submit', async (event)=> {
 
       } else {
             
-            console.log("Credenciales incorrectas");
+            alert("Credenciales incorrectas");
       }
 
       document.getElementById('username-email').value = ''

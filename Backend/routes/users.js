@@ -57,7 +57,7 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	}
 });
 
-// GET - OBTENER AMIGOS DE UN USUARIO POR SU ID
+// GET - OBTENER USUARIOS SEGUIDOS POR UN USUARIO CON CIERTO USER_ID
 router.get("/friends/:user_id", async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
@@ -74,7 +74,7 @@ router.get("/friends/:user_id", async (req, res) => {
 	}
 });
 
-// GET - OBTENER USUARIOS NO AMIGOS DE UN USUARIO POR SU ID
+// GET - OBTENER USUARIOS NO SEGUIDOS POR UN USUARIO CON CIERTO USER_ID 
 router.get("/nonfriends/:user_id", async (req, res) => {
 	const userId = req.params.user_id;
 	try {
@@ -152,7 +152,7 @@ router.get("/check/:user_id", async (req, res) => {
 });
 
 //PATCH - MODIFICACIÓN DE DATOS DE USUARIO
-router.patch("/user/data/:user_id", async (req, res) => {
+router.patch("/change-data/:user_id", async (req, res) => {
 	const userId = req.params.user_id;
 	const userData = req.body;
 
@@ -213,24 +213,24 @@ router.patch("/user/data/:user_id", async (req, res) => {
 });
 
 //PATCH - MODIFICAR CONTRASEÑA
-// router.patch("/user/password/:user_id", async (req, res) => {
-// 	const userId = req.params.user_id
-// 	const {oldPassword, newPassword} = req.body
+router.patch("/user/password/:user_id", async (req, res) => {
+	const userId = req.params.user_id
+	const {oldPassword, newPassword} = req.body
 
-// 	try {
-// 		// Existe el usuario en la bd?
-// 		const isUser = await pool.query("SELECT * FROM users WHERE user_id = ?", [
-// 			userId,
-// 		]);
+	try {
+		// Existe el usuario en la bd?
+		const isUser = await pool.query("SELECT * FROM users WHERE user_id = ?", [
+			userId,
+		]);
 
-// 	} catch (error) {
-// 		console.error(error)
-// 		res.status(500).json({message: "Error al modificar la contraseña del usuario"})
-// 	}
+	} catch (error) {
+		console.error(error)
+		res.status(500).json({message: "Error al modificar la contraseña del usuario"})
+	}
 
-// })
+})
 
-// ENDPOINT INTERNO PARA HASHEAR CONTRASEÑAS DE USUARIOS DE LA BD MANUALMENTE
+//POST -ENDPOINT INTERNO PARA HASHEAR CONTRASEÑAS DE USUARIOS DE LA BD MANUALMENTE (postman)
 router.post("/change-password/:user_id", async (req, res) => {
 	try {
 		const userId = req.params.user_id;

@@ -154,4 +154,8 @@ router.post("/login", async (req, res) => {
 	}
 });
 
+
+//PUT - MODIFICAR CONTRASEÑA
+
+
 module.exports = router;
