@@ -49,9 +49,31 @@ router.post(
 
 			// Si el usuario ya existe, enviar una respuesta de error
 			if (isAlreadyUser[0].length > 0) {
-				return res
-					.status(400)
-					.json({ message: "Ya existe un usuario con ese nickname o email" });
+				const existingUser = isAlreadyUser[0][0];
+				let nicknameExists = false;
+				let emailExists = false;
+
+				if (existingUser.nickname === nickname) {
+					nicknameExists = true;
+				}
+
+				if (existingUser.email === email) {
+					emailExists = true;
+				}
+
+				if (nicknameExists && emailExists) {
+					return res
+						.status(400)
+						.json({ message: "Ya existe un usuario con ese nickname y email" });
+				} else if (nicknameExists && !emailExists) {
+					return res
+						.status(400)
+						.json({ message: "Ya existe un usuario con ese nickname" });
+				} else if (emailExists && !nicknameExists) {
+					return res
+						.status(400)
+						.json({ message: "Ya existe un usuario con ese email" });
+				}
 			}
 
 			// Si el usuario no existe, insertar los nuevos datos en la base de datos
@@ -128,12 +150,11 @@ router.post("/login", async (req, res) => {
 		// Comprobar si se encontró algún usuario
 		if (rows.length === 0) {
 			return res.status(401).json({
-				message:
-					"Nombre de usuario o correo electrónico incorrectos",
+				message: "Nombre de usuario o correo electrónico incorrectos",
 			});
 		}
 
-		console.log(rows[0])
+		console.log(rows[0]);
 		// Obtener el hash de la contraseña almacenado en la base de datos
 		const hashedPassword = rows[0].password;
 
@@ -142,8 +163,7 @@ router.post("/login", async (req, res) => {
 
 		if (!passwordMatches) {
 			return res.status(401).json({
-				message:
-					"Contraseña incorrecta",
+				message: "Contraseña incorrecta",
 			});
 		}
 
