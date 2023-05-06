@@ -11,6 +11,8 @@ const logger = require('morgan');
 const cors = require('cors');
 // .setHeader('Access-Control-Allow-Origin', '*');
 
+app.locals.JWT_SECRET = process.env.JWT_SECRET;
+
 // Importamos los router de cada ruta para usarlos por la app
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
