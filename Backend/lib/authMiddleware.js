@@ -19,11 +19,12 @@ function authMiddleware(req, res, next) {
 
 		console.log(decoded);
 		next();
-	} catch (e) {
-		console.log(e);
+	} catch (error) {
+		console.log(error);
 		res.status(401).json({
-			error: "Token not valid",
+			error: "Token no válido",
 		});
+		
 		return;
 	}
 }

@@ -98,7 +98,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 		document.getElementById("inputhobbies").value = "";
 	} catch (error) {
 		console.error(error.message);
-		alert("Tus datos no han podido modificarse, prueba de nuevo.");
+		alert(error.message + "\nTus datos no han podido modificarse, prueba de nuevo.");
 	}
 });
 
