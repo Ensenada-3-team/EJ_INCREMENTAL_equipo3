@@ -1,5 +1,6 @@
 const form = document.querySelector("#form-publicacion");
 const publicacionesDOM = document.getElementById("lista-publicaciones");
+const token = JSON.parse(localStorage.getItem("token"))
 
 function createPostDOM(name, firstname, nickname, userAvatar, data) {
 	return `
@@ -57,6 +58,7 @@ form.addEventListener("submit", async (event) => {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
+			'Authorization': `Bearer ${token}`
 		},
 		body: JSON.stringify({
 			text: textArea.value,
@@ -101,7 +103,14 @@ form.addEventListener("submit", async (event) => {
 async function loadSavedPosts() {
 	try {
 		const user = JSON.parse(localStorage.getItem("userData"));
-		const response = await fetch(`http://localhost:3000/posts/private/${user.user_id}`);
+		const response = await fetch(`http://localhost:3000/posts/private/${user.user_id}`, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${token}`,
+			},
+		});
+
 		const userFriendsPosts = await response.json();
 		console.log(userFriendsPosts[0])
 
