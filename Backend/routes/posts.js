@@ -6,6 +6,7 @@ const pool = require("../db/connection");
 const coolImages = require("cool-images");
 const moment = require("moment");
 
+const authMiddleware = require("../lib/authMiddleware")
 
 /* ENDPOINTS  */
 
@@ -23,7 +24,7 @@ router.get("/", async (req, res) => {
 });
 
 //GET - TRAE LOS POSTS DE UN USUARIO POR SU NICKNAME
-router.get("/private/search/:nickname", async (req, res) => {
+router.get("/private/search/:nickname", authMiddleware, async (req, res) => {
 	const nickname = req.params.nickname;
 	console.log(nickname);
 	pool
@@ -47,7 +48,7 @@ router.get("/private/search/:nickname", async (req, res) => {
 });
 
 //GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS Y ADEMÁS LOS DATOS DE LOS AMIGOS QUE ESCRIBIERON EL POST
-router.get("/private/:user_id", async (req, res) => {
+router.get("/private/:user_id", authMiddleware,  async (req, res) => {
 	const user = req.params.user_id;
 	pool
 		.query(
@@ -70,7 +71,7 @@ router.get("/private/:user_id", async (req, res) => {
 });
 
 //POST- CREA UN POST + LO AÑADE A LA BASE DE DATOS + LO DEVUELVE JUNTO CON VALOR EXTRA PUBLISHDATE
-router.post("/new-post/", async (req, res) => {
+router.post("/new-post/", authMiddleware,  async (req, res) => {
 	const { text, user_id } = req.body;
 
 	if (!text) {

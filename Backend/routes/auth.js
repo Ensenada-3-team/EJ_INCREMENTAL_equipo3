@@ -11,6 +11,8 @@ const {
 	validarPassword,
 } = require("../lib/middlewares");
 
+const authMiddleware = require("../lib/authMiddleware")
+
 /* ENDPOINTS */
 
 //POST - REGISTRO DE USUARIO EN LA BD - 1ºcomprueba si ya existe el nickname y el email.
@@ -152,13 +154,10 @@ router.post("/login", async (req, res) => {
 });
 
 // PUT - MODIFICAR CONTRASEÑA
-router.put("/change-password", validarPassword, async (req, res) => {
+router.put("/change-password", authMiddleware ,validarPassword, async (req, res) => {
 	const { userId, oldPassword, password } = req.body;
 
 	try {
-		const token = req.headers.authorization.split(" ")[1];
-		// Verificar la validez del token
-		jwt.verify(token, process.env.JWT_SECRET);
 
 		// Obtener el usuario de la base de datos
 		const [rows, fields] = await pool.query(
@@ -211,5 +210,36 @@ router.put("/change-password", validarPassword, async (req, res) => {
 		});
 	}
 });
+
+//POST -ENDPOINT INTERNO PARA HASHEAR CONTRASEÑAS DE USUARIOS DE LA BD MANUALMENTE (postman)
+router.post("/change-password-manually/:user_id", async (req, res) => {
+	try {
+		const userId = req.params.user_id;
+		const password = req.body.password;
+
+		const hashedPassword = await bcrypt.hash(password, 10);
+
+		const query = "UPDATE users SET password = ? WHERE user_id = ? ";
+		const values = [hashedPassword, userId];
+
+		const [result] = await pool.query(query, values);
+
+		if (result.affectedRows === 0) {
+			return res
+				.status(404)
+				.send({
+					message: `El usuario con user_id: "${userId}" no ha sido encontrado`,
+				});
+		}
+
+		res
+			.status(200)
+			.send({ message: "La contraseña se ha hasheado correctamente" });
+	} catch (error) {
+		console.error(error);
+		res.status(500).send({ message: "Error interno del servidor" });
+	}
+});
+
 
 module.exports = router;

@@ -2,6 +2,8 @@ const publicacionesDOM = document.getElementById("lista-publicaciones");
 const formSearchPostsNickname = document.getElementById("form-search-posts-nickname")
 // import { createPostDOM } from "./createNewPost";
 
+const token = JSON.parse(localStorage.getItem('token'))
+
 function createPostDOM(name, firstname, nickname, userAvatar, data) {
 	return `
     <li class="card border p-4">
@@ -53,7 +55,13 @@ formSearchPostsNickname.addEventListener('submit', async (event)=> {
 
       try {
             
-            const response = await fetch(`http://localhost:3000/posts/private/search/${nickname}`)
+            const response = await fetch(`http://localhost:3000/posts/private/search/${nickname}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                },
+            })
             const nicknamePosts = await response.json()
             console.log(nicknamePosts[0])
             //ponemos a cero la lista de posts

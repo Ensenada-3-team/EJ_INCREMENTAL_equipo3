@@ -6,6 +6,7 @@ const pool = require("../db/connection");
 
 //Middlewares
 const { isNumber, isChar } = require("../lib/middlewares");
+const authMiddleware = require("../lib/authMiddleware")
 
 /* ENPOINTS /users/ */
 
@@ -58,7 +59,7 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 });
 
 // GET - OBTENER USUARIOS SEGUIDOS POR UN USUARIO CON CIERTO USER_ID
-router.get("/friends/:user_id", async (req, res) => {
+router.get("/friends/:user_id", authMiddleware,  async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
 			"SELECT * FROM users " +
@@ -75,7 +76,7 @@ router.get("/friends/:user_id", async (req, res) => {
 });
 
 // GET - OBTENER USUARIOS NO SEGUIDOS POR UN USUARIO CON CIERTO USER_ID 
-router.get("/nonfriends/:user_id", async (req, res) => {
+router.get("/nonfriends/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		const [rows, fields] = await pool.query(
@@ -152,7 +153,7 @@ router.get("/check/:user_id", async (req, res) => {
 });
 
 //PATCH - MODIFICACIÓN DE DATOS DE USUARIO
-router.patch("/change-data/:user_id", async (req, res) => {
+router.patch("/change-data/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	const userData = req.body;
 
@@ -212,56 +213,9 @@ router.patch("/change-data/:user_id", async (req, res) => {
 	}
 });
 
-//PATCH - MODIFICAR CONTRASEÑA
-router.patch("/user/password/:user_id", async (req, res) => {
-	const userId = req.params.user_id
-	const {oldPassword, newPassword} = req.body
-
-	try {
-		// Existe el usuario en la bd?
-		const isUser = await pool.query("SELECT * FROM users WHERE user_id = ?", [
-			userId,
-		]);
-
-	} catch (error) {
-		console.error(error)
-		res.status(500).json({message: "Error al modificar la contraseña del usuario"})
-	}
-
-})
-
-//POST -ENDPOINT INTERNO PARA HASHEAR CONTRASEÑAS DE USUARIOS DE LA BD MANUALMENTE (postman)
-router.post("/change-password/:user_id", async (req, res) => {
-	try {
-		const userId = req.params.user_id;
-		const password = req.body.password;
-
-		const hashedPassword = await bcrypt.hash(password, 10);
-
-		const query = "UPDATE users SET password = ? WHERE user_id = ? ";
-		const values = [hashedPassword, userId];
-
-		const [result] = await pool.query(query, values);
-
-		if (result.affectedRows === 0) {
-			return res
-				.status(404)
-				.send({
-					message: `El usuario con user_id: "${userId}" no ha sido encontrado`,
-				});
-		}
-
-		res
-			.status(200)
-			.send({ message: "La contraseña se ha hasheado correctamente" });
-	} catch (error) {
-		console.error(error);
-		res.status(500).send({ message: "Error interno del servidor" });
-	}
-});
 
 //DELETE- ELIMINAR USUARIO DE LA BD (CERRAR CUENTA)
-router.delete("/delete/:user_id", async (req, res) => {
+router.delete("/delete/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		// Borrar los registros en la tabla "posts" relacionados al usuario a eliminar

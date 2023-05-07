@@ -1,5 +1,6 @@
 const loginForm = document.getElementById('form-login')
 
+
 loginForm.addEventListener('submit', async (event)=> {
       event.preventDefault()
 
@@ -9,7 +10,7 @@ loginForm.addEventListener('submit', async (event)=> {
       const response = await fetch('http://localhost:3000/auth/login', {
 		method: "POST",
 		headers: {
-			"Content-Type": "application/json",
+			"Content-Type": "application/json",	
 		},
 		body: JSON.stringify({
 			nicknameOrEmail: userEmailUsername.value.trim(),

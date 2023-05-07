@@ -1,3 +1,6 @@
+/* MIDDLEWARE QUE COMPRUEBA QUE EL TOKEN QUE ESTÁ ENVIÁNDOSE EN 
+LAS PETICIONES PRIVADAS POR EL HEADER ES CORRECTO
+*/
 const jsonwebtoken = require("jsonwebtoken");
 
 function authMiddleware(req, res, next) {
@@ -11,7 +14,7 @@ function authMiddleware(req, res, next) {
 	}
 
 	try {
-		const decoded = jsonwebtoken.verify(token, req.app.locals.JWT_SECRET);
+		const decoded = jsonwebtoken.verify(token, process.env.JWT_SECRET);
 		req.jwtInfo = decoded;
 
 		console.log(decoded);

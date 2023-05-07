@@ -1,5 +1,6 @@
 // modificar luego para que solo sean sus amigos
 //de momento trae todos los usuarios
+const token = JSON.parse(localStorage.getItem('token'))
 
 let friendsListDOM = document.getElementById('friends-list')
 
@@ -46,7 +47,13 @@ async function getUserFriends() {
             const userData = JSON.parse(localStorage.getItem("userData"));
             const userId = userData.user_id
 
-            const response = await fetch(`http://localhost:3000/users/friends/${userId}`)
+            const response = await fetch(`http://localhost:3000/users/friends/${userId}`, {
+                  method: "GET",
+                  headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${token}`,
+			},
+            })
             const friends = await response.json()
             console.log(friends)
 
