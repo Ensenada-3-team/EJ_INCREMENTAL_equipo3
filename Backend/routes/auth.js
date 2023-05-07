@@ -153,7 +153,7 @@ router.post("/login", async (req, res) => {
 
 // PUT - MODIFICAR CONTRASEÑA
 router.put("/change-password", validarPassword, async (req, res) => {
-	const { user_id, oldPassword, password } = req.body;
+	const { userId, oldPassword, password } = req.body;
 
 	try {
 		const token = req.headers.authorization.split(" ")[1];
@@ -163,7 +163,7 @@ router.put("/change-password", validarPassword, async (req, res) => {
 		// Obtener el usuario de la base de datos
 		const [rows, fields] = await pool.query(
 			"SELECT * FROM users WHERE user_id = ?",
-			[user_id]
+			[userId]
 		);
 
 		// Comprobar si se encontró algún usuario
@@ -191,7 +191,7 @@ router.put("/change-password", validarPassword, async (req, res) => {
 		// Actualizar la contraseña en la base de datos
 		await pool.query("UPDATE users SET password = ? WHERE user_id = ? ", [
 			newHashedPassword,
-			user_id,
+			userId,
 		]);
 
 		// Enviar una respuesta de éxito

@@ -1,14 +1,19 @@
+// Formularios en el DOM de donde vamos a obtener los datos a modificar.
 const formModifyUserDataDOM = document.getElementById("modify-user-data");
 const formModifyUserPasswordDOM = document.getElementById(
 	"modify-user-password"
 );
 
-// MODIFICAR DATOS GENÉRICOS
+// Recogemos los datos que tenemos guardados en el Localstorage para usarlos en las peticiones
+const token = JSON.parse(localStorage.getItem("token"));
+// const userData = JSON.parse(localStorage.getItem("userData"));
+const userId = userData.user_id;
+
+
+
+// EVENTLISTENER : MODIFICAR DATOS GENÉRICOS
 formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	event.preventDefault();
-
-	const userData = JSON.parse(localStorage.getItem("userData"));
-	const userId = userData.user_id;
 
 	const name = document.getElementById("inputname").value;
 	const firstname = document.getElementById("inputfirstname").value;
@@ -75,7 +80,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 			//AQUÍ GUARDAR LOS NUEVOS CAMBIOS AL LOCALSTORAGE CUANDO FUNCIONE
 		}
 
-		// Clear input fields
+		// Limpiamos los valores de los inputs
 		document.getElementById("inputname").value = "";
 		document.getElementById("inputfirstname").value = "";
 		document.getElementById("inputnickname").value = "";
@@ -95,8 +100,9 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	}
 });
 
-//MODIFICAR CONTRASEÑA
 
+
+// EVENTLISTENER : MODIFICAR CONTRASEÑA
 formModifyUserPasswordDOM.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
@@ -108,19 +114,16 @@ formModifyUserPasswordDOM.addEventListener("submit", async (event) => {
 	const passwordsMatch = newPassword === confirmPassword;
 
 	if (passwordsMatch) {
-		// Obtener user_id y token del localStorage
-		const user_id = JSON.parse(localStorage.getItem("userData")).user_id;
-		const token = JSON.parse(localStorage.getItem("token"));
-
+		
 		// Crear objeto con los datos a enviar
 		const data = {
-			user_id,
+			userId,
 			oldPassword,
 			password: newPassword,
 		};
 
 		try {
-			// Realizar la solicitud al endpoint usando fetch o axios
+			// Realizamos la solicitud al endpoint para modificar contraseña
 			const response = await fetch("http://localhost:3000/auth/change-password", {
 				method: "PUT",
 				headers: {
@@ -130,27 +133,27 @@ formModifyUserPasswordDOM.addEventListener("submit", async (event) => {
 				body: JSON.stringify(data),
 			});
 
-			// Verificar la respuesta del servidor
+			// Verificamos que la respuesta del servidor sea OK (status 200 === response.ok)
 			if (response.ok) {
 				const result = await response.json();
 				alert(result.message + "\nSerás redirigido a la página de inicio para loguearte de nuevo :)");
 				window.location.href = "../index-login.html"
-				// Aquí puedes mostrar un mensaje de éxito o redirigir al usuario a otra página
+				
 			} else {
 				const error = await response.json();
 				console.error(error.message);
 				alert(error.message)
-				// Aquí puedes mostrar un mensaje de error al usuario
+				
 			}
 		} catch (error) {
 			console.error("Error:", error);
 			alert("Error:", error)
-			// Aquí puedes mostrar un mensaje de error genérico al usuario
+			
 		}
 	} else {
-		// Las contraseñas no coinciden, muestra un mensaje de error
+		
 		console.error("La nueva contraseña y la confirmación no coinciden");
 		alert("La nueva contraseña y la confirmación no coinciden")
-		// Aquí puedes mostrar un mensaje de error al usuario o realizar alguna otra acción
+		
 	}
 });
