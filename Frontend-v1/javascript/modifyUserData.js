@@ -6,7 +6,7 @@ const formModifyUserPasswordDOM = document.getElementById(
 
 // Recogemos los datos que tenemos guardados en el Localstorage para usarlos en las peticiones
 const token = JSON.parse(localStorage.getItem("token"));
-// const userData = JSON.parse(localStorage.getItem("userData"));
+// const userData = JSON.parse(localStorage.getItem("userData")); MISTERIO: DICE QUE YA ESTÁ DECLARADO EN ESTE FICHERO
 const userId = userData.user_id;
 
 
@@ -17,11 +17,11 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 
 	const name = document.getElementById("inputname").value;
 	const firstname = document.getElementById("inputfirstname").value;
-	const nickname = document.getElementById("inputnickname").value.trim();
+	const nickname = document.getElementById("inputnickname").value.trim() || userData.nickname;
 	const birthdate = document.getElementById("inputbirthdate").value;
-	const gender = document.getElementById("inputgender").value;
+	const gender = document.getElementById("inputgender").value || userData.gender;
 	const avatar = document.getElementById("inputavatar").value;
-	const email = document.getElementById("inputemail").value.trim();
+	const email = document.getElementById("inputemail").value.trim() || userData.email;
 	const ocupation = document.getElementById("inputocupation").value;
 	const location = document.getElementById("inputlocation").value;
 	const grade = document.getElementById("inputgrade").value;
@@ -75,9 +75,10 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 
 		if (updatedUser.message) {
 			alert(updatedUser.message);
+			alert("\nPor seguridad debes volver a loguearte.");
+			window.location.href = '../index-login.html'
 		} else {
-			alert("Tus cambios han sido guardados con éxito");
-			//AQUÍ GUARDAR LOS NUEVOS CAMBIOS AL LOCALSTORAGE CUANDO FUNCIONE
+			alert("Ha habido algún problema con la modificación de tus datos, vuelve a intentarlo.");
 		}
 
 		// Limpiamos los valores de los inputs
