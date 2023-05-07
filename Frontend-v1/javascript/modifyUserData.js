@@ -3,7 +3,6 @@ const formModifyUserPasswordDOM = document.getElementById(
 	"modify-user-password"
 );
 
-
 // MODIFICAR DATOS GENÉRICOS
 formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	event.preventDefault();
@@ -13,7 +12,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 
 	const name = document.getElementById("inputname").value;
 	const firstname = document.getElementById("inputfirstname").value;
-	const nickname = document.getElementById("inputnickname").value.trim() ;
+	const nickname = document.getElementById("inputnickname").value.trim();
 	const birthdate = document.getElementById("inputbirthdate").value;
 	const gender = document.getElementById("inputgender").value;
 	const avatar = document.getElementById("inputavatar").value;
@@ -34,7 +33,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 
 			const checkResult = await checkResponse.json();
 
-			if (checkResponse.status === 400 || checkResponse.status === 409 ) {
+			if (checkResponse.status === 400 || checkResponse.status === 409) {
 				alert(checkResult.message);
 				return;
 			}
@@ -72,7 +71,6 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 		if (updatedUser.message) {
 			alert(updatedUser.message);
 		} else {
-			
 			alert("Tus cambios han sido guardados con éxito");
 			//AQUÍ GUARDAR LOS NUEVOS CAMBIOS AL LOCALSTORAGE CUANDO FUNCIONE
 		}
@@ -97,16 +95,62 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	}
 });
 
-
 //MODIFICAR CONTRASEÑA
 
-formModifyUserPasswordDOM.addEventListener('submit', (event)=>{
-	event.preventDefault()
+formModifyUserPasswordDOM.addEventListener("submit", async (event) => {
+	event.preventDefault();
 
-	const oldPassword = document.getElementById('old-password').value.trim()
-	const newPassword = document.getElementById('new-password').value.trim()
-	const confirmPassword = document.getElementById('confirm-new-password').value.trim()
+	const oldPassword = document.getElementById("old-password").value.trim();
+	const newPassword = document.getElementById("new-password").value.trim();
+	const confirmPassword = document.getElementById("confirm-new-password").value.trim();
 
+	// Verificar si la nueva contraseña y la confirmación son iguales
+	const passwordsMatch = newPassword === confirmPassword;
 
+	if (passwordsMatch) {
+		// Obtener user_id y token del localStorage
+		const user_id = JSON.parse(localStorage.getItem("userData")).user_id;
+		const token = JSON.parse(localStorage.getItem("token"));
 
-})
+		// Crear objeto con los datos a enviar
+		const data = {
+			user_id,
+			oldPassword,
+			password: newPassword,
+		};
+
+		try {
+			// Realizar la solicitud al endpoint usando fetch o axios
+			const response = await fetch("http://localhost:3000/auth/change-password", {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+					'Authorization': `Bearer ${token}`
+				},
+				body: JSON.stringify(data),
+			});
+
+			// Verificar la respuesta del servidor
+			if (response.ok) {
+				const result = await response.json();
+				alert(result.message + "\nSerás redirigido a la página de inicio para loguearte de nuevo :)");
+				window.location.href = "../index-login.html"
+				// Aquí puedes mostrar un mensaje de éxito o redirigir al usuario a otra página
+			} else {
+				const error = await response.json();
+				console.error(error.message);
+				alert(error.message)
+				// Aquí puedes mostrar un mensaje de error al usuario
+			}
+		} catch (error) {
+			console.error("Error:", error);
+			alert("Error:", error)
+			// Aquí puedes mostrar un mensaje de error genérico al usuario
+		}
+	} else {
+		// Las contraseñas no coinciden, muestra un mensaje de error
+		console.error("La nueva contraseña y la confirmación no coinciden");
+		alert("La nueva contraseña y la confirmación no coinciden")
+		// Aquí puedes mostrar un mensaje de error al usuario o realizar alguna otra acción
+	}
+});

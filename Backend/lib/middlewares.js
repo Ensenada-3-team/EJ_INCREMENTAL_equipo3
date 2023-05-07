@@ -42,9 +42,7 @@ const validarPassword = (req, res, next) => {
 	if (!regexpassword.test(password)) {
 		return res
 			.status(400)
-			.send(
-				"La password debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial."
-			);
+			.json({message: "La password debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial."});
 	}
 	next();
 };

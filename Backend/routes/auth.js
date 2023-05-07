@@ -107,12 +107,9 @@ router.post(
 	}
 );
 
-
-
 // POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {
 	const { nicknameOrEmail, password } = req.body;
-
 
 	try {
 		// Obtener el usuario de la base de datos
@@ -154,8 +151,65 @@ router.post("/login", async (req, res) => {
 	}
 });
 
+// PUT - MODIFICAR CONTRASEÑA
+router.put("/change-password", validarPassword, async (req, res) => {
+	const { user_id, oldPassword, password } = req.body;
 
-//PUT - MODIFICAR CONTRASEÑA
+	try {
+		const token = req.headers.authorization.split(" ")[1];
+		// Verificar la validez del token
+		jwt.verify(token, process.env.JWT_SECRET);
 
+		// Obtener el usuario de la base de datos
+		const [rows, fields] = await pool.query(
+			"SELECT * FROM users WHERE user_id = ?",
+			[user_id]
+		);
+
+		// Comprobar si se encontró algún usuario
+		if (rows.length === 0) {
+			return res.status(401).json({
+				message: "Usuario no encontrado",
+			});
+		}
+
+		// Obtener el hash de la contraseña almacenado en la base de datos
+		const hashedPassword = rows[0].password;
+
+		// Comprobar si el hash de la antigua contraseña introducida coincide con el hash almacenado en la base de datos
+		const passwordMatches = bcrypt.compareSync(oldPassword, hashedPassword);
+
+		if (!passwordMatches) {
+			return res.status(401).json({
+				message: "La antigua contraseña es incorrecta",
+			});
+		}
+
+		// Generar el hash de la nueva contraseña
+		const newHashedPassword = bcrypt.hashSync(password, 10);
+
+		// Actualizar la contraseña en la base de datos
+		await pool.query("UPDATE users SET password = ? WHERE user_id = ? ", [
+			newHashedPassword,
+			user_id,
+		]);
+
+		// Enviar una respuesta de éxito
+		res.status(200).json({
+			message: "Contraseña modificada exitosamente",
+		});
+	} catch (err) {
+		if (err.name === "TokenExpiredError") {
+			return res.status(401).json({
+				message: "El token ha expirado",
+			});
+		}
+
+		console.error(err);
+		res.status(500).json({
+			message: "Error interno del servidor",
+		});
+	}
+});
 
 module.exports = router;
