@@ -142,6 +142,8 @@ router.post("/login", async (req, res) => {
 
 		// Si la contraseña es correcta, enviar una respuesta con los datos del usuario y un token JWT
 		const user = rows[0];
+		user.password = undefined; // para que en el localStorage no aparezca la contraseña
+
 		res.status(200).json({
 			redirectUrl: "./views/feed.html",
 			user: user,
