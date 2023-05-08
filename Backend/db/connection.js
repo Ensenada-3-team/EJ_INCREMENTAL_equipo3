@@ -3,13 +3,14 @@ Conexión con la base de datos con mysql2
 ( instalacion ---> npm i mysql2) --- Sustituto de sequelize
 */
 const mysql = require("mysql2/promise");
+require('dotenv').config()
 
 const pool = mysql.createPool({
-    host: '127.0.0.1', // IP del servidor de la base de datos
-    user: 'root', // usuario de la base de datos
-    password: '', // contraseña de la base de datos
-    database: 'bd_equipo3', // nombre de la base de datos
-    charset: 'latin1' // conjunto de caracteres del servidor
+    host: process.env.DB_HOST, // IP del servidor de la base de datos
+    user: process.env.DB_USER, // usuario de la base de datos
+    password: process.env.DB_PASSWORD, // contraseña de la base de datos
+    database: process.env.DB_NAME, // nombre de la base de datos
+    charset: process.env.DB_CHARSET // conjunto de caracteres del servidor
 });
 
 pool.getConnection()

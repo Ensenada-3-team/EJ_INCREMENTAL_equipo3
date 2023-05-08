@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login</title>
+		<title>Home-login</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -22,7 +22,7 @@
 			<div class="container-fluid">
 				<!-- CONTAINER DEL LOGO -->
 				<div class="container col-2">
-					<a class="navbar-brand" href="./feed.html">
+					<a class="navbar-brand" >
 						<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
 					</a>
 				</div>
@@ -43,13 +43,14 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<h2 class="nav-welcome d-none d-sm-block">
-								¡¡Bienvenido, Tecler!!
+							<h4 class="nav-welcome d-none d-sm-block">
+								Ojea nuestra comunidad:
+								<a href="./views/public.html"><i class="bi bi-binoculars h1"></i></a>
 							</h2>
 						</li>
 					</ul>
-					<!-- SEARCHBAR -->
-					<form class="form-inline search-box ms-auto d-none d-sm-block">
+					<!-- SEARCHBAR NO EN INDEX-LOGIN -->
+					<!-- <form class="form-inline search-box ms-auto d-none d-sm-block">
 						<button class="btn-search">
 							<img
 								class="search-icon"
@@ -60,62 +61,57 @@
 						<input
 							type="text"
 							class="input-search"
-							placeholder="Type to Search..."
+							placeholder="Busca los posts de un tecler..."
 						/>
-					</form>
+					</form> -->
 					<!-- SEARCHBAR HASTA AQUI -->
 
 					<ul class="navbar-nav flex-row ms-auto mb-2 mb-lg-0">
-						<!-- comunidad -->
+						<!-- VOLVER ATRÁS -->
 						<li class="nav-item navbar-collapse-icons">
-							<a
-								class="nav-link"
-								aria-current="page"
-								href="./user-friends.html"
-							>
+							<a class="nav-link" href="javascript:history.back()">
 								<i
-									class="bi bi-people-fill"
+									class="bi bi-arrow-bar-left"
 									style="font-size: 1.8rem"
 									id="icono"
-									alt="Comunidad de amigos"
-								>
-								</i>
-							</a>
-						</li>
-						<!-- config-account -->
-						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="./config-account.html">
-								<i
-									class="bi bi-gear"
-									style="font-size: 1.8rem"
-									id="icono"
-									alt="Configuración"
+									alt="Volver atrás"
 								></i>
 							</a>
 						</li>
-						<!-- mi perfil -->
+						<!-- EXPLORAR LA COMUNIDAD -->
 						<li class="nav-item navbar-collapse-icons">
-							<a class="nav-link" href="./user-logged-profile.html">
+							<a class="nav-link" href="./public.html">
 								<i
-									class="bi bi-person-fill"
+									class="bi bi-binoculars"
 									style="font-size: 1.8rem"
 									id="icono"
-									alt="Mi perfil"
+									alt="Explorar"
 								></i>
 							</a>
 						</li>
-						<!-- cerrar sesion -->
+						<!-- REGISTRARSE -->
+						<li class="nav-item navbar-collapse-icons">
+							<a class="nav-link" href="./views/user-register.html">
+								<i
+									class="bi bi-plus-square"
+									style="font-size: 1.8rem"
+									id="icono"
+									alt="Registrarse"
+								></i>
+							</a>
+						</li>
+						<!-- IR AL LOGIN- LANDING-PAGE -->
 						<li class="nav-item navbar-collapse-icons">
 							<a class="nav-link" href="./index-login.html">
 								<i
-									class="bi bi-box-arrow-right"
-									class="bi bi-people-fill"
+									class="bi bi-door-open"
 									style="font-size: 1.8rem"
 									id="icono"
 									alt="Cerrar sesión"
 								></i>
 							</a>
 						</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -123,16 +119,16 @@
 		<!-- BARRA DE NAVEGACIÓN HASTA AQUÍ -->
 		<main>
 			<div class="container-fluid">
-				<div class="row justify-content-center">
-					<div class="col-md-6 card bg-transparent p-0">
+				<div class="row justify-content-center  text-center">
+					<div class="col-md-7 card bg-transparent p-0 mx-auto">
 						<img src="./img/portada/geom-dark.jpg" class="img-fluid rounded" />
-						<div class="container py-4">
+						<div class="container-fluid py-4">
 							<div class="row">
-								<div class="col-md-8 offset-md-3">
+								<div class="col-md-8 offset-md-2">
 									<div class="card bg-light">
 										<div class="card-body">
 											<h2 class="card-title text-center">
-												Bienvenido a la red social de programadores
+												Bienvenido a Tecla,<br> la red social de programadores
 											</h2>
 											<p class="card-text">
 												Aquí podrás compartir tus proyectos, encontrar trabajo y
@@ -146,8 +142,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4 p-0">
-						<div class="card cardConf">
+					<div class="col-md-4 p-0 mx-auto">
+						<div class="card">
 							<h2 class="card-header text-center">Inicia sesión en Tecla</h2>
 							<div class="card-body">
 								<form id="form-login">
@@ -182,7 +178,7 @@
 								</form>
 								<p class="text-center">
 									¿No tienes una cuenta?
-									<a href="./user-register.html">Regístrate aquí</a>.
+									<a href="./views/user-register.html">Regístrate aquí</a>.
 								</p>
 							</div>
 						</div>
@@ -230,13 +226,13 @@
 						<h4>Links</h4>
 					</div>
 					<div class="d-flex justify-content-center">
-						<a href="https://www.w3schools.com/"
-							><strong> Información básica</strong></a
+						<a href="https://www.w3schools.com/" target="_blank"
+							><strong> W3Schools</strong></a
 						>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="https://stackoverflow.com/"
-							><strong> Chatea y resuelve</strong></a
+							><strong> Stack-Overflow</strong></a
 						>
 					</div>
 					<div class="d-flex justify-content-center">
@@ -296,6 +292,6 @@
 			crossorigin="anonymous"
 		></script>
 
-		<script src="./javascript/login.js"></script>
+		<script src="./javascript/frontLogin.js"></script>
 	</body>
 </html>

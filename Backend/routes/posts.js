@@ -1,65 +1,122 @@
-const publicaciones = require("../bd-posts");
-var express = require('express');
-var router = express.Router();
-const coolImages = require('cool-images');
-const moment = require('moment');
+const express = require("express");
+const router = express.Router();
+require('dotenv').config();
+const pool = require("../db/connection");
 
+const coolImages = require("cool-images");
+const moment = require("moment");
 
+const authMiddleware = require("../lib/authMiddleware")
 
-/* GET */
-//obtener todas las publicaciones
+/* ENDPOINTS  */
+
+//GET - OBTENER TODAS LAS PUBLICACIONES EXISTENTES
 router.get("/", async (req, res) => {
+	pool
+		.query("SELECT * FROM posts ")
+		.then((results) => {
+			res.json(results);
+		})
+		.catch((error) => {
+			console.error(error);
+			res.sendStatus(500);
+		});
+});
 
-})
+//GET - TRAE LOS POSTS DE UN USUARIO POR SU NICKNAME
+router.get("/private/search/:nickname", authMiddleware, async (req, res) => {
+	const nickname = req.params.nickname;
+	console.log(nickname);
+	pool
+		.query(
+			`
+			SELECT posts.*, users.* 
+			FROM posts 
+			INNER JOIN users ON users.user_id = posts.user_id 
+			WHERE users.nickname =  ? 
+			ORDER BY posts.post_date ASC
+		    `,
+			[nickname]
+		)
+		.then((results) => {
+			res.json(results);
+		})
+		.catch((error) => {
+			console.error(error);
+			res.sendStatus(500);
+		});
+});
 
-/* POST */
+//GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS Y ADEMÁS LOS DATOS DE LOS AMIGOS QUE ESCRIBIERON EL POST
+router.get("/private/:user_id", authMiddleware,  async (req, res) => {
+	const user = req.params.user_id;
+	pool
+		.query(
+			`
+			SELECT posts.*, users.*
+			FROM posts
+			INNER JOIN users ON users.user_id = posts.user_id
+			WHERE posts.user_id = ? OR posts.user_id IN (SELECT user2_id FROM friends WHERE user1_id = ?)
+			ORDER BY post_date ASC
+		    `,
+			[user, user]
+		)
+		.then((results) => {
+			res.json(results);
+		})
+		.catch((error) => {
+			console.error(error);
+			res.sendStatus(500);
+		});
+});
 
-// Agregar una nueva publicación  
-//peticion fetch desde el frontend a http://localhost:3000/posts/publicaciones
-//(añadir objeto a la peticion con method:POST, headers y body con el contenido pasado a JSON (JSON.stringify) de text y user)
-router.post("/publicaciones", async (req, res) => {
-	console.log(req.body)
-
-	const { text } = req.body;
-	let time = moment()
-	let postTime = moment((time), "DD/MM/YYYY hh:mm")
-	let getTime = moment()
-	let diffTime = moment(postTime).from(getTime)
+//POST- CREA UN POST + LO AÑADE A LA BASE DE DATOS + LO DEVUELVE JUNTO CON VALOR EXTRA PUBLISHDATE
+router.post("/new-post/", authMiddleware,  async (req, res) => {
+	const { text, user_id } = req.body;
 
 	if (!text) {
-		res.sendStatus(400).send('El campo text es requerido')
-		return 
+		res.status(400).send("El campo text es requerido");
+		return;
 	}
 
-	const publicacion = {
-		text,
-		title: 'quitar',
-		postId: parseInt(Math.random() * 1000),
-		author: "Anonimus",
-		avatar: 'https://randomuser.me/api/portraits/men/92.jpg',
-		// date: moment().format("DD-MM-YY HH:MM:SS"),
-		publishDate: diffTime,
-		likes: parseInt(Math.random() * 10), // dato aleatorio parseInt(Math.random()*10)
-		image: coolImages.one(),
-	};
+	try {
+		const query = `INSERT INTO posts (text, image, post_date, like_number, user_id) VALUES (?, ?, ?, ?, ?)`;
+		const image = coolImages.one();
+		const like_number = parseInt(Math.random() * 10);
+		const post_date = new Date();
+		const [result] = await pool.query(query, [
+			text,
+			image,
+			post_date,
+			like_number,
+			user_id,
+		]);
 
-	Promise.resolve(publicacion)
-	.then((pub) => res.status(200).json(pub))
-	.catch((err) => res.status(500).json(err));
-	// res.status(200).send(publicacion);
-})
+		res.status(200).json({
+			post_id: result.insertId,
+			text,
+			user_id,
+			image,
+			post_date,
+			like_number,
+			publishDate: minutesAgo(),
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).json(error);
+	}
+});
 
+//DELETE- BORRAR UN POST POR SU POST_ID            /:post_id
 
-// router.get('/minutesAgo', (req, res) => {
-// 	let time = moment()
-// 	let postTime = moment((time), "DD/MM/YYY hh:mm")
-// 	let getTime = moment()
-// 	let diffTime = moment(postTime).from(getTime)
-// 	res.json({time: diffTime})
-// }) 
+//POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id
+//DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
 
-
-
-
+function minutesAgo() {
+	let time = moment();
+	let postTime = moment(time, "DD/MM/YYY hh:mm");
+	let getTime = moment();
+	return moment(postTime).from(getTime);
+}
 
 module.exports = router;

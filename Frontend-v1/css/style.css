@@ -78,11 +78,11 @@ ol li {
 /* LINKS */
 a {
 	text-decoration: none; /* Elimina el subrayado */
-	color: rgba(8, 8, 8, 0.779);
+	color: rgb(0, 0, 0);
 }
 
 a:hover {
-	color: rgb(190, 190, 235);
+	color: rgba(107, 107, 110, 0.813);
 }
 
 /* INPUTS  */
@@ -121,7 +121,8 @@ input,
 #titulo-post::placeholder,
 #author-post::placeholder,
 #search-username::placeholder {
-	color: #070707;
+	color: #0f0f0f;
+	font-size: medium;
 }
 
 input:focus,
@@ -161,7 +162,7 @@ label {
 }
 
 .bg-friends {
-	background-color: rgba(61, 63, 196, 0.637);
+	background-color: rgba(61, 63, 196, 0.575);
 }
 
 .bg-post {
@@ -297,10 +298,13 @@ label {
 
 
 .post-card {
-	background-color: rgba(247, 62, 247, 0.336);
-	border-color: #092756;
+	background-color: rgba(234, 69, 234, 0.393);
+	/* background-image: url('../img/portada/geom-dark.jpg');
+	color: rgba(252, 252, 249, 0.963); */
+	border-color: #1f202289;
 	border-width: 0.1rem;
 }
+
 
 .white-card {
 	background-color: rgba(255, 255, 255, 0.705);

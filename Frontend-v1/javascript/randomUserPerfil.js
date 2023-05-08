@@ -1,3 +1,7 @@
+/*
+Cargaba datos aleatorios en las páginas de perfil de usuarios, con los datos de randomuser api
+*/
+
 let userImg = document.getElementById('imagen-usuario')
 let firstSecondName = document.getElementById('name-firstname')
 let userOcupation = document.getElementById('ocupacion')
