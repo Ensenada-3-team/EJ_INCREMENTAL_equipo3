@@ -11,7 +11,7 @@ const {
 	validarPassword,
 } = require("../lib/middlewares");
 
-const authMiddleware = require("../lib/authMiddleware")
+const authMiddleware = require("../lib/authMiddleware");
 
 /* ENDPOINTS */
 
@@ -156,62 +156,66 @@ router.post("/login", async (req, res) => {
 });
 
 // PUT - MODIFICAR CONTRASEÑA
-router.put("/change-password", authMiddleware ,validarPassword, async (req, res) => {
-	const { userId, oldPassword, password } = req.body;
+router.put(
+	"/change-password",
+	authMiddleware,
+	validarPassword,
+	async (req, res) => {
+		const { userId, oldPassword, password } = req.body;
 
-	try {
+		try {
+			// Obtener el usuario de la base de datos
+			const [rows, fields] = await pool.query(
+				"SELECT * FROM users WHERE user_id = ?",
+				[userId]
+			);
 
-		// Obtener el usuario de la base de datos
-		const [rows, fields] = await pool.query(
-			"SELECT * FROM users WHERE user_id = ?",
-			[userId]
-		);
+			// Comprobar si se encontró algún usuario
+			if (rows.length === 0) {
+				return res.status(401).json({
+					message: "Usuario no encontrado",
+				});
+			}
 
-		// Comprobar si se encontró algún usuario
-		if (rows.length === 0) {
-			return res.status(401).json({
-				message: "Usuario no encontrado",
+			// Obtener el hash de la contraseña almacenado en la base de datos
+			const hashedPassword = rows[0].password;
+
+			// Comprobar si el hash de la antigua contraseña introducida coincide con el hash almacenado en la base de datos
+			const passwordMatches = bcrypt.compareSync(oldPassword, hashedPassword);
+
+			if (!passwordMatches) {
+				return res.status(401).json({
+					message: "La antigua contraseña es incorrecta",
+				});
+			}
+
+			// Generar el hash de la nueva contraseña
+			const newHashedPassword = bcrypt.hashSync(password, 10);
+
+			// Actualizar la contraseña en la base de datos
+			await pool.query("UPDATE users SET password = ? WHERE user_id = ? ", [
+				newHashedPassword,
+				userId,
+			]);
+
+			// Enviar una respuesta de éxito
+			res.status(200).json({
+				message: "Contraseña modificada exitosamente",
+			});
+		} catch (err) {
+			if (err.name === "TokenExpiredError") {
+				return res.status(401).json({
+					message: "El token ha expirado",
+				});
+			}
+
+			console.error(err);
+			res.status(500).json({
+				message: "Error interno del servidor",
 			});
 		}
-
-		// Obtener el hash de la contraseña almacenado en la base de datos
-		const hashedPassword = rows[0].password;
-
-		// Comprobar si el hash de la antigua contraseña introducida coincide con el hash almacenado en la base de datos
-		const passwordMatches = bcrypt.compareSync(oldPassword, hashedPassword);
-
-		if (!passwordMatches) {
-			return res.status(401).json({
-				message: "La antigua contraseña es incorrecta",
-			});
-		}
-
-		// Generar el hash de la nueva contraseña
-		const newHashedPassword = bcrypt.hashSync(password, 10);
-
-		// Actualizar la contraseña en la base de datos
-		await pool.query("UPDATE users SET password = ? WHERE user_id = ? ", [
-			newHashedPassword,
-			userId,
-		]);
-
-		// Enviar una respuesta de éxito
-		res.status(200).json({
-			message: "Contraseña modificada exitosamente",
-		});
-	} catch (err) {
-		if (err.name === "TokenExpiredError") {
-			return res.status(401).json({
-				message: "El token ha expirado",
-			});
-		}
-
-		console.error(err);
-		res.status(500).json({
-			message: "Error interno del servidor",
-		});
 	}
-});
+);
 
 //POST -ENDPOINT INTERNO PARA HASHEAR CONTRASEÑAS DE USUARIOS DE LA BD MANUALMENTE (postman)
 router.post("/change-password-manually/:user_id", async (req, res) => {
@@ -227,11 +231,9 @@ router.post("/change-password-manually/:user_id", async (req, res) => {
 		const [result] = await pool.query(query, values);
 
 		if (result.affectedRows === 0) {
-			return res
-				.status(404)
-				.send({
-					message: `El usuario con user_id: "${userId}" no ha sido encontrado`,
-				});
+			return res.status(404).send({
+				message: `El usuario con user_id: "${userId}" no ha sido encontrado`,
+			});
 		}
 
 		res
@@ -242,6 +244,5 @@ router.post("/change-password-manually/:user_id", async (req, res) => {
 		res.status(500).send({ message: "Error interno del servidor" });
 	}
 });
-
 
 module.exports = router;
