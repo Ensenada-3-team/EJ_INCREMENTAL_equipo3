@@ -37,6 +37,10 @@ async function deleteUser() {
 			`http://localhost:3000/users/delete/${user.user_id}`,
 			{
 				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${token}`,
+				},
 			}
 		);
 		const userDeleted = await response.json();

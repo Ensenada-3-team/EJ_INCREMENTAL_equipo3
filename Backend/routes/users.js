@@ -1,13 +1,12 @@
 var express = require("express");
 var router = express.Router();
-require('dotenv').config();
+require("dotenv").config();
+const bcrypt = require("bcrypt");
 const pool = require("../db/connection");
 
 //Middlewares
-const {
-	isNumber,
-	isChar,
-} = require("../lib/middlewares");
+const { isNumber, isChar } = require("../lib/middlewares");
+const authMiddleware = require("../lib/authMiddleware")
 
 /* ENPOINTS /users/ */
 
@@ -59,8 +58,8 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	}
 });
 
-// GET - OBTENER AMIGOS DE UN USUARIO POR SU ID
-router.get("/friends/:user_id", async (req, res) => {
+// GET - OBTENER USUARIOS SEGUIDOS POR UN USUARIO CON CIERTO USER_ID
+router.get("/friends/:user_id", authMiddleware,  async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
 			"SELECT * FROM users " +
@@ -76,8 +75,8 @@ router.get("/friends/:user_id", async (req, res) => {
 	}
 });
 
-// GET - OBTENER USUARIOS NO AMIGOS DE UN USUARIO POR SU ID
-router.get("/nonfriends/:user_id", async (req, res) => {
+// GET - OBTENER USUARIOS NO SEGUIDOS POR UN USUARIO CON CIERTO USER_ID 
+router.get("/nonfriends/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		const [rows, fields] = await pool.query(
@@ -133,14 +132,16 @@ router.get("/check/:user_id", async (req, res) => {
 
 		// Ejecutamos la query contra la bd
 		const results = await pool.query(query, params);
-		
-		if (results.length > 0) {
+		console.log(results[0]);
+
+		//modificar en el futuro para que concrete si es el emai o el nickname
+		if (results[0].length > 0) {
 			return res.status(409).json({
 				message: "El nickname o el email ya existen en la base de datos",
 			});
 		} else {
 			return res.status(200).json({
-				message: "El nickname y el email no existen en la base de datos",
+				message: "Puedes usar el nickname y/o el email",
 			});
 		}
 	} catch (error) {
@@ -151,8 +152,8 @@ router.get("/check/:user_id", async (req, res) => {
 	}
 });
 
-// PUT - MODIFICACIÓN DE DATOS DE USUARIO
-router.put("/user/:user_id", async (req, res) => {
+//PATCH - MODIFICACIÓN DE DATOS DE USUARIO
+router.patch("/change-data/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	const userData = req.body;
 
@@ -201,7 +202,7 @@ router.put("/user/:user_id", async (req, res) => {
 			[userId]
 		);
 
-		// Return updated user data
+		// Devolvemos status 200 + usuario con datos nuevos
 		return res.status(200).json({
 			message: "Usuario actualizado con éxito",
 			user: updatedUser[0],
@@ -212,94 +213,9 @@ router.put("/user/:user_id", async (req, res) => {
 	}
 });
 
-// router.put("/user/:user_id", async (req, res) => {
-// 	const userId = req.params.user_id;
-// 	const userData = req.body;
-// 	console.log(userData)
-
-// 	try {
-// 		// Existe el usuario en la bd?
-// 		const isUser = await pool.query("SELECT * FROM users WHERE user_id = ?", [
-// 			userId,
-// 		]);
-
-// 		// Si no existe, respuesta de error
-// 		if (isUser.length === 0) {
-// 			return res
-// 				.status(404)
-// 				.json({ message: "El usuario no está en la base de datos" });
-// 		}
-
-// 		// Crear objeto con las propiedades actualizadas y sus valores
-// 		const updatedFields = {};
-
-// 		// Iterar sobre las propiedades del objeto de datos entrantes
-// 		for (const [key, value] of Object.entries(userData)) {
-// 			console.log(isUser[0][key]);
-// 			// Si el valor de la propiedad es diferente al valor en la BD y no es una cadena vacía, agregar la propiedad actualizada al objeto de campos actualizados
-// 			if (value !== isUser[0][key] && value !== "") {
-// 				updatedFields[key] = value;
-// 			}
-// 		}
-
-// 		// Si no hay campos actualizados, responder con un mensaje
-// 		if (Object.keys(updatedFields).length === 0) {
-// 			return res.status(200).json({
-// 				message: "No se han modificado campos de datos",
-// 				user: isUser[0],
-// 			});
-// 		}
-
-// 		// Comprobar si el email o el nickname ya existen en la base de datos
-// 		let existingUser;
-// 		if (userData.email !== undefined && userData.email !== isUser[0].email) {
-// 			existingUser = await pool.query(
-// 				"SELECT * FROM users WHERE email = ? AND user_id <> ?",
-// 				[userData.email, userId]
-// 			);
-// 		}
-
-// 		if (
-// 			userData.nickname !== undefined &&
-// 			userData.nickname !== isUser[0].nickname
-// 		) {
-// 			existingUser = await pool.query(
-// 				"SELECT * FROM users WHERE nickname = ? AND user_id <> ?",
-// 				[userData.nickname, userId]
-// 			);
-// 		}
-
-// 		if (existingUser && existingUser.length > 0) {
-// 			return res.status(409).json({
-// 				message: "El email o el nickname ya existen en la base de datos",
-// 			});
-// 		}
-
-// 		// Hacer update de los nuevos datos en la base de datos
-// 		await pool.query("UPDATE users SET ? WHERE user_id = ?", [
-// 			updatedFields,
-// 			userId,
-// 		]);
-
-// 		// Obtener los nuevos datos del usuario de la base de datos
-// 		const updatedUser = await pool.query(
-// 			"SELECT * FROM users WHERE user_id = ?",
-// 			[userId]
-// 		);
-
-// 		// Return updated user data
-// 		return res.status(200).json({
-// 			message: "Usuario actualizado con éxito",
-// 			user: updatedUser[0],
-// 		});
-// 	} catch (error) {
-// 		console.error(error);
-// 		res.status(500).json({ message: "Error al actualizar usuario" });
-// 	}
-// });
 
 //DELETE- ELIMINAR USUARIO DE LA BD (CERRAR CUENTA)
-router.delete("/delete/:user_id", async (req, res) => {
+router.delete("/delete/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		// Borrar los registros en la tabla "posts" relacionados al usuario a eliminar

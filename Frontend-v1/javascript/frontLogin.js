@@ -1,5 +1,6 @@
 const loginForm = document.getElementById('form-login')
 
+
 loginForm.addEventListener('submit', async (event)=> {
       event.preventDefault()
 
@@ -9,27 +10,27 @@ loginForm.addEventListener('submit', async (event)=> {
       const response = await fetch('http://localhost:3000/auth/login', {
 		method: "POST",
 		headers: {
-			"Content-Type": "application/json",
+			"Content-Type": "application/json",	
 		},
 		body: JSON.stringify({
-			nicknameOrEmail: userEmailUsername.value,
-                  password: password.value
+			nicknameOrEmail: userEmailUsername.value.trim(),
+                  password: password.value.trim()
 			
 		}),
 	});
 
       const data = await response.json()
 
-      if (data.redirectUrl) {
-            
+      if (data.token) {
+            localStorage.setItem('userData', JSON.stringify(data.user));
+            localStorage.setItem('token', JSON.stringify(data.token));
             window.location.href = data.redirectUrl;
 
-            localStorage.setItem('userData',  JSON.stringify(data.user))
-            console.log(data.user)
+            console.log(data.token, data.user)
 
       } else {
             
-            console.log("Credenciales incorrectas");
+            alert("Credenciales incorrectas");
       }
 
       document.getElementById('username-email').value = ''
