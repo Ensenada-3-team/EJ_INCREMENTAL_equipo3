@@ -2,20 +2,20 @@ const form = document.querySelector("#form-publicacion");
 const publicacionesDOM = document.getElementById("lista-publicaciones");
 const token = JSON.parse(localStorage.getItem("token"))
 
-function createPostDOM(name, firstname, nickname, userAvatar, data) {
+function createPostDOM(data) {
 	return `
     <li class="card border p-4">
         <div class="container">
             <div class="row d-flex">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div>
-                        <img class="avatar rounded rounded-circle align-self-start border border-dark ipad-avatar" src="${userAvatar}" alt="foto de autor x">
-                        <h4 class="mt-3 p-0 post-name-firstname">${name} ${firstname}</h4>
+                        <img class="avatar rounded rounded-circle align-self-start border border-dark ipad-avatar" src="${data.avatar}" alt="foto de autor x">
+                        <h4 class="mt-3 p-0 post-name-firstname">${data.name} ${data.firstname}</h4>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12">
                     <div class="border border-dark sombra rounded p-4 p-md-2 bg-post">
-                        <h5 class="fw-bold d-flex justify-content-between post-nick-date"><p>@${nickname}</p> <p style='font-weigt: normal; font-size: small'>${new Date(Date.parse(data.post_date)).toLocaleString()}</p></h5>
+                        <h5 class="fw-bold d-flex justify-content-between post-nick-date"><p>@${data.nickname}</p> <p style='font-weigt: normal; font-size: small'>${data.timeAgo}</p></h5>
                         <p>${data.text}</p>
                     </div>
                     <img class='img-fluid rounded sombra mt-2' src='${data.image}'>
@@ -83,17 +83,7 @@ form.addEventListener("submit", async (event) => {
 	);
 	//________________________________________________________________
 
-	//CREAMOS EL ELEMENTO POST
-	 const nuevoPost = createPostDOM(
-		user.name,
-		user.firstname,
-		user.nickname,
-		user.avatar,
-		data
-	);
-
-	// Agregamos el nuevo post al DOM
-	publicacionesDOM.insertAdjacentHTML("afterbegin", nuevoPost);
+	loadSavedPosts()
 
 	// Limpiamos el campo de texto del mensaje
 	document.querySelector("#mensaje-post").value = "";
@@ -112,15 +102,11 @@ async function loadSavedPosts() {
 		});
 
 		const userFriendsPosts = await response.json();
-		console.log(userFriendsPosts[0])
+		console.log(userFriendsPosts)
 
 
-		userFriendsPosts[0].forEach((data)=> {
+		userFriendsPosts.forEach((data)=> {
 			const nuevoPost = createPostDOM(
-				data.name,
-				data.firstname,
-				data.nickname,
-				data.avatar,
 				data
 			);
 			publicacionesDOM.insertAdjacentHTML("afterbegin", nuevoPost);

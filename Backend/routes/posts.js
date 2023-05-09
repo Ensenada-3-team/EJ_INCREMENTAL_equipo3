@@ -1,26 +1,25 @@
 const express = require("express");
 const router = express.Router();
-require('dotenv').config();
+require("dotenv").config();
 const pool = require("../db/connection");
 
 const coolImages = require("cool-images");
 const moment = require("moment");
 
-const authMiddleware = require("../lib/authMiddleware")
+const authMiddleware = require("../lib/authMiddleware");
 
 /* ENDPOINTS  */
 
 //GET - OBTENER TODAS LAS PUBLICACIONES EXISTENTES
 router.get("/", async (req, res) => {
-	pool
-		.query("SELECT * FROM posts ")
-		.then((results) => {
-			res.json(results);
-		})
-		.catch((error) => {
-			console.error(error);
-			res.sendStatus(500);
-		});
+	try {
+		const [results] = await pool.query("SELECT * FROM posts");
+
+		res.json(results);
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
 });
 
 //GET - TRAE LOS POSTS DE UN USUARIO POR SU NICKNAME
@@ -48,10 +47,11 @@ router.get("/private/search/:nickname", authMiddleware, async (req, res) => {
 });
 
 //GET - TRAE PUBLICACIONES DEL USUARIO Y DE SUS AMIGOS Y ADEMÁS LOS DATOS DE LOS AMIGOS QUE ESCRIBIERON EL POST
-router.get("/private/:user_id", authMiddleware,  async (req, res) => {
+router.get("/private/:user_id", authMiddleware, async (req, res) => {
 	const user = req.params.user_id;
-	pool
-		.query(
+	try {
+		// Use async/await to wait for the query to complete and obtain the results
+		const [results] = await pool.query(
 			`
 			SELECT posts.*, users.*
 			FROM posts
@@ -60,18 +60,23 @@ router.get("/private/:user_id", authMiddleware,  async (req, res) => {
 			ORDER BY post_date ASC
 		    `,
 			[user, user]
-		)
-		.then((results) => {
-			res.json(results);
-		})
-		.catch((error) => {
-			console.error(error);
-			res.sendStatus(500);
-		});
+		);
+
+		// Añadimos a cada post el tiempo de publicación
+		const resultsWithTimeAgo = results.map((result) => ({
+			...result,
+			timeAgo: minutesAgo(result.post_date),
+		}));
+
+		res.json(resultsWithTimeAgo);
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
 });
 
 //POST- CREA UN POST + LO AÑADE A LA BASE DE DATOS + LO DEVUELVE JUNTO CON VALOR EXTRA PUBLISHDATE
-router.post("/new-post/", authMiddleware,  async (req, res) => {
+router.post("/new-post/", authMiddleware, async (req, res) => {
 	const { text, user_id } = req.body;
 
 	if (!text) {
@@ -112,11 +117,16 @@ router.post("/new-post/", authMiddleware,  async (req, res) => {
 //POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id
 //DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
 
-function minutesAgo() {
-	let time = moment();
-	let postTime = moment(time, "DD/MM/YYY hh:mm");
-	let getTime = moment();
-	return moment(postTime).from(getTime);
+// function minutesAgo() {
+// 	let time = moment();
+// 	let postTime = moment(time, "DD/MM/YYY hh:mm");
+// 	let getTime = moment();
+// 	return moment(postTime).from(getTime);
+// }
+
+function minutesAgo(postDate) {
+	const postTime = moment(postDate);
+	return postTime.fromNow();
 }
 
 module.exports = router;
