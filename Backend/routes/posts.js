@@ -62,7 +62,7 @@ router.get("/private/:user_id", authMiddleware, async (req, res) => {
 			[user, user]
 		);
 
-		// Añadimos a cada post el tiempo de publicación
+		// Añadimos a cada post el tiempo atrás de publicación
 		const resultsWithTimeAgo = results.map((result) => ({
 			...result,
 			timeAgo: minutesAgo(result.post_date),
@@ -117,12 +117,6 @@ router.post("/new-post/", authMiddleware, async (req, res) => {
 //POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id
 //DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
 
-// function minutesAgo() {
-// 	let time = moment();
-// 	let postTime = moment(time, "DD/MM/YYY hh:mm");
-// 	let getTime = moment();
-// 	return moment(postTime).from(getTime);
-// }
 
 function minutesAgo(postDate) {
 	const postTime = moment(postDate);

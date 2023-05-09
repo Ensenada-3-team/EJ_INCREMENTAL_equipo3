@@ -66,7 +66,7 @@ class UserService {
   async updateUser(userId, userData) {
     try {
      
-      const response = await axios.patch(`${API_URL}/change-data/${userId}`, userData);
+      const response = await axios.patch(`${API_URL}/change-data/${userId}`, userData, { headers: authHeader() });
 
       return response.data;
 
@@ -80,7 +80,7 @@ class UserService {
   async deleteUser(userId) {
     try {
       
-      const response = await axios.delete(`${API_URL}/delete/${userId}`);
+      const response = await axios.delete(`${API_URL}/delete/${userId}` , { headers: authHeader() });
 
       return response.data;
     } catch (error) {
