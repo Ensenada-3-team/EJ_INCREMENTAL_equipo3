@@ -27,7 +27,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	const grade = document.getElementById("inputgrade").value;
 	const linkedin = document.getElementById("inputlinkedin").value;
 	const language = document.getElementById("inputlanguage").value;
-	const hobbie = document.getElementById("inputhobbies").value;
+	const hobby = document.getElementById("inputhobbies").value;
 
 	try {
 		//Petición para contrastar si el nickname o el email ya existen en la bd sin contar con los del usuario
@@ -66,7 +66,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 					grade: grade,
 					linkedin: linkedin,
 					language: language,
-					hobbie: hobbie,
+					hobby: hobby,
 				}),
 			}
 		);

@@ -1,26 +1,23 @@
 var express = require("express");
 var router = express.Router();
 require("dotenv").config();
-const bcrypt = require("bcrypt");
 const pool = require("../db/connection");
 
 //Middlewares
 const { isNumber, isChar } = require("../lib/middlewares");
-const authMiddleware = require("../lib/authMiddleware")
+const authMiddleware = require("../lib/authMiddleware");
 
 /* ENPOINTS /users/ */
 
 //GET - LISTA DE TODOS LOS USUARIOS  http://localhost:3000/users
-router.get("/", (req, res) => {
-	pool
-		.query("SELECT * FROM users")
-		.then((results) => {
-			res.json(results);
-		})
-		.catch((error) => {
-			console.error(error);
-			res.sendStatus(500);
-		});
+router.get("/", async (req, res) => {
+	try {
+		const results = await pool.query("SELECT * FROM users");
+		res.json(results);
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
 });
 
 //GET - OBTIENE UN USUARIO POR SU ID
@@ -59,7 +56,7 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 });
 
 // GET - OBTENER USUARIOS SEGUIDOS POR UN USUARIO CON CIERTO USER_ID
-router.get("/friends/:user_id", authMiddleware,  async (req, res) => {
+router.get("/user/:user_id/friends", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
 			"SELECT * FROM users " +
@@ -75,8 +72,8 @@ router.get("/friends/:user_id", authMiddleware,  async (req, res) => {
 	}
 });
 
-// GET - OBTENER USUARIOS NO SEGUIDOS POR UN USUARIO CON CIERTO USER_ID 
-router.get("/nonfriends/:user_id", authMiddleware, async (req, res) => {
+// GET - OBTENER USUARIOS NO SEGUIDOS POR UN USUARIO CON CIERTO USER_ID
+router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		const [rows, fields] = await pool.query(
@@ -212,7 +209,6 @@ router.patch("/change-data/:user_id", authMiddleware, async (req, res) => {
 		res.status(500).json({ message: "Error al actualizar usuario" });
 	}
 });
-
 
 //DELETE- ELIMINAR USUARIO DE LA BD (CERRAR CUENTA)
 router.delete("/delete/:user_id", authMiddleware, async (req, res) => {

@@ -16,8 +16,7 @@ const authMiddleware = require("../lib/authMiddleware");
 /* ENDPOINTS */
 
 //POST - REGISTRO DE USUARIO EN LA BD - 1ºcomprueba si ya existe el nickname y el email.
-router.post(
-	"/register",
+router.post("/register",
 	validarEmail,
 	ageValidation,
 	validarPassword,
@@ -36,7 +35,7 @@ router.post(
 			grade,
 			linkedin,
 			language,
-			hobbie,
+			hobby,
 		} = req.body;
 
 		const hashedPassword = await bcrypt.hash(password, 10);
@@ -80,7 +79,7 @@ router.post(
 
 			// Si el usuario no existe, insertar los nuevos datos en la base de datos
 			const result = await pool.query(
-				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobbie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobby) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 				[
 					name,
 					firstname,
@@ -95,7 +94,7 @@ router.post(
 					grade,
 					linkedin,
 					language,
-					hobbie,
+					hobby,
 				]
 			);
 
@@ -156,8 +155,7 @@ router.post("/login", async (req, res) => {
 });
 
 // PUT - MODIFICAR CONTRASEÑA
-router.put(
-	"/change-password",
+router.put("/change-password",
 	authMiddleware,
 	validarPassword,
 	async (req, res) => {

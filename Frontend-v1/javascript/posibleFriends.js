@@ -27,7 +27,7 @@ async function getPosibleFriends() {
 
       const user = JSON.parse(localStorage.getItem("userData"));
       try {
-            const response = await fetch(`http://127.0.0.1:3000/users/nonfriends/${user.user_id}`, {
+            const response = await fetch(`http://127.0.0.1:3000/users/user/${user.user_id}/nonfriends`, {
                   method: "GET",
                   headers: {
 				"Content-Type": "application/json",
