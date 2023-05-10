@@ -18,34 +18,25 @@ function LoginForm() {
 		event.preventDefault();
 		try {
 			const response = await AuthService.login(usernameOrEmail, password);
-      console.table(response)
+			console.table(response);
 			if (response.token) {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: `Hola ${response.user.nickname}`,
-          showConfirmButton: false,
-          timer: 1500
-        })
+				Swal.fire({
+					position: "top-end",
+					icon: "success",
+					title: `Hola ${response.user.nickname}`,
+					showConfirmButton: false,
+					timer: 1500,
+				});
 				// window.location.href = response.redirectUrl;
-      } else {
-        if (response.message) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: `response.message`,
-            footer: '<a href="">Why do I have this issue?</a>',
-          })}
-      }
-
+			}
 		} catch (error) {
 			console.error(error);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: `${error.response.data.message}` || "Error al iniciar sesión",
-        footer: '<a href="">Why do I have this issue?</a>',
-      });
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: `${error.response.data.message}` || "Error al iniciar sesión",
+				footer: '<a href="">Why do I have this issue?</a>',
+			});
 		}
 	};
 
