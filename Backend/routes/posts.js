@@ -50,7 +50,6 @@ router.get("/private/search/:nickname", authMiddleware, async (req, res) => {
 router.get("/private/:user_id", authMiddleware, async (req, res) => {
 	const user = req.params.user_id;
 	try {
-		// Use async/await to wait for the query to complete and obtain the results
 		const [results] = await pool.query(
 			`
 			SELECT posts.*, users.*
