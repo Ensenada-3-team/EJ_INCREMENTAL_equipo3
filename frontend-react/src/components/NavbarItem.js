@@ -1,4 +1,3 @@
-import React from 'react';
 function NavbarItem(props) {
 	return (
 		<li className="nav-item navbar-collapse-icons">
