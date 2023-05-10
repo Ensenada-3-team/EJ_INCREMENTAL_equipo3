@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarItem from "./NavbarItem";
 
+
 function Navbar() {
 	return (
 		<nav class="navbar navbar-expand-lg bg-body-transparent container">
@@ -8,7 +9,7 @@ function Navbar() {
 				{/* COMPONENTE DEL LOGO */}
 				<div class="container col-2">
 					<a class="navbar-brand">
-						<img class="logo" src="./img/enter-black.png" alt="Logo-Tecla" />
+						<img class="logo" src="../public/enter-black.png" alt="Logo-Tecla" />
 					</a>
 				</div>
 
