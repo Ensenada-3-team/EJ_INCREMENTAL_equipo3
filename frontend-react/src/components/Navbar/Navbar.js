@@ -1,4 +1,4 @@
-import NavbarItem from "./NavbarItem";
+import { NavbarItem } from "../NavbarItem/NavbarItem";
 
 
 function Navbar() {
@@ -82,4 +82,4 @@ function Navbar() {
 }
 
 
-export default Navbar;
+export { Navbar };

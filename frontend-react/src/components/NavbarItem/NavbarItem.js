@@ -13,4 +13,4 @@ function NavbarItem(props) {
 }
 
 
-export default NavbarItem;
+export { NavbarItem };

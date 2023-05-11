@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AuthService from "../services/auth.service";
+import AuthService from "../../services/auth.service.js";
 import Swal from "sweetalert2";
 
 function LoginForm() {
@@ -89,4 +89,4 @@ function LoginForm() {
 	);
 }
 
-export default LoginForm;
+export {LoginForm };

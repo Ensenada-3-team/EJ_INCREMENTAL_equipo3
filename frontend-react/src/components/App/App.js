@@ -6,10 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "./App.css";
 
-import Navbar from "./components/Navbar";
-import LoginForm from "./components/LoginForm";
-import Cover from "./components/Cover";
-import Footer from "./components/Footer";
+import{ Navbar } from "../Navbar/Navbar";
+import { LoginForm }from "../LoginForm/LoginForm";
+import { Cover } from "../Cover/Cover";
+import { Footer }from "../Footer/Footer";
 
 function App() {
 	return (

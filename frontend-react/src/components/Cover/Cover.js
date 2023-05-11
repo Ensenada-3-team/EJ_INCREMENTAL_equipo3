@@ -15,4 +15,4 @@ function Cover() {
   );
 }
 
-export default Cover;
+export { Cover };
