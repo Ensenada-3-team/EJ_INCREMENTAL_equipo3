@@ -1,9 +1,4 @@
-import React ,{ useEffect } from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "./App.css";
 
 import{ Navbar } from "../Navbar/Navbar";
@@ -15,8 +10,12 @@ function App() {
 	return (
 		<>
 			<Navbar />
-			<Cover />
-			<LoginForm />
+			<div ClassName="container-fluid">
+				<div className="row justify-content-center text-center">
+					<Cover welcome="Bienvenido a Tecla" title="La red social para programadores" text="Aquí podrás compartir tus proyectos, encontrar trabajo y conectarte con otros programadores." />
+					<LoginForm />
+				</div>
+			</div>
 			<Footer />
 		</>
 		
