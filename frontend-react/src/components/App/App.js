@@ -1,25 +1,18 @@
-// import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
+import HomeLogin from '../../pages/Home/HomeLogin';
+import Feed from '../../pages/FeedPage/Feed';
+
 import "./App.css";
 
-import{ Navbar } from "../Navbar/Navbar";
-import { LoginForm }from "../LoginForm/LoginForm";
-import { Cover } from "../Cover/Cover";
-import { Footer }from "../Footer/Footer";
-
 function App() {
-	return (
-		<>
-			<Navbar />
-			<div ClassName="container-fluid">
-				<div className="row justify-content-center text-center">
-					<Cover welcome="Bienvenido a Tecla" title="La red social para programadores" text="Aquí podrás compartir tus proyectos, encontrar trabajo y conectarte con otros programadores." />
-					<LoginForm />
-				</div>
-			</div>
-			<Footer />
-		</>
-		
-	);
+  return (
+    <div>
+      <Routes>
+        <Route path="/home" element={<HomeLogin />} />
+        <Route path="/feed" element={<Feed />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

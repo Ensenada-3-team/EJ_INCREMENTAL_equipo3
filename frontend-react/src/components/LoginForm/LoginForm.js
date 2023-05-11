@@ -28,6 +28,8 @@ function LoginForm() {
 					timer: 1500,
 				});
 				// window.location.href = response.redirectUrl;
+
+				
 			}
 		} catch (error) {
 			console.error(error);
@@ -38,6 +40,9 @@ function LoginForm() {
 				footer: '<a href="">Why do I have this issue?</a>',
 			});
 		}
+
+		setUsernameOrEmail("");
+      	setPassword("");
 	};
 
 	return (
