@@ -3,12 +3,13 @@ import HomeLogin from '../../pages/Home/HomeLogin';
 import Feed from '../../pages/FeedPage/Feed';
 
 import "./App.css";
+import "./responsive.css";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/home" element={<HomeLogin />} />
+        <Route path="/" element={<HomeLogin />} />
         <Route path="/feed" element={<Feed />} />
       </Routes>
     </div>
