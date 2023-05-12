@@ -7,6 +7,14 @@ import "./App.css";
 import "./responsive.css";
 
 function App() {
+
+  // useEffect(() => {
+  //   document.body.classList.add("background-contain"); // Agregamos la clase "background-contain" al body
+  //   return () => {
+  //     document.body.classList.remove("background-contain"); // Removemos la clase "background-contain" del body al desmontar el componente
+  //   }
+  // }, []);
+
   return (
     <>
       <Routes>

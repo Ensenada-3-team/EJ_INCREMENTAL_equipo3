@@ -16,9 +16,19 @@ body {
 	font-weight: bold;
 	opacity: 0.95;
 	background-image: url("/public/muro.jpg");
-	background-size: cover;
+	background-size: contain;
 	background-position: center center;
+	min-block-size: 200vh;
 }
+	
+
+/* 
+.background-contain {
+	background-image: url("/public/muro.jpg");
+	background-size: contain;
+	background-position: center center;
+	min-block-size: 200vh;
+} */
 
 
 
