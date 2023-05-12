@@ -3,11 +3,13 @@ import authHeader from './auth-header';
 
 const API_URL = 'http://localhost:3000/users/';
 
-class UserService {
+export default class UserService {
   async getUserById(userId) {
     try {
       const response = await axios.get(`${API_URL}/user/${userId}`);
-      return response.data;
+     
+      return [response.data][0][0];
+
     } catch (error) {
       console.error(error);
       throw new Error("Error al buscar usuario");
@@ -102,6 +104,3 @@ class UserService {
   //   return axios.get(API_URL + 'admin', { headers: authHeader() });
   // }
 }
-
-const userService = new UserService();
-export default userService;

@@ -3,7 +3,7 @@ import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:3000/posts/";
 
-class PostService {
+export default class PostService {
 	async getAllPosts() {
 		try {
 			const response = await axios.get(API_URL);
@@ -55,5 +55,3 @@ class PostService {
 	}
 }
 
-const PostServices = new PostService();
-export default PostServices;

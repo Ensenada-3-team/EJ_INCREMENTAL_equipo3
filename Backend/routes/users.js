@@ -24,17 +24,20 @@ router.get("/", async (req, res) => {
 router.get("/user/:user_id", isNumber, async (req, res) => {
 	const userId = parseInt(req.params.user_id);
 	try {
-		const results = await pool.query("SELECT * FROM users WHERE user_id = ?", [
-			userId,
-		]);
+		const results = await pool.query(
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users WHERE user_id = ?",
+			[userId]
+		);
 		if (results.length === 0) {
-			return res.status(404).send("Usuario no encontrado");
+			return res.status(404).json({ mesage: "Usuario no encontrado" });
 		}
-		res.send(results[0]);
+
+		const user = results[0];
+		res.status(200).send(user);
 	} catch (error) {
 		console.error(error);
 		console.log("SQL error:", error.sql);
-		res.status(500).send("Error al buscar usuario");
+		res.status(500).json({ message: "Error al buscar usuario" });
 	}
 });
 
@@ -42,16 +45,17 @@ router.get("/user/:user_id", isNumber, async (req, res) => {
 router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	const nickname = req.params.nickname;
 	try {
-		const results = await pool.query("SELECT * FROM users WHERE nickname = ?", [
-			nickname,
-		]);
+		const results = await pool.query(
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users WHERE nickname = ?",
+			[nickname]
+		);
 		if (results.length === 0) {
-			return res.status(404).send("Usuario no encontrado");
+			return res.status(404).json({ message: "Usuario no encontrado" });
 		}
 		res.send(results[0]);
 	} catch (error) {
 		console.error(error);
-		res.status(500).send("Error al buscar usuario");
+		res.status(500).json({ message: "Error al buscar usuario" });
 	}
 });
 
@@ -59,7 +63,7 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 router.get("/user/:user_id/friends", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
-			"SELECT * FROM users " +
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users " +
 				"INNER JOIN friends on friends.user2_id = users.user_id " +
 				"WHERE friends.user1_id = ? and friends.status = 1",
 
@@ -77,7 +81,7 @@ router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		const [rows, fields] = await pool.query(
-			"SELECT * FROM users " +
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users " +
 				"WHERE user_id NOT IN (SELECT user2_id FROM friends WHERE user1_id = ?) " +
 				"AND user_id <> ? ",
 
@@ -87,7 +91,7 @@ router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({
-			error:
+			message:
 				"Error al obtener los datos de los usuarios no seguidos por el usuario",
 		});
 	}
