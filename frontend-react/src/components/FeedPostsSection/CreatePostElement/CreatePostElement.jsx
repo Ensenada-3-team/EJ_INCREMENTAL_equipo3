@@ -20,13 +20,11 @@ function CreatePostElement(props) {
 			const data = await postService.createPost(textArea.value, user.user.user_id);
 			console.log(data);
 
-			// Obtiene todos los posts actualizados, incluyendo el nuevo post
+			// Obtenemos y actualizamos los posts incluyendo el que se acaba de crear 
       		const posts = await postService.getFriendsAndUserPostsByUserId(user.user.user_id);
-
-			// Actualiza el estado del componente padre con los nuevos posts
 			props.updatePosts(posts);
 
-			// Limpia el campo de texto después de crear el nuevo post
+			
 			setContent("");
 
 		} catch (error) {
