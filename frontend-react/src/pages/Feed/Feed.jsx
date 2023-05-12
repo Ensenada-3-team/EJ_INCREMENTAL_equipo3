@@ -1,7 +1,7 @@
 import FeedPostsSection from "../../components/FeedPostsSection/FeedPostsSection";
 import { InterestSection } from "../../components/InterestsSection/InterestSection";
 import { Navbar } from "../../components/Navbar/Navbar";
-import PosibleFriendsSection from "../../components/PosibleFriendsSection/PosibleFriendsSection";
+import PosibleFriendsSection from "../../components/FeedPosibleFriendsSection/FeedPosibleFriendsSection";
 
 function Feed() {
 	return (
