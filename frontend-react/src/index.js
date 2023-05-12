@@ -11,7 +11,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './index.css';
 
 
-import App from "./components/App/App.js";
+import App from "./components/App/App";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

@@ -7,12 +7,12 @@ import "./responsive.css";
 
 function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<HomeLogin />} />
         <Route path="/feed" element={<Feed />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
