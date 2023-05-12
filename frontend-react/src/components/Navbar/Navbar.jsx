@@ -3,10 +3,6 @@ import { NavbarItem } from "../NavbarItem/NavbarItem";
 
 function Navbar() {
 
-	// const history = useHistory();
-	// const handleBack = () => {
-	// 	history.goBack();
-	//     };
 
 	return (
 		<nav className="navbar navbar-expand-lg bg-body-transparent container">
