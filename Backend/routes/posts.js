@@ -56,7 +56,7 @@ router.get("/private/:user_id", authMiddleware, async (req, res) => {
 			FROM posts
 			INNER JOIN users ON users.user_id = posts.user_id
 			WHERE posts.user_id = ? OR posts.user_id IN (SELECT user2_id FROM friends WHERE user1_id = ?)
-			ORDER BY post_date ASC
+			ORDER BY post_date DESC
 		    `,
 			[user, user]
 		);
