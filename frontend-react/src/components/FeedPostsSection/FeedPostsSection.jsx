@@ -16,7 +16,6 @@ function FeedPostsSection() {
 				user.user.user_id
 			);
 			setPosts(userFriendsPosts);
-                  
 		} catch (error) {
 			console.error(error);
 			Swal.fire({
@@ -32,7 +31,7 @@ function FeedPostsSection() {
 		<div className="col-md-6 col-lg-7">
 			<div className="container">
 				<CreatePostElement updatePosts={updatePosts} />
-				<PostList posts={posts} updatePosts={updatePosts} />
+				<PostList posts={posts} />
 			</div>
 		</div>
 	);

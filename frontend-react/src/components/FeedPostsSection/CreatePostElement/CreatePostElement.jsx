@@ -8,25 +8,22 @@ function CreatePostElement(props) {
 	const [content, setContent] = useState("");
 	const postService = new PostService();
 
-
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const textArea = document.querySelector("#mensaje-post");
 		const user = JSON.parse(localStorage.getItem("user"));
-		
-		
+
 		try {
-			const data = await postService.createPost(textArea.value, user.user.user_id);
+			const data = await postService.createPost(
+				textArea.value,
+				user.user.user_id
+			);
 			console.log(data);
 
-			// Obtenemos y actualizamos los posts incluyendo el que se acaba de crear 
-      		const posts = await postService.getFriendsAndUserPostsByUserId(user.user.user_id);
-			props.updatePosts(posts);
-
-			
 			setContent("");
-
+			props.updatePosts();
+			
 		} catch (error) {
 			console.error(error);
 			Swal.fire({
@@ -53,7 +50,6 @@ function CreatePostElement(props) {
 				username.textContent = `@${userData.nickname}`;
 				ocupation.textContent = userData.ocupation;
 				loggedUserImage.src = userData.avatar;
-
 			} catch (error) {
 				console.error(error);
 				Swal.fire({
@@ -61,7 +57,7 @@ function CreatePostElement(props) {
 					title: "Oops...",
 					text: "Ha ocurrido un error al cargar los datos del usuario!",
 					footer: '<a href="">Why do I have this issue?</a>',
-				});;
+				});
 			}
 		}
 
@@ -82,9 +78,7 @@ function CreatePostElement(props) {
 						<p id="ocupation"></p>
 					</div>
 				</div>
-				<h4 className="align-self-start">
-					Comparte algo con tu comunidad:
-				</h4>
+				<h4 className="align-self-start">Comparte algo con tu comunidad:</h4>
 				<form id="form-publicacion" className="w-100" onSubmit={handleSubmit}>
 					<textarea
 						id="mensaje-post"

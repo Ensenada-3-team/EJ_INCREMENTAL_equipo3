@@ -4,17 +4,18 @@ import PostService from "../../../services/post.service.js";
 import authService from "../../../services/auth.service";
 import Swal from "sweetalert2";
 
-function useUserFriendsPosts(userId, updatePosts) {
-	const [posts, setPosts] = useState([]);
-	const postService = new PostService();
+function PostList(props) {
+	const user = authService.getCurrentUser();
+	const [posts, setPosts] = useState(props.posts);
 
 	useEffect(() => {
+		const postService = new PostService();
+
 		const fetchPosts = async () => {
 			try {
-				const userFriendsPosts = await postService.getFriendsAndUserPostsByUserId(userId);
+				const userFriendsPosts =
+					await postService.getFriendsAndUserPostsByUserId(user.user.user_id);
 				setPosts(userFriendsPosts);
-				updatePosts(userFriendsPosts); 
-				
 			} catch (error) {
 				console.error(error);
 				Swal.fire({
@@ -27,15 +28,7 @@ function useUserFriendsPosts(userId, updatePosts) {
 		};
 
 		fetchPosts();
-	}, [userId, updatePosts]);
-
-	return { posts };
-}
-
-function PostList(props) {
-	const user = authService.getCurrentUser()
-	const { posts } = useUserFriendsPosts(user.user.user_id, props.updatePosts);
-	
+	}, [props.posts, user.user.user_id]);
 
 	return (
 		<div>
