@@ -1,3 +1,10 @@
+/*
+COMPONENTE PADRE que contiene y comunica a sus dos componentes hijos, CreatePostElement y PostList.
+A través de la función updatePosts, se obtiene la actualizacion de la lista de publicaciones cuando CreatePostElement crea un nuevo post.
+PostList contiene la lista de publicaciones del usuario, y recibe la actualización por props a través de el nuevo valor de posts.
+*/
+
+
 import { useState } from "react";
 import PostService from "../../services/post.service.js";
 import authService from "../../services/auth.service";
