@@ -1,4 +1,4 @@
-import { NavbarItem } from "../NavbarItem/NavbarItem";
+import { NavbarItem } from "./NavbarItem/NavbarItem";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import authService from "../../services/auth.service";
@@ -120,7 +120,7 @@ function Navbar() {
 							<NavbarItem
 								icon="bi-people-fill"
 								alt="Comunidad"
-								href="./index-login.html"
+								to="/friends"
 							/>
 						)}
 
