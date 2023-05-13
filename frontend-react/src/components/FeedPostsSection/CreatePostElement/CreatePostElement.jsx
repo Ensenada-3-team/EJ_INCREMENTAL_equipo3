@@ -43,7 +43,7 @@ function CreatePostElement(props) {
 
 		async function loadUserData() {
 			try {
-				const userData = await userService.getUserById(user.user_id);
+				const userData = await userService.getUserById(user.user.user_id);
 				console.log(userData);
 
 				username.textContent = `@${userData.nickname}`;
@@ -65,8 +65,8 @@ function CreatePostElement(props) {
 
 	return (
 		<div className="row">
-			<div className="col card post-card">
-				<div className="d-flex w-100 card-header rounded mb-2 p-0">
+			<div className="col card post-card border-0">
+				<div className="d-flex w-100 rounded mb-2 p-0">
 					<img
 						id="logged-user-image"
 						className="avatar rounded rounded-circle border border-dark"
@@ -82,7 +82,7 @@ function CreatePostElement(props) {
 					<textarea
 						id="mensaje-post"
 						className="form-control sombra rounded"
-						placeholder="Cuéntanos algo interesante en menos de 256 caracteres :D"
+						placeholder="Max. 256 caracteres"
 						maxLength="256"
 						rows="3"
 						value={content}

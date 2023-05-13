@@ -22,16 +22,6 @@ body {
 }
 	
 
-/* 
-.background-contain {
-	background-image: url("/public/muro.jpg");
-	background-size: contain;
-	background-position: center center;
-	min-block-size: 200vh;
-} */
-
-
-
 h1 {
 	/* text-shadow: 0 0 0.2em rgba(0, 0, 0, 0.3); */
 	letter-spacing: 0.2rem;
@@ -306,9 +296,7 @@ label {
 
 
 .post-card {
-	background-color: rgba(234, 69, 234, 0.393);
-	/* background-image: url('../img/portada/geom-dark.jpg');
-	color: rgba(252, 252, 249, 0.963); */
+	background-color: rgba(126, 59, 184, 0.422);
 	border-color: #1f202289;
 	border-width: 0.1rem;
 }
