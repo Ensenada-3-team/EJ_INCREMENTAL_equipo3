@@ -17,13 +17,12 @@ function CreatePostElement(props) {
 		try {
 			const data = await postService.createPost(
 				textArea.value,
-				user.user.user_id
+				user.user_id
 			);
-			console.log(data);
-
+			
 			setContent("");
 			props.updatePosts();
-			
+
 		} catch (error) {
 			console.error(error);
 			Swal.fire({
@@ -44,7 +43,7 @@ function CreatePostElement(props) {
 
 		async function loadUserData() {
 			try {
-				const userData = await userService.getUserById(user.user.user_id);
+				const userData = await userService.getUserById(user.user_id);
 				console.log(userData);
 
 				username.textContent = `@${userData.nickname}`;

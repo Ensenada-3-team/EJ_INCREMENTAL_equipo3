@@ -12,14 +12,14 @@ function Navbar() {
 	const token= authService.getCurrentToken();
 
 	const greeting = user
-		? user.user.gender === "F"
-			? `Bienvenida ${user.user.name}`
-			: `Bienvenido ${user.user.name}`
+		? user.gender === "F"
+			? `Bienvenida ${user.name}`
+			: `Bienvenido ${user.name}`
 		: null;
 
 	const handleLogout = async () => {
 		await Swal.fire({
-			title: `Hasta la próxima ${user.user.nickname} `,
+			title: `Hasta la próxima ${user.nickname} `,
 			text: "Tu comunidad te espera!",
 			imageUrl: "https://unsplash.it/400/200",
 			imageWidth: 400,

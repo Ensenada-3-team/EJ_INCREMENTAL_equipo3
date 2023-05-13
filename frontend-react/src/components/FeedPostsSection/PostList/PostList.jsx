@@ -14,7 +14,7 @@ function PostList(props) {
 		const fetchPosts = async () => {
 			try {
 				const userFriendsPosts =
-					await postService.getFriendsAndUserPostsByUserId(user.user.user_id);
+					await postService.getFriendsAndUserPostsByUserId(user.user_id);
 				setPosts(userFriendsPosts);
 			} catch (error) {
 				console.error(error);
@@ -28,7 +28,7 @@ function PostList(props) {
 		};
 
 		fetchPosts();
-	}, [props.posts, user.user.user_id]);
+	}, [props.posts, user.user_id]);
 
 	return (
 		<div>

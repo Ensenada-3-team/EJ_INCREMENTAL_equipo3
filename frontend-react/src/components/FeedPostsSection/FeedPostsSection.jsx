@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PostService from "../../services/post.service.js";
+import authService from "../../services/auth.service";
 import PostList from "./PostList/PostList";
 import { CreatePostElement } from "./CreatePostElement/CreatePostElement.jsx";
 import Swal from "sweetalert2";
@@ -8,12 +9,12 @@ function FeedPostsSection() {
 	const [posts, setPosts] = useState([]);
 
 	const updatePosts = async () => {
-		const user = JSON.parse(localStorage.getItem("user"));
+		const user = authService.getCurrentUser()
 		const postService = new PostService();
 
 		try {
 			const userFriendsPosts = await postService.getFriendsAndUserPostsByUserId(
-				user.user.user_id
+				user.user_id
 			);
 			setPosts(userFriendsPosts);
 		} catch (error) {
