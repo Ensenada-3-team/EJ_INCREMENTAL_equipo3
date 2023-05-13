@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PostElement from "../PostElement/PostElement";
 import PostService from "../../../services/post.service.js";
+import authService from "../../../services/auth.service";
 import Swal from "sweetalert2";
 
 function useUserFriendsPosts(userId, updatePosts) {
@@ -32,7 +33,7 @@ function useUserFriendsPosts(userId, updatePosts) {
 }
 
 function PostList(props) {
-	const user = JSON.parse(localStorage.getItem("user"));
+	const user = authService.getCurrentUser()
 	const { posts } = useUserFriendsPosts(user.user.user_id, props.updatePosts);
 	
 
