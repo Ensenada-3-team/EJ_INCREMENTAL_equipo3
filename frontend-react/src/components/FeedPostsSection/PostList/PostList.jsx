@@ -10,8 +10,7 @@ function useUserFriendsPosts(userId, updatePosts) {
 	useEffect(() => {
 		const fetchPosts = async () => {
 			try {
-				const userFriendsPosts =
-					await postService.getFriendsAndUserPostsByUserId(userId);
+				const userFriendsPosts = await postService.getFriendsAndUserPostsByUserId(userId);
 				setPosts(userFriendsPosts);
 				updatePosts(userFriendsPosts); 
 				

@@ -1,16 +1,18 @@
+import { Link } from "react-router-dom";
+
 function NavbarItem(props) {
 	return (
 		<li className="nav-item navbar-collapse-icons">
-			<a className="nav-link" href={props.href}>
+			<Link className="nav-link" to={props.to}>
 				<i
 					className={`bi ${props.icon}`}
 					style={{ fontSize: "1.8rem" }}
 					alt={props.alt}
+					onClick={props.onClick}
 				></i>
-			</a>
+			</Link>
 		</li>
 	);
 }
-
 
 export { NavbarItem };

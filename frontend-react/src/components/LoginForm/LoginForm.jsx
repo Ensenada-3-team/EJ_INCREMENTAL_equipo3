@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
 import AuthService from "../../services/auth.service.js";
 import Swal from "sweetalert2";
 
 function LoginForm() {
 	const [usernameOrEmail, setUsernameOrEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 
 	const handleUsernameOrEmailChange = (event) => {
 		setUsernameOrEmail(event.target.value.trim());
@@ -20,14 +23,14 @@ function LoginForm() {
 			const response = await AuthService.login(usernameOrEmail, password);
 			console.table(response);
 			if (response.token) {
-				Swal.fire({
+				await Swal.fire({
 					position: "top-end",
 					icon: "success",
 					title: `Hola ${response.user.nickname}`,
 					showConfirmButton: false,
 					timer: 1500,
 				});
-				// window.location.href = response.redirectUrl;
+				navigate("/feed")
 
 				
 			}

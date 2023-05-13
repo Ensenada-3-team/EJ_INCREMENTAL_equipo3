@@ -83,7 +83,7 @@ function CreatePostElement(props) {
 					</div>
 				</div>
 				<h4 className="align-self-start">
-					<i className="bi bi-send"></i> Comparte algo con tu comunidad:
+					Comparte algo con tu comunidad:
 				</h4>
 				<form id="form-publicacion" className="w-100" onSubmit={handleSubmit}>
 					<textarea
