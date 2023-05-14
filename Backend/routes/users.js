@@ -9,14 +9,15 @@ const authMiddleware = require("../lib/authMiddleware");
 
 /* ENPOINTS /users/ */
 
-//GET - LISTA DE TODOS LOS USUARIOS  http://localhost:3000/users
+//GET - LISTA DE TODOS LOS USUARIOS MENOS EL QUE CONSULTA  http://localhost:3000/users
 router.get("/", async (req, res) => {
 	try {
-		const results = await pool.query("SELECT * FROM users");
-		res.json(results);
+		const results = await pool.query("SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users");
+		res.status(200).json(results[0]);
+
 	} catch (error) {
 		console.error(error);
-		res.sendStatus(500);
+		res.status(500).json({ message: "Error al buscar los usuarios" });
 	}
 });
 

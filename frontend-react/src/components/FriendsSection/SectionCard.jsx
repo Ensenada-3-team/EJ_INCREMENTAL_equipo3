@@ -2,9 +2,9 @@ function SectionCard(props) {
 	return (
 		<>
 			<div className="row">
-				<div className="col card post-card">
+				<div className="col card post-card p-1">
 					<div>
-						<h2>{props.title}</h2>
+						<h4>{props.title}</h4>
 					</div>
 
 				</div>

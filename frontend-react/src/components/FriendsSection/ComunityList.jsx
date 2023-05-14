@@ -4,7 +4,7 @@ import authService from "../../services/auth.service";
 import UserService from "../../services/user.service";
 import Swal from "sweetalert2";
 
-function FriendList(props) {
+function ComunityList(props) {
 	const user = authService.getCurrentUser();
 	const [friends, setFriends] = useState([]);
 
@@ -13,7 +13,7 @@ function FriendList(props) {
 
 		const fetchFriends = async () => {
 			try {
-				const userFriends = await userService.getUserFriends(user.user_id);
+				const userFriends = await userService.getAllUsers();
 				setFriends(userFriends);
 				console.log(userFriends);
 			} catch (error) {
@@ -21,7 +21,7 @@ function FriendList(props) {
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
-					text: "Ha ocurrido un error al obtener tus amigos!",
+					text: "Ha ocurrido un error al obtener a los usuarios!",
 					footer: '<a href="">Why do I have this issue?</a>',
 				});
 			}
@@ -33,7 +33,7 @@ function FriendList(props) {
       console.log(friends)
 
 	return (
-		<ul id="friends-list">
+		<ul id="comunity-list">
 			{friends.map((friend) => (
 				<FriendCard key={friend.user_id} data={friend} />
 			))}
@@ -41,4 +41,4 @@ function FriendList(props) {
 	);
 }
 
-export { FriendList };
+export { ComunityList };

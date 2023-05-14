@@ -1,5 +1,6 @@
 import { SectionCard } from "./SectionCard";
 import { FriendList } from "./FriendList";
+import { ComunityList } from "./ComunityList";
 
 function FriendsSection() {
 	return (
@@ -14,7 +15,10 @@ function FriendsSection() {
 					<FriendList />
 				</div>
 				{/* ROW 3: COMUNIDAD COMPLETA */}
-				<SectionCard title="A quien seguir" />
+				<SectionCard title="Explora a todos los miembros de la comunidad" />
+				<div className="container-fluid">
+					< ComunityList />
+				</div>
 			</div>
 		</div>
 	);

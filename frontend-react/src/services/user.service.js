@@ -1,106 +1,115 @@
-import axios from 'axios';
-import authHeader from './auth-header';
+import axios from "axios";
+import authHeader from "./auth-header";
 
-const API_URL = 'http://localhost:3000/users/';
+const API_URL = "http://localhost:3000/users/";
 
 export default class UserService {
-  async getUserById(userId) {
-    try {
-      const response = await axios.get(`${API_URL}/user/${userId}`);
-     
-      return [response.data][0][0];
-
-    } catch (error) {
-      console.error(error);
-      throw new Error("Error al buscar usuario");
-    }
-  }
-
-  async getUserByNickname(nickname) {
-    try {
-      const response = await axios.get(`${API_URL}/user/nickname/${nickname}`);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      throw new Error("Error al buscar usuario");
-    }
-    
-  }
-
-  async getUserFriends(userId) {
-    try {
-      const response = await axios.get(`${API_URL}/user/${userId}/friends`, { headers: authHeader() });
-      return response.data
+	async getAllUsers() {
+		try {
+			const response = await axios.get(`${API_URL}`);
+			return response.data;
       
-    } catch (error) {
-      console.error(error);
-      throw new Error("Error al obtener los amigos del usuario");
-    }
-  }
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al buscar usuario");
+		}
+	}
 
-  async getUserNonFriends(userId) {
-    try {
-      const response = await axios.get(`${API_URL}/user/${userId}/nonfriends`, { headers: authHeader() });
-      return response.data
-      
-    } catch (error) {
-      
-    }
-  }
+	async getUserById(userId) {
+		try {
+			const response = await axios.get(`${API_URL}/user/${userId}`);
 
-  async checkUser(userId, nickname, email) {
-    try {
-      const response = await axios.get(`${API_URL}/check/${userId}`, {
-        params: {
-          nickname: nickname,
-          email: email
-        }
-      });
+			return [response.data][0][0];
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al buscar usuario");
+		}
+	}
 
-      return response.data;
-    } catch (error) {
+	async getUserByNickname(nickname) {
+		try {
+			const response = await axios.get(`${API_URL}/user/nickname/${nickname}`);
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al buscar usuario");
+		}
+	}
 
-      console.error(error);
-      throw new Error("Error al comprobar el nickname y el email");
-    }
-  }
+	async getUserFriends(userId) {
+		try {
+			const response = await axios.get(`${API_URL}/user/${userId}/friends`, {
+				headers: authHeader(),
+			});
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al obtener los amigos del usuario");
+		}
+	}
 
-  async updateUser(userId, userData) {
-    try {
-     
-      const response = await axios.patch(`${API_URL}/change-data/${userId}`, userData, { headers: authHeader() });
+	async getUserNonFriends(userId) {
+		try {
+			const response = await axios.get(`${API_URL}/user/${userId}/nonfriends`, {
+				headers: authHeader(),
+			});
+			return response.data;
+		} catch (error) {}
+	}
 
-      return response.data;
+	async checkUser(userId, nickname, email) {
+		try {
+			const response = await axios.get(`${API_URL}/check/${userId}`, {
+				params: {
+					nickname: nickname,
+					email: email,
+				},
+			});
 
-    } catch (error) {
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al comprobar el nickname y el email");
+		}
+	}
 
-      console.error(error);
-      throw new Error("Error al actualizar usuario");
-    }
-  }
+	async updateUser(userId, userData) {
+		try {
+			const response = await axios.patch(
+				`${API_URL}/change-data/${userId}`,
+				userData,
+				{ headers: authHeader() }
+			);
 
-  async deleteUser(userId) {
-    try {
-      
-      const response = await axios.delete(`${API_URL}/delete/${userId}` , { headers: authHeader() });
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al actualizar usuario");
+		}
+	}
 
-      return response.data;
-    } catch (error) {
-      
-      console.error(error);
-      throw new Error("Error al eliminar usuario");
-    }
-  }
+	async deleteUser(userId) {
+		try {
+			const response = await axios.delete(`${API_URL}/delete/${userId}`, {
+				headers: authHeader(),
+			});
 
-  // getUserBoard() {
-  //   return axios.get(API_URL + 'user', { headers: authHeader() });
-  // }
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al eliminar usuario");
+		}
+	}
 
-  // getModeratorBoard() {
-  //   return axios.get(API_URL + 'mod', { headers: authHeader() });
-  // }
+	// getUserBoard() {
+	//   return axios.get(API_URL + 'user', { headers: authHeader() });
+	// }
 
-  // getAdminBoard() {
-  //   return axios.get(API_URL + 'admin', { headers: authHeader() });
-  // }
+	// getModeratorBoard() {
+	//   return axios.get(API_URL + 'mod', { headers: authHeader() });
+	// }
+
+	// getAdminBoard() {
+	//   return axios.get(API_URL + 'admin', { headers: authHeader() });
+	// }
 }
