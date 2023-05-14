@@ -1,4 +1,4 @@
-import { NavbarItem } from "./NavbarItem/NavbarItem";
+import { NavbarItem } from "./NavbarItem";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import authService from "../../services/auth.service";
