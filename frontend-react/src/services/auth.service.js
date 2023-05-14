@@ -52,9 +52,11 @@ class AuthService {
 				language,
 				hobby,
 			});
-			return response;
+			console.log(response.status)
+			return response.status;
 		} catch (error) {
-			console.log(error);
+			console.log(error.response.data.message);
+			throw new Error(error.response.data.message);
 		}
 	}
 

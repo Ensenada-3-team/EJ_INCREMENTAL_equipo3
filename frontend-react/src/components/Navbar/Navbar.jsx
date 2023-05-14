@@ -97,7 +97,7 @@ function Navbar() {
 							<NavbarItem
 								icon="bi-plus-square"
 								alt="Registrarse"
-								href="./views/user-register.html"
+								to="/register"
 							/>
 						)}
 
