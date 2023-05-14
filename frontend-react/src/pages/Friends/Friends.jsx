@@ -1,6 +1,6 @@
 import { Navbar } from "../../components/Navbar/Navbar";
-import { InterestSection } from "../../components/InterestsSection/InterestSection";
-import { FriendsSection } from "../../components/FriendsSection/FriendsSection";
+import InterestSection from "../../components/InterestsSection/InterestSection";
+import FriendsSection  from "../../components/FriendsSection/FriendsSection";
 
 function Friends () {
       return (

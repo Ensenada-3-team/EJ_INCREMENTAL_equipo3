@@ -71,4 +71,4 @@ function InterestSection() {
 }
 
 
-export { InterestSection };
+export default InterestSection ;
