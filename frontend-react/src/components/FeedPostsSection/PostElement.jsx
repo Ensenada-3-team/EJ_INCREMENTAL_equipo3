@@ -1,7 +1,9 @@
 import { useState } from "react";
+import authService from "../../services/auth.service";
 
 function PostElement(props) {
 	const { data } = props;
+	const token = authService.getCurrentToken();
 
 	const [liked, setLiked] = useState(false);
 	const [likeCount, setLikeCount] = useState(data.like_number);
@@ -60,7 +62,8 @@ function PostElement(props) {
 					</div>
 				</div>
 				<div className="row">
-					<div className="d-flex justify-content-between w-100">
+					{/*BOTONES SOLO SE MUESTRAN SI EL USUARIO ESTÁ LOGUEADO */}
+					{token && (<div className="d-flex justify-content-between w-100">
 						<div className="d-flex mt-2">
 							<div
 								id={`sumLikes${data.post_id}`}
@@ -95,7 +98,7 @@ function PostElement(props) {
 								></i>
 							</button>
 						</div>
-					</div>
+					</div>)}
 				</div>
 			</div>
 		</li>

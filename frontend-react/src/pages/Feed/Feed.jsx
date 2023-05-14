@@ -7,8 +7,8 @@ function Feed() {
 	return (
             <>
                   <Navbar />
-                  <main class="container">
-                        <div class="row justify-content-around p-0">
+                  <main className="container">
+                        <div className="row justify-content-around p-0">
                               < InterestSection />
                               < FeedPostsSection />
                               < PosibleFriendsSection />

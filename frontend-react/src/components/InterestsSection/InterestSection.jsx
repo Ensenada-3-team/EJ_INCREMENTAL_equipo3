@@ -1,4 +1,10 @@
+import authService from "../../services/auth.service";
+
 function InterestSection() {
+	const token = authService.getCurrentToken();
+	if (!token) {
+		return null
+	}
 	return (
 		<div className="col-md-2 col-lg-2 d-none d-md-block">
 			<div className="container">

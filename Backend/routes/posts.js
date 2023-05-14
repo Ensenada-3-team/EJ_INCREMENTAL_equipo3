@@ -13,14 +13,29 @@ const authMiddleware = require("../lib/authMiddleware");
 //GET - OBTENER TODAS LAS PUBLICACIONES EXISTENTES
 router.get("/", async (req, res) => {
 	try {
-		const [results] = await pool.query("SELECT * FROM posts");
+		const [results] = await pool.query(
+			`
+			SELECT posts.*, users.*
+			FROM posts
+			INNER JOIN users ON users.user_id = posts.user_id
+			WHERE posts.user_id  OR posts.user_id 
+			ORDER BY post_date DESC
+		    `,
+		);
 
-		res.json(results);
+		// Añadimos a cada post el tiempo atrás de publicación
+		const resultsWithTimeAgo = results.map((result) => ({
+			...result,
+			timeAgo: minutesAgo(result.post_date),
+		}));
+
+		res.status(200).json(resultsWithTimeAgo);
 	} catch (error) {
 		console.error(error);
 		res.sendStatus(500);
 	}
 });
+
 
 //GET - TRAE LOS POSTS DE UN USUARIO POR SU NICKNAME
 router.get("/private/search/:nickname", authMiddleware, async (req, res) => {

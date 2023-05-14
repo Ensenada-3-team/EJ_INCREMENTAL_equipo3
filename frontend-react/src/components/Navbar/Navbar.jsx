@@ -86,13 +86,13 @@ function Navbar() {
 						)}
 
 						{/* EXPLORAR LA COMUNIDAD - PÚBLICO*/}
-						{!token && (
-							<NavbarItem
-								icon="bi-binoculars"
-								alt="Explorar"
-								href="./public.html"
-							/>
-						)}
+						
+						<NavbarItem
+							icon="bi-binoculars"
+							alt="Explorar"
+							to="/public"
+						/>
+						
 
 						{/* REGISTRARSE */}
 						{!token && (
