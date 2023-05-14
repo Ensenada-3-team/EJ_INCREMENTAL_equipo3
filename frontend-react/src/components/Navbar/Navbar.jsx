@@ -1,7 +1,7 @@
-import { NavbarItem } from "./NavbarItem";
-import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import authService from "../../services/auth.service";
+import { NavbarItem } from "./NavbarItem";
 import Swal from "sweetalert2";
 
 function Navbar() {
@@ -13,8 +13,8 @@ function Navbar() {
 
 	const greeting = user
 		? user.gender === "F"
-			? `Bienvenida ${user.name}`
-			: `Bienvenido ${user.name}`
+			? `Bienvenida ${user.nickname}`
+			: `Bienvenido ${user.nickname}`
 		: null;
 
 	const handleLogout = async () => {
@@ -29,6 +29,10 @@ function Navbar() {
 		authService.logout()
 		navigate("/");
 	};
+
+	const handleBack = () => {
+		navigate(-1)
+	}
 
 	return (
 		<nav className="navbar navbar-expand-lg bg-body-transparent container">
@@ -61,10 +65,8 @@ function Navbar() {
 							<h4 className="nav-welcome d-none d-sm-block">
 								{!token ? (
 									<>
-										Ojea nuestra comunidad:
-										<a href="./views/public.html">
-											<i className="bi bi-binoculars h1"></i>
-										</a>
+										Explora nuestra comunidad
+										
 									</>
 								) : (
 									greeting
@@ -74,12 +76,12 @@ function Navbar() {
 					</ul>
 
 					<ul className="navbar-nav flex-row ms-auto mb-2 mb-lg-0">
-						{/* VOLVER ATRÁS */}
-						{location.pathname !== "/" && (
+						{/* VOLVER ATRÁS --- location.pathname !== "/" */}
+						{token && (
 							<NavbarItem
 								icon="bi-arrow-bar-left"
 								alt="Volver atrás"
-								// onClick={handleBack}
+								onClick={handleBack}
 							/>
 						)}
 
@@ -101,9 +103,20 @@ function Navbar() {
 							/>
 						)}
 
+						{/* HOME-LOGIN */}
+						<NavbarItem 
+							icon="bi-house" 
+							alt="Feed personal" 
+							to="/" 
+						/>
+						
 						{/* FEED */}
 						{token && (
-							<NavbarItem icon="bi-house" alt="Feed personal" to="/feed" />
+							<NavbarItem 
+								icon="bi-rss" 
+								alt="Feed personal" 
+								to="/feed" 
+							/>
 						)}
 
 						{/* PERFIL */}

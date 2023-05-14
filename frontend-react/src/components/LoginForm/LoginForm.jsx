@@ -8,6 +8,7 @@ function LoginForm() {
 	const [usernameOrEmail, setUsernameOrEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const navigate = useNavigate();
+	const token = AuthService.getCurrentToken();
 
 	const handleUsernameOrEmailChange = (event) => {
 		setUsernameOrEmail(event.target.value.trim());
@@ -47,6 +48,11 @@ function LoginForm() {
 		setUsernameOrEmail("");
       	setPassword("");
 	};
+
+	if (token) {
+		return null
+	}
+	
 
 	return (
 		<div className="col-md-4 p-0 mx-auto">
@@ -91,7 +97,7 @@ function LoginForm() {
 					</form>
 					<p className="text-center">
 						¿No tienes una cuenta?{" "}
-						<a href="./views/user-register.html">Regístrate aquí</a>.
+						<a href="/register">Regístrate aquí</a>.
 					</p>
 				</div>
 			</div>
