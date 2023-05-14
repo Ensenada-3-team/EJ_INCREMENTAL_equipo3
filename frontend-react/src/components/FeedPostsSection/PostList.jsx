@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import PostElement from "../PostElement/PostElement";
-import PostService from "../../../services/post.service.js";
-import authService from "../../../services/auth.service";
+import PostService from "../../services/post.service.js";
+import authService from "../../services/auth.service";
 import Swal from "sweetalert2";
+import { PostElement }from "./PostElement"; 
 
 function PostList(props) {
 	const user = authService.getCurrentUser();
@@ -41,4 +41,4 @@ function PostList(props) {
 	);
 }
 
-export default PostList;
+export { PostList};

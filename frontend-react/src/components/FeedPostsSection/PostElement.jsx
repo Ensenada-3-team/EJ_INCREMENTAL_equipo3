@@ -102,4 +102,4 @@ function PostElement(props) {
 	);
 }
 
-export default PostElement;
+export { PostElement };

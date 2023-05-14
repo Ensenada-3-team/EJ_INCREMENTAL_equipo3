@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import PostService from "../../../services/post.service.js";
-import UserService from "../../../services/user.service.js";
+import PostService from "../../services/post.service.js";
+import UserService from "../../services/user.service.js";
 
 import Swal from "sweetalert2";
 
