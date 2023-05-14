@@ -1,15 +1,16 @@
 function FriendCard(props) {
+	const { data } = props;
+
 	return (
 		<li
-			className="list-group-item border p-2"
+			className="list-group-item border p-2 sombra rounded"
 			style={{
 				backgroundColor: "rgba(255, 255, 255, 0.644)",
-				boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.5)",
 			}}
 		>
 			<a
 				href={`./tecler-profile.html?user_id=${encodeURIComponent(
-					JSON.stringify(props.user_id)
+					JSON.stringify(data.user_id)
 				)}`}
 				style={{ display: "block" }}
 			>
@@ -17,16 +18,16 @@ function FriendCard(props) {
 					<div className="col-md-5 d-flex justify-content-around">
 						<img
 							className="avatar rounded rounded-circle align-self-center border border-dark"
-							src={props.avatar}
+							src={data.avatar}
 							alt=""
 							id=""
 						/>
 						<div className="mt-3">
 							<h6 className="">
-								{props.username} {props.fistname} @{props.nickname}
+								{data.name} {data.firstname} @{data.nickname}
 							</h6>
-							<h6 style={{ fontWeight: "normal" }}>{props.ocupation}</h6>
-							<p style={{ fontWeight: "normal" }}>Conectado hace 22 horas</p>
+							<h6 style={{ fontWeight: "normal" }}>{data.ocupation}</h6>
+							<p style={{ fontWeight: "normal" }}>Conectado hace { Math.floor(Math.random() * 24) + 1} horas</p>
 						</div>
 					</div>
 
