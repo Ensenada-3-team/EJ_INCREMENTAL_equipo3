@@ -65,7 +65,7 @@ function Navbar() {
 							<h4 className="nav-welcome d-none d-sm-block">
 								{!token ? (
 									<>
-										Explora nuestra comunidad
+										¡¡Echa un vistazo!!
 										
 									</>
 								) : (
@@ -124,7 +124,7 @@ function Navbar() {
 							<NavbarItem
 								icon="bi-person-fill"
 								alt="Mi perfil"
-								href="./index-login.html"
+								to="/profile"
 							/>
 						)}
 

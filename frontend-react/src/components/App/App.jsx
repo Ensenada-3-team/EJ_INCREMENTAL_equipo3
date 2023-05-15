@@ -4,6 +4,7 @@ import Feed from '../../pages/Feed/Feed';
 import Friends from '../../pages/Friends/Friends';
 import Register from '../../pages/Register/Register';
 import PublicFeed from '../../pages/PublicFeed/PublicFeed';
+import Profile from '../../pages/Profile/Profile';
 
 import "./App.css";
 import "./responsive.css";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/friends" element={<Friends />} />
         <Route path="/register" element={<Register />} />
         <Route path="/public" element={<PublicFeed />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </>
   );

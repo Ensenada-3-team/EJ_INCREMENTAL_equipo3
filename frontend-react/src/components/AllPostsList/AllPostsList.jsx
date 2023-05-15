@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { PostElement } from "../FeedPostsSection/PostElement";
+import { SectionCard } from "../FriendsSection/SectionCard";
 import PostService from "../../services/post.service.js";
 import authService from "../../services/auth.service.js";
 import Swal from "sweetalert2";
+
 
 function AllPostsList() {
 	const user = authService.getCurrentUser();
@@ -33,6 +35,7 @@ function AllPostsList() {
 
 	return (
 		<div className="col-md-6 col-lg-7">
+			{!token ? <SectionCard title="Algunas publicaciones recientes..." /> : <SectionCard title="Los teclers han publicado..." /> }
 			<ol id="lista-publicaciones">
 				{ token
 					? posts.map((post) => <PostElement key={post.post_id} data={post} />)
