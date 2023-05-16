@@ -1,10 +1,15 @@
+import { useLocation } from "react-router-dom";
+
 import { Navbar } from "../../components/Navbar/Navbar";
 import InterestsSection  from "../../components/InterestsSection/InterestSection";
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
 
 function Profile() {
-      const selectedUserId = null;
-
+      const location = useLocation();
+      const params = new URLSearchParams(location.search);
+      const friendId = parseInt(params.get("user_id")) || null;
+    
+      console.log(friendId);
       return (
             <>
                   <Navbar />
@@ -14,7 +19,7 @@ function Profile() {
                         
                               <div class="col-md-10 col-lg-10">
                                     <div class="container ">
-                                          <ProfileSection userId={selectedUserId}/>
+                                          <ProfileSection friendId={friendId}/>
                                     </div>
                               </div>
                         </div>

@@ -15,15 +15,15 @@ function ProfileSection(props) {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				// Obtiene el userId que se pasa como prop o utiliza el userId del usuario logueado por defecto
-				const userId = props.userId || user.user_id;
-				// Realiza la petición al backend para obtener los datos del usuario
+				// Obtenemos los datos del usuario logueado por defecto, o bien del usuario logueado.
+				const userId = props.friendId || user.user_id;
+				
 				const userData = await userService.getUserById(userId);
-				console.log(userData)
-				// Actualiza el estado con los datos del perfil del usuario
+				
+				
 				setProfileData(userData);
 			} catch (error) {
-				// Maneja el error de la petición
+				
 				console.error(
 					"Error al obtener los datos del perfil del usuario:",
 					error
@@ -32,7 +32,7 @@ function ProfileSection(props) {
 		};
 
 		fetchData();
-	}, [props.userId, user.user_id]);
+	}, [props.friendId, user.user_id]);
 
 	return (
 		<>

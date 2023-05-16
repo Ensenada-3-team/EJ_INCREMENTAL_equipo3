@@ -1,5 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 function FriendCard(props) {
 	const { data } = props;
+	const navigate = useNavigate();
+
+	const handleClick = () => {
+		navigate(`/profile?user_id=${encodeURIComponent(
+			JSON.stringify(data.user_id)
+		)}`)
+	}
 
 	return (
 		<li
@@ -9,9 +18,7 @@ function FriendCard(props) {
 			}}
 		>
 			<a
-				href={`./tecler-profile.html?user_id=${encodeURIComponent(
-					JSON.stringify(data.user_id)
-				)}`}
+				onClick={handleClick}
 				style={{ display: "block" }}
 			>
 				<div className="row align-items-center">
