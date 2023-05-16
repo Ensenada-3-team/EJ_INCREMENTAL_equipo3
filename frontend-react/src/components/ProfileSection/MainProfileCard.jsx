@@ -7,7 +7,7 @@ function MainProfileCard(props) {
 	return (
 		<>
 			{/* --- CARD IZQUIERDA PERFIL ---*/}
-			<section className="col-md-6 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-3 mb-md-0 card white-card p-0 h-75 ipad-profile">
+			<section className="col-md-6 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-md-0 card white-card p-0 ipad-profile">
 				{/* PORTADA*/}
 				<div id="user-banner">
 					<img
@@ -21,18 +21,17 @@ function MainProfileCard(props) {
 					{/* FOTO + MODIFICAR */}
 					<div
 						className="d-flex justify-content-between"
-						style={{ position: "relative", zIndex: 1, marginTop: -60 }}
+						style={{ position: "relative", marginTop: '-3.5rem' }}
 					>
 						<button className="btn">
 							<img
 								id="imagen-usuario"
-								className="avatar rounded rounded-circle position-relative border border-dark"
+								className="avatar avatar-lg rounded rounded-circle position-relative border border-dark"
 								alt="avatar"
-								style={{ width: "6.25rem", height: "6.25rem" }}
 								src={profileData.avatar}
 							/>
 						</button>
-						<button className="btn">
+						<button className="btn" aria-label="Editar foto de perfil">
 							<i className="bi bi-pencil position-relative"></i>
 						</button>
 					</div>
@@ -44,15 +43,15 @@ function MainProfileCard(props) {
 						<h5 id="user-nickname">({profileData.nickname})</h5>
 					</div>
 					<div>
-						<p id="ocupacion">{profileData.ocupation}</p>
+						<p id="ocupacion" className="mb-0">{profileData.ocupation}</p>
 						<p id="ocupacion">{profileData.grade}</p>
 					</div>
-					<div className="d-flex mt-5">
+					<div className="d-flex">
 						<i className="bi bi-geo-alt"></i>
 						<p id="ubicacion">{profileData.location}</p>
 					</div>
-					<div className="d-flex justify-content-between w-75">
-						<p id="friends-count">20 Teclers conectados</p>
+					<div>
+						<p id="friends-count">20 amigos Teclers </p>
 					</div>
 				</div>
 				{/* FOOTER - BOTONES LINKS */}

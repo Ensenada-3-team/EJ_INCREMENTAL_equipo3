@@ -199,8 +199,8 @@ label {
 	width: 5rem;
 }
 .avatar-lg {
-	height: 6rem;
-	width: 6rem;
+	height: 6.25rem;
+	width: 6.25rem;
 }
 
 .avatar-md {
@@ -344,4 +344,3 @@ footer {
 .navbar-collapse-icons > .nav-link {
 	margin-right: 10px; /* ajusta el valor según tu preferencia */
 }
-

@@ -9,6 +9,7 @@ function NavbarItem(props) {
 					style={{ fontSize: "1.8rem" }}
 					alt={props.alt}
 					onClick={props.onClick}
+					title={props.title}
 				></i>
 			</Link>
 		</li>

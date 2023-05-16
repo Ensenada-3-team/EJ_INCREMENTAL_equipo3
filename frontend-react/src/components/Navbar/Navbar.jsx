@@ -82,6 +82,7 @@ function Navbar() {
 								icon="bi-arrow-bar-left"
 								alt="Volver atrás"
 								onClick={handleBack}
+								title="Atrás"
 							/>
 						)}
 
@@ -91,6 +92,7 @@ function Navbar() {
 							icon="bi-binoculars"
 							alt="Explorar"
 							to="/public"
+							title="Explorar publicaciones"
 						/>
 						
 
@@ -100,14 +102,16 @@ function Navbar() {
 								icon="bi-plus-square"
 								alt="Registrarse"
 								to="/register"
+								title="Registrarse"
 							/>
 						)}
 
 						{/* HOME-LOGIN */}
 						<NavbarItem 
 							icon="bi-house" 
-							alt="Feed personal" 
+							alt="Landing page-login" 
 							to="/" 
+							title="Home-login"
 						/>
 						
 						{/* FEED */}
@@ -116,6 +120,7 @@ function Navbar() {
 								icon="bi-rss" 
 								alt="Feed personal" 
 								to="/feed" 
+								title="Feed personal"
 							/>
 						)}
 
@@ -125,6 +130,7 @@ function Navbar() {
 								icon="bi-person-fill"
 								alt="Mi perfil"
 								to="/profile"
+								title="Tu perfil"
 							/>
 						)}
 
@@ -134,6 +140,7 @@ function Navbar() {
 								icon="bi-people-fill"
 								alt="Comunidad"
 								to="/friends"
+								title="Comunidad"
 							/>
 						)}
 
@@ -143,6 +150,7 @@ function Navbar() {
 								icon="bi-gear"
 								alt="Settings"
 								href="./index-login.html"
+								title="Ajustes de la cuenta"
 							/>
 						)}
 
@@ -152,6 +160,7 @@ function Navbar() {
 								icon="bi-box-arrow-right"
 								alt="Cerrar sesión"
 								onClick={handleLogout}
+								title="Cerrar sesión"
 							/>
 						)}
 					</ul>

@@ -36,7 +36,7 @@ function ProfileSection(props) {
 
 	return (
 		<>
-			<div className="row ipad-container">
+			<div className="row ipad-container d-flex justify-content-center">
 				<MainProfileCard profileData={profileData} />
 				<AboutMeProfileCard profileData={profileData} />
 			</div>
