@@ -1,8 +1,8 @@
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 function MainProfileCard(props) {
-      const { profileData } = props;
-      const navigate = useNavigate();
+	const { profileData } = props;
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -18,33 +18,34 @@ function MainProfileCard(props) {
 				</div>
 				{/* BODY - FOTO + DATOS */}
 				<div className="card-body w-100">
-                              {/* FOTO + MODIFICAR */}
-					<div className="d-flex justify-content-between">
+					{/* FOTO + MODIFICAR */}
+					<div
+						className="d-flex justify-content-between"
+						style={{ position: "relative", zIndex: 1, marginTop: -60 }}
+					>
 						<button className="btn">
 							<img
 								id="imagen-usuario"
 								className="avatar rounded rounded-circle position-relative border border-dark"
 								alt="avatar"
-								style={{ top: "-5rem", width: "6.25rem", height: "6.25rem" }}
-                                                src={profileData.avatar}
+								style={{ width: "6.25rem", height: "6.25rem" }}
+								src={profileData.avatar}
 							/>
-							
 						</button>
 						<button className="btn">
-							<i
-								className="bi bi-pencil position-relative "
-								style={{ top: "-3rem" }}
-							></i>
+							<i className="bi bi-pencil position-relative"></i>
 						</button>
 					</div>
 					{/* DATOS  */}
 					<div>
-						<h2 id="name-firstname">{profileData.name} {profileData.firstname}</h2>
+						<h2 id="name-firstname">
+							{profileData.name} {profileData.firstname}
+						</h2>
 						<h5 id="user-nickname">({profileData.nickname})</h5>
 					</div>
 					<div>
 						<p id="ocupacion">{profileData.ocupation}</p>
-                                    <p id="ocupacion">{profileData.grade}</p>
+						<p id="ocupacion">{profileData.grade}</p>
 					</div>
 					<div className="d-flex mt-5">
 						<i className="bi bi-geo-alt"></i>
@@ -74,6 +75,5 @@ function MainProfileCard(props) {
 		</>
 	);
 }
-
 
 export { MainProfileCard };

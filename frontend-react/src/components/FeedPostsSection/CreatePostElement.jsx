@@ -46,7 +46,7 @@ function CreatePostElement(props) {
 				const userData = await userService.getUserById(user.user.user_id);
 				console.log(userData);
 
-				username.textContent = `@${userData.nickname}`;
+				username.textContent = `${userData.nickname}`;
 				ocupation.textContent = userData.ocupation;
 				loggedUserImage.src = userData.avatar;
 			} catch (error) {
