@@ -3,6 +3,8 @@ import InterestsSection  from "../../components/InterestsSection/InterestSection
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
 
 function Profile() {
+      const selectedUserId = null;
+
       return (
             <>
                   <Navbar />
@@ -12,7 +14,7 @@ function Profile() {
                         
                               <div class="col-md-10 col-lg-10">
                                     <div class="container ">
-                                          <ProfileSection />
+                                          <ProfileSection userId={selectedUserId}/>
                                     </div>
                               </div>
                         </div>

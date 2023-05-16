@@ -18,7 +18,6 @@ export default class UserService {
 	async getUserById(userId) {
 		try {
 			const response = await axios.get(`${API_URL}/user/${userId}`);
-
 			return [response.data][0][0];
 		} catch (error) {
 			console.error(error);
