@@ -8,7 +8,7 @@ function PublicFeed() {
             <>
                   <Navbar />
                   <main className="container">
-                        <div className="row justify-content-around p-0">
+                        <div className="row justify-content-center p-0">
                               <InterestsSection />
 
                               <AllPostsList />

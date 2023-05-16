@@ -34,7 +34,8 @@ function AllPostsList() {
 	}, []);
 
 	return (
-		<div className="col-md-6 col-lg-7">
+		
+		<div className="col-md-6 col-lg-7 ">
 			{!token ? <SectionCard title="Algunas publicaciones recientes..." /> : <SectionCard title="Los teclers han publicado..." /> }
 			<ol id="lista-publicaciones">
 				{ token
