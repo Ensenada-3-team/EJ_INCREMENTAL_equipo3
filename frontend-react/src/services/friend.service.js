@@ -91,7 +91,9 @@ export default class FriendService {
 				},
 				{ headers: authHeader() }
 			);
+                  
 			return response.data;
+
 		} catch (error) {
 			console.error(error);
 			throw new Error("Error al aceptar la solicitud de amistad");

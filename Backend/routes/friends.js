@@ -70,7 +70,7 @@ router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 router.get("/pending-requests/:user_id", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
+			`SELECT users.user_id, friends.friendship_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
                   FROM users
                   JOIN friends ON users.user_id = friends.sender_id
                   WHERE friends.receiver_id = ? AND friends.status = 'pending'`,
