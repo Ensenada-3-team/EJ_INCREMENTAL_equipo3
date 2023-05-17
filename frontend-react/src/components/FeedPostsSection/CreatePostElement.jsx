@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PostService from "../../services/post.service.js";
 import UserService from "../../services/user.service.js";
+import authService from "../../services/auth.service.js";
 
 import Swal from "sweetalert2";
 
@@ -12,7 +13,7 @@ function CreatePostElement(props) {
 		event.preventDefault();
 
 		const textArea = document.querySelector("#mensaje-post");
-		const user = JSON.parse(localStorage.getItem("user"));
+		const user = authService.getCurrentUser()
 
 		try {
 			const data = await postService.createPost(

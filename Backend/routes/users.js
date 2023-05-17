@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 require("dotenv").config();
 const pool = require("../db/connection");
+const moment = require("moment");
 
 //Middlewares
 const { isNumber, isChar } = require("../lib/middlewares");
@@ -9,12 +10,19 @@ const authMiddleware = require("../lib/authMiddleware");
 
 /* ENPOINTS /users/ */
 
-//GET - LISTA DE TODOS LOS USUARIOS MENOS EL QUE CONSULTA  http://localhost:3000/users
+//GET - LISTA DE TODOS LOS USUARIOS   http://localhost:3000/users
 router.get("/", async (req, res) => {
 	try {
-		const results = await pool.query("SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users");
-		res.status(200).json(results[0]);
+		const results = await pool.query(
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login FROM users"
+		);
 
+		allUsersWithLastLogin = results[0].map((result) => ({
+			...result,
+			lastLogin: minutesAgo(result.last_login),
+		}));
+
+		res.status(200).json(allUsersWithLastLogin);
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ message: "Error al buscar los usuarios" });
@@ -26,15 +34,18 @@ router.get("/user/:user_id", isNumber, async (req, res) => {
 	const userId = parseInt(req.params.user_id);
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users WHERE user_id = ?",
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login FROM users WHERE user_id = ?",
 			[userId]
 		);
 		if (results.length === 0) {
 			return res.status(404).json({ mesage: "Usuario no encontrado" });
 		}
 
-		const user = results[0];
-		res.status(200).send(user);
+		userWithLastLogin = results[0].map((result) => ({
+			...result,
+			lastLogin: minutesAgo(result.last_login),
+		}));
+		res.status(200).send(userWithLastLogin);
 	} catch (error) {
 		console.error(error);
 		console.log("SQL error:", error.sql);
@@ -47,13 +58,17 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	const nickname = req.params.nickname;
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users WHERE nickname = ?",
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login FROM users WHERE nickname = ?",
 			[nickname]
 		);
 		if (results.length === 0) {
 			return res.status(404).json({ message: "Usuario no encontrado" });
 		}
-		res.send(results[0]);
+		userWithLastLogin = results[0].map((result) => ({
+			...result,
+			lastLogin: minutesAgo(result.last_login),
+		}));
+		res.status(200).send(userWithLastLogin);
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ message: "Error al buscar usuario" });
@@ -64,13 +79,19 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 router.get("/user/:user_id/friends", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users " +
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login FROM users " +
 				"INNER JOIN friends on friends.user2_id = users.user_id " +
 				"WHERE friends.user1_id = ? and friends.status = 1",
 
 			[req.params.user_id]
 		);
-		res.json(rows);
+
+		//le añado el tiempo de la última vez que se ha iniciado sesión en formato amable
+		const rowsWithTimeAgo = rows.map((row) => ({
+			...row,
+			lastLogin: minutesAgo(row.last_login),
+		}));
+		res.status(200).json(rowsWithTimeAgo);
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ error: "Error al obtener los amigos del usuario" });
@@ -88,7 +109,11 @@ router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 
 			[userId, userId]
 		);
-		res.json(rows);
+		const rowsWithTimeAgo = rows.map((row) => ({
+			...row,
+			lastLogin: minutesAgo(row.last_login),
+		}));
+		res.status(200).json(rowsWithTimeAgo);
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({
@@ -243,5 +268,10 @@ router.delete("/delete/:user_id", authMiddleware, async (req, res) => {
 
 //DELETE- ELIMINAR AMIGO         /:user1_id/friendship/:user2_id
 //UPDATE `friends` SET `status` = '0' WHERE friends.user1_id = '5' AND friends.user2_id = '7';
+
+function minutesAgo(loginDate) {
+	const postTime = moment(loginDate);
+	return postTime.fromNow();
+}
 
 module.exports = router;

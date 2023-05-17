@@ -34,7 +34,7 @@ function FriendCard(props) {
 								{data.name} {data.firstname} @{data.nickname}
 							</h6>
 							<h6 style={{ fontWeight: "normal" }}>{data.ocupation}</h6>
-							<p style={{ fontWeight: "normal" }}>Conectado hace { Math.floor(Math.random() * 24) + 1} horas</p>
+							<p style={{ fontWeight: "normal" }}>{data.lastLogin && (data.lastLogin !== null) ? "Connected " + data.lastLogin : "Conectado hace mucho tiempo"}</p>
 						</div>
 					</div>
 
