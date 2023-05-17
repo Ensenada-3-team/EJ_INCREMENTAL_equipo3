@@ -2,11 +2,11 @@ var express = require("express");
 var router = express.Router();
 require("dotenv").config();
 const pool = require("../db/connection");
-const moment = require("moment");
 
 //Middlewares
 const { isNumber, isChar } = require("../lib/middlewares");
 const authMiddleware = require("../lib/authMiddleware");
+const minutesAgo = require("../lib/minutesAgo");
 
 /* ENPOINTS /users/ */
 
@@ -75,15 +75,18 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	}
 });
 
-// GET - OBTENER USUARIOS SEGUIDOS POR UN USUARIO CON CIERTO USER_ID
+// GET - OBTENER USUARIOS AMIGOS DE UN USUARIO CON CIERTO USER_ID (no usado en react)
 router.get("/user/:user_id/friends", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login FROM users " +
-				"INNER JOIN friends on friends.user2_id = users.user_id " +
-				"WHERE friends.user1_id = ? and friends.status = 1",
+			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
+			FROM users
+			WHERE users.user_id IN (
+			    SELECT receiver_id FROM friends WHERE sender_id = ? AND status = 'accepted'
+			    UNION
+			    SELECT sender_id FROM friends WHERE receiver_id = ? AND status = 'accepted' )`,
 
-			[req.params.user_id]
+			[req.params.user_id, req.params.user_id]
 		);
 
 		//le añado el tiempo de la última vez que se ha iniciado sesión en formato amable
@@ -98,16 +101,20 @@ router.get("/user/:user_id/friends", authMiddleware, async (req, res) => {
 	}
 });
 
-// GET - OBTENER USUARIOS NO SEGUIDOS POR UN USUARIO CON CIERTO USER_ID
+// GET - OBTENER TODOS LOS NO AMIGOS (accepted) DE UN USUARIO 
 router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		const [rows, fields] = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby FROM users " +
-				"WHERE user_id NOT IN (SELECT user2_id FROM friends WHERE user1_id = ?) " +
-				"AND user_id <> ? ",
+			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
+			FROM users
+			WHERE users.user_id IN (
+			    SELECT sender_id FROM friends WHERE receiver_id = ? AND (status != 'accepted' OR status IS NULL)
+			    UNION
+			    SELECT receiver_id FROM friends WHERE sender_id = ? AND (status != 'accepted' OR status IS NULL) 
+			    AND user_id <> ? `,
 
-			[userId, userId]
+			[userId, userId, userId]
 		);
 		const rowsWithTimeAgo = rows.map((row) => ({
 			...row,
@@ -269,9 +276,9 @@ router.delete("/delete/:user_id", authMiddleware, async (req, res) => {
 //DELETE- ELIMINAR AMIGO         /:user1_id/friendship/:user2_id
 //UPDATE `friends` SET `status` = '0' WHERE friends.user1_id = '5' AND friends.user2_id = '7';
 
-function minutesAgo(loginDate) {
-	const postTime = moment(loginDate);
-	return postTime.fromNow();
-}
+// function minutesAgo(loginDate) {
+// 	const postTime = moment(loginDate);
+// 	return postTime.fromNow();
+// }
 
 module.exports = router;

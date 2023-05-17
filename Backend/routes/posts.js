@@ -4,9 +4,9 @@ require("dotenv").config();
 const pool = require("../db/connection");
 
 const coolImages = require("cool-images");
-const moment = require("moment");
 
 const authMiddleware = require("../lib/authMiddleware");
+const minutesAgo = require("../lib/minutesAgo");
 
 /* ENDPOINTS  */
 
@@ -130,13 +130,8 @@ router.post("/new-post/", authMiddleware, async (req, res) => {
 });
 
 //DELETE- BORRAR UN POST POR SU POST_ID            /:post_id
-
 //POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id
 //DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
 
-function minutesAgo(postDate) {
-	const postTime = moment(postDate);
-	return postTime.fromNow();
-}
 
 module.exports = router;

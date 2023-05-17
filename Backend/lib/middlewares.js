@@ -73,6 +73,7 @@ function isChar(req, res, next) {
 }
 
 
+
 module.exports = {
       validarEmail,
       ageNumberValidation,
