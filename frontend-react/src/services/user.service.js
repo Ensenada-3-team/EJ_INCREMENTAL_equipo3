@@ -35,27 +35,6 @@ export default class UserService {
 		}
 	}
 
-	async getUserFriends(userId) {
-		try {
-			const response = await axios.get(`${API_URL}/user/${userId}/friends`, {
-				headers: authHeader(),
-			});
-			return response.data;
-		} catch (error) {
-			console.error(error);
-			throw new Error("Error al obtener los amigos del usuario");
-		}
-	}
-
-	async getUserNonFriends(userId) {
-		try {
-			const response = await axios.get(`${API_URL}/user/${userId}/nonfriends`, {
-				headers: authHeader(),
-			});
-			return response.data;
-		} catch (error) {}
-	}
-
 	async checkUser(userId, nickname, email) {
 		try {
 			const response = await axios.get(`${API_URL}/check/${userId}`, {

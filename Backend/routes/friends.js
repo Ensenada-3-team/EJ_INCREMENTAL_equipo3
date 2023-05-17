@@ -9,8 +9,8 @@ const minutesAgo = require("../lib/minutesAgo");
 
 // ENPOINTS /friends/
 
-// GET - OBTENER LOS AMIGOS DE UN USUARIO CON CIERTO USER_ID
-router.get("/user/:user_id", async (req, res) => {
+// GET - OBTENER LOS AMIGOS DE UN USUARIO
+router.get("/user/:user_id", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
 			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
@@ -37,7 +37,7 @@ router.get("/user/:user_id", async (req, res) => {
 });
 
 // GET - OBTENER TODOS LOS NO AMIGOS (accepted) DE UN USUARIO
-router.get("/user/:user_id/nonfriends", async (req, res) => {
+router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		const [rows, fields] = await pool.query(
@@ -61,13 +61,13 @@ router.get("/user/:user_id/nonfriends", async (req, res) => {
 		console.error(err);
 		res.status(500).json({
 			message:
-				"Error al obtener los datos de los usuarios no seguidos por el usuario",
+				"Error al obtener los datos de los no amigos del usuario",
 		});
 	}
 });
 
 // GET - OBTENER SOLICITUDES DE AMISTAD PENDIENTES DEL USUARIO
-router.get("/pending-requests/:user_id", async (req, res) => {
+router.get("/pending-requests/:user_id", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
 			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
@@ -119,7 +119,7 @@ router.get("/status/:user_id/:other_user_id", async (req, res) => {
 });
 
 // POST - ENVIAR SOLICITUD DE AMISTAD
-router.post("/send-request", async (req, res) => {
+router.post("/send-request", authMiddleware, async (req, res) => {
 	try {
 		const senderId = req.body.sender_id;
 		const receiverId = req.body.receiver_id;
@@ -147,7 +147,7 @@ router.post("/send-request", async (req, res) => {
 });
 
 // PUT - ACEPTAR SOLICITUD DE AMISTAD
-router.put("/accept-request", async (req, res) => {
+router.put("/accept-request", authMiddleware, async (req, res) => {
 	try {
 		const senderId = req.body.sender_id;
 		const receiverId = req.body.receiver_id;

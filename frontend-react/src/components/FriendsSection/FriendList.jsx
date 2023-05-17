@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FriendCard } from "./FriendCard";
 import authService from "../../services/auth.service";
-import UserService from "../../services/user.service";
+import FriendService from "../../services/friend.service";
 import Swal from "sweetalert2";
 
 function FriendList(props) {
@@ -9,11 +9,11 @@ function FriendList(props) {
 	const [friends, setFriends] = useState([]);
 
 	useEffect(() => {
-		const userService = new UserService();
+		const friendService = new FriendService();
 
 		const fetchFriends = async () => {
 			try {
-				const userFriends = await userService.getUserFriends(user.user_id);
+				const userFriends = await friendService.getAllFriends(user.user_id);
 				setFriends(userFriends);
 				console.log(userFriends);
 			} catch (error) {
