@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 			INNER JOIN users ON users.user_id = posts.user_id
 			WHERE posts.user_id  OR posts.user_id 
 			ORDER BY post_date DESC
-		    `,
+		    `
 		);
 
 		// Añadimos a cada post el tiempo atrás de publicación
@@ -35,7 +35,6 @@ router.get("/", async (req, res) => {
 		res.sendStatus(500);
 	}
 });
-
 
 //GET - TRAE LOS POSTS DE UN USUARIO POR SU NICKNAME
 router.get("/private/search/:nickname", authMiddleware, async (req, res) => {
@@ -70,10 +69,14 @@ router.get("/private/:user_id", authMiddleware, async (req, res) => {
 			SELECT posts.*, users.*
 			FROM posts
 			INNER JOIN users ON users.user_id = posts.user_id
-			WHERE posts.user_id = ? OR posts.user_id IN (SELECT user2_id FROM friends WHERE user1_id = ?)
+			WHERE posts.user_id = ? OR posts.user_id IN (
+			SELECT receiver_id FROM friends WHERE sender_id = ? AND status = 'accepted'
+			UNION
+			SELECT sender_id FROM friends WHERE receiver_id = ? AND status = 'accepted'
+			)
 			ORDER BY post_date DESC
 		    `,
-			[user, user]
+			[user, user, user]
 		);
 
 		// Añadimos a cada post el tiempo atrás de publicación
@@ -130,7 +133,6 @@ router.post("/new-post/", authMiddleware, async (req, res) => {
 
 //POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id
 //DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
-
 
 function minutesAgo(postDate) {
 	const postTime = moment(postDate);
