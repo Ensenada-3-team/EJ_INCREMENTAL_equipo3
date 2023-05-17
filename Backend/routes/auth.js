@@ -143,8 +143,13 @@ router.post("/login", async (req, res) => {
 		const user = rows[0];
 		user.password = undefined; // para que en el localStorage no aparezca la contraseña
 
+		await pool.query(
+			"UPDATE users SET last_login = NOW() WHERE user_id = ? ",
+			[user.user_id]
+		);
+
 		res.status(200).json({
-			redirectUrl: "./views/feed.html",
+			redirectUrl: "/feed",
 			user: user,
 			token: jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET),
 		});
