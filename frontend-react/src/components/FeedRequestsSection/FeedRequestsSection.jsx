@@ -19,6 +19,7 @@ function FeedRequestsSection() {
 					user.user_id
 				);
 				setRequests(newRequests);
+				
 			} catch (error) {
 				console.error(error);
 				Swal.fire({

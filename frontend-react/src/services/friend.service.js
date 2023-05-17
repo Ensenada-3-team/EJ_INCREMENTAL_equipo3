@@ -82,6 +82,8 @@ export default class FriendService {
 	}
 
 	async acceptFriendshipRequest(senderId, receiverId) {
+            // el sender es el amigo que ha enviado la solicitud (el usuario que no está logueado) data.user_id
+            // el receiver es el que ha recibido la solicitud (el usuario que está logueado) user.user_id
 		try {
 			const response = await axios.put(
 				`${API_URL}/accept-request`,
@@ -101,6 +103,8 @@ export default class FriendService {
 	}
 
       async rejectFriendshipRequest(senderId, receiverId) {
+            // el sender es el amigo que ha enviado la solicitud (el usuario que no está logueado) data.user_id
+            // el receiver es el que ha recibido la solicitud (el usuario que está logueado) user.user_id
 		try {
 			const response = await axios.put(
 				`${API_URL}/reject-request`,

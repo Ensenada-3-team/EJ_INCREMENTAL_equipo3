@@ -13,6 +13,7 @@ function FriendshipRequestCard(props) {
 		const friendService = new FriendService();
 		try {
 			await friendService.acceptFriendshipRequest(data.user_id, user.user_id);
+			Swal.fire('Amistad aceptada!', '', 'success');
 
 			setAccepted(true);
 		} catch (error) {
@@ -29,6 +30,7 @@ function FriendshipRequestCard(props) {
 		const friendService = new FriendService();
 		try {
 			await friendService.rejectFriendshipRequest(data.user_id, user.user_id);
+			Swal.fire(`No se notificará a ${data.name} de tu decisión...`);
 
 			setRejected(true);
 		} catch (error) {
