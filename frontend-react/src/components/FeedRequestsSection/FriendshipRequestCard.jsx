@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import FriendService from "../../services/friend.service";
 import authService from "../../services/auth.service";
+import { AvatarLink } from "../AvatarLink/AvatarLink";
 import Swal from "sweetalert2";
 
 function FriendshipRequestCard(props) {
@@ -50,12 +51,7 @@ function FriendshipRequestCard(props) {
 	return (
 		<>
 			<div className="mt-3 p-lg-2 p-md-1 rounded sombra bg-friends d-flex">
-				<img
-					className="avatar avatar-sm rounded rounded-circle border border-dark d-block"
-					style={{ maxWidth: "100%" }}
-					src={data.avatar}
-					alt="avatar"
-				/>
+				<AvatarLink userId={data.user_id} avatar={data.avatar} size="avatar-md" />
 				<div className="d-flex flex-column mx-2">
 					<h7 className="fs-md-5 ipad-nickname">{data.name} {data.firstname}</h7>
 					<h7 className="fs-md-5 ipad-nickname">@{data.nickname}</h7>
