@@ -49,15 +49,15 @@ function FriendshipRequestCard(props) {
 
 	return (
 		<>
-			<div className="mt-3 p-lg-2 p-md-1 border border-dark border-1 rounded sombra bg-friends d-flex">
+			<div className="mt-3 p-lg-2 p-md-1 rounded sombra bg-friends d-flex">
 				<img
 					className="avatar avatar-sm rounded rounded-circle border border-dark d-block"
 					style={{ maxWidth: "100%" }}
 					src={data.avatar}
 					alt="avatar"
 				/>
-				<div className="d-flex flex-column mx-auto">
-					<h7 className="fs-md-5 ipad-nickname">{data.name}</h7>
+				<div className="d-flex flex-column mx-2">
+					<h7 className="fs-md-5 ipad-nickname">{data.name} {data.firstname}</h7>
 					<h7 className="fs-md-5 ipad-nickname">@{data.nickname}</h7>
 				</div>
 			</div>
@@ -67,14 +67,14 @@ function FriendshipRequestCard(props) {
 					type="button"
 					onClick={handleAccept}
 				>
-					<i className="bi bi-plus-lg" style={{ fontSize: "1rem" }}></i>
+					<i className="bi bi-plus-lg"></i>
 				</button>
 				<button
 					className="btn btn-sm btn-dark sombra"
 					type="button"
 					onClick={handleReject}
 				>
-					<i className="bi bi-dash-lg" style={{ fontSize: "1rem" }}></i>
+					<i className="bi bi-dash-lg"></i>
 				</button>
 			</div>
 		</>
