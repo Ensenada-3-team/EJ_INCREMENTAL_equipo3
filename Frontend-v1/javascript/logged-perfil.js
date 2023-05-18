@@ -1,5 +1,5 @@
 /*
-Carga los datos del Tecler del USUARIO LOGUEADO en user-logged-profile.html
+Carga los datos del Tecler del USUARIO LOGUEADO en user-profile.html
 
 */
 

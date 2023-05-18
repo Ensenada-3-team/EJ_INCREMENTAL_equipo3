@@ -1,5 +1,5 @@
 /*
-Carga los datos del Tecler del cual quieres ver su perfil en user-profile.html
+Carga los datos del Tecler del cual quieres ver su perfil en tecler-profile.html
 
 */
 
@@ -12,6 +12,8 @@ let userBio = document.getElementById('acerca-de')
 let userEmail = document.getElementById('email')
 let bioNick = document.getElementById('nickname')
 
+const token = JSON.parse(localStorage.getItem("token"))
+
 
 //FUNCIÓN QUE COGE DE LA URL EL PARÁMETRO QUE ENVIAMOS CON LA ID DEL USUARIO DEL CUAL SE CLICÓ LA TARJETA DE AMIGO
 //USA SU ID PARA COGER DE LA BD LOS DATOS DEL USUARIO Y PINTARLOS EN SU PERFIL
@@ -21,7 +23,13 @@ async function getLinkedlinkedUserData() {
             const userId = JSON.parse(decodeURIComponent(params.get('user_id')));
             console.log(typeof userId, userId)
 
-            const response = await fetch(`http://localhost:3000/users/user/${userId}`)
+            const response = await fetch(`http://localhost:3000/users/user/${userId}`, {
+                  method: "GET",
+                  headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${token}`,
+			},
+            })
             const linkedUserData = await response.json()
             console.log(linkedUserData)
             

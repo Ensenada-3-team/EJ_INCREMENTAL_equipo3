@@ -1,20 +1,21 @@
 const form = document.querySelector("#form-publicacion");
 const publicacionesDOM = document.getElementById("lista-publicaciones");
+const token = JSON.parse(localStorage.getItem("token"))
 
-function createPostDOM(name, firstname, nickname, userAvatar, data) {
+function createPostDOM(data) {
 	return `
     <li class="card border p-4">
         <div class="container">
             <div class="row d-flex">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div>
-                        <img class="avatar rounded rounded-circle align-self-start border border-dark" src="${userAvatar}" alt="foto de autor x">
-                        <h4 class="mt-3">${name} ${firstname}  </h4>
+                        <img class="avatar rounded rounded-circle align-self-start border border-dark ipad-avatar" src="${data.avatar}" alt="foto de autor x">
+                        <h4 class="mt-3 p-0 post-name-firstname">${data.name} ${data.firstname}</h4>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <div class="border border-dark sombra rounded p-4 bg-post">
-                        <h5 class="fw-bold d-flex justify-content-between"><p>@${nickname}</p> <p style='font-weigt: normal; font-size: small'>${new Date(data.post_date).toLocaleString()}</p></h5>
+                    <div class="border border-dark sombra rounded p-4 p-md-2 bg-post">
+                        <h5 class="fw-bold d-flex justify-content-between post-nick-date"><p>@${data.nickname}</p> <p style='font-weigt: normal; font-size: small'>${data.timeAgo}</p></h5>
                         <p>${data.text}</p>
                     </div>
                     <img class='img-fluid rounded sombra mt-2' src='${data.image}'>
@@ -44,6 +45,7 @@ function createPostDOM(name, firstname, nickname, userAvatar, data) {
 `;
 }
 
+//EVENT LISTENER DEL FORMULARIO (TEXTAREA) QUE CREA UN POST
 form.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
@@ -56,6 +58,7 @@ form.addEventListener("submit", async (event) => {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
+			'Authorization': `Bearer ${token}`
 		},
 		body: JSON.stringify({
 			text: textArea.value,
@@ -65,28 +68,22 @@ form.addEventListener("submit", async (event) => {
 
 	const data = await response.json();
 	console.log(data);
+	
+
+	//LOCALSTORAGE_______________________________________________________
 	// Obtenemos los posts del usuario del LocalStorage o inicializamos un array vacío si no hay ninguno
 	let userPosts = JSON.parse(localStorage.getItem("userData")).posts || [];
 	console.log(userPosts);
 	// Agregamos el nuevo post al array de posts del usuario
 	userPosts.push(data);
-	// Guardamos los posts del usuario actualizados en el LocalStorage
+	// Guardamos los posts del usuario actualizados en el LocalStorage (se guarda una copia)
 	localStorage.setItem(
 		"userData",
 		JSON.stringify({ ...user, posts: userPosts })
 	);
+	//________________________________________________________________
 
-	//se crea el post
-	 const nuevoPost = createPostDOM(
-		user.name,
-		user.firstname,
-		user.nickname,
-		user.avatar,
-		data
-	);
-
-	// Agregamos el nuevo post al DOM
-	publicacionesDOM.insertAdjacentHTML("afterbegin", nuevoPost);
+	loadSavedPosts()
 
 	// Limpiamos el campo de texto del mensaje
 	document.querySelector("#mensaje-post").value = "";
@@ -96,17 +93,20 @@ form.addEventListener("submit", async (event) => {
 async function loadSavedPosts() {
 	try {
 		const user = JSON.parse(localStorage.getItem("userData"));
-		const response = await fetch(`http://localhost:3000/posts/private/${user.user_id}`);
+		const response = await fetch(`http://localhost:3000/posts/private/${user.user_id}`, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${token}`,
+			},
+		});
+
 		const userFriendsPosts = await response.json();
-		console.log(userFriendsPosts[0])
+		console.log(userFriendsPosts)
 
 
-		userFriendsPosts[0].forEach((data)=> {
+		userFriendsPosts.forEach((data)=> {
 			const nuevoPost = createPostDOM(
-				data.name,
-				data.firstname,
-				data.nickname,
-				data.avatar,
 				data
 			);
 			publicacionesDOM.insertAdjacentHTML("afterbegin", nuevoPost);

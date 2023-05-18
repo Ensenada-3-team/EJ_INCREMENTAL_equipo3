@@ -2,16 +2,16 @@ const posibleFriendsDOM = document.getElementById("posible-friends");
 
 function createPosibleFriendCard(userAvatar, userNickname) {
 	return `
-      <div class="mt-3 p-lg-3 p-md-2 border border-dark border-0 rounded sombra bg-friends">
-            <h6 class="fs-6 fs-md-8 text-center">@${userNickname}</h6>
+      <div class="mt-3 p-lg-2 p-md-1 border border-dark border-1 rounded sombra bg-friends d-flex ">
             <img
-                  class="avatar rounded rounded-circle border border-dark mx-auto d-block"
+                  class="avatar avatar-sm rounded rounded-circle border border-dark  d-block"
                   style="max-width: 100%"
                   src=${userAvatar}
                   alt="avatar"
             />
+            <h7 class="fs-md-5 mt-2 ipad-nickname">@${userNickname}</h7>
       </div>
-      <div class="d-flex justify-content-around w-100 mt-3">
+      <div class="d-flex justify-content-around w-100 mt-2">
             <button class="btn btn-sm btn-dark sombra" type="button">
                   <i class="bi bi-plus-lg" style="font-size: 1rem"></i>
             </button>
@@ -25,13 +25,17 @@ function createPosibleFriendCard(userAvatar, userNickname) {
 
 async function getPosibleFriends() {
 
-      const userData = localStorage.getItem('userData')
-      const userId = userData.user_id
-
+      const user = JSON.parse(localStorage.getItem("userData"));
       try {
-            const response = await fetch(`http://localhost:3000/users/nonfriends/${userId}`)
+            const response = await fetch(`http://127.0.0.1:3000/users/user/${user.user_id}/nonfriends`, {
+                  method: "GET",
+                  headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${token}`,
+			},
+            })
             const nonFriends = await response.json()
-            console.log('nonfriends' , nonFriends)
+            console.log('nonfriends', nonFriends)
 
             if (!Array.isArray(nonFriends)) {
                   console.error('Error: La respuesta no es un array de objetos.')
