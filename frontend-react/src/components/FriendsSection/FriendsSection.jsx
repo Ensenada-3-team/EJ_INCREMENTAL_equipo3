@@ -11,23 +11,28 @@ function FriendsSection() {
 				<div className="container">
 					{/* ROW 1: ENCABEZADO */}
 					<SectionCard
-						title="Esta es tu comunidad de Teclers"
-						background="bg-dark"
-						textColor="text-light"
-						fontWeigth="fw-normal"
+						title="Teclers con los que has conectado"
+						background="bg-transparent"
+						textColor="text-dark"
+						fontWeigth="fw-bold"
 					/>
 					{/* ROW 2: AMIGOS */}
 					<div className="container-fluid">
 						<FriendList />
 					</div>
 
-					<SectionCard title="Solicitudes de amistad" background="post-card" display="d-block d-md-none"/>
-					<div className="container-fluid d-block d-md-none">
-						
-					</div>
+					<SectionCard
+						title="Solicitudes de amistad"
+						background="post-card"
+						display="d-block d-md-none"
+					/>
+					<div className="container-fluid d-block d-md-none"></div>
 
 					{/* ROW 3: COMUNIDAD COMPLETA */}
-					<SectionCard title="Explora a todos los miembros de la comunidad" background="post-card" />
+					<SectionCard
+						title="Explora a todos los Teclers"
+						background="post-card"
+					/>
 					<div className="container-fluid">
 						<ComunityList />
 					</div>
