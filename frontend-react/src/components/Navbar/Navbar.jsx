@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { NavbarItem } from "./NavbarItem";
 import Swal from "sweetalert2";
 
 function Navbar() {
-	const location = useLocation();
+	// const location = useLocation();
 	const navigate = useNavigate();
 
 	const user = authService.getCurrentUser()
