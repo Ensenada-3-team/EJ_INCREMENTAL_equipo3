@@ -1,5 +1,6 @@
 import { useState } from "react";
 import authService from "../../services/auth.service";
+import { AvatarLink } from "../AvatarLink/AvatarLink";
 
 function PostElement(props) {
 	const { data } = props;
@@ -32,11 +33,7 @@ function PostElement(props) {
 				<div className="row d-flex">
 					<div className="col-lg-4 col-md-4 col-sm-12">
 						<div>
-							<img
-								className="avatar rounded rounded-circle align-self-start border border-dark ipad-avatar"
-								src={data.avatar}
-								alt="foto de autor x"
-							/>
+						<AvatarLink userId={data.user_id} avatar={data.avatar} size="avatar-lg" />
 							<h4 className="mt-3 p-0 post-name-firstname">
 								{data.name} {data.firstname}
 							</h4>

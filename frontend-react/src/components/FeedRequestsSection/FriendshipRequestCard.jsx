@@ -17,6 +17,7 @@ function FriendshipRequestCard(props) {
 			Swal.fire('Amistad aceptada!', '', 'success');
 
 			setAccepted(true);
+			props.onAction()
 		} catch (error) {
 			console.error(error);
 			Swal.fire({
@@ -34,6 +35,7 @@ function FriendshipRequestCard(props) {
 			Swal.fire(`No se notificará a ${data.name} de tu decisión...`);
 
 			setRejected(true);
+			props.onAction()
 		} catch (error) {
 			console.error(error);
 			Swal.fire({

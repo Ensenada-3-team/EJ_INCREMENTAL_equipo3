@@ -34,7 +34,7 @@ function AllPostsList() {
 	return (
 		
 		<div className="col-md-6 col-lg-7 mx-auto">
-			{!token ? <SectionCard title="Algunas publicaciones recientes..." /> : <SectionCard title="Los teclers han publicado..." /> }
+			{!token ? <SectionCard title="Esto es parte de lo que vas a encontrar en nuestra comunidad..." /> : <SectionCard title="Los teclers han publicado..." /> }
 			<ol id="lista-publicaciones">
 				{ token
 					? posts.map((post) => <PostElement key={post.post_id} data={post} />)
