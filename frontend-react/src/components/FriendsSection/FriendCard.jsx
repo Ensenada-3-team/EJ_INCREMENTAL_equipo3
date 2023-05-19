@@ -41,43 +41,36 @@ function FriendCard(props) {
 						</p>
 					</div>
 				</div>
-				
+
 				{/* BOTONES DE ACCIÓN EN FUNCIÓN DE FRIENSHIPSTATE */}
 				<div className="col-md-7">
 					<div className="d-flex justify-content-end m-3">
+
+						{/* EL PROPIO USUARIO*/}
 						{user.user_id === data.user_id && null}
 
+						{/* NO HAY RELACION DE AMISTAD */}
 						{friendShipState === null && user.user_id !== data.user_id && (
-							<button onClick={handleAddFriend} className="btn btn-dark sombra">
-								<i class="bi bi-person-plus"></i>
+							<button onClick={handleAddFriend} className="btn " title="Añadir amigo">
+								<i class="bi bi-person-plus fs-4"></i>
 							</button>
 						)}
+
+						{/* PENDIENTE SOLICITUD ENVIADA POR EL USUARIO */}
 						{friendShipState === "pending" && user.user_id === senderId && (
+							<>
+							<i class="bi bi-hourglass fs-4 mt-2"></i>
 							<button
 								onClick={handleCancelRequest}
-								className="btn btn-sm btn-secondary sombra"
+								className="btn"
+								title="Cancela la solicitud de amistad"
 							>
-								Cancelar solicitud
+								<i class="bi bi-x-lg fs-4"></i>
 							</button>
-						)}
-						{friendShipState === "accepted" && (
-							<>
-								<button className="btn fs-5">
-									<i class="bi bi-chat-text"></i>
-								</button>
-								<button className="btn fs-5">
-									<i
-										class="bi bi-person-dash-fill"
-										onClick={handleRemoveFriend}
-									></i>
-								</button>
 							</>
 						)}
-						{friendShipState === "rejected" && (
-							<button onClick={handleAddFriend} className="btn btn-dark sombra">
-								<i class="bi bi-person-plus"></i>
-							</button>
-						)}
+
+						{/* PENDIENTE SOLICITUD RECIBIDA POR EL USUARIO */}
 						{friendShipState === "pending" && user.user_id !== senderId && (
 							<>
 								<button
@@ -92,10 +85,34 @@ function FriendCard(props) {
 									type="button"
 									onClick={handleReject}
 								>
-									<i className="bi bi-dash-lg"></i>
+									<i className="bi bi-dash-lg "></i>
 								</button>
 							</>
 						)}
+
+						{/* AMIGOS ACEPTADOS */}
+						{friendShipState === "accepted" && (
+							<>
+								<button className="btn" title="Escribir mensaje">
+									<i class="bi bi-chat-text fs-4"></i>
+								</button>
+								<button className="btn" title="Eliminar amigo">
+									<i
+										class="bi bi-person-dash-fill fs-4"
+										onClick={handleRemoveFriend}
+									></i>
+								</button>
+							</>
+						)}
+
+						{/* AMIGOS RECHAZADOS - SOLICITAR AMISTAD DE NUEVO */}
+						{friendShipState === "rejected" && (
+							<button onClick={handleAddFriend} className="btn " title="Añadir amigo">
+								<i class="bi bi-person-plus fs-4"></i>
+							</button>
+						)}
+
+						
 					</div>
 				</div>
 			</div>

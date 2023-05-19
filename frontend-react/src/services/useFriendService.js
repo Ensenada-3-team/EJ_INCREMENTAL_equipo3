@@ -33,6 +33,7 @@ export const useFriendService = (userId) => {
 
 		try {
 			await friendService.sendFriendshipRequest(user.user_id, userId);
+			setSenderId(user.user_id);
 			setFriendshipState("pending");
 		} catch (error) {
 			console.error(error);
@@ -55,6 +56,13 @@ export const useFriendService = (userId) => {
 
 		try {
 			await friendService.acceptFriendshipRequest(userId, user.user_id);
+                  Swal.fire({
+				position: "center",
+				icon: "success",
+				title: `Felicidades!!\nHabéis conectado!!`,
+				showConfirmButton: false,
+				timer: 1500,
+			});
 			setFriendshipState("accepted");
 		} catch (error) {
 			console.error(error);
