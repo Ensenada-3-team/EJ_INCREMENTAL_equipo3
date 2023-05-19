@@ -54,13 +54,11 @@ export default class FriendService {
 					headers: authHeader(),
 				}
 			);
-			console.log(response.data)
+			console.log(response.data);
 			return response.data;
 		} catch (error) {
 			console.error(error);
-			throw new Error(
-				"Error al obtener el estado de amistad de los usuarios"
-			);
+			throw new Error("Error al obtener el estado de amistad de los usuarios");
 		}
 	}
 
@@ -81,9 +79,25 @@ export default class FriendService {
 		}
 	}
 
+	async cancelFriendshipRequest(userId, friendId) {
+		try {
+			const response = await axios.delete(`${API_URL}/cancel-request`, {
+				data: {
+					sender_id: userId,
+					receiver_id: friendId,
+				},
+				headers: authHeader(),
+			});
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al cancelar la solicitud de amistad");
+		}
+	}
+
 	async acceptFriendshipRequest(senderId, receiverId) {
-            // el sender es el amigo que ha enviado la solicitud (el usuario que no está logueado) data.user_id
-            // el receiver es el que ha recibido la solicitud (el usuario que está logueado) user.user_id
+		// el sender es el amigo que ha enviado la solicitud (el usuario que no está logueado) data.user_id
+		// el receiver es el que ha recibido la solicitud (el usuario que está logueado) user.user_id
 		try {
 			const response = await axios.put(
 				`${API_URL}/accept-request`,
@@ -93,18 +107,17 @@ export default class FriendService {
 				},
 				{ headers: authHeader() }
 			);
-                  
-			return response.data;
 
+			return response.data;
 		} catch (error) {
 			console.error(error);
 			throw new Error("Error al aceptar la solicitud de amistad");
 		}
 	}
 
-      async rejectFriendshipRequest(senderId, receiverId) {
-            // el sender es el amigo que ha enviado la solicitud (el usuario que no está logueado) data.user_id
-            // el receiver es el que ha recibido la solicitud (el usuario que está logueado) user.user_id
+	async rejectFriendshipRequest(senderId, receiverId) {
+		// el sender es el amigo que ha enviado la solicitud (el usuario que no está logueado) data.user_id
+		// el receiver es el que ha recibido la solicitud (el usuario que está logueado) user.user_id
 		try {
 			const response = await axios.put(
 				`${API_URL}/reject-request`,
@@ -121,22 +134,25 @@ export default class FriendService {
 		}
 	}
 
-      async deleteFriendship(userId, friendId) {
+	/*
+	Peculiaridad específica de las solicitudes DELETE en Axios. 
+	En las solicitudes DELETE, los datos deben ser enviados como parte 
+	de la configuración en el atributo data. En otras peticiones, van
+	en el segundo argumento.
+	*/ 
+	async deleteFriendship(userId, friendId) {
 		try {
-			const response = await axios.put(
-				`${API_URL}/reject-request`,
-				{
+			const response = await axios.delete(`${API_URL}/delete`, {
+				data: {
 					user_id: userId,
 					friend_id: friendId,
 				},
-				{ headers: authHeader() }
-			);
+				headers: authHeader(),
+			});
 			return response.data;
 		} catch (error) {
 			console.error(error);
 			throw new Error("Error al eliminar la amistad");
 		}
 	}
-
-
 }

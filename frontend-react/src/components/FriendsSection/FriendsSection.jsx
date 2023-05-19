@@ -4,6 +4,8 @@ import { ComunityList } from "./ComunityList";
 import FeedRequestsSection from "../FeedRequestsSection/FeedRequestsSection";
 
 function FriendsSection() {
+
+	
 	return (
 		<>
 			<div className="col-md-6 col-lg-7">

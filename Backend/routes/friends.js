@@ -60,8 +60,7 @@ router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({
-			message:
-				"Error al obtener los datos de los no amigos del usuario",
+			message: "Error al obtener los datos de los no amigos del usuario",
 		});
 	}
 });
@@ -101,13 +100,15 @@ router.get("/status/:user_id/:other_user_id", async (req, res) => {
 
 		// Consultamos el estado de la amistad en la tabla de amigos
 		const [rows, fields] = await pool.query(
-			"SELECT status FROM friends WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)",
+			"SELECT status, sender_id FROM friends WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)",
 			[userId, otherUserId, otherUserId, userId]
 		);
 
 		// Si se encontró una amistad, devolvemos el estado
 		if (rows.length > 0) {
-			res.status(200).json({ status: rows[0].status });
+			res
+				.status(200)
+				.json({ status: rows[0].status, sender_id: rows[0].sender_id });
 		} else {
 			// Si no se encontró una amistad, devolvemos null
 			res.status(200).json({ status: null });
@@ -146,6 +147,36 @@ router.post("/send-request", authMiddleware, async (req, res) => {
 	}
 });
 
+// DELETE - CANCELAR SOLICITUD DE AMISTAD
+router.delete("/cancel-request", authMiddleware, async (req, res) => {
+	try {
+		const senderId = req.body.sender_id;
+		const receiverId = req.body.receiver_id;
+
+		
+		const [result, fields] = await pool.query(
+			`DELETE FROM friends WHERE sender_id = ? AND receiver_id = ? AND status = 'pending'`,
+			[senderId, receiverId]
+		);
+
+		console.log(result.affectedRows)
+		if (result.affectedRows > 0) {
+			res
+				.status(200)
+				.json({ message: "Solicitud de amistad cancelada correctamente" });
+		} else {
+			res
+				.status(500)
+				.json({ error: "Error al cancelar la solicitud de amistad" });
+		}
+	} catch (err) {
+		console.error(err);
+		res
+			.status(500)
+			.json({ error: "Error al cancelar la solicitud de amistad" });
+	}
+});
+
 // PUT - ACEPTAR SOLICITUD DE AMISTAD
 router.put("/accept-request", authMiddleware, async (req, res) => {
 	try {
@@ -178,7 +209,7 @@ router.put("/accept-request", authMiddleware, async (req, res) => {
 });
 
 // PUT - RECHAZAR SOLICITUD DE AMISTAD
-router.put("/reject-request", async (req, res) => {
+router.put("/reject-request", authMiddleware, async (req, res) => {
 	try {
 		const senderId = req.body.sender_id;
 		const receiverId = req.body.receiver_id;
@@ -211,7 +242,7 @@ router.put("/reject-request", async (req, res) => {
 });
 
 // DELETE - ELIMINAR UN AMIGO
-router.delete("/delete", async (req, res) => {
+router.delete("/delete", authMiddleware, async (req, res) => {
 	try {
 		const userId = req.body.user_id;
 		const friendId = req.body.friend_id;
