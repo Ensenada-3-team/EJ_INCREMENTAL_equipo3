@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import InputField from "../InputField/InputField";
 import UserService from "../../services//user.service";
 import authService from "../../services/auth.service";
@@ -17,18 +17,13 @@ function ModifyUserData() {
 
 	const userService = new UserService();
 	const user = authService.getCurrentUser();
-	const title = "Puedes modificar los datos que necesites,\nal acabar, te redirigiremos al login por seguridad.";
+	const title =
+		"Puedes modificar los datos que necesites,\nal acabar, te redirigiremos al login por seguridad.";
 
 	const onSubmit = async (data) => {
 		try {
-			
 			if (data.nickname !== user.nickname || data.email !== user.email) {
-				const response = await userService.checkUser(
-					user.user_id,
-					data.nickname,
-					data.email
-				);
-
+				await userService.checkUser(user.user_id, data.nickname, data.email);
 			}
 
 			const updatedUser = await userService.updateUser(user.user_id, data);
@@ -37,11 +32,11 @@ function ModifyUserData() {
 				Swal.fire({
 					position: "top-end",
 					icon: "success",
-					title:`${updatedUser.message}! te redirigiremos al login por seguridad.`,
+					title: `${updatedUser.message}! te redirigiremos al login por seguridad.`,
 					showConfirmButton: false,
 					timer: 2000,
 				});
-				authService.logout()
+				authService.logout();
 				navigate("/");
 			} else {
 				alert(
@@ -52,18 +47,20 @@ function ModifyUserData() {
 			reset();
 		} catch (error) {
 			Swal.fire({
-				icon: 'error',
+				icon: "error",
 				title: `Oops...${error.message}`,
 				text: "Tus datos no han podido modificarse,\npor favor inténtalo nuevamente.",
 				// footer: '<a href="">Why do I have this issue?</a>'
-			})
+			});
 			return;
 		}
 	};
 
 	return (
 		<>
-			<h2 className="text-center" title={title}><i className="bi bi-person-lines-fill"></i> Edita tus datos</h2>
+			<h2 className="text-center" title={title}>
+				<i className="bi bi-person-lines-fill"></i> Edita tus datos
+			</h2>
 			<form onSubmit={handleSubmit(onSubmit)} id="modify-user-data">
 				<Controller
 					name="name"
@@ -173,10 +170,17 @@ function ModifyUserData() {
 							placeholder="ejemplo@mail.com"
 							required={false}
 							{...field}
-							register={register}
+							register={register("email", {
+								pattern: {
+								  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+								  message: "Email inválido",
+								},
+							    })}
 						/>
 					)}
 				/>
+				{errors.email && <p className="text-danger">{errors.email.message}</p>}
+				
 				<Controller
 					name="ocupation"
 					control={control}

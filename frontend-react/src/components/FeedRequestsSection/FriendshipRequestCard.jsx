@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FriendService from "../../services/friend.service";
 import authService from "../../services/auth.service";
 import { AvatarLink } from "../AvatarLink/AvatarLink";

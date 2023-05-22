@@ -12,7 +12,7 @@ function InterestsSection() {
 					<div className="col card w-100 text-center">
 						<h4 className="d-lg-block d-md-none card-header">Intereses</h4>
 						<div>
-							<a href="../views/public.html">
+							<a href="/public">
 								<i
 									className="bi bi-newspaper"
 									style={{ fontSize: "1.5rem", transform: "scale(2)" }}
@@ -23,23 +23,23 @@ function InterestsSection() {
 							<h6 className="d-lg-block d-md-none">Reciente</h6>
 						</div>
 						<div>
-							<a href="" target="">
+							<a href="/public" target="">
 								<i
 									className="bi bi-chat-dots"
 									style={{ fontSize: "1.5rem", transform: "scale(2)" }}
 									id="icono"
-									alt="aleatorio"
+									alt="mensajes"
 								></i>
 							</a>
 							<h6 className="d-lg-block d-md-none">Mensajes</h6>
 						</div>
 						<div>
-							<a href="" target="">
+							<a href="/public" target="">
 								<i
 									className="bi bi-search"
 									style={{ fontSize: "1.5rem", transform: "scale(2)" }}
 									id="icono"
-									alt="New"
+									alt="lo mas reciente"
 								></i>
 							</a>
 							<h6 className="d-lg-block d-md-none">Empleo</h6>
@@ -50,17 +50,17 @@ function InterestsSection() {
 					<div className="col card w-100">
 						<h4 className="d-lg-block d-md-none card-header">Cuenta</h4>
 						<div>
-							<a href="../views/user-profile.html">
+							<a href="/profile">
 								<i
 									className="bi bi-person"
 									style={{ fontSize: "1.5rem", transform: "scale(2)" }}
 									id="icono"
-									alt="guardados"
+									alt="perfil"
 								></i>
 							</a>
 						</div>
 						<div>
-							<a href="../views/config-account.html">
+							<a href="/settings">
 								<i
 									className="bi bi-gear"
 									style={{ fontSize: "1.5rem", transform: "scale(2)" }}

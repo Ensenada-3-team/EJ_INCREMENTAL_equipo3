@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import AuthService from "../../services/auth.service.js";
 import Swal from "sweetalert2";

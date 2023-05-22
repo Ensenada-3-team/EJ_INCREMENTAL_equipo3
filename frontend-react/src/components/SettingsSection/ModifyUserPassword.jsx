@@ -1,7 +1,6 @@
-import { useForm, Controller, register } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import InputField from "../InputField/InputField";
-import UserService from "../../services//user.service";
 import authService from "../../services/auth.service";
 import Swal from "sweetalert2";
 
@@ -15,10 +14,12 @@ function ModifyUserPassword() {
 	} = useForm({});
 	const navigate = useNavigate();
 
-	const userService = new UserService();
 	const user = authService.getCurrentUser();
 	const title =
 		"Recuerda que tu contraseña ha de tener:\nMin. 8 caracteres\nAl menos una minuscula\nAl menos una mayuscula\nAl menos un número\nAl menos un caracter especial";
+
+	const passwordValidation =
+		/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
 
 	const onSubmit = async (data) => {
 		try {
@@ -27,11 +28,11 @@ function ModifyUserPassword() {
 
 			if (!passwordsMatch) {
 				Swal.fire({
-					icon: 'error',
-					title: 'Oops...',
-					text: 'Las contraseñas no coinciden!',
+					icon: "error",
+					title: "Oops...",
+					text: "Las contraseñas no coinciden!",
 					// footer: '<a href="">Why do I have this issue?</a>'
-				})
+				});
 				return;
 			} else {
 				const updatePassword = await authService.changePassword(
@@ -41,7 +42,7 @@ function ModifyUserPassword() {
 				);
 
 				if (updatePassword === 200) {
-					Swal.fire({
+					await Swal.fire({
 						position: "top-end",
 						icon: "success",
 						title:
@@ -49,6 +50,7 @@ function ModifyUserPassword() {
 						showConfirmButton: false,
 						timer: 1500,
 					});
+					reset();
 					authService.logout();
 					navigate("/");
 				}
@@ -56,11 +58,12 @@ function ModifyUserPassword() {
 		} catch (error) {
 			console.error(error);
 			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
+				icon: "error",
+				title: "Oops...",
 				text: `${error.message}`,
 				// footer: '<a href="">Why do I have this issue?</a>'
-			    })
+			});
+			reset();
 		}
 	};
 
@@ -98,10 +101,20 @@ function ModifyUserPassword() {
 							placeholder="Ingresa tu nueva contraseña"
 							required={true}
 							{...field}
-							register={register}
+							register={register("newPassword", {
+								pattern: {
+									value: passwordValidation,
+									message:
+										"La contraseña debe tener mínimo 8 caracteres, una letra mayúscula, una letra minúscula, un carácter especial y un número.",
+								},
+							})}
 						/>
 					)}
 				/>
+				{errors.newPassword && (
+					<p className="text-danger">{errors.newPassword.message}</p>
+				)}
+
 				<Controller
 					name="confirmNewPassword"
 					control={control}

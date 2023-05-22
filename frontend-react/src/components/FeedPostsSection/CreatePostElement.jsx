@@ -16,7 +16,7 @@ function CreatePostElement(props) {
 		const user = authService.getCurrentUser()
 
 		try {
-			const data = await postService.createPost(
+			await postService.createPost(
 				textArea.value,
 				user.user_id
 			);

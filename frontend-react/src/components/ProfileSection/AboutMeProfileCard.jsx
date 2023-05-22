@@ -31,7 +31,7 @@ function AboutMeProfileCard(props) {
 				<div className="d-flex justify-content-around w-100">
 					<div>
 						<i className="bi bi-file-person"></i>
-						<a id="link-hoja-de-vida" to="/">
+						<a id="link-hoja-de-vida" to="/" href="/">
 							{" "}
 							Más info
 						</a>

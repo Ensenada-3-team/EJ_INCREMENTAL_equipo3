@@ -35,11 +35,20 @@ function AvatarLink(props) {
 
 	return (
 		<>
-			<a
+			<button
 				onClick={handleClick}
 				className="d-block m-2 mt-3"
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
+				style={{
+					background: "none",
+					border: "none",
+					padding: 0,
+					cursor: "pointer",
+					textDecoration: "none",
+					color: "inherit",
+					outline: "none",
+				}}
 			>
 				<img
 					className={`avatar ${size} rounded rounded-circle align-self-center border border-dark`}
@@ -48,7 +57,7 @@ function AvatarLink(props) {
 					alt="Avatar link al perfil"
 					id=""
 				/>
-			</a>
+			</button>
 		</>
 	);
 }

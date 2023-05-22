@@ -53,7 +53,7 @@ function PostElement(props) {
 							<img
 								className="img-fluid rounded sombra mt-2"
 								src={data.image}
-								alt="post image"
+								alt="landscape"
 							/>
 						)}
 					</div>

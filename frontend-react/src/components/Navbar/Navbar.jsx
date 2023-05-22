@@ -1,5 +1,4 @@
-// import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { NavbarItem } from "./NavbarItem";
 import Swal from "sweetalert2";
@@ -39,8 +38,8 @@ function Navbar() {
 			<div className="container-fluid">
 				{/* COMPONENTE DEL LOGO */}
 				<div className="container col-2">
-					<a className="navbar-brand">
-						<img className="logo" src="enter-black.png" alt="Logo-Tecla" />
+					<a className="navbar-brand"  href="/">
+						<img className="logo" src="enter-black.png" alt="Logo-Tecla"/>
 					</a>
 				</div>
 
