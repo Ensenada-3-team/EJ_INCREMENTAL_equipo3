@@ -39,6 +39,9 @@
 	.ipad-avatar {
 		margin: -0.5rem;
 	}
+	.ipad-email {
+		font-size:0.8rem
+	}
 }
 
 /*PROFILE RESPONSIVO EN IPAD pequeño*/
@@ -52,6 +55,7 @@
 		width: 100%;
 		margin-bottom: 1rem;
 	}
+	
 }
 
 /* 991 a 1199 */

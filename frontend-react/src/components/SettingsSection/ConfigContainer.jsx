@@ -1,7 +1,11 @@
 import { ModifyUserData } from "./ModifyUserData";
 import { ModifyUserPassword } from "./ModifyUserPassword";
+import authService from "../../services/auth.service";
+import { AvatarLink } from "../AvatarLink/AvatarLink";
 
 function ConfigContainer() {
+	const user = authService.getCurrentUser();
+
 	return (
 		<>
 			<div
@@ -15,17 +19,14 @@ function ConfigContainer() {
 				</div>
 				<div className="card-body w-100">
 					<div className="row">
-						<div className="col-md-4 border border-dark rounded sombra">
-							<h2 className="text-center">Datos de la cuenta</h2>
-							<div className="card white-card text-start">
-								<img
-									id="logged-user-image"
-									className="avatar rounded rounded-circle border border-dark"
-									alt="imagen usuario logueado"
-								/>
-								<p id="name"></p>
-								<p id="firstname"></p>
-								<p id="email"></p>
+						<div className="col-md-4 border border-dark rounded sombra mb-3">
+							<h2 className="text-center mt-2">Datos de la cuenta</h2>
+							<div className="card white-card align-items-start mx-auto">
+							<AvatarLink userId={user.user_id} avatar={user.avatar} size="avatar-lg" />
+								<p id="name-firstname">{user.name} {user.firstname}</p>
+								<p id="email" className="ipad-email">{user.email}</p>
+								<p id="nickname">Tu nickname: {user.nickname}</p>
+
 							</div>
 
 							<div id="msj-elim" className="h3"></div>
