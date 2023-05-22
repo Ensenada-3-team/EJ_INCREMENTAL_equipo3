@@ -1,5 +1,5 @@
 import { Navbar } from "../../components/Navbar/Navbar";
-import InterestSection from "../../components/InterestsSection/InterestSection";
+import InterestsSection from "../../components/InterestsSection/InterestsSection";
 import FriendsSection  from "../../components/FriendsSection/FriendsSection";
 
 function Friends () {
@@ -8,7 +8,7 @@ function Friends () {
                   <Navbar />
                   <main class="container">
                         <div class="row justify-content-around p-0">
-                              < InterestSection />
+                              < InterestsSection />
                               < FriendsSection />
                         </div>
                   </main>

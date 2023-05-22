@@ -5,6 +5,7 @@ import Friends from '../../pages/Friends/Friends';
 import Register from '../../pages/Register/Register';
 import PublicFeed from '../../pages/PublicFeed/PublicFeed';
 import Profile from '../../pages/Profile/Profile';
+import AccountSettings from '../../pages/AccountSettings/AccountSettings';
 import ScrollToTop from '../ScrollToTop';
 
 import "./App.css";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/public" element={<PublicFeed />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<AccountSettings />} />
         
       </Routes>
     </>

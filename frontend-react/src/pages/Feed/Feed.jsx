@@ -1,6 +1,6 @@
 import { Navbar } from "../../components/Navbar/Navbar";
+import InterestsSection  from "../../components/InterestsSection/InterestsSection";
 import FeedPostsSection from "../../components/FeedPostsSection/FeedPostsSection";
-import InterestSection  from "../../components/InterestsSection/InterestSection";
 import FeedRequestsSection from "../../components/FeedRequestsSection/FeedRequestsSection";
 
 function Feed() {
@@ -9,7 +9,7 @@ function Feed() {
                   <Navbar />
                   <main className="container">
                         <div className="row justify-content-around p-0">
-                              < InterestSection />
+                              < InterestsSection />
                               < FeedPostsSection />
                               < FeedRequestsSection />
                         </div>

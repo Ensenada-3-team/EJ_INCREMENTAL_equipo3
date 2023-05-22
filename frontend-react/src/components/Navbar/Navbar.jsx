@@ -149,7 +149,8 @@ function Navbar() {
 							<NavbarItem
 								icon="bi-gear"
 								alt="Settings"
-								href="./index-login.html"
+								href="/settings"
+								to="/settings"
 								title="Ajustes de la cuenta"
 							/>
 						)}

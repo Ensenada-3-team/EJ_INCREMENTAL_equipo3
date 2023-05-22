@@ -7,7 +7,7 @@ const HomeLogin = () => {
 	return (
 		<>
 			<Navbar />
-			<div ClassName="container-fluid">
+			<div className="container-fluid">
 				<div className="row justify-content-center text-center">
 					<Cover
 						welcome="Bienvenido a Tecla"

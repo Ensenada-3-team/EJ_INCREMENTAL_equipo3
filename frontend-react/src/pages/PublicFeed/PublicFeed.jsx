@@ -1,5 +1,5 @@
 import { Navbar } from "../../components/Navbar/Navbar";
-import InterestsSection from "../../components/InterestsSection/InterestSection";
+import InterestsSection from "../../components/InterestsSection/InterestsSection";
 import { AllPostsList } from "../../components/AllPostsList/AllPostsList";
 
 function PublicFeed() {

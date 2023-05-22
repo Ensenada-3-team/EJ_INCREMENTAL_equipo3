@@ -1,6 +1,6 @@
 import authService from "../../services/auth.service";
 
-function InterestSection() {
+function InterestsSection() {
 	const token = authService.getCurrentToken();
 	if (!token) {
 		return null
@@ -77,4 +77,4 @@ function InterestSection() {
 }
 
 
-export default InterestSection ;
+export default InterestsSection ;

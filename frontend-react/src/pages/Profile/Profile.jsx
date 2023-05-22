@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import { Navbar } from "../../components/Navbar/Navbar";
-import InterestsSection  from "../../components/InterestsSection/InterestSection";
+import InterestsSection  from "../../components/InterestsSection/InterestsSection";
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
 
 function Profile() {
