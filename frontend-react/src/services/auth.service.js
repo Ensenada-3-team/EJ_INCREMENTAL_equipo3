@@ -63,7 +63,7 @@ class AuthService {
 	async changePassword(userId, oldPassword, password) {
 		try {
 			const response = await axios.put(
-				"/change-password",
+				API_URL + "/change-password",
 				{
 					userId,
 					oldPassword,
@@ -72,8 +72,9 @@ class AuthService {
 
 				{ headers: authHeader() }
 			);
-
-			return response.data;
+			
+			return response.status;
+			
 		} catch (error) {
 			if (error.response) {
 				throw new Error(error.response.data.message);

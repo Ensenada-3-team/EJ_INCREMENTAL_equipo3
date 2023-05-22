@@ -52,7 +52,7 @@ function FriendshipRequestCard(props) {
 
 	return (
 		<>
-			<div className="mt-2 p-0 card rounded sombra bg-transparent d-flex">
+			<div className="mt-2 p-0 card rounded sombra d-flex" style={{ backgroundColor: "rgba(41, 39, 39, 0.146)" }}>
 				<AvatarLink userId={data.user_id} avatar={data.avatar} size="avatar-md" />
 				<div className="d-flex flex-column mx-auto">
 					<h6 className="fs-md-5 mt-1 ipad-nickname">{data.name} {data.firstname}</h6>

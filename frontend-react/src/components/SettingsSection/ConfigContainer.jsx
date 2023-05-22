@@ -20,12 +20,12 @@ function ConfigContainer() {
 				<div className="card-body w-100">
 					<div className="row">
 						<div className="col-md-4 border border-dark rounded sombra mb-3">
-							<h2 className="text-center mt-2">Datos de la cuenta</h2>
+							<h2 className="text-center mt-2">Tu cuenta</h2>
 							<div className="card white-card align-items-start mx-auto">
 							<AvatarLink userId={user.user_id} avatar={user.avatar} size="avatar-lg" />
 								<p id="name-firstname">{user.name} {user.firstname}</p>
 								<p id="email" className="ipad-email">{user.email}</p>
-								<p id="nickname">Tu nickname: {user.nickname}</p>
+								<p id="nickname"><i className="bi bi-person-fill"></i> {user.nickname}</p>
 
 							</div>
 

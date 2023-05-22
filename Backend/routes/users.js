@@ -4,7 +4,7 @@ require("dotenv").config();
 const pool = require("../db/connection");
 
 //Middlewares
-const { isNumber, isChar } = require("../lib/middlewares");
+const { isNumber, isChar, ageValidation } = require("../lib/middlewares");
 const authMiddleware = require("../lib/authMiddleware");
 const minutesAgo = require("../lib/minutesAgo");
 
@@ -187,7 +187,7 @@ router.get("/check/:user_id", async (req, res) => {
 });
 
 //PATCH - MODIFICACIÓN DE DATOS DE USUARIO
-router.patch("/change-data/:user_id", authMiddleware, async (req, res) => {
+router.patch("/change-data/:user_id", authMiddleware, ageValidation, async (req, res) => {
 	const userId = req.params.user_id;
 	const userData = req.body;
 

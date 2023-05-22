@@ -46,8 +46,11 @@ export default class UserService {
 
 			return response.data;
 		} catch (error) {
-			console.error(error);
-			throw new Error("Error al comprobar el nickname y el email");
+			if (error.response) {
+				throw new Error(error.response.data.message);
+			} else {
+				throw error;
+			}
 		}
 	}
 
@@ -61,8 +64,11 @@ export default class UserService {
 
 			return response.data;
 		} catch (error) {
-			console.error(error);
-			throw new Error("Error al actualizar usuario");
+			if (error.response) {
+				throw new Error(error.response.data.message);
+			} else {
+				throw error;
+			}
 		}
 	}
 
@@ -74,8 +80,11 @@ export default class UserService {
 
 			return response.data;
 		} catch (error) {
-			console.error(error);
-			throw new Error("Error al eliminar usuario");
+			if (error.response) {
+				throw new Error(error.response.data.message);
+			} else {
+				throw error;
+			}
 		}
 	}
 

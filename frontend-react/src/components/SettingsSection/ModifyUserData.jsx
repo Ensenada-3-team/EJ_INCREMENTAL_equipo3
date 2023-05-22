@@ -1,8 +1,9 @@
-import { useForm, Controller, register } from "react-hook-form";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useForm, Controller } from "react-hook-form";
+import { useNavigate} from "react-router-dom";
 import InputField from "../InputField/InputField";
 import UserService from "../../services//user.service";
 import authService from "../../services/auth.service";
+import Swal from "sweetalert2";
 
 function ModifyUserData() {
 	const {
@@ -16,28 +17,30 @@ function ModifyUserData() {
 
 	const userService = new UserService();
 	const user = authService.getCurrentUser();
+	const title = "Puedes modificar los datos que necesites,\nal acabar, te redirigiremos al login por seguridad.";
 
 	const onSubmit = async (data) => {
 		try {
-			console.log(data);
+			
 			if (data.nickname !== user.nickname || data.email !== user.email) {
-				const checkedData = await userService.checkUser(
+				const response = await userService.checkUser(
 					user.user_id,
 					data.nickname,
 					data.email
 				);
 
-				if (checkedData.message) {
-					alert(userData.message);
-					return;
-				}
 			}
 
 			const updatedUser = await userService.updateUser(user.user_id, data);
 
 			if (updatedUser.message) {
-				alert(updatedUser.message);
-				alert("\nPor seguridad debes volver a loguearte.");
+				Swal.fire({
+					position: "top-end",
+					icon: "success",
+					title:`${updatedUser.message}! te redirigiremos al login por seguridad.`,
+					showConfirmButton: false,
+					timer: 2000,
+				});
 				authService.logout()
 				navigate("/");
 			} else {
@@ -48,17 +51,19 @@ function ModifyUserData() {
 
 			reset();
 		} catch (error) {
-			console.error(error.message);
-			alert(
-				error.message +
-					"\nTus datos no han podido modificarse, prueba de nuevo."
-			);
+			Swal.fire({
+				icon: 'error',
+				title: `Oops...${error.message}`,
+				text: "Tus datos no han podido modificarse,\npor favor inténtalo nuevamente.",
+				// footer: '<a href="">Why do I have this issue?</a>'
+			})
+			return;
 		}
 	};
 
 	return (
 		<>
-			<h2 className="text-center">Modificar datos</h2>
+			<h2 className="text-center" title={title}><i className="bi bi-person-lines-fill"></i> Edita tus datos</h2>
 			<form onSubmit={handleSubmit(onSubmit)} id="modify-user-data">
 				<Controller
 					name="name"
@@ -173,12 +178,12 @@ function ModifyUserData() {
 					)}
 				/>
 				<Controller
-					name="occupation"
+					name="ocupation"
 					control={control}
 					defaultValue={""}
 					render={({ field }) => (
 						<InputField
-							id="occupation"
+							id="ocupation"
 							label="Ocupación:"
 							type="text"
 							required={false}

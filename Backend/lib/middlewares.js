@@ -21,6 +21,9 @@ const ageNumberValidation = (req, res, next) => {
 
 //COMPRUEBA SI USUARIO ES MAYOR DE 18 AÑOS
 const ageValidation = (req, res, next) => {
+	if (!req.body.birthdate) {
+		return next();
+	}
 	const birthdateStr = req.body.birthdate.trim();
 
 	const birthdate = new Date(birthdateStr);
