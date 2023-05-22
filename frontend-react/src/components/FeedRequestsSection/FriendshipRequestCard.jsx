@@ -52,11 +52,11 @@ function FriendshipRequestCard(props) {
 
 	return (
 		<>
-			<div className="mt-3 p-lg-2 p-md-1 rounded sombra bg-friends d-flex">
+			<div className="mt-2 p-0 card rounded sombra bg-transparent d-flex">
 				<AvatarLink userId={data.user_id} avatar={data.avatar} size="avatar-md" />
-				<div className="d-flex flex-column mx-2">
-					<h7 className="fs-md-5 ipad-nickname">{data.name} {data.firstname}</h7>
-					<h7 className="fs-md-5 ipad-nickname">@{data.nickname}</h7>
+				<div className="d-flex flex-column mx-auto">
+					<h6 className="fs-md-5 mt-1 ipad-nickname">{data.name} {data.firstname}</h6>
+					<h6 className="fs-md-5 ipad-nickname">@{data.nickname}</h6>
 				</div>
 			</div>
 			<div className="d-flex justify-content-around w-100 mt-2">
