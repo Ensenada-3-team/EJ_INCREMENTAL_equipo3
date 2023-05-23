@@ -33,7 +33,7 @@ class AuthService {
 		grade,
 		linkedin,
 		language,
-		hobby
+		bio
 	) {
 		try {
 			const response = await axios.post(API_URL + "register", {
@@ -50,7 +50,7 @@ class AuthService {
 				grade,
 				linkedin,
 				language,
-				hobby,
+				bio,
 			});
 			
 			return response.status;

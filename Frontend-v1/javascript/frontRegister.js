@@ -17,7 +17,7 @@ registerForm.addEventListener("submit", async (event) => {
 	const grade = document.getElementById("grade").value.trim();
 	const linkedin = document.getElementById("linkedin").value.trim();
 	const language = document.getElementById("language").value.trim();
-	const hobby = document.getElementById("hobbies").value.trim();
+	const bio = document.getElementById("hobbies").value.trim();
 
 	if (password === confPassword) {
 		try {
@@ -40,7 +40,7 @@ registerForm.addEventListener("submit", async (event) => {
 					grade: grade,
 					linkedin: linkedin,
 					language: language,
-					hobby: hobby,
+					bio: bio,
 				}),
 			});
 

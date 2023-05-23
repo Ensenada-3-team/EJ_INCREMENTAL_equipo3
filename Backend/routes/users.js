@@ -14,7 +14,7 @@ const minutesAgo = require("../lib/minutesAgo");
 router.get("/", async (req, res) => {
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login FROM users"
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login FROM users"
 		);
 
 		allUsersWithLastLogin = results[0].map((result) => ({
@@ -29,12 +29,12 @@ router.get("/", async (req, res) => {
 	}
 });
 
-//GET - OBTIENE UN USUARIO POR SU ID
+//GET - OBTIENE UN USUARIO POR SU ID + SU ÚLTIMO LOGIN
 router.get("/user/:user_id", isNumber, async (req, res) => {
 	const userId = parseInt(req.params.user_id);
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login FROM users WHERE user_id = ?",
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login FROM users WHERE user_id = ?",
 			[userId]
 		);
 		if (results.length === 0) {
@@ -58,7 +58,7 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	const nickname = req.params.nickname;
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login FROM users WHERE nickname = ?",
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login FROM users WHERE nickname = ?",
 			[nickname]
 		);
 		if (results.length === 0) {
@@ -72,61 +72,6 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ message: "Error al buscar usuario" });
-	}
-});
-
-// GET - OBTENER USUARIOS AMIGOS DE UN USUARIO CON CIERTO USER_ID (no usado en react)
-router.get("/user/:user_id/friends", authMiddleware, async (req, res) => {
-	try {
-		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
-			FROM users
-			WHERE users.user_id IN (
-			    SELECT receiver_id FROM friends WHERE sender_id = ? AND status = 'accepted'
-			    UNION
-			    SELECT sender_id FROM friends WHERE receiver_id = ? AND status = 'accepted' )`,
-
-			[req.params.user_id, req.params.user_id]
-		);
-
-		//le añado el tiempo de la última vez que se ha iniciado sesión en formato amable
-		const rowsWithTimeAgo = rows.map((row) => ({
-			...row,
-			lastLogin: minutesAgo(row.last_login),
-		}));
-		res.status(200).json(rowsWithTimeAgo);
-	} catch (err) {
-		console.error(err);
-		res.status(500).json({ error: "Error al obtener los amigos del usuario" });
-	}
-});
-
-// GET - OBTENER TODOS LOS NO AMIGOS (accepted) DE UN USUARIO 
-router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
-	const userId = req.params.user_id;
-	try {
-		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
-			FROM users
-			WHERE users.user_id IN (
-			    SELECT sender_id FROM friends WHERE receiver_id = ? AND (status != 'accepted' OR status IS NULL)
-			    UNION
-			    SELECT receiver_id FROM friends WHERE sender_id = ? AND (status != 'accepted' OR status IS NULL) 
-			    AND user_id <> ? `,
-
-			[userId, userId, userId]
-		);
-		const rowsWithTimeAgo = rows.map((row) => ({
-			...row,
-			lastLogin: minutesAgo(row.last_login),
-		}));
-		res.status(200).json(rowsWithTimeAgo);
-	} catch (err) {
-		console.error(err);
-		res.status(500).json({
-			message:
-				"Error al obtener los datos de los usuarios no seguidos por el usuario",
-		});
 	}
 });
 
@@ -270,15 +215,6 @@ router.delete("/delete/:user_id", authMiddleware, async (req, res) => {
 	}
 });
 
-// POST- AGREGAR AMIGO           /:user1_id/friendship/:user2_id
-//INSERT INTO `friends`(`user1_id`, `user2_id`) VALUES ('6', '5');
 
-//DELETE- ELIMINAR AMIGO         /:user1_id/friendship/:user2_id
-//UPDATE `friends` SET `status` = '0' WHERE friends.user1_id = '5' AND friends.user2_id = '7';
-
-// function minutesAgo(loginDate) {
-// 	const postTime = moment(loginDate);
-// 	return postTime.fromNow();
-// }
 
 module.exports = router;

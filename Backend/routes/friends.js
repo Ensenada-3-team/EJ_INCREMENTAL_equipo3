@@ -13,7 +13,7 @@ const minutesAgo = require("../lib/minutesAgo");
 router.get("/user/:user_id", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
+			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login
 			FROM users
 			WHERE users.user_id IN (
 			    SELECT receiver_id FROM friends WHERE sender_id = ? AND status = 'accepted'
@@ -36,12 +36,12 @@ router.get("/user/:user_id", authMiddleware, async (req, res) => {
 	}
 });
 
-// GET - OBTENER TODOS LOS NO AMIGOS (accepted) DE UN USUARIO
+// GET - OBTENER TODOS LOS NO AMIGOS (no accepted) DE UN USUARIO
 router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
+			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login
                   FROM users
                   WHERE users.user_id NOT IN (
                       SELECT sender_id FROM friends WHERE receiver_id = ?
@@ -69,7 +69,7 @@ router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 router.get("/pending-requests/:user_id", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, friends.friendship_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, hobby, last_login
+			`SELECT users.user_id, friends.friendship_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login
                   FROM users
                   JOIN friends ON users.user_id = friends.sender_id
                   WHERE friends.receiver_id = ? AND friends.status = 'pending'`,
@@ -92,7 +92,7 @@ router.get("/pending-requests/:user_id", authMiddleware, async (req, res) => {
 	}
 });
 
-// GET - OBTENER EL ESTADO DE AMISTAD ENTRE DOS USUARIOS (accepted, rejected, pending, null)
+// GET - OBTENER EL ESTADO DE AMISTAD ENTRE DOS USUARIOS Y EL SENDER_ID DE LA AMISTAD (accepted, rejected, pending, null)
 router.get("/status/:user_id/:other_user_id", async (req, res) => {
 	try {
 		const userId = req.params.user_id;
@@ -104,13 +104,12 @@ router.get("/status/:user_id/:other_user_id", async (req, res) => {
 			[userId, otherUserId, otherUserId, userId]
 		);
 
-		// Si se encontró una amistad, devolvemos el estado
 		if (rows.length > 0) {
 			res
 				.status(200)
 				.json({ status: rows[0].status, sender_id: rows[0].sender_id });
 		} else {
-			// Si no se encontró una amistad, devolvemos null
+			
 			res.status(200).json({ status: null });
 		}
 	} catch (err) {

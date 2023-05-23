@@ -35,7 +35,7 @@ router.post("/register",
 			grade,
 			linkedin,
 			language,
-			hobby,
+			bio,
 		} = req.body;
 
 		const hashedPassword = await bcrypt.hash(password, 10);
@@ -79,7 +79,7 @@ router.post("/register",
 
 			// Si el usuario no existe, insertar los nuevos datos en la base de datos
 			const result = await pool.query(
-				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, hobby) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				"INSERT INTO users (name, firstname, nickname, birthdate, gender, avatar, password, email, ocupation, location, grade, linkedin, language, bio) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 				[
 					name,
 					firstname,
@@ -94,7 +94,7 @@ router.post("/register",
 					grade,
 					linkedin,
 					language,
-					hobby,
+					bio,
 				]
 			);
 

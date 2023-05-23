@@ -1,27 +1,66 @@
-import { useNavigate } from "react-router-dom";
+import { useState, useRef, useMemo } from "react";
 import authService from "../../services/auth.service";
+import UserService from "../../services/user.service";
+import Modal from "bootstrap/js/dist/modal";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function AboutMeProfileCard(props) {
 	const { profileData } = props;
 	const navigate = useNavigate();
+	const [bio, setBio] = useState(profileData.bio);
+	const modalRef = useRef(null);
 	const user = authService.getCurrentUser();
+	
+	
+	const modalInstance = useMemo(() => {
+		if (modalRef.current) {
+			return new Modal(modalRef.current);
+		}
+		return null;
+	}, [modalRef]);
+	
+	const handleSaveBio = async () => {
+		try {
+			const userService = new UserService();
+			const userId = user.user_id;
+			const updatedBio = { bio: bio };
+			await userService.updateUser(userId, updatedBio);
+			setBio(bio);
+			modalInstance.hide();
+		} catch (error) {
+			Swal.fire(error.message);
+		}
+	};
+
+	const handleOpenModal = () => {
+		if (modalInstance) {
+			modalInstance.show();
+		}
+	};
 
 	return (
 		<>
 			{/* CARD DERECHA : BIO + ICONOS REDES LINK + MAS INFO */}
 			<section className="col-md-5 col-sm-1 order-sm-1 order-2 card mx-sm-0 mx-md-3 ipad-profile">
-				<h4 className="card-header text-center">Acerca de {user.user_id === profileData.user_id ? " mi:" : ` ${profileData.name}:`}</h4>
+				<h4 className="card-header text-center">
+					Acerca de{" "}
+					{user.user_id === profileData.user_id
+						? " mi:"
+						: ` ${profileData.name}:`}
+				</h4>
 				{/* bio */}
 				<div className="card-body w-100">
-					<p id="acerca-de">
-						Para mí, la vida se trata de descubrir nuevas posibilidades y
-						desafiar los límites, tanto en la naturaleza🌲🌱🍂 como en la
-						tecnología.
-					</p>
-					<div class="d-flex w-100 justify-content-end">
-						<button class="btn" aria-label="Editar Biografía">
-							<i class="bi bi-pencil"></i>
-						</button>
+					<p id="acerca-de">{ bio || profileData.bio }</p>
+					<div className="d-flex w-100 justify-content-end">
+						{user.user_id === profileData.user_id && (<button
+							className="btn"
+							aria-label="Editar Biografía"
+							title="Edita tu biografía"
+							onClick={handleOpenModal}
+						>
+							<i className="bi bi-pencil"></i>
+						</button>) || <></>}
 					</div>
 					<h4 className="card-header text-center">Cursos</h4>
 					<h4 className="card-header text-center">Habilidades</h4>
@@ -61,6 +100,51 @@ function AboutMeProfileCard(props) {
 					</button>
 				</div>
 			</section>
+			{/* Modal para editar la biografía */}
+			<div className="modal" tabIndex="-1" ref={modalRef}>
+				<div className="modal-dialog">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title">Editar biografía</h5>
+							<button
+								type="button"
+								className="btn-close"
+								onClick={() => modalInstance.hide()}
+							></button>
+						</div>
+						<div className="modal-body">
+							<form>
+								<div className="form-group">
+									<label htmlFor="bioTextarea">Biografía</label>
+									<textarea
+										className="form-control"
+										id="bioTextarea"
+										rows={4}
+										value={bio}
+										onChange={(e) => setBio(e.target.value)}
+									></textarea>
+								</div>
+							</form>
+						</div>
+						<div className="modal-footer">
+							<button
+								type="button"
+								className="btn btn-secondary"
+								onClick={() => modalInstance.hide()}
+							>
+								Cancelar
+							</button>
+							<button
+								type="button"
+								className="btn btn-primary"
+								onClick={handleSaveBio}
+							>
+								Guardar cambios
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }

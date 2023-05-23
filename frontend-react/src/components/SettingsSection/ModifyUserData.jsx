@@ -257,12 +257,12 @@ function ModifyUserData() {
 					)}
 				/>
 				<Controller
-					name="hobby"
+					name="bio"
 					control={control}
 					defaultValue={""}
 					render={({ field }) => (
 						<InputField
-							id="hobby"
+							id="bio"
 							label="Pasatiempos:"
 							type="text"
 							required={false}

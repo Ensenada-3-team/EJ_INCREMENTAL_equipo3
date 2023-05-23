@@ -22,7 +22,7 @@ function RegisterForm() {
 		grade: "",
 		linkedin: "",
 		language: "",
-		hobby: "",
+		bio: "",
 	});
 
 	const genderOptions = [
@@ -58,7 +58,7 @@ function RegisterForm() {
 					inputValues.grade,
 					inputValues.linkedin,
 					inputValues.language,
-					inputValues.hobby
+					inputValues.bio
 				);
 				console.log(response);
 				if (response === 200) {
@@ -232,10 +232,10 @@ function RegisterForm() {
 						/>
 
 						<InputField
-							id="hobby"
+							id="bio"
 							label="Pasatiempos:"
 							type="text"
-							value={inputValues.hobby}
+							value={inputValues.bio}
 							onChange={handleInputChange}
 						/>
 						<div>

@@ -1,8 +1,27 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import FriendService from "../../services/friend.service";
 
 function MainProfileCard(props) {
 	const { profileData } = props;
 	const navigate = useNavigate();
+
+	const [friendCount, setFriendCount] = useState(0);
+
+	useEffect(() => {
+		const fetchFriends = async () => {
+		    try {
+			  const friendService = new FriendService();
+			  const friends = await friendService.getAllFriends(profileData.user_id);
+			  setFriendCount(friends.length);
+		    } catch (error) {
+			  console.log(error);
+		    }
+		};
+	  
+		fetchFriends();
+	  }, [profileData.user_id]);
+
 
 	return (
 		<>
@@ -21,7 +40,7 @@ function MainProfileCard(props) {
 					{/* FOTO + MODIFICAR */}
 					<div
 						className="d-flex justify-content-between"
-						style={{ position: "relative", marginTop: '-3.5rem' }}
+						style={{ position: "relative", marginTop: "-3.5rem" }}
 					>
 						<button className="btn">
 							<img
@@ -31,7 +50,11 @@ function MainProfileCard(props) {
 								src={profileData.avatar}
 							/>
 						</button>
-						<button className="btn" aria-label="Editar foto de perfil">
+						<button
+							className="btn"
+							aria-label="Editar foto de perfil"
+							title="aún no puedes editar tu foto de perfil..coming soon!"
+						>
 							<i className="bi bi-pencil position-relative"></i>
 						</button>
 					</div>
@@ -41,17 +64,22 @@ function MainProfileCard(props) {
 							{profileData.name} {profileData.firstname}
 						</h2>
 						<h5 id="user-nickname">({profileData.nickname})</h5>
+						<p id="last-login" className="fw-normal">Connected {profileData.lastLogin}</p>
+						<hr/>
 					</div>
 					<div>
-						<p id="ocupacion" className="mb-0">{profileData.ocupation}</p>
+						<p id="ocupacion" className="mb-0">
+							{profileData.ocupation}
+						</p>
 						<p id="ocupacion">{profileData.grade}</p>
+						<p><i className="bi bi-translate"></i> {profileData.language}</p>
 					</div>
 					<div className="d-flex">
 						<i className="bi bi-geo-alt"></i>
 						<p id="ubicacion">{profileData.location}</p>
 					</div>
 					<div>
-						<p id="friends-count">20 amigos Teclers </p>
+						<p id="friends-count">{friendCount} amigos Teclers</p>
 					</div>
 				</div>
 				{/* FOOTER - BOTONES LINKS */}
