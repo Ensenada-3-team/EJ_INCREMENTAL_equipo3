@@ -256,7 +256,7 @@ function ModifyUserData() {
 						/>
 					)}
 				/>
-				<Controller
+				{/* <Controller
 					name="bio"
 					control={control}
 					defaultValue={""}
@@ -270,7 +270,7 @@ function ModifyUserData() {
 							register={register}
 						/>
 					)}
-				/>
+				/> */}
 				<button type="submit" className="btn btn-dark">
 					Guardar cambios
 				</button>

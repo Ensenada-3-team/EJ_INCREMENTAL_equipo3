@@ -233,7 +233,7 @@ function RegisterForm() {
 
 						<InputField
 							id="bio"
-							label="Pasatiempos:"
+							label="Sobre mi:"
 							type="text"
 							value={inputValues.bio}
 							onChange={handleInputChange}
