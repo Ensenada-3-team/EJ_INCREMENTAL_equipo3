@@ -138,6 +138,7 @@ function PostElement(props) {
 									<button
 										id="deleteBtn"
 										className="btn"
+										title="Eliminar el post"
 										onClick={handleDeleteClick}
 									>
 										<i
