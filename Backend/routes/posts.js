@@ -129,9 +129,34 @@ router.post("/new-post/", authMiddleware, async (req, res) => {
 	}
 });
 
-//DELETE- BORRAR UN POST POR SU POST_ID            /:post_id
+//DELETE- BORRAR UN POST POR SU POST_ID
+router.delete("/delete-post/:postId", authMiddleware, async (req, res) => {
+	const { postId } = req.params;
+	const user = req.jwtInfo.user_id;
+	console.log(user, postId)
+
+	try {
+		const [result] = await pool.query(
+			"SELECT * FROM posts WHERE post_id = ? AND user_id = ? ",
+			[postId, user]
+		);
+
+		if (result.length === 0) {
+			res
+				.status(404)
+				.send("El post no existe o no tienes permiso para eliminarlo");
+			return;
+		}
+
+		await pool.query("DELETE FROM posts WHERE post_id = ? ", [postId]);
+		res.status(200).json({message: "El post ha sido eliminado exitosamente"});
+	} catch (error) {
+		console.error(error);
+		res.status(500).json(error);
+	}
+});
+
 //POST - AÑADIR LIKES A UN POST                   /:post_id/likes/:user_id
 //DELETE - USUARIO RETIRA LIKE A UNA PUBLICACION  /:post_id/likes/:user_id
-
 
 module.exports = router;

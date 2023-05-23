@@ -53,5 +53,15 @@ export default class PostService {
 			throw new Error("Error al crear post");
 		}
 	}
+
+	async deletePost(postId) {
+		try {
+			const response = await axios.delete(`${API_URL}delete-post/${postId}`, { headers: authHeader() });
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			throw new Error("Error al eliminar post");
+		}
+	}
 }
 

@@ -42,6 +42,13 @@
 	.ipad-email {
 		font-size:0.8rem
 	}
+	.ipad-post-avatar{
+		margin: -2rem;
+		margin-top : 1rem;
+	}
+	.ipad-post-h4 {
+		margin: 1rem;
+	}
 }
 
 /*PROFILE RESPONSIVO EN IPAD pequeño*/
