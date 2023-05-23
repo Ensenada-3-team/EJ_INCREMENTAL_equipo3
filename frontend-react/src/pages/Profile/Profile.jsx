@@ -9,9 +9,7 @@ function Profile() {
       const params = new URLSearchParams(location.search);
       const friendId = parseInt(params.get("user_id")) || null;
 
-      // window.scrollTo(0, 0);
-    
-      console.log(friendId);
+      // window.scrollTo(0, 0);       
       return (
             <>
                   <Navbar />

@@ -1,8 +1,10 @@
 import { useState, useRef, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+
 import authService from "../../services/auth.service";
 import UserService from "../../services/user.service";
+
 import Modal from "bootstrap/js/dist/modal";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function AboutMeProfileCard(props) {

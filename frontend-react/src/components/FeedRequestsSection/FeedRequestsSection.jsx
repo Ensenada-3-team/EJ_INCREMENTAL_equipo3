@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 function FeedRequestsSection() {
 	const [requests, setRequests] = useState([]);
 	const user = authService.getCurrentUser();
-	console.log(requests);
 
 	const fetchRequests = async () => {
 		const user = authService.getCurrentUser();

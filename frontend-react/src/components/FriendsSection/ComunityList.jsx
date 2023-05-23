@@ -15,14 +15,14 @@ function ComunityList(props) {
 			try {
 				const userFriends = await userService.getAllUsers();
 				setFriends(userFriends);
-				console.log(userFriends);
+				
 			} catch (error) {
 				console.error(error);
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
 					text: "Ha ocurrido un error al obtener a los usuarios!",
-					footer: '<a href="">Why do I have this issue?</a>',
+					// footer: '<a href="">Why do I have this issue?</a>',
 				});
 			}
 		};

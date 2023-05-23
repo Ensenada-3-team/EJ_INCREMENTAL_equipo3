@@ -15,7 +15,7 @@ function FriendList(props) {
 			try {
 				const userFriends = await friendService.getAllFriends(user.user_id);
 				setFriends(userFriends);
-				console.log(userFriends);
+				
 			} catch (error) {
 				console.error(error);
 				Swal.fire({
@@ -29,8 +29,6 @@ function FriendList(props) {
 
 		fetchFriends();
 	}, [user.user_id]);
-
-      console.log(friends)
 
 	return (
 		<ul id="friends-list">
