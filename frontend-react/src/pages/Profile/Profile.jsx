@@ -18,7 +18,7 @@ function Profile() {
                               <InterestsSection />
                         
                               <div class="col-md-10 col-lg-10">
-                                    <div class="container ">
+                                    <div className="container">
                                           <ProfileSection friendId={friendId}/>
                                     </div>
                               </div>

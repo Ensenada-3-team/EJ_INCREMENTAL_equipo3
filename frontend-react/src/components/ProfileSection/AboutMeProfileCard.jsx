@@ -1,26 +1,26 @@
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import authService from "../../services/auth.service";
 import UserService from "../../services/user.service";
-
-import Modal from "bootstrap/js/dist/modal";
+import Modal from 'bootstrap/js/dist/modal';
 import Swal from "sweetalert2";
 
 function AboutMeProfileCard(props) {
 	const { profileData } = props;
 	const navigate = useNavigate();
 	const [bio, setBio] = useState(profileData.bio);
+	const [modalInstance, setModalInstance] = useState(null);
 	const modalRef = useRef(null);
 	const user = authService.getCurrentUser();
-	
-	
-	const modalInstance = useMemo(() => {
+
+	useEffect(() => {
 		if (modalRef.current) {
-			return new Modal(modalRef.current);
+		  const modal = new Modal(modalRef.current);
+		  setModalInstance(modal);
 		}
-		return null;
-	}, [modalRef]);
+	}, []);
+	
 	
 	const handleSaveBio = async () => {
 		try {
@@ -29,7 +29,9 @@ function AboutMeProfileCard(props) {
 			const updatedBio = { bio: bio };
 			await userService.updateUser(userId, updatedBio);
 			setBio(bio);
-			modalInstance.hide();
+			if (modalInstance) {
+				modalInstance.hide();
+			}
 		} catch (error) {
 			Swal.fire(error.message);
 		}
@@ -62,7 +64,7 @@ function AboutMeProfileCard(props) {
 							onClick={handleOpenModal}
 						>
 							<i className="bi bi-pencil"></i>
-						</button>) || <></>}
+						</button>)}
 					</div>
 					<h4 className="card-header text-center">Cursos</h4>
 					<h4 className="card-header text-center">Habilidades</h4>
