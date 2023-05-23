@@ -1,10 +1,23 @@
+import { useNavigate } from "react-router-dom";
+import authService from "../../services/auth.service";
+import UserService from '../../services/user.service';
 import { ModifyUserData } from "./ModifyUserData";
 import { ModifyUserPassword } from "./ModifyUserPassword";
-import authService from "../../services/auth.service";
 import { AvatarLink } from "../AvatarLink/AvatarLink";
+import { DeleteAccountButton } from "./DeleteAccountButton";
 
 function ConfigContainer() {
 	const user = authService.getCurrentUser();
+	const navigate = useNavigate();
+	const userService = new UserService();
+
+	const handleDeleteAccount = async () => {
+		await userService.deleteUser(user.user_id);
+		authService.logout();
+		navigate('/');
+	    };
+
+
 
 	return (
 		<>
@@ -32,9 +45,7 @@ function ConfigContainer() {
 							<div id="msj-elim" className="h3"></div>
 
 							<div className="mt-4 text-center">
-								<button id="eliminar-cuenta" className="btn btn-danger sombra">
-									Eliminar cuenta
-								</button>
+								<DeleteAccountButton onDelete={handleDeleteAccount} />
 							</div>
 						</div>
 						<div className="col-md-8">
