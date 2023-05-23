@@ -10,8 +10,11 @@ export default class UserService {
 			return response.data;
       
 		} catch (error) {
-			console.error(error);
-			throw new Error("Error al buscar usuario");
+			if (error.response) {
+				throw new Error(error.response.data.message);
+			} else {
+				throw error;
+			}
 		}
 	}
 
@@ -20,8 +23,11 @@ export default class UserService {
 			const response = await axios.get(`${API_URL}/user/${userId}`);
 			return [response.data][0][0];
 		} catch (error) {
-			console.error(error);
-			throw new Error("Error al buscar usuario");
+			if (error.response) {
+				throw new Error(error.response.data.message);
+			} else {
+				throw error;
+			}
 		}
 	}
 
@@ -30,8 +36,11 @@ export default class UserService {
 			const response = await axios.get(`${API_URL}/user/nickname/${nickname}`);
 			return response.data;
 		} catch (error) {
-			console.error(error);
-			throw new Error("Error al buscar usuario");
+			if (error.response) {
+				throw new Error(error.response.data.message);
+			} else {
+				throw error;
+			}
 		}
 	}
 
