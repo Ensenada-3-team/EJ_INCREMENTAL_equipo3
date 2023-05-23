@@ -50,7 +50,7 @@ function RegisterForm() {
 					inputValues.nickname,
 					inputValues.birthdate,
 					inputValues.gender,
-					inputValues.avatar,
+					inputValues.avatar || "https://avatars.steamstatic.com/0086700abf852fcd014d8fa02998ce4eca2babeb_full.jpg",
 					inputValues.password,
 					inputValues.email,
 					inputValues.ocupation,
