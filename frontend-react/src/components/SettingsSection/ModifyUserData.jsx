@@ -182,12 +182,12 @@ function ModifyUserData() {
 				{errors.email && <p className="text-danger">{errors.email.message}</p>}
 				
 				<Controller
-					name="ocupation"
+					name="occupation"
 					control={control}
 					defaultValue={""}
 					render={({ field }) => (
 						<InputField
-							id="ocupation"
+							id="occupation"
 							label="Ocupación:"
 							type="text"
 							required={false}

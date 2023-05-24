@@ -38,7 +38,7 @@ function CreatePostElement(props) {
 	useEffect(() => {
 		const user = JSON.parse(localStorage.getItem("user"));
 		const username = document.querySelector("#nickname");
-		const ocupation = document.querySelector("#ocupation");
+		const occupation = document.querySelector("#occupation");
 		const loggedUserImage = document.querySelector("#logged-user-image");
 		const userService = new UserService();
 
@@ -48,7 +48,7 @@ function CreatePostElement(props) {
 				console.log(userData);
 
 				username.textContent = `${userData.nickname}`;
-				ocupation.textContent = userData.ocupation;
+				occupation.textContent = userData.occupation;
 				loggedUserImage.src = userData.avatar;
 			} catch (error) {
 				console.error(error);
@@ -75,7 +75,7 @@ function CreatePostElement(props) {
 					/>
 					<div className="d-column m-1">
 						<h4 id="nickname" className="mt-1"></h4>
-						<p id="ocupation"></p>
+						<p id="occupation"></p>
 					</div>
 				</div>
 				<h4 className="align-self-start">Comparte algo con tu comunidad:</h4>

@@ -17,7 +17,7 @@ function RegisterForm() {
 		password: "",
 		conf_password: "",
 		email: "",
-		ocupation: "",
+		occupation: "",
 		location: "",
 		grade: "",
 		linkedin: "",
@@ -27,9 +27,9 @@ function RegisterForm() {
 
 	const genderOptions = [
 		{ value: "", label: "" },
-		{ value: "male", label: "Masculino" },
-		{ value: "female", label: "Femenino" },
-		{ value: "other", label: "Otro" },
+		{ value: "M", label: "Masculino" },
+		{ value: "F", label: "Femenino" },
+		{ value: "O", label: "Otro" },
 	];
 
 	const handleInputChange = (event) => {
@@ -53,7 +53,7 @@ function RegisterForm() {
 					inputValues.avatar || "https://avatars.steamstatic.com/0086700abf852fcd014d8fa02998ce4eca2babeb_full.jpg",
 					inputValues.password,
 					inputValues.email,
-					inputValues.ocupation,
+					inputValues.occupation,
 					inputValues.location,
 					inputValues.grade,
 					inputValues.linkedin,
@@ -188,11 +188,11 @@ function RegisterForm() {
 						/>
 
 						<InputField
-							id="ocupation"
+							id="occupation"
 							label="Ocupación:"
 							type="text"
 							required={true}
-							value={inputValues.ocupation}
+							value={inputValues.occupation}
 							onChange={handleInputChange}
 						/>
 

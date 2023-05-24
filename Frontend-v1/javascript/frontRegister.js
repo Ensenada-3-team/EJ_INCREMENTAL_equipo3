@@ -12,7 +12,7 @@ registerForm.addEventListener("submit", async (event) => {
 	const password = document.getElementById("password").value.trim();
 	const confPassword = document.getElementById("conf_password").value.trim();
 	const email = document.getElementById("email").value.trim();
-	const ocupation = document.getElementById("ocupation").value.trim();
+	const occupation = document.getElementById("occupation").value.trim();
 	const location = document.getElementById("location").value.trim();
 	const grade = document.getElementById("grade").value.trim();
 	const linkedin = document.getElementById("linkedin").value.trim();
@@ -35,7 +35,7 @@ registerForm.addEventListener("submit", async (event) => {
 					avatar: avatar,
 					password: password,
 					email: email,
-					ocupation: ocupation,
+					occupation: occupation,
 					location: location,
 					grade: grade,
 					linkedin: linkedin,

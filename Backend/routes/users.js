@@ -14,7 +14,7 @@ const minutesAgo = require("../lib/minutesAgo");
 router.get("/", async (req, res) => {
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, role, last_login FROM users"
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, occupation, location, grade, linkedin, language, bio, role, last_login FROM users"
 		);
 
 		allUsersWithLastLogin = results[0].map((result) => ({
@@ -34,7 +34,7 @@ router.get("/user/:user_id", isNumber, async (req, res) => {
 	const userId = parseInt(req.params.user_id);
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login FROM users WHERE user_id = ?",
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, occupation, location, grade, linkedin, language, bio, last_login FROM users WHERE user_id = ?",
 			[userId]
 		);
 		if (results.length === 0) {
@@ -58,7 +58,7 @@ router.get("/user/nickname/:nickname", isChar, async (req, res) => {
 	const nickname = req.params.nickname;
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login FROM users WHERE nickname = ?",
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, occupation, location, grade, linkedin, language, bio, last_login FROM users WHERE nickname = ?",
 			[nickname]
 		);
 		if (results.length === 0) {

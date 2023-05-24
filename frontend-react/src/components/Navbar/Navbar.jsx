@@ -12,7 +12,7 @@ function Navbar() {
 	const admin = user ? authService.getCurrentUser().role === "admin" : false;
 
 	const greeting = user
-		? user.gender === "F"
+		? user.gender=== "F"
 			? `Bienvenida ${user.nickname}`
 			: `Bienvenido ${user.nickname}`
 		: null;
@@ -62,7 +62,7 @@ function Navbar() {
 					<ul className="navbar-nav">
 						{/* MENSAJE DE BIENVENIDA */}
 						<li className="nav-item">
-							<h4 className="nav-welcome d-none d-sm-block">
+							<h5 className="nav-welcome d-none border border-dark d-md-block rounded rounded-5 p-2 ">
 								{!token ? (
 									<>
 										¡¡Echa un vistazo!!
@@ -71,7 +71,7 @@ function Navbar() {
 								) : (
 									greeting
 								)}
-							</h4>
+							</h5>
 						</li>
 					</ul>
 

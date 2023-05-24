@@ -22,7 +22,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 	const gender = document.getElementById("inputgender").value || userData.gender;
 	const avatar = document.getElementById("inputavatar").value;
 	const email = document.getElementById("inputemail").value.trim() || userData.email;
-	const ocupation = document.getElementById("inputocupation").value;
+	const occupation = document.getElementById("inputoccupation").value;
 	const location = document.getElementById("inputlocation").value;
 	const grade = document.getElementById("inputgrade").value;
 	const linkedin = document.getElementById("inputlinkedin").value;
@@ -61,7 +61,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 					gender: gender,
 					avatar: avatar,
 					email: email,
-					ocupation: ocupation,
+					occupation: occupation,
 					location: location,
 					grade: grade,
 					linkedin: linkedin,
@@ -90,7 +90,7 @@ formModifyUserDataDOM.addEventListener("submit", async (event) => {
 		document.getElementById("inputgender").value = "";
 		document.getElementById("inputavatar").value = "";
 		document.getElementById("inputemail").value = "";
-		document.getElementById("inputocupation").value = "";
+		document.getElementById("inputoccupation").value = "";
 		document.getElementById("inputlocation").value = "";
 		document.getElementById("inputgrade").value = "";
 		document.getElementById("inputlinkedin").value = "";

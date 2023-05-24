@@ -70,7 +70,7 @@ function MainProfileCard(props) {
 					</div>
 					<div>
 						<p id="ocupacion" className="mb-0">
-							{profileData.ocupation}
+							{profileData.occupation}
 						</p>
 						<p id="ocupacion">{profileData.grade}</p>
 						<p><i className="bi bi-translate"></i> {profileData.language}</p>

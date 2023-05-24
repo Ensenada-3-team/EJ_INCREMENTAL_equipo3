@@ -5,7 +5,7 @@ const token = JSON.parse(localStorage.getItem('token'))
 let friendsListDOM = document.getElementById('friends-list')
 
 
-function createFriendCard(userAvatar, userName, userFirstname, userOcupation, userNickname, userId ) {
+function createFriendCard(userAvatar, userName, userFirstname, useroccupation, userNickname, userId ) {
       return `
       <li class="list-group-item border p-2" 
             style="background-color: rgba(255, 255, 255, 0.644);box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);">
@@ -21,7 +21,7 @@ function createFriendCard(userAvatar, userName, userFirstname, userOcupation, us
                         />
                         <div class="mt-3">
                               <h6 class="">${userName} ${userFirstname} @${userNickname}</h6>
-                              <h6 style="font-weight:normal;">${userOcupation}</h6>
+                              <h6 style="font-weight:normal;">${useroccupation}</h6>
                               <p style="font-weight:normal;">Conectado hace 22 horas</p>
                         </div>
                   </div>
@@ -63,11 +63,11 @@ async function getUserFriends() {
                   const userAvatar = friend.avatar
                   const userName = friend.name
                   const userFirstname = friend.firstname
-                  const userOcupation = friend.ocupation
+                  const useroccupation = friend.occupation
                   const  userNickname = friend.nickname
                   const userId = friend.user_id
 
-                  const friendCard = createFriendCard(userAvatar, userName, userFirstname, userOcupation, userNickname, userId)
+                  const friendCard = createFriendCard(userAvatar, userName, userFirstname, useroccupation, userNickname, userId)
 
                   friendsListDOM.innerHTML += friendCard
 

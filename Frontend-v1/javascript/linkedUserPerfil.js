@@ -6,7 +6,7 @@ Carga los datos del Tecler del cual quieres ver su perfil en tecler-profile.html
 let userImg = document.getElementById('imagen-usuario')
 let firstSecondName = document.getElementById('name-firstname')
 let userNickname = document.getElementById('user-nickname')
-let userOcupation = document.getElementById('ocupacion')
+let useroccupation = document.getElementById('ocupacion')
 let userLocation = document.getElementById('ubicacion')
 let userBio = document.getElementById('acerca-de')
 let userEmail = document.getElementById('email')
@@ -36,7 +36,7 @@ async function getLinkedlinkedUserData() {
             userImg.setAttribute('src', linkedUserData[0].avatar)
             firstSecondName.innerHTML= `${linkedUserData[0].name} ${linkedUserData[0].firstname}`
             userNickname.innerHTML = `@${linkedUserData[0].nickname}`
-            userOcupation.innerHTML =`${linkedUserData[0].ocupation} at ${linkedUserData[0].grade}`
+            useroccupation.innerHTML =`${linkedUserData[0].occupation} at ${linkedUserData[0].grade}`
             userLocation.innerHTML = `${linkedUserData[0].location}, España`
             userEmail.setAttribute('href', `mailto:${linkedUserData[0].email}`)
             userEmail.innerHTML = linkedUserData[0].email

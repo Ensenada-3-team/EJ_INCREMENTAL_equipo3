@@ -8,7 +8,6 @@ import "./responsive.css";
 
 function App() {
 	const user = authService.getCurrentUser();
-	
 	const isLoggedIn = Boolean(authService.getCurrentToken()) || false;
 	const isAdmin = user ? user.role === "admin" : false;
 	

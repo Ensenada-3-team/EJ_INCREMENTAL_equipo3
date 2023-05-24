@@ -13,7 +13,7 @@ const minutesAgo = require("../lib/minutesAgo");
 router.get("/user/:user_id", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login
+			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, occupation, location, grade, linkedin, language, bio, last_login
 			FROM users
 			WHERE users.user_id IN (
 			    SELECT receiver_id FROM friends WHERE sender_id = ? AND status = 'accepted'
@@ -41,7 +41,7 @@ router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	try {
 		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login
+			`SELECT users.user_id, name, firstname, nickname, birthdate, gender, avatar, email, occupation, location, grade, linkedin, language, bio, last_login
                   FROM users
                   WHERE users.user_id NOT IN (
                       SELECT sender_id FROM friends WHERE receiver_id = ?
@@ -69,7 +69,7 @@ router.get("/user/:user_id/nonfriends", authMiddleware, async (req, res) => {
 router.get("/pending-requests/:user_id", authMiddleware, async (req, res) => {
 	try {
 		const [rows, fields] = await pool.query(
-			`SELECT users.user_id, friends.friendship_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login
+			`SELECT users.user_id, friends.friendship_id, name, firstname, nickname, birthdate, gender, avatar, email, occupation, location, grade, linkedin, language, bio, last_login
                   FROM users
                   JOIN friends ON users.user_id = friends.sender_id
                   WHERE friends.receiver_id = ? AND friends.status = 'pending'`,

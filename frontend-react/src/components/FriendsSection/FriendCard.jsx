@@ -33,7 +33,7 @@ function FriendCard(props) {
 						<h6>
 							{data.name} {data.firstname} @{data.nickname}
 						</h6>
-						<h6 style={{ fontWeight: "normal" }}>{data.ocupation}</h6>
+						<h6 style={{ fontWeight: "normal" }}>{data.occupation}</h6>
 						<p style={{ fontWeight: "normal" }}>
 							{data.lastLogin && data.lastLogin !== null
 								? "Connected " + data.lastLogin
