@@ -14,7 +14,7 @@ const minutesAgo = require("../lib/minutesAgo");
 router.get("/", async (req, res) => {
 	try {
 		const results = await pool.query(
-			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, last_login FROM users"
+			"SELECT user_id, name, firstname, nickname, birthdate, gender, avatar, email, ocupation, location, grade, linkedin, language, bio, role, last_login FROM users"
 		);
 
 		allUsersWithLastLogin = results[0].map((result) => ({

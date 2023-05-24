@@ -7,8 +7,13 @@ import "./App.css";
 import "./responsive.css";
 
 function App() {
-	const isLoggedIn = Boolean(authService.getCurrentToken());
-	const routing = useRoutes(routes(isLoggedIn));
+	const user = authService.getCurrentUser();
+	
+	const isLoggedIn = Boolean(authService.getCurrentToken()) || false;
+	const isAdmin = user ? user.role === "admin" : false;
+	
+	
+	const routing = useRoutes(routes(isLoggedIn, isAdmin));
 
 	return (
 		<>

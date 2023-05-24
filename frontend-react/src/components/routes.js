@@ -5,10 +5,11 @@ import Friends from '../pages/Friends/Friends';
 import Register from '../pages/Register/Register';
 import PublicFeed from '../pages/PublicFeed/PublicFeed';
 import Profile from '../pages/Profile/Profile';
+import Admin from '../pages/Admin/Admin';
 import AccountSettings from '../pages/AccountSettings/AccountSettings';
 
 
-const routes = (isLoggedIn) => [
+const routes = (isLoggedIn, isAdmin) => [
       {
         path: '/',
         children: [
@@ -23,7 +24,7 @@ const routes = (isLoggedIn) => [
               { path: 'friends', element: isLoggedIn ? <Friends /> : <Navigate to="/" replace /> },
               { path: 'profile', element: isLoggedIn ? <Profile /> : <Navigate to="/" replace /> },
               { path: 'settings', element: isLoggedIn ? <AccountSettings /> : <Navigate to="/" replace /> },
-              { path: 'admin', element: isLoggedIn ? <HomeLogin /> : <Navigate to="/" replace /> },
+              { path: 'admin', element: isLoggedIn && isAdmin ? <Admin /> : <Navigate to="/" replace /> },
             ],
           },
         ],

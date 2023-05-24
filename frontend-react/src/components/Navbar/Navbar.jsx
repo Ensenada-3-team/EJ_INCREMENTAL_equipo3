@@ -9,6 +9,7 @@ function Navbar() {
 
 	const user = authService.getCurrentUser()
 	const token= authService.getCurrentToken();
+	const admin = user ? authService.getCurrentUser().role === "admin" : false;
 
 	const greeting = user
 		? user.gender === "F"
@@ -82,6 +83,16 @@ function Navbar() {
 								alt="Volver atrás"
 								onClick={handleBack}
 								title="Atrás"
+							/>
+						)}
+
+						{/* ADMINISTRADOR -DATOS DE USUARIOS */}
+						{token && admin && (
+							<NavbarItem
+								icon="bi-person-lock"
+								alt="Usuarios registrados"
+								to="/app/admin"
+								title="Usuarios registrados"
 							/>
 						)}
 

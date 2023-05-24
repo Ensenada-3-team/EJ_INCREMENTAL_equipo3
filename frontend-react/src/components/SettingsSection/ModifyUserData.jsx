@@ -256,21 +256,6 @@ function ModifyUserData() {
 						/>
 					)}
 				/>
-				{/* <Controller
-					name="bio"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="bio"
-							label="Pasatiempos:"
-							type="text"
-							required={false}
-							{...field}
-							register={register}
-						/>
-					)}
-				/> */}
 				<button type="submit" className="btn btn-dark">
 					Guardar cambios
 				</button>
