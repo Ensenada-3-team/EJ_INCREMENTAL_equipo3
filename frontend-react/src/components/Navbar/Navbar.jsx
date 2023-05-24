@@ -1,4 +1,4 @@
-import {  useNavigate } from "react-router-dom";
+import {  useNavigate, Link } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { NavbarItem } from "./NavbarItem";
 import Swal from "sweetalert2";
@@ -38,9 +38,9 @@ function Navbar() {
 			<div className="container-fluid">
 				{/* COMPONENTE DEL LOGO */}
 				<div className="container col-2">
-					<a className="navbar-brand"  href="/">
-						<img className="logo" src="enter-black.png" alt="Logo-Tecla"/>
-					</a>
+					<Link to="/" className="navbar-brand">
+						<img className="logo" src="/enter-black.png" alt="Logo-Tecla"/>
+					</Link>
 				</div>
 
 				{/* MENÚ HAMBURGUESA */}
@@ -118,7 +118,7 @@ function Navbar() {
 							<NavbarItem 
 								icon="bi-rss" 
 								alt="Feed personal" 
-								to="/feed" 
+								to="/app/feed" 
 								title="Feed personal"
 							/>
 						)}
@@ -128,7 +128,7 @@ function Navbar() {
 							<NavbarItem
 								icon="bi-person-fill"
 								alt="Mi perfil"
-								to="/profile"
+								to="/app/profile"
 								title="Tu perfil"
 							/>
 						)}
@@ -138,7 +138,7 @@ function Navbar() {
 							<NavbarItem
 								icon="bi-people-fill"
 								alt="Comunidad"
-								to="/friends"
+								to="/app/friends"
 								title="Comunidad"
 							/>
 						)}
@@ -148,8 +148,8 @@ function Navbar() {
 							<NavbarItem
 								icon="bi-gear"
 								alt="Settings"
-								href="/settings"
-								to="/settings"
+								href="/app/settings"
+								to="/app/settings"
 								title="Ajustes de la cuenta"
 							/>
 						)}

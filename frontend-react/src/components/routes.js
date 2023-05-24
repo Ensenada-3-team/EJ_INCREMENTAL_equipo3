@@ -1,0 +1,33 @@
+import { Outlet, Navigate } from 'react-router-dom';
+import HomeLogin from '../pages/Home/HomeLogin';
+import Feed from '../pages/Feed/Feed';
+import Friends from '../pages/Friends/Friends';
+import Register from '../pages/Register/Register';
+import PublicFeed from '../pages/PublicFeed/PublicFeed';
+import Profile from '../pages/Profile/Profile';
+import AccountSettings from '../pages/AccountSettings/AccountSettings';
+
+
+const routes = (isLoggedIn) => [
+      {
+        path: '/',
+        children: [
+          { path: '/', element: <HomeLogin /> },
+          { path: 'register', element: <Register /> },
+          { path: 'public', element: <PublicFeed /> },
+          {
+            path: 'app',
+            element: isLoggedIn ? <Outlet /> : <Navigate to="/" replace />,
+            children: [
+              { path: 'feed', element: isLoggedIn ? <Feed /> : <Navigate to="/" replace /> },
+              { path: 'friends', element: isLoggedIn ? <Friends /> : <Navigate to="/" replace /> },
+              { path: 'profile', element: isLoggedIn ? <Profile /> : <Navigate to="/" replace /> },
+              { path: 'settings', element: isLoggedIn ? <AccountSettings /> : <Navigate to="/" replace /> },
+              { path: 'admin', element: isLoggedIn ? <HomeLogin /> : <Navigate to="/" replace /> },
+            ],
+          },
+        ],
+      },
+    ];
+
+export default routes;

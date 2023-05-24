@@ -149,7 +149,7 @@ router.post("/login", async (req, res) => {
 		);
 
 		res.status(200).json({
-			redirectUrl: "/feed",
+			redirectUrl: "/app/feed",
 			user: user,
 			token: jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET),
 		});

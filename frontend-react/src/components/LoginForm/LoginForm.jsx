@@ -31,7 +31,7 @@ function LoginForm() {
 					showConfirmButton: false,
 					timer: 1500,
 				});
-				navigate("/feed")
+				navigate("/app/feed")
 
 				
 			}

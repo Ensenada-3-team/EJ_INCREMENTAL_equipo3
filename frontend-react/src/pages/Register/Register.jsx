@@ -7,7 +7,7 @@ const Register = () => {
 	return (
 		<>
 			<Navbar />
-			<div ClassName="container-fluid">
+			<div className="container-fluid">
 				<div className="row justify-content-center m-2">
 					{/* BIENVENIDA */}
 					< Cover welcome="Qué estás esperando para ser un tecler?"/>

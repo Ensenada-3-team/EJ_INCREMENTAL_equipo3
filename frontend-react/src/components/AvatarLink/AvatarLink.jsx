@@ -11,7 +11,7 @@ function AvatarLink(props) {
 	const handleClick = () => {
 		token
 			? navigate(
-					`/profile?user_id=${encodeURIComponent(JSON.stringify(userId))}`
+					`/app/profile?user_id=${encodeURIComponent(JSON.stringify(userId))}`
 			  )
 			: navigate("/");
 	};

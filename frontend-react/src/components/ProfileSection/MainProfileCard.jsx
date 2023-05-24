@@ -31,7 +31,7 @@ function MainProfileCard(props) {
 				{/* PORTADA*/}
 				<div id="user-banner">
 					<img
-						src="geom-dark.jpg"
+						src="/geom-dark.jpg"
 						alt="foto de portada"
 						className="img-fluid rounded"
 					/>
@@ -87,7 +87,7 @@ function MainProfileCard(props) {
 				<div className="card-footer d-flex">
 					<button
 						className="btn btn-sm btn-primary"
-						onClick={() => navigate("/friends")}
+						onClick={() => navigate("/app/friends")}
 					>
 						Amigos
 					</button>

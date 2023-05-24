@@ -50,7 +50,7 @@ function InterestsSection() {
 					<div className="col card w-100">
 						<h4 className="d-lg-block d-md-none card-header">Cuenta</h4>
 						<div>
-							<a href="/profile">
+							<a href="/app/profile">
 								<i
 									className="bi bi-person"
 									style={{ fontSize: "1.5rem", transform: "scale(2)" }}
@@ -60,7 +60,7 @@ function InterestsSection() {
 							</a>
 						</div>
 						<div>
-							<a href="/settings">
+							<a href="/app/settings">
 								<i
 									className="bi bi-gear"
 									style={{ fontSize: "1.5rem", transform: "scale(2)" }}
