@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FriendCard } from "./FriendCard";
+import { SectionCard } from "./SectionCard";
 import authService from "../../services/auth.service";
 import UserService from "../../services/user.service";
 import Swal from "sweetalert2";
@@ -15,7 +16,6 @@ function ComunityList(props) {
 			try {
 				const userFriends = await userService.getAllUsers();
 				setFriends(userFriends);
-				
 			} catch (error) {
 				console.error(error);
 				Swal.fire({
@@ -30,14 +30,18 @@ function ComunityList(props) {
 		fetchFriends();
 	}, [user.user_id]);
 
-      console.log(friends)
-
 	return (
-		<ul id="comunity-list">
-			{friends.map((friend) => (
-				<FriendCard key={friend.user_id} data={friend} />
-			))}
-		</ul>
+		<>
+			<SectionCard
+				title="Explora a todos los Teclers"
+				background="bg-secondary bg-gradient"
+			/>
+			<ul id="comunity-list" className="list-group">
+				{friends.map((friend) => (
+					<FriendCard key={friend.user_id} data={friend} />
+				))}
+			</ul>
+		</>
 	);
 }
 

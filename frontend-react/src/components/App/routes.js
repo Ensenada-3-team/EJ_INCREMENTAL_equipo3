@@ -1,12 +1,15 @@
 import { Outlet, Navigate } from 'react-router-dom';
-import HomeLogin from '../pages/Home/HomeLogin';
-import Feed from '../pages/Feed/Feed';
-import Friends from '../pages/Friends/Friends';
-import Register from '../pages/Register/Register';
-import PublicFeed from '../pages/PublicFeed/PublicFeed';
-import Profile from '../pages/Profile/Profile';
-import Admin from '../pages/Admin/Admin';
-import AccountSettings from '../pages/AccountSettings/AccountSettings';
+import HomeLogin from '../../pages/Home/HomeLogin';
+import Feed from '../../pages/Feed/Feed';
+import Friends from '../../pages/Friends/Friends';
+import Register from '../../pages/Register/Register';
+import PublicFeed from '../../pages/PublicFeed/PublicFeed';
+import Profile from '../../pages/Profile/Profile';
+import Admin from '../../pages/Admin/Admin';
+import AccountSettings from '../../pages/AccountSettings/AccountSettings';
+
+import "../../"
+
 
 
 const routes = (isLoggedIn, isAdmin) => [

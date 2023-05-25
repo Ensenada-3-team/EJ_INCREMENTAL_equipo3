@@ -52,7 +52,7 @@ function UserGrid(props) {
 											<td>{user.occupation}</td>
 											<td>{user.location}</td>
 											<td className="text-center">{formatDate(user.birthdate)}</td>
-											<td>{user.gender}</td>
+											<td className="text-center">{user.gender}</td>
 											<td>{user.linkedin}</td>
 											<td>{user.language}</td>
 											<td className="text-center">{formatDate(user.last_login, true)}</td>

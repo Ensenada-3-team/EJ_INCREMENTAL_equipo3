@@ -26,10 +26,10 @@ function FriendCard(props) {
 			}}
 		>
 			<div className="row align-items-center">
-				<div className="col-md-5 d-flex justify-content-around">
+				<div className="col-md-7 col-sm-8 col-lg-5 d-flex justify-content-around">
 					<AvatarLink userId={data.user_id} avatar={data.avatar} />
 
-					<div className="mt-3">
+					<div className="mt-3 mx-auto">
 						<h6>
 							{data.name} {data.firstname} @{data.nickname}
 						</h6>
@@ -43,7 +43,7 @@ function FriendCard(props) {
 				</div>
 
 				{/* BOTONES DE ACCIÓN EN FUNCIÓN DE FRIENSHIPSTATE */}
-				<div className="col-md-7">
+				<div className="col-md-5 col-sm-4 col-lg-7">
 					<div className="d-flex justify-content-end m-3">
 
 						{/* EL PROPIO USUARIO*/}

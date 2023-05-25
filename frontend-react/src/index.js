@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./index.css";
 
 import App from "./components/App/App";
+import "./styles/responsive.css";
 
 // import { Provider } from "react-redux";
 // import store from "./store/store.js";

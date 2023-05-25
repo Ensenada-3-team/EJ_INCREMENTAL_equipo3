@@ -23,7 +23,7 @@ function FeedRequestsSection() {
 				icon: "error",
 				title: "Oops...",
 				text: "Ha ocurrido un error al obtener las peticiones de amistad!",
-				footer: '<a href=""> </a>',
+				// footer: '<a href=""> </a>',
 			});
 		}
 	};
