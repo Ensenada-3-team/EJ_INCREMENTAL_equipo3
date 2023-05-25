@@ -1,5 +1,7 @@
 import { createRoot } from "react-dom/client";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -10,17 +12,16 @@ import "./index.css";
 import App from "./components/App/App";
 import "./styles/responsive.css";
 
-// import { Provider } from "react-redux";
-// import store from "./store/store.js";
-//const <Provider store={store}> </Provider>
 
 const container = document.getElementById("root");
 const root = createRoot(container);
-//
+
 
 root.render(
 	<BrowserRouter>
-		<App />
+		<Provider store={store}>
+			<App />
+		</Provider>
 	</BrowserRouter>
 );
 // If you want to start measuring performance in your app, pass a function

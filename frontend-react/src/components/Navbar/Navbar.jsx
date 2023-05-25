@@ -1,6 +1,7 @@
 import {  useNavigate, Link } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { NavbarItem } from "./NavbarItem";
+import Searchbar from "../SearchBar/SearchBar";
 import Swal from "sweetalert2";
 
 function Navbar() {
@@ -44,6 +45,8 @@ function Navbar() {
 					</Link>
 				</div>
 
+				
+
 				{/* MENÚ HAMBURGUESA */}
 				<button
 					className="navbar-toggler"
@@ -73,7 +76,14 @@ function Navbar() {
 								)}
 							</h5>
 						</li>
+						<li className="nav-item mx-5">
+							{/* COMPONENTE DE BUSQUEDA */}
+							<Searchbar />
+
+						</li>
 					</ul>
+
+					
 
 					<ul className="navbar-nav flex-row ms-auto mb-2 mb-lg-0">
 						{/* VOLVER ATRÁS --- location.pathname !== "/" */}
