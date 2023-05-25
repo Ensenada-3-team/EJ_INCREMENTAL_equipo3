@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { FriendCard } from "./FriendCard";
-import authService from "../../services/auth.service";
-import FriendService from "../../services/friend.service";
-import { SectionCard } from "./SectionCard";
+import { FriendCard } from "../Cards/FriendCard";
+import authService from "../../../services/auth.service";
+import FriendService from "../../../services/friend.service";
+import { SectionCard } from "../Cards/SectionCard";
 import Swal from "sweetalert2";
 
 function FriendList(props) {

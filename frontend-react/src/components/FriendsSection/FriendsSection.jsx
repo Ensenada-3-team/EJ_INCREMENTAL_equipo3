@@ -1,8 +1,8 @@
-import { FriendList } from "./FriendList";
-import { ComunityList } from "./ComunityList";
+import { FriendList } from "./Lists/FriendList";
+import { ComunityList } from "./Lists/ComunityList";
 import FeedRequestsSection from "../FeedRequestsSection/FeedRequestsSection";
-import { RequestsList } from "./RequestsList";
-import SearchBar from "../SearchBar/SearchBar";
+import { RequestsList } from "./Lists/RequestsList";
+
 function FriendsSection() {
 
 	

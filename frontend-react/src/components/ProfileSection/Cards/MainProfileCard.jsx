@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import FriendService from "../../services/friend.service";
+import FriendService from "../../../services/friend.service";
 
 function MainProfileCard(props) {
 	const { profileData } = props;

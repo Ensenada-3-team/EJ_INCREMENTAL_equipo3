@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import authService from "../../services/auth.service";
-import UserService from "../../services/user.service";
+import authService from "../../../services/auth.service";
+import UserService from "../../../services/user.service";
 import Modal from 'bootstrap/js/dist/modal';
 import Swal from "sweetalert2";
 

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import UserService from '../../services/user.service';
-import { ModifyUserData } from "./ModifyUserData";
-import { ModifyUserPassword } from "./ModifyUserPassword";
+import { ModifyUserData } from "./Forms/ModifyUserData";
+import { ModifyUserPassword } from "./Forms/ModifyUserPassword";
 import { AvatarLink } from "../AvatarLink/AvatarLink";
-import { DeleteAccountButton } from "./DeleteAccountButton";
+import { DeleteAccountButton } from "./Forms/DeleteAccountButton";
 
 function ConfigContainer() {
 	const user = authService.getCurrentUser();

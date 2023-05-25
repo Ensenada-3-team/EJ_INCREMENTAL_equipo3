@@ -8,9 +8,6 @@ import Profile from '../../pages/Profile/Profile';
 import Admin from '../../pages/Admin/Admin';
 import AccountSettings from '../../pages/AccountSettings/AccountSettings';
 
-import "../../"
-
-
 
 const routes = (isLoggedIn, isAdmin) => [
       {

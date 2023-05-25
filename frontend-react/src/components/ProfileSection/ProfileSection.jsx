@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { MainProfileCard } from "./MainProfileCard";
-import { AboutMeProfileCard } from "./AboutMeProfileCard";
+import { MainProfileCard } from "./Cards/MainProfileCard";
+import { AboutMeProfileCard } from "./Cards/AboutMeProfileCard";
 
 import authService from "../../services/auth.service";
 import UserService from "../../services/user.service";

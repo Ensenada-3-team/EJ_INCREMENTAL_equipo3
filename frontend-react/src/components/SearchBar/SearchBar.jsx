@@ -1,4 +1,6 @@
-function SearchBar() {
+function SearchBar(props) {
+	const { onSearch } = props;
+	
 	return (
 		<>
 			<form className="search-box">

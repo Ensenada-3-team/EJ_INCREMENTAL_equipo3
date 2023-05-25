@@ -1,7 +1,7 @@
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import InputField from "../InputField/InputField";
-import authService from "../../services/auth.service";
+import InputField from "../../InputField/InputField";
+import authService from "../../../services/auth.service";
 import Swal from "sweetalert2";
 
 function ModifyUserPassword() {

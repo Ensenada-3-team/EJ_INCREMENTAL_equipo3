@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import authService from "../../services/auth.service";
-import FriendService from "../../services/friend.service";
-import { FriendshipRequestCard } from "../FeedRequestsSection/FriendshipRequestCard";
-import { SectionCard } from "./SectionCard";
+import authService from "../../../services/auth.service";
+import FriendService from "../../../services/friend.service";
+import { FriendshipRequestCard } from "../../FeedRequestsSection/FriendshipRequestCard";
+import { SectionCard } from "../Cards/SectionCard";
 import Swal from "sweetalert2";
 
 function RequestsList() {

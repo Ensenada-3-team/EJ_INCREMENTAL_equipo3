@@ -1,6 +1,6 @@
-import { AvatarLink } from "../AvatarLink/AvatarLink";
-import { useFriendService } from "../../services/useFriendService";
-import authService from "../../services/auth.service";
+import { AvatarLink } from "../../AvatarLink/AvatarLink";
+import { useFriendService } from "../../../services/useFriendService";
+import authService from "../../../services/auth.service";
 
 
 function FriendCard(props) {

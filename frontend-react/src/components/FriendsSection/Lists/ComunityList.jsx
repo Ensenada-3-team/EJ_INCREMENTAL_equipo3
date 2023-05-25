@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { FriendCard } from "./FriendCard";
-import { SectionCard } from "./SectionCard";
-import authService from "../../services/auth.service";
-import UserService from "../../services/user.service";
+import { FriendCard } from "../Cards/FriendCard";
+import { SectionCard } from "../Cards/SectionCard";
+import authService from "../../../services/auth.service";
+import UserService from "../../../services/user.service";
 import Swal from "sweetalert2";
 
 function ComunityList(props) {
