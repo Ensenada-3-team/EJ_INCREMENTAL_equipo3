@@ -22,8 +22,8 @@ function ConfigContainer() {
 	return (
 		<>
 			<div
-				className="card"
-				style={{ backgroundColor: "rgba(41, 39, 39, 0.146)" }}
+				className="card  bg-secondary bg-gradient"
+				
 			>
 				<div className="card-header">
 					<h2>

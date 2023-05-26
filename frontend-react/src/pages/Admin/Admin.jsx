@@ -20,9 +20,7 @@ function Admin() {
            
       }, []);
 
-      // if (user.role !== "admin") {
-      //       return <Navigate to="/" replace />;
-      // }
+     
 
 
 	return (

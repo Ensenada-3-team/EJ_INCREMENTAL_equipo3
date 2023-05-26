@@ -1,4 +1,4 @@
-import {  useNavigate, Link } from "react-router-dom";
+import {  useNavigate, Link, useLocation } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { NavbarItem } from "./NavbarItem";
 import Searchbar from "../SearchBar/SearchBar";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 function Navbar() {
 	// const location = useLocation();
 	const navigate = useNavigate();
+	const location = useLocation()
 
 	const user = authService.getCurrentUser()
 	const token= authService.getCurrentToken();
@@ -78,7 +79,7 @@ function Navbar() {
 						</li>
 						<li className="nav-item mx-5">
 							{/* COMPONENTE DE BUSQUEDA */}
-							<Searchbar />
+							{location.pathname === "/app/friends" && <Searchbar />}
 
 						</li>
 					</ul>
