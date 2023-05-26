@@ -22,7 +22,7 @@ function ConfigContainer() {
 	return (
 		<>
 			<div
-				className="card  bg-secondary bg-gradient"
+				className="card bg-transparent bg-gradient "
 				
 			>
 				<div className="card-header">
@@ -32,9 +32,9 @@ function ConfigContainer() {
 				</div>
 				<div className="card-body w-100">
 					<div className="row">
-						<div className="col-md-4 border border-dark rounded sombra mb-3">
+						<div className="col-md-4 border border-dark rounded sombra mb-3 bg-body-tertiary">
 							<h2 className="text-center mt-2">Tu cuenta</h2>
-							<div className="card white-card align-items-start mx-auto">
+							<div className="card align-items-start mx-auto bg-body-tertiary">
 							<AvatarLink userId={user.user_id} avatar={user.avatar} size="avatar-lg" />
 								<p id="name-firstname">{user.name} {user.firstname}</p>
 								<p id="email" className="ipad-email">{user.email}</p>

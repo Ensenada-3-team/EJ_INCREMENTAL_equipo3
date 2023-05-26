@@ -256,7 +256,7 @@ function ModifyUserData() {
 						/>
 					)}
 				/>
-				<button type="submit" className="btn btn-dark">
+				<button type="submit" className="btn btn-dark ">
 					Guardar cambios
 				</button>
 			</form>
