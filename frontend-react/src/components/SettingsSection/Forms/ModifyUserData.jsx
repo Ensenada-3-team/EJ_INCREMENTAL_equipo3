@@ -39,7 +39,7 @@ function ModifyUserData() {
 				authService.logout();
 				navigate("/");
 			} else {
-				alert(
+				Swal.fire(
 					"Ha habido algún problema con la modificación de tus datos, vuelve a intentarlo."
 				);
 			}

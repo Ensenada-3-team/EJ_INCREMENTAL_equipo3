@@ -8,7 +8,7 @@ function FriendsSection() {
 	
 	return (
 		<>
-			<div className="col-md-6 col-lg-7 ">
+			<div className="col-md-6 col-lg-7 ipad-friends-section">
 				{/* CONTENEDOR CENTRO CON DOS ROWS */}
 				<div className="container">
 					{/* ROW 2: AMIGOS */}

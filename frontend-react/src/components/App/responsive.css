@@ -17,18 +17,54 @@
 	}
 }
 
+
+@media (min-width: 320px) and (max-width: 369px) {
+	
+	.ipad-friend-card {
+		width: 100%;
+	}
+	.ipad-friend-card-button {
+		width: 100%;
+		margin: 0rem;
+		padding: 0rem;
+	}
+}
+
+@media (min-width: 370px) and (max-width: 533px) {
+	
+	.ipad-friend-card {
+		width: 80%;
+		margin-left : 0rem;
+	}
+	.ipad-friend-card-button {
+		width: 20%;
+	}
+}
+
+
+
 /* En pantallas de menos de 576 ocupa el 80% */
-@media only screen and (max-width: 576px) {
+@media (min-width: 534px) and (max-width: 576px) {
 	.cardConf {
 		width: 80%;
 		font-size: 1.25rem;
 		line-height: 1.75;
 		padding: 1.5rem;
 	}
+	.ipad-friend-card {
+		width: 60%;
+		font-size: 0.5rem;
+		margin-left : 0rem;
+	}
+	.ipad-friend-card-button {
+		width: 40%;
+	}
 }
 
+
+
 /* POST RESPONSIVO EN IPAD  pantallas de 768px a 1024px */
-@media (min-width: 768px) and (max-width: 1000px) {
+@media (min-width: 768px) and (max-width: 1024px) {
 	.post-nick-date {
 		flex-direction: column;
 	}
@@ -49,8 +85,16 @@
 	.ipad-post-h4 {
 		margin: 1rem;
 	}
-	.ipad-friend-section {
-		background-color: aquamarine;
+	.ipad-friends-section {
+		margin : 0rem;
+		padding : 0rem;
+
+	}
+	.ipad-friend-card {
+		width: 80%;
+	}
+	.ipad-friend-card-button {
+		width: 20%;
 	}
 }
 
@@ -65,12 +109,21 @@
 		width: 100%;
 		margin-bottom: 1rem;
 	}
+
+	.ipad-friend-card {
+		width: 60%;
+	}
 	
 }
 
-/* 991 a 1199 */
-@media (min-width: 1024px) and (max-width: 1200px) {
+@media (min-width: 1024px) and (max-width: 1300px) {
 	.ipad-nickname {
 		font-size: 0.8rem;
+	}
+	.ipad-friend-card {
+		width: 60%;
+	}
+	.ipad-friend-card-button {
+		width: 40%;
 	}
 }

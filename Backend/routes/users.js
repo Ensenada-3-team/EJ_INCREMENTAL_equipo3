@@ -149,14 +149,14 @@ router.patch("/change-data/:user_id", authMiddleware, ageValidation, async (req,
 				.json({ message: "El usuario no está en la base de datos" });
 		}
 
-		// Crear objeto con las propiedades actualizadas y sus valores
+		// Creamos un objeto para guardar las propiedades actualizadas y sus valores
 		const updatedFields = {};
 
-		// Iterar sobre las propiedades del objeto de datos entrantes
+		// Recorremos las propiedades del objeto de datos entrantes
 		for (const [key, value] of Object.entries(userData)) {
-			console.log(isUser[0][key]);
-			// Si el valor de la propiedad es diferente al valor en la BD y no es una cadena vacía, agregar la propiedad actualizada al objeto de campos actualizados
+			// Si el valor de la propiedad es diferente al valor en la BD y no es una cadena vacía, 
 			if (value !== isUser[0][key] && value !== "") {
+				// agregamos la propiedad actualizada al objeto de campos actualizados
 				updatedFields[key] = value;
 			}
 		}
