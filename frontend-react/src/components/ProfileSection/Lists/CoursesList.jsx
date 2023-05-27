@@ -30,13 +30,10 @@ function CoursesList(props) {
 				
 			} catch (error) {
                        
-				if (error.response && error.response.status === 404) {
+				if (error.response) {
 					setError(error.response.data.message);
                               
-				} else {
-					setError("No tienes cursos registrados");
-                              
-				}
+				} 
 			}
 		};
 

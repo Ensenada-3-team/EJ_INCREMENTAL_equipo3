@@ -66,7 +66,7 @@ function MainProfileCard(props) {
 						</h2>
 						<h5 id="user-nickname">({profileData.nickname})</h5>
 						<p id="last-login" className="fw-normal">Connected {profileData.lastLogin}</p>
-						<hr/>
+						
 					</div>
 					<div>
 						<p id="ocupacion" className="mb-0">
