@@ -88,6 +88,8 @@ function CoursesList(props) {
 				);
 			} else {
 				const newCourse = await coursesService.addCourse(userId, updatedCourse);
+				
+				setError(null)
 				setCourses([...courses, newCourse]);
 			}
 
@@ -170,7 +172,7 @@ function CoursesList(props) {
 					</div>
 				))
 			) : (
-				<div>No hay cursos</div>
+				<div>Aún no hay cursos</div>
 			)}
 
 			{/* Modal para editar el curso */}
