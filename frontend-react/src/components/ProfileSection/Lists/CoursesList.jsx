@@ -66,7 +66,7 @@ function CoursesList(props) {
 			const updatedCourse = { course_name: newCourseName };
 
 			if (isEditing) {
-				// Llamar a la función updateCourse para actualizar el curso existente
+				
 				await coursesService.updateCourse(
 					userId,
 					selectedCourseId,
@@ -80,7 +80,7 @@ function CoursesList(props) {
 					)
 				);
 			} else {
-				// Llamar a la función addCourse para agregar un nuevo curso
+				
 				const newCourse = await coursesService.addCourse(userId, updatedCourse);
 				setCourses([...courses, newCourse]);
 			}
@@ -129,16 +129,16 @@ function CoursesList(props) {
 					title="Agregar curso"
 					onClick={handleOpenAddModal}
 				>
-					<i className="bi bi-plus-lg fs-3"></i>
+					<i className="bi bi-plus-lg fs-md-4 fs-5"></i>
 				</button>
 			</h4>
 			{error ? (
 				<div>{error}</div>
 			) : courses.length > 0 ? (
 				courses.map((course) => (
-					<div key={course.id} className="d-flex justify-content-between mt-1">
-						{course.course_name}
-						<div>
+					<div key={course.id} className="d-flex flex-wrap justify-content-between  mt-1 bg-dark-subtle rounded p-1">
+						<span className="fs-6">{course.course_name}</span>
+						<div className="d-flex align-items-center ms-auto ">
 							<button
 								className="btn p-0"
 								onClick={() => editCourse(course.id, course.course_name)}
