@@ -44,6 +44,7 @@ export default class UserService {
 		}
 	}
 
+
 	async checkUser(userId, nickname, email) {
 		try {
 			const response = await axios.get(`${API_URL}/check/${userId}`, {

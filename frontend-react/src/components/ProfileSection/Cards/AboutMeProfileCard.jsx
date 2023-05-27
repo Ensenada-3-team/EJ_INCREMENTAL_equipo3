@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import authService from "../../../services/auth.service";
 import UserService from "../../../services/user.service";
-import Modal from 'bootstrap/js/dist/modal';
+import { CoursesList } from "../Lists/CoursesList";
+import Modal from "bootstrap/js/dist/modal";
 import Swal from "sweetalert2";
 
 function AboutMeProfileCard(props) {
@@ -16,12 +17,11 @@ function AboutMeProfileCard(props) {
 
 	useEffect(() => {
 		if (modalRef.current) {
-		  const modal = new Modal(modalRef.current);
-		  setModalInstance(modal);
+			const modal = new Modal(modalRef.current);
+			setModalInstance(modal);
 		}
 	}, []);
-	
-	
+
 	const handleSaveBio = async () => {
 		try {
 			const userService = new UserService();
@@ -55,34 +55,40 @@ function AboutMeProfileCard(props) {
 				</h4>
 				{/* bio */}
 				<div className="card-body w-100">
-					<p id="acerca-de">{ bio || profileData.bio }</p>
+					<p id="acerca-de">{bio || profileData.bio}</p>
 					<div className="d-flex w-100 justify-content-end">
-						{user.user_id === profileData.user_id && (<button
-							className="btn"
-							aria-label="Editar Biografía"
-							title="Edita tu biografía"
-							onClick={handleOpenModal}
-						>
-							<i className="bi bi-pencil"></i>
-						</button>)}
+						{user.user_id === profileData.user_id && (
+							<button
+								className="btn"
+								aria-label="Editar Biografía"
+								title="Edita tu biografía"
+								onClick={handleOpenModal}
+							>
+								<i className="bi bi-pencil"></i>
+							</button>
+						)}
 					</div>
-					<h4 className="card-header text-center">Cursos</h4>
+					
+					<CoursesList userId={profileData.user_id || user.user_id} />
+
 					<h4 className="card-header text-center">Habilidades</h4>
 				</div>
 
 				{/* mas info */}
 				<div className="d-flex justify-content-around w-100">
-					<div>
+					{/* <div>
 						<i className="bi bi-file-person"></i>
 						<a id="link-hoja-de-vida" to="/" href="/">
 							{" "}
 							Más info
 						</a>
-					</div>
+					</div> */}
 					<div>
 						<i className="bi bi-envelope-at"></i>
-						<a id="email" href="/">
-							{" "}
+						<a
+							id="email"
+							href={`mailto:${profileData.email}?subject=Asunto&body=Cuerpo del mensaje`}
+						>
 							Email
 						</a>
 					</div>
@@ -91,17 +97,23 @@ function AboutMeProfileCard(props) {
 				{/* links redes sociales */}
 				<div className="card-footer d-flex justify-content-center mt-3">
 					{/* github */}
-					<button className="btn">
-						<i className="bi bi-github"></i>
-					</button>
+					{profileData.github && (
+						<button className="btn">
+							<i className="bi bi-github"></i>
+						</button>
+					)}
 					{/* linkedin */}
-					<button className="btn" onClick={() => navigate("/")}>
-						<i className="bi bi-linkedin"></i>
-					</button>
-					{/*  insta*/}
-					<button className="btn">
-						<i className="bi bi-instagram"></i>
-					</button>
+					{profileData.linkedin && (
+						<Link className="btn" to={profileData.linkedin} target="_blank">
+							<i className="bi bi-linkedin"></i>
+						</Link>
+					)}
+					{/*  instagram */}
+					{profileData.instagram && (
+						<button className="btn">
+							<i className="bi bi-instagram"></i>
+						</button>
+					)}
 				</div>
 			</section>
 			{/* Modal para editar la biografía */}

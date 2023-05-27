@@ -19,6 +19,7 @@ const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const authRouter = require('./routes/auth');
 const friendsRouter = require('./routes/friends');
+const coursesRouter = require('./routes/courses');
 
 
 // view engine setup
@@ -44,6 +45,7 @@ app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/auth', authRouter);
 app.use('/friends', friendsRouter);
+app.use('/courses', coursesRouter);
 
 
 
