@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import CoursesService from "../../../services/courses.service";
+import authService from "../../../services/auth.service";
 import Modal from "bootstrap/js/dist/modal";
 import Swal from "sweetalert2";
 
@@ -15,19 +16,26 @@ function CoursesList(props) {
 	const [newCourseName, setNewCourseName] = useState("");
 
 	const userId = props.userId;
+	const user = authService.getCurrentUser();
+	
 
 	useEffect(() => {
 		const fetchCourses = async () => {
 			try {
 				const coursesService = new CoursesService();
 				const response = await coursesService.getUserCourses(userId);
-
+				
 				setCourses(response);
+                        setError(null)
+				
 			} catch (error) {
+                       
 				if (error.response && error.response.status === 404) {
 					setError(error.response.data.message);
+                              
 				} else {
 					setError("No tienes cursos registrados");
+                              
 				}
 			}
 		};
@@ -66,7 +74,6 @@ function CoursesList(props) {
 			const updatedCourse = { course_name: newCourseName };
 
 			if (isEditing) {
-				
 				await coursesService.updateCourse(
 					userId,
 					selectedCourseId,
@@ -80,7 +87,6 @@ function CoursesList(props) {
 					)
 				);
 			} else {
-				
 				const newCourse = await coursesService.addCourse(userId, updatedCourse);
 				setCourses([...courses, newCourse]);
 			}
@@ -124,35 +130,43 @@ function CoursesList(props) {
 		<>
 			<h4 className="card-header text-center">
 				Cursos{" "}
-				<button
-					className="btn p-0"
-					title="Agregar curso"
-					onClick={handleOpenAddModal}
-				>
-					<i className="bi bi-plus-lg fs-md-4 fs-5"></i>
-				</button>
+				{userId === user.user_id && (
+					<button
+						className="btn p-0"
+						title="Agregar curso"
+						onClick={handleOpenAddModal}
+					>
+						<i className="bi bi-plus-lg fs-md-4 fs-5"></i>
+					</button>
+				)}
 			</h4>
 			{error ? (
 				<div>{error}</div>
 			) : courses.length > 0 ? (
 				courses.map((course) => (
-					<div key={course.id} className="d-flex flex-wrap justify-content-between  mt-1 bg-dark-subtle rounded p-1">
+					<div
+						key={course.id}
+						className="d-flex flex-wrap justify-content-between  mt-1 bg-dark-subtle rounded p-1"
+					>
 						<span className="fs-6">{course.course_name}</span>
-						<div className="d-flex align-items-center ms-auto ">
-							<button
-								className="btn p-0"
-								onClick={() => editCourse(course.id, course.course_name)}
-							>
-								<i className="bi bi-pencil"></i>
-							</button>
+                                    {/*BOTONES SE RENDERIZAN SOLO SI ES EL USUARIO ACTUAL */}
+						{userId === user.user_id && (
+							<div className="d-flex align-items-center ms-auto ">
+								<button
+									className="btn p-0"
+									onClick={() => editCourse(course.id, course.course_name)}
+								>
+									<i className="bi bi-pencil"></i>
+								</button>
 
-							<button
-								className="btn p-1"
-								onClick={() => deleteCourse(course.id)}
-							>
-								<i className="bi bi-trash3"></i>
-							</button>
-						</div>
+								<button
+									className="btn p-1"
+									onClick={() => deleteCourse(course.id)}
+								>
+									<i className="bi bi-trash3"></i>
+								</button>
+							</div>
+						)}
 					</div>
 				))
 			) : (
