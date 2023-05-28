@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserRole } from "../../store/reducers/userRoleSlice";
 
 import AuthService from "../../services/auth.service.js";
+
 import Swal from "sweetalert2";
 
 function LoginForm() {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const token = AuthService.getCurrentToken();
+	
 	const [usernameOrEmail, setUsernameOrEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const navigate = useNavigate();
-	const token = AuthService.getCurrentToken();
-
+	
 	const handleUsernameOrEmailChange = (event) => {
 		setUsernameOrEmail(event.target.value.trim());
 	};
@@ -22,7 +27,7 @@ function LoginForm() {
 		event.preventDefault();
 		try {
 			const response = await AuthService.login(usernameOrEmail, password);
-			console.table(response);
+			console.log(response.user.role);
 			if (response.token) {
 				await Swal.fire({
 					position: "top-end",
@@ -31,6 +36,9 @@ function LoginForm() {
 					showConfirmButton: false,
 					timer: 1500,
 				});
+				
+				
+				dispatch(setUserRole(response.user.role));
 				navigate("/app/feed")
 
 				

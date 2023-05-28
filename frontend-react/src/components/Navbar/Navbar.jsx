@@ -1,13 +1,15 @@
 import {  useNavigate, Link, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserRole } from "../../store/reducers/userRoleSlice";
 import authService from "../../services/auth.service";
 import { NavbarItem } from "./NavbarItem";
 import Searchbar from "../SearchBar/SearchBar";
 import Swal from "sweetalert2";
 
 function Navbar() {
-	// const location = useLocation();
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const location = useLocation()
+	const location = useLocation();
 
 	const user = authService.getCurrentUser()
 	const token= authService.getCurrentToken();
@@ -29,6 +31,7 @@ function Navbar() {
 			imageAlt: "Custom image",
 		});
 		authService.logout()
+		dispatch(setUserRole(''))
 		navigate("/");
 	};
 
@@ -104,6 +107,16 @@ function Navbar() {
 								alt="Usuarios registrados"
 								to="/app/admin"
 								title="Usuarios registrados"
+							/>
+						)}
+
+						{/* CONSULTAS AL ADMINISTRADOR */}
+						{token && (
+							<NavbarItem
+								icon="bi-question-square"
+								alt="Registrarse"
+								to="/app/admin-querys"
+								title="Registrarse"
 							/>
 						)}
 

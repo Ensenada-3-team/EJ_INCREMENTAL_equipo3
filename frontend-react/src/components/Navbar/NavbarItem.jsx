@@ -6,7 +6,7 @@ function NavbarItem(props) {
 			<Link className="nav-link" to={props.to}>
 				<i
 					className={`bi ${props.icon}`}
-					style={{ fontSize: "1.8rem" }}
+					style={{ fontSize: "1.6rem" }}
 					alt={props.alt}
 					onClick={props.onClick}
 					title={props.title}

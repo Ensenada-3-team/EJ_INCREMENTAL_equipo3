@@ -24,7 +24,7 @@ function ComunityList() {
 					icon: "error",
 					title: "Oops...",
 					text: "Ha ocurrido un error al obtener a los usuarios!",
-					// footer: '<a href="">Why do I have this issue?</a>',
+					
 				});
 			}
 		};
