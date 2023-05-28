@@ -73,11 +73,11 @@ function UserGrid(props) {
 			</h2>
 			<div className="row">
 				<div className="col">
-					<div className="table-responsive-sm overflow-auto bg-light">
+					<div className="bg-light">
 						<div className="table-responsive rounded sombra">
-							<table className="table table-fluid border border-dark text-start align-middle table-hover table-striped">
+							<table className="table table-responsive table-fluid overflow-auto border border-dark text-start align-middle table-hover table-striped ">
 								<thead className="border border-dark border-3 text-sm-start">
-									<tr className="fs-4 text-center align-middle table-success">
+									<tr className="fs-5 text-center align-middle table-success">
 										<th>Avatar</th>
 										<th className="border border-dark">ID</th>
 										<th>Rol</th>
@@ -96,7 +96,7 @@ function UserGrid(props) {
 								</thead>
 								<tbody>
 									{props.users.map((user) => (
-										<tr key={user.user_id}>
+										<tr key={user.user_id} style={{ fontSize: "0.8rem" }} >
 											<td>
 												<AvatarLink
 													userId={user.user_id}
@@ -107,7 +107,7 @@ function UserGrid(props) {
 											<td className="border border-dark table-success text-center">
 												{user.user_id}
 											</td>
-											<td>{user.role}</td>
+											<td >{user.role}</td>
 											<td>@{user.nickname}</td>
 											<td>{user.name}</td>
 											<td>{user.firstname}</td>

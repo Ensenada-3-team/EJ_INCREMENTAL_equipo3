@@ -60,7 +60,7 @@ function PostElement(props) {
 
 	return (
 		<li className="card border p-4">
-			<div className="container">
+			<div className="container-fluid">
 				<div className="row d-flex">
 					<div className="col-lg-4 col-md-4 col-sm-12">
 						<div className="ipad-post-avatar">
@@ -72,6 +72,9 @@ function PostElement(props) {
 							<h4 className="mt-3 p-0 post-name-firstname ipad-post-h4">
 								{data.name} {data.firstname}
 							</h4>
+							<h6 className="p-0 post-name-firstname fw-normal ipad-post-h4">
+							 	{data.occupation}
+							</h6>
 						</div>
 					</div>
 					<div className="col-lg-8 col-md-8 col-sm-12">
@@ -117,6 +120,7 @@ function PostElement(props) {
 								<button
 									id="commentBtn"
 									className="btn"
+									title="Próximamente podrás comentar este post..."
 									onClick={handleCommentClick}
 								>
 									<i
@@ -127,6 +131,7 @@ function PostElement(props) {
 								<button
 									id="shareBtn"
 									className="btn"
+									title="Próximamente podrás compartir este post..."
 									onClick={handleShareClick}
 								>
 									<i

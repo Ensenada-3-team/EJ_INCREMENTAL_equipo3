@@ -5,7 +5,6 @@ import PostService from "../../services/post.service.js";
 import authService from "../../services/auth.service.js";
 import Swal from "sweetalert2";
 
-
 function AllPostsList() {
 	const [posts, setPosts] = useState([]);
 	const token = authService.getCurrentToken();
@@ -32,13 +31,18 @@ function AllPostsList() {
 	}, []);
 
 	return (
-		
-		<div className="col-md-6 col-lg-7 mx-auto">
-			{!token ? <SectionCard title="Esto es parte de lo que vas a encontrar en nuestra comunidad..." /> : <SectionCard title="Los teclers han publicado..." /> }
+		<div className="col-md-6 col-lg-8 mx-auto">
+			{!token ? (
+				<SectionCard title="Esto es parte de lo que vas a encontrar en nuestra comunidad..."  background="bg-secondary bg-gradient"/>
+			) : (
+				<SectionCard title="Los teclers han publicado..."  background="bg-secondary bg-gradient" />
+			)}
 			<ol id="lista-publicaciones">
-				{ token
+				{token
 					? posts.map((post) => <PostElement key={post.post_id} data={post} />)
-					: posts.slice(0, 5).map((post) => <PostElement key={post.post_id} data={post} />)}
+					: posts
+							.slice(0, 5)
+							.map((post) => <PostElement key={post.post_id} data={post} />)}
 			</ol>
 		</div>
 	);
