@@ -1,7 +1,11 @@
 function Cover(props) {
 	return (
 		<div className="col-md-6 card bg-transparent p-0 mx-auto">
-			<img src="/geom-dark.jpg" className="img-fluid rounded w-100" alt="portada"/>
+			<img
+				src="/geom-dark.jpg"
+				className="img-fluid rounded w-100"
+				alt="portada"
+			/>
 			<div className="container-fluid py-4">
 				<div className="row">
 					<div className="col-md-8 offset-md-2">
@@ -15,6 +19,7 @@ function Cover(props) {
 							</div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>

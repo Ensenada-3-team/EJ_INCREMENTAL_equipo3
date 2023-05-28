@@ -62,36 +62,43 @@ function ModifyUserData() {
 				<i className="bi bi-person-lines-fill"></i> Edita tus datos
 			</h2>
 			<form onSubmit={handleSubmit(onSubmit)} id="modify-user-data">
-				<Controller
-					name="name"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="name"
-							label="Nombre:"
-							type="text"
-							required={false}
-							{...field}
-							register={register}
+				<div className="row">
+					<div className="col">
+						<Controller
+							name="name"
+							control={control}
+							defaultValue={""}
+							render={({ field }) => (
+								<InputField
+									id="name"
+									label="Nombre:"
+									type="text"
+									required={false}
+									{...field}
+									register={register}
+								/>
+							)}
 						/>
-					)}
-				/>
-				<Controller
-					name="firstname"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="firstname"
-							label="Apellido:"
-							type="text"
-							required={false}
-							{...field}
-							register={register}
+					</div>
+					<div className="col">
+						<Controller
+							name="firstname"
+							control={control}
+							defaultValue={""}
+							render={({ field }) => (
+								<InputField
+									id="firstname"
+									label="Apellido:"
+									type="text"
+									required={false}
+									{...field}
+									register={register}
+								/>
+							)}
 						/>
-					)}
-				/>
+					</div>
+				</div>
+
 				<Controller
 					name="nickname"
 					control={control}
@@ -107,42 +114,49 @@ function ModifyUserData() {
 						/>
 					)}
 				/>
-				<Controller
-					name="birthdate"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="birthdate"
-							label="Fecha de nacimiento:"
-							type="date"
-							required={false}
-							{...field}
-							register={register}
+				<div className="row">
+					<div className="col">
+						<Controller
+							name="birthdate"
+							control={control}
+							defaultValue={""}
+							render={({ field }) => (
+								<InputField
+									id="birthdate"
+									label="Nacimiento:"
+									type="date"
+									required={false}
+									{...field}
+									register={register}
+								/>
+							)}
 						/>
-					)}
-				/>
-				<Controller
-					name="gender"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="gender"
-							label="Género:"
-							type="select"
-							options={[
-								{ value: "", label: "" },
-								{ value: "M", label: "Masculino" },
-								{ value: "F", label: "Femenino" },
-								{ value: "O", label: "Otro" },
-							]}
-							required={false}
-							{...field}
-							register={register}
+					</div>
+					<div className="col">
+						<Controller
+							name="gender"
+							control={control}
+							defaultValue={""}
+							render={({ field }) => (
+								<InputField
+									id="gender"
+									label="Género:"
+									type="select"
+									options={[
+										{ value: "", label: "" },
+										{ value: "M", label: "Masculino" },
+										{ value: "F", label: "Femenino" },
+										{ value: "O", label: "Otro" },
+									]}
+									required={false}
+									{...field}
+									register={register}
+								/>
+							)}
 						/>
-					)}
-				/>
+					</div>
+				</div>
+
 				<Controller
 					name="avatar"
 					control={control}
@@ -172,45 +186,52 @@ function ModifyUserData() {
 							{...field}
 							register={register("email", {
 								pattern: {
-								  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-								  message: "Email inválido",
+									value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+									message: "Email inválido",
 								},
-							    })}
+							})}
 						/>
 					)}
 				/>
 				{errors.email && <p className="text-danger">{errors.email.message}</p>}
-				
-				<Controller
-					name="occupation"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="occupation"
-							label="Ocupación:"
-							type="text"
-							required={false}
-							{...field}
-							register={register}
+
+				<div className="row">
+					<div className="col">
+						<Controller
+							name="occupation"
+							control={control}
+							defaultValue={""}
+							render={({ field }) => (
+								<InputField
+									id="occupation"
+									label="Ocupación:"
+									type="text"
+									required={false}
+									{...field}
+									register={register}
+								/>
+							)}
 						/>
-					)}
-				/>
-				<Controller
-					name="location"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="location"
-							label="Ubicación:"
-							type="text"
-							required={false}
-							{...field}
-							register={register}
+					</div>
+					<div className="col">
+						<Controller
+							name="location"
+							control={control}
+							defaultValue={""}
+							render={({ field }) => (
+								<InputField
+									id="location"
+									label="Ubicación:"
+									type="text"
+									required={false}
+									{...field}
+									register={register}
+								/>
+							)}
 						/>
-					)}
-				/>
+					</div>
+				</div>
+
 				<Controller
 					name="grade"
 					control={control}

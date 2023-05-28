@@ -5,7 +5,7 @@ import ScrollToTop from "./ScrollToTop";
 
 import "./App.css";
 import "./responsive.css";
-import "../../styles/responsive.css"
+
 
 function App() {
 	const user = authService.getCurrentUser();

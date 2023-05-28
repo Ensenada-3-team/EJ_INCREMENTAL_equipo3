@@ -89,48 +89,55 @@ function ModifyUserPassword() {
 						/>
 					)}
 				/>
-				<Controller
-					name="newPassword"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="newPassword"
-							label="Nueva contraseña:"
-							type="password"
-							placeholder="Ingresa tu nueva contraseña"
-							required={true}
-							{...field}
-							register={register("newPassword", {
-								pattern: {
-									value: passwordValidation,
-									message:
-										"La contraseña debe tener mínimo 8 caracteres, una letra mayúscula, una letra minúscula, un carácter especial y un número.",
-								},
-							})}
-						/>
-					)}
-				/>
-				{errors.newPassword && (
-					<p className="text-danger">{errors.newPassword.message}</p>
-				)}
 
-				<Controller
-					name="confirmNewPassword"
-					control={control}
-					defaultValue={""}
-					render={({ field }) => (
-						<InputField
-							id="confirmNewPassword"
-							label="Confirmar nueva contraseña:"
-							type="password"
-							placeholder="Confirma tu nueva contraseña"
-							required={true}
-							{...field}
-							register={register}
+				<div className="row">
+					<div className="col">
+						<Controller
+							name="newPassword"
+							control={control}
+							defaultValue={""}
+							render={({ field }) => (
+								<InputField
+									id="newPassword"
+									label="Nueva contraseña:"
+									type="password"
+									placeholder="Ingresa tu nueva contraseña"
+									required={true}
+									{...field}
+									register={register("newPassword", {
+										pattern: {
+											value: passwordValidation,
+											message:
+												"La contraseña debe tener mínimo 8 caracteres, una letra mayúscula, una letra minúscula, un carácter especial y un número.",
+										},
+									})}
+								/>
+							)}
 						/>
-					)}
-				/>
+						{errors.newPassword && (
+							<p className="text-danger">{errors.newPassword.message}</p>
+						)}
+					</div>
+					<div className="col">
+						<Controller
+							name="confirmNewPassword"
+							control={control}
+							defaultValue={""}
+							render={({ field }) => (
+								<InputField
+									id="confirmNewPassword"
+									label="Confírmala:"
+									title="Confirma tu nueva contraseña"
+									type="password"
+									placeholder="Confirma tu nueva contraseña"
+									required={true}
+									{...field}
+									register={register}
+								/>
+							)}
+						/>
+					</div>
+				</div>
 
 				<button type="submit" className="btn btn-dark">
 					Cambiar contraseña

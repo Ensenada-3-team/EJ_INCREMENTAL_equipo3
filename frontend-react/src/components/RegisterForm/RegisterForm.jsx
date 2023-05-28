@@ -145,7 +145,7 @@ function RegisterForm() {
 							<div className="col">
 								<InputField
 									id="birthdate"
-									label="Fecha de nacimiento:"
+									label="Nacimiento:"
 									type="date"
 									value={inputValues.birthdate}
 									onChange={handleInputChange}
@@ -176,7 +176,7 @@ function RegisterForm() {
 							<div className="col">
 								<InputField
 									id="conf_password"
-									label="Confirmar contraseña:"
+									label="Confírmala: 🔑"
 									type="password"
 									required={true}
 									value={inputValues.conf_password}
@@ -238,7 +238,7 @@ function RegisterForm() {
 
 						<InputField
 							id="language"
-							label="Idioma:"
+							label="Idiomas:"
 							title="Qué idiomas dominas?"
 							type="text"
 							value={inputValues.language}
