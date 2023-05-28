@@ -9,6 +9,7 @@ const InputField = React.forwardRef((props, ref) => {
 					className="form-control"
 					id={props.id}
 					name={props.id}
+					title={props.title}
 					required={props.required}
 					value={props.value}
 					placeholder={props.placeholder}
@@ -26,6 +27,7 @@ const InputField = React.forwardRef((props, ref) => {
 					className="form-control"
 					type={props.type}
 					id={props.id}
+					title={props.title}
 					name={props.id}
 					required={props.required}
 					value={props.value}

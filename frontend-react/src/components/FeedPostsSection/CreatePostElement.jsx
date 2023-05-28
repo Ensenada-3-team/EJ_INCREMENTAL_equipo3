@@ -1,81 +1,50 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
 import PostService from "../../services/post.service.js";
-import UserService from "../../services/user.service.js";
 import authService from "../../services/auth.service.js";
+
+import { AvatarLink } from "../AvatarLink/AvatarLink.jsx";
 
 import Swal from "sweetalert2";
 
 function CreatePostElement(props) {
 	const [content, setContent] = useState("");
 	const postService = new PostService();
+	const user = authService.getCurrentUser();
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const textArea = document.querySelector("#mensaje-post");
-		const user = authService.getCurrentUser()
 
 		try {
-			await postService.createPost(
-				textArea.value,
-				user.user_id
-			);
-			
+			await postService.createPost(textArea.value, user.user_id);
 			setContent("");
 			props.updatePosts();
-
 		} catch (error) {
 			console.error(error);
 			Swal.fire({
 				icon: "error",
 				title: "Oops...",
 				text: "Ha ocurrido un error al crear un nuevo post!",
-				footer: '<a href="">Why do I have this issue?</a>',
 			});
 		}
 	};
-
-	useEffect(() => {
-		const user = JSON.parse(localStorage.getItem("user"));
-		const username = document.querySelector("#nickname");
-		const occupation = document.querySelector("#occupation");
-		const loggedUserImage = document.querySelector("#logged-user-image");
-		const userService = new UserService();
-
-		async function loadUserData() {
-			try {
-				const userData = await userService.getUserById(user.user.user_id);
-				console.log(userData);
-
-				username.textContent = `${userData.nickname}`;
-				occupation.textContent = userData.occupation;
-				loggedUserImage.src = userData.avatar;
-			} catch (error) {
-				console.error(error);
-				Swal.fire({
-					icon: "error",
-					title: "Oops...",
-					text: "Ha ocurrido un error al cargar los datos del usuario!",
-					footer: '<a href="">Why do I have this issue?</a>',
-				});
-			}
-		}
-
-		loadUserData();
-	}, []);
 
 	return (
 		<div className="row">
 			<div className="col card bg-secondary bg-gradient border-0">
 				<div className="d-flex w-100 rounded mb-2 p-0">
-					<img
-						id="logged-user-image"
-						className="avatar rounded rounded-circle border border-dark"
-						alt="imagen usuario logueado"
+					<AvatarLink
+						userId={user.user_id}
+						avatar={user.avatar}
+						size="avatar-md"
 					/>
 					<div className="d-column m-1">
-						<h4 id="nickname" className="mt-1"></h4>
-						<p id="occupation"></p>
+						<h4 id="nickname" className="mt-1">
+							{user.nickname}
+						</h4>
+						<p id="occupation">{user.occupation}</p>
 					</div>
 				</div>
 				<h4 className="align-self-start">Comparte algo con tu comunidad:</h4>

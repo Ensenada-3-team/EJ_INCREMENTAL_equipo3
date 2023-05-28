@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import AuthService from "../../services/auth.service.js";
 import InputField from "../InputField/InputField.jsx";
@@ -50,7 +50,8 @@ function RegisterForm() {
 					inputValues.nickname,
 					inputValues.birthdate,
 					inputValues.gender,
-					inputValues.avatar || "https://avatars.steamstatic.com/0086700abf852fcd014d8fa02998ce4eca2babeb_full.jpg",
+					inputValues.avatar ||
+						"https://avatars.steamstatic.com/0086700abf852fcd014d8fa02998ce4eca2babeb_full.jpg",
 					inputValues.password,
 					inputValues.email,
 					inputValues.occupation,
@@ -63,8 +64,7 @@ function RegisterForm() {
 				console.log(response);
 				if (response === 200) {
 					Swal.fire({
-						title:
-							`¡${inputValues.nickname}, te has registrado con éxito!\n¡Te redirigimos al login ipso facto!`,
+						title: `¡${inputValues.nickname}, te has registrado con éxito!\n¡Te redirigimos al login ipso facto!`,
 						width: 400,
 						padding: "2em",
 						color: "#716add",
@@ -89,8 +89,8 @@ function RegisterForm() {
 						"El nickname y el email ya existen en la base de datos. Prueba a cambiarlos"
 					);
 				} else {
-                              Swal.fire(error.message)
-                        }
+					Swal.fire(error.message);
+				}
 			}
 		} else {
 			Swal.fire(
@@ -122,7 +122,6 @@ function RegisterForm() {
 							value={inputValues.firstname}
 							onChange={handleInputChange}
 						/>
-
 						<InputField
 							id="nickname"
 							label="Nickname:"
@@ -131,24 +130,28 @@ function RegisterForm() {
 							value={inputValues.nickname}
 							onChange={handleInputChange}
 						/>
-
-						<InputField
-							id="birthdate"
-							label="Fecha de nacimiento:"
-							type="date"
-							value={inputValues.birthdate}
-							onChange={handleInputChange}
-						/>
-
-						<InputField
-							id="gender"
-							label="Género:"
-							type="select"
-							required={true}
-							value={inputValues.gender}
-							onChange={handleInputChange}
-							options={genderOptions}
-						/>
+						<div className="row">
+							<div className="col">
+								<InputField
+									id="gender"
+									label="Género: "
+									type="select"
+									required={true}
+									value={inputValues.gender}
+									onChange={handleInputChange}
+									options={genderOptions}
+								/>
+							</div>
+							<div className="col">
+								<InputField
+									id="birthdate"
+									label="Fecha de nacimiento:"
+									type="date"
+									value={inputValues.birthdate}
+									onChange={handleInputChange}
+								/>
+							</div>
+						</div>
 
 						<InputField
 							id="avatar"
@@ -157,25 +160,30 @@ function RegisterForm() {
 							value={inputValues.avatar}
 							onChange={handleInputChange}
 						/>
-
-						<InputField
-							id="password"
-							label="Contraseña:"
-							type="password"
-							placeholder="8 caracteres con mayúscula, minúscula, número y caracter especial."
-							required={true}
-							value={inputValues.password}
-							onChange={handleInputChange}
-						/>
-
-						<InputField
-							id="conf_password"
-							label="Confirmar contraseña:"
-							type="password"
-							required={true}
-							value={inputValues.conf_password}
-							onChange={handleInputChange}
-						/>
+						<div className="row">
+							<div className="col">
+								<InputField
+									id="password"
+									label="Contraseña:"
+									type="password"
+									title="8 caracteres con mayúscula, minúscula, número y caracter especial."
+									placeholder="8 caracteres con mayúscula, minúscula, número y caracter especial."
+									required={true}
+									value={inputValues.password}
+									onChange={handleInputChange}
+								/>
+							</div>
+							<div className="col">
+								<InputField
+									id="conf_password"
+									label="Confirmar contraseña:"
+									type="password"
+									required={true}
+									value={inputValues.conf_password}
+									onChange={handleInputChange}
+								/>
+							</div>
+						</div>
 
 						<InputField
 							id="email"
@@ -187,23 +195,28 @@ function RegisterForm() {
 							onChange={handleInputChange}
 						/>
 
-						<InputField
-							id="occupation"
-							label="Ocupación:"
-							type="text"
-							required={true}
-							value={inputValues.occupation}
-							onChange={handleInputChange}
-						/>
-
-						<InputField
-							id="location"
-							label="Ubicación:"
-							type="text"
-							required={true}
-							value={inputValues.location}
-							onChange={handleInputChange}
-						/>
+						<div className="row">
+							<div className="col">
+								<InputField
+									id="occupation"
+									label="Ocupación:"
+									type="text"
+									required={true}
+									value={inputValues.occupation}
+									onChange={handleInputChange}
+								/>
+							</div>
+							<div className="col">
+								<InputField
+									id="location"
+									label="Ubicación:"
+									type="text"
+									required={true}
+									value={inputValues.location}
+									onChange={handleInputChange}
+								/>
+							</div>
+						</div>
 
 						<InputField
 							id="grade"
@@ -226,6 +239,7 @@ function RegisterForm() {
 						<InputField
 							id="language"
 							label="Idioma:"
+							title="Qué idiomas dominas?"
 							type="text"
 							value={inputValues.language}
 							onChange={handleInputChange}
@@ -234,6 +248,7 @@ function RegisterForm() {
 						<InputField
 							id="bio"
 							label="Sobre mi:"
+							title="Puedes escribir algo sobre tí, o completar este campo más tarde."
 							type="text"
 							value={inputValues.bio}
 							onChange={handleInputChange}

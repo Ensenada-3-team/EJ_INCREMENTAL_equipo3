@@ -84,7 +84,7 @@ function MainProfileCard(props) {
 					</div>
 				</div>
 				{/* FOOTER - BOTONES LINKS */}
-				<div className="card-footer d-flex">
+				{/* <div className="card-footer d-flex">
 					<button
 						className="btn btn-sm btn-primary"
 						onClick={() => navigate("/app/friends")}
@@ -98,7 +98,7 @@ function MainProfileCard(props) {
 					>
 						Explora mi trabajo en equipo
 					</button>
-				</div>
+				</div> */}
 			</section>
 		</>
 	);

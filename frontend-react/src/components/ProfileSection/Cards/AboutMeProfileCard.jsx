@@ -1,15 +1,16 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import authService from "../../../services/auth.service";
 import UserService from "../../../services/user.service";
+
 import { CoursesList } from "../Lists/CoursesList";
+
 import Modal from "bootstrap/js/dist/modal";
 import Swal from "sweetalert2";
 
 function AboutMeProfileCard(props) {
 	const { profileData } = props;
-	const navigate = useNavigate();
 	const [bio, setBio] = useState(profileData.bio);
 	const [modalInstance, setModalInstance] = useState(null);
 	const modalRef = useRef(null);
@@ -89,7 +90,6 @@ function AboutMeProfileCard(props) {
 							id="email"
 							href={`mailto:${profileData.email}?subject=Asunto&body=Cuerpo del mensaje`}
 						>
-							Email
 						</a>
 					</div>
 				</div>
