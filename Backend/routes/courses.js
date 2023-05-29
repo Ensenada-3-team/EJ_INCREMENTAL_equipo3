@@ -9,7 +9,7 @@ const authMiddleware = require("../lib/authMiddleware");
 /* ENDPOINTS COURSES */
 
 // GET  - LISTA DE CURSOS POR ID
-router.get("/user/:user_id", async (req, res) => {
+router.get("/user/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 
 	try {
@@ -31,7 +31,7 @@ router.get("/user/:user_id", async (req, res) => {
 });
 
 // POST - CREA UN NUEVO CURSO
-router.post("/user/:user_id", async (req, res) => {
+router.post("/user/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	const course_name = req.body.course_name;
 	console.log(course_name);
@@ -58,7 +58,7 @@ router.post("/user/:user_id", async (req, res) => {
 	}
 });
 
-router.delete("/user/:user_id/courses/:courseId", async (req, res) => {
+router.delete("/user/:user_id/courses/:courseId", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	const courseId = req.params.courseId;
 
@@ -78,7 +78,7 @@ router.delete("/user/:user_id/courses/:courseId", async (req, res) => {
 	}
 });
 
-router.put("/user/:user_id/courses/:courseId", async (req, res) => {
+router.put("/user/:user_id/courses/:courseId", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	const courseId = req.params.courseId;
 	const { course_name } = req.body;

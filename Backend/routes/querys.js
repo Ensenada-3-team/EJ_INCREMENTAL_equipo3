@@ -9,7 +9,7 @@ const authMiddleware = require("../lib/authMiddleware");
 /* ENDPOINTS QUERYS */
 
 // GET - OBTENEMOS ONSULTAS EXISTENTES. SI USER_ID POR QUERY STRING --> LAS DEL USER
-router.get("/", async (req, res) => {
+router.get("/", authMiddleware, async (req, res) => {
 	const userId = req.query.user_id;
 	console.log(userId);
 
@@ -20,6 +20,7 @@ router.get("/", async (req, res) => {
 			FROM querys
 			INNER JOIN users ON querys.user_id = users.user_id
 			WHERE querys.user_id = ?
+			ORDER BY query_date DESC
 			`;
 			const rows = await pool.query(query, [userId]);
 			if (rows[0].length === 0) {
@@ -34,6 +35,7 @@ router.get("/", async (req, res) => {
 			SELECT querys.*, users.avatar, users.nickname 
 			FROM querys 
 			INNER JOIN users ON querys.user_id = users.user_id
+			ORDER BY query_date DESC
 			`;
 			const rows = await pool.query(query);
 
@@ -46,7 +48,7 @@ router.get("/", async (req, res) => {
 });
 
 // POST - CREA UNA NUEVA CONSULTA (USER)
-router.post("/create/:user_id", async (req, res) => {
+router.post("/create/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	const query_body = req.body.newQuery;
 	try {
@@ -73,7 +75,7 @@ router.post("/create/:user_id", async (req, res) => {
 });
 
 // POST - ADMIN RESPONDE A QUERY EXISTENTE DEL USUARIO (ADMIN)
-router.put("/respond/query/:queryId", async (req, res) => {
+router.put("/respond/query/:queryId", authMiddleware, async (req, res) => {
 	const { queryId } = req.params;
 	const { adminResponse, adminId } = req.body;
 

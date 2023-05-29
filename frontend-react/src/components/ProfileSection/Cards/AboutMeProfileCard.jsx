@@ -11,10 +11,12 @@ import Swal from "sweetalert2";
 
 function AboutMeProfileCard(props) {
 	const { profileData } = props;
+	const user = authService.getCurrentUser();
+	
 	const [bio, setBio] = useState(profileData.bio);
+
 	const [modalInstance, setModalInstance] = useState(null);
 	const modalRef = useRef(null);
-	const user = authService.getCurrentUser();
 
 	useEffect(() => {
 		if (modalRef.current) {

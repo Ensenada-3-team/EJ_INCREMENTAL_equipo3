@@ -17,8 +17,6 @@ function QandATable(props) {
 	const [selectedQueryId, setSelectedQueryId] = useState(null);
 	const [newResponse, setNewResponse] = useState("");
 
-	// modalInstance.hide()
-	
 	function getIconForStatus(status) {
 		if (status === "pending") {
 			return <i className="bi bi-hourglass"></i>;
@@ -38,7 +36,6 @@ function QandATable(props) {
 	}, []);
 
 	const handleOpenModal = (query, queryBody) => {
-
 		setSelectedQueryId(query);
 		setNewResponse(queryBody || "");
 		if (modalInstance) {
@@ -50,12 +47,24 @@ function QandATable(props) {
 		try {
 			const querysService = new QuerysService();
 			await querysService.addResponse(selectedQueryId, newResponse, adminId);
-			Swal.fire("Has respondido al usuario", "success");
-			
+
+			updateData(
+				data.map((row) => {
+					if (row.query_id === selectedQueryId) {
+						return {
+							...row,
+							response: newResponse,
+						};
+					}
+					return row;
+				})
+			);
+
+			setNewResponse("");
+
 			if (modalInstance) {
 				modalInstance.hide();
 			}
-			
 		} catch (error) {
 			Swal.fire("Error", error.message, "error");
 		}
@@ -105,7 +114,7 @@ function QandATable(props) {
 												</td>
 											)}
 											<td>{row.query}</td>
-											<td>{newResponse || row.response}</td>
+											<td>{row.response}</td>
 											<td>{formatDate(row.query_date)}</td>
 											{userRole === "admin" && (
 												<td className="text-center">
