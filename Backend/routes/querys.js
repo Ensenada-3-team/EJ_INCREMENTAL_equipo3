@@ -8,32 +8,80 @@ const authMiddleware = require("../lib/authMiddleware");
 
 /* ENDPOINTS QUERYS */
 
-router.post("/consulta", async (req, res) => {
-      const { userId } = req.body;
-      const query = `INSERT INTO querys (query, user_id, query_date) VALUES (?, ?, NOW()) RETURNING query_id`;
-      await pool.query(query, [req.body.query, userId]);
-      res.status(201).json({ query_id: res.rows[0].query_id });
+// GET - OBTENEMOS ONSULTAS EXISTENTES. SI USER_ID POR QUERY STRING --> LAS DEL USER
+router.get("/", async (req, res) => {
+	const userId = req.query.user_id;
+	console.log(userId);
+
+	try {
+		if (userId) {
+			const query = `SELECT * FROM querys WHERE user_id = ?`;
+			const rows = await pool.query(query, [userId]);
+			if (rows[0].length === 0) {
+				return res
+					.status(404)
+					.json({ message: "El usuario no tiene consultas" });
+			} else {
+				res.status(200).json(rows[0]);
+			}
+		} else {
+			const query = `SELECT * FROM querys`;
+			const rows = await pool.query(query);
+
+			res.status(200).json(rows[0]);
+		}
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ message: "Error al buscar consultas" });
+	}
 });
 
-router.post("/consulta/:queryId/response", async (req, res) => {
-      const { queryId } = req.params;
-      const { response } = req.body;
-      const query = `UPDATE querys SET response = ?, response_date = NOW() WHERE query_id = ?`;
-      await pool.query(query, [response, queryId]);
-      res.status(200).json({ query_id: queryId });
+// POST - CREA UNA NUEVA CONSULTA (USER)
+router.post("/create/:user_id", async (req, res) => {
+	const userId = req.params.user_id;
+	const query_body = req.body.newQuery;
+	try {
+		const insertQuery = await pool.query(
+			`INSERT INTO querys (query, user_id, query_date) VALUES (?, ?, NOW())`,
+			[query_body, userId]
+		);
+
+		const insertedQueryId = insertQuery[0].insertId;
+		console.log(insertedQueryId);
+
+		const lastQueryResults = await pool.query(
+			`SELECT * FROM querys WHERE query_id = ?`,
+			[insertedQueryId]
+		);
+
+		const newQuery = lastQueryResults[0][0];
+
+		res.status(201).json(newQuery);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: error.message });
+	}
 });
 
-router.get("/all", async (req, res) => {
-      const query = `SELECT * FROM querys WHERE query_status IN ('pending', 'responded', 'rejected') ORDER BY query_date DESC`;
-      const { rows } = await pool.toJSON(query);
-      res.status(200).json(rows);
+// POST - ADMIN RESPONDE A QUERY EXISTENTE DEL USUARIO (ADMIN)
+router.put("/respond/query/:queryId", async (req, res) => {
+	const { queryId } = req.params;
+	const { adminResponse, adminId } = req.body;
+
+	try {
+		const query = `UPDATE querys SET response = ?, response_date = NOW(), admin_id = ?, query_status = 'responded' WHERE query_id = ?`;
+		await pool.query(query, [adminResponse, adminId, queryId]);
+
+		const lastQueryResults = await pool.query(
+			`SELECT * FROM querys WHERE query_id = ?`,
+			[queryId]
+		);
+
+		res.status(200).json(lastQueryResults[0][0]);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: error.message });
+	}
 });
 
-router.get("/consultas/:userId", async (req, res) => {
-	const { userId } = req.首页;
-  const query = `SELECT * FROM querys WHERE user_id = ? ORDER BY query_date DESC`;
-  const { rows } = await pool.query(query, [userId])
-  res.status(200).json(rows);
-});
-
-module.exports.router;
+module.exports = router;
