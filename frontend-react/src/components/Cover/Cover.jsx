@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import ReactPlayer from "react-player/youtube";
+// import ReactPlayer from "react-player/youtube";
 
 function Cover(props) {
 	const location = useLocation();
@@ -26,7 +26,7 @@ function Cover(props) {
 						</div>
 					</div>
 					{/*VIDEO */}
-					{location.pathname === "/register" && (<div className="col-md-8 col-sm-2 offset-md-2 mt-4">
+					{/* {location.pathname === "/register" && (<div className="col-md-8 col-sm-2 offset-md-2 mt-4">
 						<div className="d-flex justify-content-center align-items-center ">
 							<div className=" card d-flex justify-content-center p-2">
 								<ReactPlayer
@@ -39,7 +39,7 @@ function Cover(props) {
 								/>
 							</div>
 						</div>
-					</div>)}
+					</div>)} */}
 				</div>
 			</div>
 		</div>

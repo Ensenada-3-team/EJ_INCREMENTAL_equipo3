@@ -39,6 +39,7 @@ function LoginForm() {
 				
 				
 				dispatch(setUserRole(response.user.role));
+				
 				navigate("/app/feed")
 
 				

@@ -7,7 +7,7 @@ import PublicFeed from '../../pages/PublicFeed/PublicFeed';
 import Profile from '../../pages/Profile/Profile';
 import Admin from '../../pages/Admin/Admin';
 import AccountSettings from '../../pages/AccountSettings/AccountSettings';
-import AdminQuery from '../../pages/AdminQuery/AdminQuery';
+import AdminQuerys from '../../pages/AdminQuerys/AdminQuerys';
 
 
 const routes = (isLoggedIn, isAdmin) => [
@@ -25,7 +25,7 @@ const routes = (isLoggedIn, isAdmin) => [
               { path: 'friends', element: isLoggedIn ? <Friends /> : <Navigate to="/" replace /> },
               { path: 'profile', element: isLoggedIn ? <Profile /> : <Navigate to="/" replace /> },
               { path: 'settings', element: isLoggedIn ? <AccountSettings /> : <Navigate to="/" replace /> },
-              { path: 'admin-querys', element: isLoggedIn ? <AdminQuery /> : <Navigate to="/" replace /> },
+              { path: 'admin-querys', element: isLoggedIn ? <AdminQuerys /> : <Navigate to="/" replace /> },
               { path: 'admin', element: isLoggedIn && isAdmin ? <Admin /> : <Navigate to="/" replace /> },
             ],
           },

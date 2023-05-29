@@ -14,7 +14,6 @@ function UserGrid(props) {
 		return new Date(date).toLocaleDateString("es-ES", options);
 	}
 
-
 	// La libreria xlsx acepta un array bidimensional, no un objeto. Transformamos las props en un array bidimensional.
 	const createDataArray = () => {
 		const headers = [
