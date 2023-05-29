@@ -9,7 +9,7 @@ function AdminQueryForm(props) {
 		formState: { errors },
 	} = useForm();
 
-	const { userRole , userId, updateData } = props
+	const {userId, updateData } = props;
 
 	const onSubmit = async (data) => {
 		
@@ -30,7 +30,7 @@ function AdminQueryForm(props) {
 
 	return (
 		<div className="container card bg-secondary bg-gradient">
-			<h2 className="mb-3"><i className="bi bi-patch-question"></i> Consulta con nosotros</h2>
+			<h2 className="mb-3 text-center"><i className="bi bi-patch-question"></i> Consulta a los administradores</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className="w-100">
 				<div className="mb-3">
 					

@@ -17,7 +17,6 @@ function AdminQuerys() {
 				const querysService = new QuerysService();
 				if (userRole === "admin") {
 					const allQuerys = await querysService.getQuerys();
-					console.log(data);
 					setData(allQuerys);
 				} else {
 					const userQuerys = await querysService.getQuerys(user.user_id);
@@ -29,7 +28,7 @@ function AdminQuerys() {
 		}
 
 		fecthData();
-	}, [user.user_id]);
+	}, [user.user_id, userRole]);
 
 	return (
 		<>
@@ -42,14 +41,13 @@ function AdminQuerys() {
 							{userRole !== "admin" && (
 								<div className="row">
 									<AdminQueryForm
-										userRole={userRole}
 										userId={user.user_id}
 										updateData={setData}
 									/>
 								</div>
 							)}
 							<div className="row">
-								<QandATable data={data} user={user} />
+								<QandATable data={data} user={user} updateData={setData} />
 							</div>
 						</div>
 					</div>

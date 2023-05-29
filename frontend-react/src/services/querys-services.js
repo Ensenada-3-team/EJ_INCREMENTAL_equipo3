@@ -39,12 +39,12 @@ export default class QuerysService {
 
 	async addResponse(queryId, adminResponse, adminId) {
 		try {
-			const response = axios.put(
+			const response = await axios.put(
 				`${API_URL}/respond/query/${queryId}`,
 				{ adminResponse: adminResponse, adminId: adminId },
 				{ headers: authHeader() }
 			);
-
+			
 			return response.data;
 		} catch (error) {
 			if (error.response) {

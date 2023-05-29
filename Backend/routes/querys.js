@@ -85,7 +85,7 @@ router.put("/respond/query/:queryId", async (req, res) => {
 			`SELECT * FROM querys WHERE query_id = ?`,
 			[queryId]
 		);
-
+		console.log(lastQueryResults[0][0]);
 		res.status(200).json(lastQueryResults[0][0]);
 	} catch (error) {
 		console.log(error);
