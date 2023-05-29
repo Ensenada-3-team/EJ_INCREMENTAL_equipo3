@@ -6,8 +6,8 @@ function Friends () {
       return (
             <>
                   <Navbar />
-                  <main class="container">
-                        <div class="row justify-content-around p-0">
+                  <main className="container">
+                        <div className="row justify-content-around p-0">
                               < InterestsSection />
                               < FriendsSection />
                         </div>

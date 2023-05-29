@@ -15,7 +15,12 @@ router.get("/", async (req, res) => {
 
 	try {
 		if (userId) {
-			const query = `SELECT * FROM querys WHERE user_id = ?`;
+			const query = `
+			SELECT querys.*, users.avatar, users.nickname
+			FROM querys
+			INNER JOIN users ON querys.user_id = users.user_id
+			WHERE querys.user_id = ?
+			`;
 			const rows = await pool.query(query, [userId]);
 			if (rows[0].length === 0) {
 				return res
@@ -25,7 +30,11 @@ router.get("/", async (req, res) => {
 				res.status(200).json(rows[0]);
 			}
 		} else {
-			const query = `SELECT * FROM querys`;
+			const query = `
+			SELECT querys.*, users.avatar, users.nickname 
+			FROM querys 
+			INNER JOIN users ON querys.user_id = users.user_id
+			`;
 			const rows = await pool.query(query);
 
 			res.status(200).json(rows[0]);

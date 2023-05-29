@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { AdminQueryForm } from "../../components/AdminQuery/AdminQueryForm";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
@@ -9,31 +8,27 @@ import authService from "../../services/auth.service";
 
 function AdminQuerys() {
 	const [data, setData] = useState([]);
-	const userRole = useSelector((state) => state.userRole);
 	const user = authService.getCurrentUser();
+	const userRole = user.role;
 
 	useEffect(() => {
-		async function fecthDAta() {
+		async function fecthData() {
 			try {
 				const querysService = new QuerysService();
-				if (userRole === 'admin'){
+				if (userRole === "admin") {
 					const allQuerys = await querysService.getQuerys();
-					console.log(data)
+					console.log(data);
 					setData(allQuerys);
-					
-
 				} else {
 					const userQuerys = await querysService.getQuerys(user.user_id);
 					setData(userQuerys);
 				}
-				
-				
 			} catch (error) {
 				console.error(error);
 			}
 		}
 
-		fecthDAta();
+		fecthData();
 	}, [user.user_id]);
 
 	return (
@@ -44,15 +39,20 @@ function AdminQuerys() {
 					<InterestsSection />
 					<div className="col-md-10 col-lg-10 fit">
 						<div className="container-fluid">
-							{userRole !== 'admin' && (<div className="row">
-								<AdminQueryForm userRole={userRole} user={user}/>
-							</div>)}
+							{userRole !== "admin" && (
+								<div className="row">
+									<AdminQueryForm
+										userRole={userRole}
+										userId={user.user_id}
+										updateData={setData}
+									/>
+								</div>
+							)}
 							<div className="row">
-								<QandATable data={data} />
+								<QandATable data={data} user={user} />
 							</div>
 						</div>
 					</div>
-					{/* {userRole !== 'admin' && (<FeedRequestsSection />)} */}
 				</div>
 			</main>
 		</>

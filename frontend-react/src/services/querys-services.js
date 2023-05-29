@@ -23,7 +23,7 @@ export default class QuerysService {
 		try {
 			const response = await axios.post(
 				`${API_URL}/create/${userId}`,
-				newQuery,
+				{newQuery: newQuery},
 				{ headers: authHeader() }
 			);
 

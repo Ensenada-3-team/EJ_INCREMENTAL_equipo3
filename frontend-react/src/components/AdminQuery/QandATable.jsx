@@ -1,13 +1,8 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-
+import { AvatarLink } from "../AvatarLink/AvatarLink";
 
 function QandATable(props) {
-	const querys = props.data;
-	const [ data, setData ] = useState(querys);
-	
-	const userRole = useSelector((state) => state.userRole);
-	
+	const { data, user } = props;
+	const userRole = user.role;
 
 	function formatDate(date, includeTime = false) {
 		const options = {
@@ -47,9 +42,9 @@ function QandATable(props) {
 							>
 								<thead className="text-center align-middle table-success">
 									<tr>
-										{userRole === "admin" && <th scope="col"> ID</th>}
-										<th scope="col">Pregunta</th>
-										<th scope="col">Respuesta</th>
+										{userRole === "admin" && <th scope="col"> Usuario</th>}
+										<th scope="col">Consultas</th>
+										<th scope="col">Respuestas</th>
 										<th scope="col">Fecha</th>
 										{userRole === "admin" && <th scope="col">Estado</th>}
 									</tr>
@@ -57,12 +52,23 @@ function QandATable(props) {
 								<tbody>
 									{data.map((row) => (
 										<tr key={row.query_id}>
-											{userRole === "admin" && <td>{row.user_id}</td>}
+											{userRole === "admin" && (
+												<td className="text-center">
+													<AvatarLink
+														userId={row.user_id}
+														avatar={row.avatar}
+														size={50}
+													/>
+													{row.nickname}
+												</td>
+											)}
 											<td>{row.query}</td>
 											<td>{row.response}</td>
 											<td>{formatDate(row.query_date)}</td>
 											{userRole === "admin" && (
-												<td className="text-center">{getIconForStatus(row.query_status)}</td>
+												<td className="text-center">
+													{getIconForStatus(row.query_status)}
+												</td>
 											)}
 										</tr>
 									))}

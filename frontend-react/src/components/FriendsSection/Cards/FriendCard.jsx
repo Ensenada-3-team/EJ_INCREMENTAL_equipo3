@@ -52,20 +52,20 @@ function FriendCard(props) {
 						{/* NO HAY RELACION DE AMISTAD */}
 						{friendShipState === null && user.user_id !== data.user_id && (
 							<button onClick={handleAddFriend} className="btn " title="Añadir amigo">
-								<i class="bi bi-person-plus fs-4"></i>
+								<i className="bi bi-person-plus fs-4"></i>
 							</button>
 						)}
 
 						{/* PENDIENTE SOLICITUD ENVIADA POR EL USUARIO */}
 						{friendShipState === "pending" && user.user_id === senderId && (
 							<>
-							<i class="bi bi-hourglass fs-4 mt-2"></i>
+							<i className="bi bi-hourglass fs-4 mt-2"></i>
 							<button
 								onClick={handleCancelRequest}
 								className="btn"
 								title="Cancela la solicitud de amistad"
 							>
-								<i class="bi bi-x-lg fs-4"></i>
+								<i className="bi bi-x-lg fs-4"></i>
 							</button>
 							</>
 						)}
@@ -94,11 +94,11 @@ function FriendCard(props) {
 						{friendShipState === "accepted" && (
 							<>
 								<button className="btn" title="Escribir mensaje">
-									<i class="bi bi-chat-text fs-4"></i>
+									<i className="bi bi-chat-text fs-4"></i>
 								</button>
 								<button className="btn" title="Eliminar amigo">
 									<i
-										class="bi bi-person-dash-fill fs-4"
+										className="bi bi-person-dash-fill fs-4"
 										onClick={handleRemoveFriend}
 									></i>
 								</button>
@@ -108,7 +108,7 @@ function FriendCard(props) {
 						{/* AMIGOS RECHAZADOS - SOLICITAR AMISTAD DE NUEVO */}
 						{friendShipState === "rejected" && (
 							<button onClick={handleAddFriend} className="btn " title="Añadir amigo">
-								<i class="bi bi-person-plus fs-4"></i>
+								<i className="bi bi-person-plus fs-4"></i>
 							</button>
 						)}
 
