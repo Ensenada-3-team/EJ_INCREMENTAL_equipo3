@@ -49,7 +49,7 @@ function AboutMeProfileCard(props) {
 	return (
 		<>
 			{/* CARD DERECHA : BIO + ICONOS REDES LINK + MAS INFO */}
-			<section className="col-md-5 col-sm-1 order-sm-1 order-2 card mx-sm-0 mx-md-3 ipad-profile">
+			<section className="col-md-5 col-sm-1 order-sm-1 order-2 card mx-sm-0 mx-md-3 ipad-profile bg-light bg-gradient ">
 				<h4 className="card-header text-center">
 					Acerca de{" "}
 					{user.user_id === profileData.user_id

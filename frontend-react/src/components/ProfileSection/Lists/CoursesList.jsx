@@ -135,7 +135,7 @@ function CoursesList(props) {
 						title="Agregar curso"
 						onClick={handleOpenAddModal}
 					>
-						<i className="bi bi-plus-lg fs-md-4 fs-5"></i>
+						<i className="bi bi-plus-square fs-md-4 fs-5"></i>
 					</button>
 				)}
 			</h4>

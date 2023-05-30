@@ -13,6 +13,8 @@ function SearchBar() {
 		// Otras acciones ??
 	};
 
+
+
 	return (
 		<form className="search-box" onSubmit={handleSearch}>
 			<button className="btn-search">
@@ -24,6 +26,7 @@ function SearchBar() {
 				placeholder="Busca tecler..."
 				value={searchTerm}
 				onChange={(event) => setNewSearchTerm(event.target.value)}
+				
 			/>
 		</form>
 	);

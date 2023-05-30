@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
 import { FriendCard } from "../Cards/FriendCard";
 import authService from "../../../services/auth.service";
 import FriendService from "../../../services/friend.service";
@@ -8,6 +10,8 @@ import Swal from "sweetalert2";
 function FriendList(props) {
 	const user = authService.getCurrentUser();
 	const [friends, setFriends] = useState([]);
+
+	const searchTerm = useSelector((state) => state.search);
 
 	useEffect(() => {
 		const friendService = new FriendService();
@@ -22,13 +26,16 @@ function FriendList(props) {
 					icon: "error",
 					title: "Oops...",
 					text: "Ha ocurrido un error al obtener tus amigos!",
-					// footer: '<a href="">Why do I have this issue?</a>',
 				});
 			}
 		};
 
 		fetchFriends();
 	}, [user.user_id]);
+
+	if (searchTerm) {
+		return null
+	}
 
 	return (
 		<>

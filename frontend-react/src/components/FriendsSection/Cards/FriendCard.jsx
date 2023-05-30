@@ -20,7 +20,7 @@ function FriendCard(props) {
 
 	return (
 		<li
-			className="list-group-item border p-1 sombra rounded"
+			className="list-group-item border p-1 sombra rounded bg-light bg-gradient"
 			style={{
 				backgroundColor: "rgba(255, 255, 255, 0.644)",
 			}}

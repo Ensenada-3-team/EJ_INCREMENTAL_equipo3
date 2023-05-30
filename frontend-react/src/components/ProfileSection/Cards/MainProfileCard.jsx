@@ -27,7 +27,7 @@ function MainProfileCard(props) {
 	return (
 		<>
 			{/* --- CARD IZQUIERDA PERFIL ---*/}
-			<section className="col-md-6 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-md-0 card white-card p-0 ipad-profile">
+			<section className="col-md-6 col-sm-1 order-sm-1 order-1 mx-sm-1 mx-md-0 mb-md-0 card bg-light bg-gradient p-0 ipad-profile">
 				{/* PORTADA*/}
 				<div id="user-banner">
 					<img
