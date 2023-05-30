@@ -6,7 +6,7 @@ import authService from "../../services/auth.service";
 import { Navbar } from "../../components/Navbar/Navbar";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
 import { QandATable } from "../../components/AdminQandASection/QandATable";
-import { AdminQueryForm } from "../../components/AdminQandASection/AdminQueryForm";
+import { ToAdminQueryForm } from "../../components/AdminQandASection/ToAdminQueryForm";
 
 function AdminQuerys() {
 	const [data, setData] = useState([]);
@@ -42,7 +42,7 @@ function AdminQuerys() {
 						<div className="container-fluid">
 							{userRole !== "admin" && (
 								<div className="row">
-									<AdminQueryForm
+									<ToAdminQueryForm
 										userId={user.user_id}
 										updateData={setData}
 									/>

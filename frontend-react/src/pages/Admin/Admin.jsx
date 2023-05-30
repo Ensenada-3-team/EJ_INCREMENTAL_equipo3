@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+
+import UserService from "../../services/user.service";
+
 import { Navbar } from "../../components/Navbar/Navbar";
 import UserGrid from "../../components/AdminUserDataSection/UserGrid";
-import UserService from "../../services/user.service";
 
 function Admin() {
       const [users, setUsers] = useState([]);

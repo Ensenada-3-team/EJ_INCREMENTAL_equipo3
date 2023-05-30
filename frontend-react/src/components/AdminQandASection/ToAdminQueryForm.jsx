@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
+
 import QuerysService from "../../services/querys-services";
 
-function AdminQueryForm(props) {
+function ToAdminQueryForm(props) {
 	const {
 		register,
 		handleSubmit,
@@ -55,4 +56,4 @@ function AdminQueryForm(props) {
 	);
 }
 
-export { AdminQueryForm };
+export { ToAdminQueryForm };
