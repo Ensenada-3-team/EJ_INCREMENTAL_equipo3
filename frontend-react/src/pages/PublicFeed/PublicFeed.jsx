@@ -1,5 +1,6 @@
 import { Navbar } from "../../components/Navbar/Navbar";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
+import FeedRequestsSection from "../../components/FeedRequestsSection/FeedRequestsSection";
 import { AllPostsList } from "../../components/AllPostsList/AllPostsList";
 
 function PublicFeed() {
@@ -7,11 +8,12 @@ function PublicFeed() {
       return (
             <>
                   <Navbar />
-                  <main className="container">
+                  <main className="container-fluid">
                         <div className="row justify-content-around p-0">
                               <InterestsSection />
 
                               <AllPostsList />
+                              <FeedRequestsSection />
 
                         </div>
                   </main>

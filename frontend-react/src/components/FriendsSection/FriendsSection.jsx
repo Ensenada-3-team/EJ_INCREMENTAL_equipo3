@@ -1,7 +1,7 @@
 import { FriendList } from "./Lists/FriendList";
 import { ComunityList } from "./Lists/ComunityList";
-import FeedRequestsSection from "../FeedRequestsSection/FeedRequestsSection";
 import { RequestsList } from "./Lists/RequestsList";
+import FeedRequestsSection from "../FeedRequestsSection/FeedRequestsSection";
 
 function FriendsSection() {
 

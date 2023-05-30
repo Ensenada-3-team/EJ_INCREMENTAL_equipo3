@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { FriendCard } from "../Cards/FriendCard";
-import { SectionCard } from "../Cards/SectionCard";
+
 import authService from "../../../services/auth.service";
 import UserService from "../../../services/user.service";
+
+import { FriendCard } from "../Cards/FriendCard";
+import { SectionCard } from "../Cards/SectionCard";
+
 import Swal from "sweetalert2";
 
 function ComunityList() {

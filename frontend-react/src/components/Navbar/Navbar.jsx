@@ -40,7 +40,7 @@ function Navbar() {
 	}
 
 	return (
-		<nav className="navbar navbar-expand-lg bg-body-transparent container">
+		<nav className="navbar navbar-expand-lg bg-body-transparent container-fluid">
 			<div className="container-fluid">
 				{/* COMPONENTE DEL LOGO */}
 				<div className="container col-2">

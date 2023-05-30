@@ -31,7 +31,7 @@ function AllPostsList() {
 	}, []);
 
 	return (
-		<div className="col-md-6 col-lg-8 mx-auto">
+		<div className="col-md-5 col-lg-7 mx-auto">
 			{!token ? (
 				<SectionCard title="Esto es parte de lo que vas a encontrar en nuestra comunidad..."  background="bg-secondary bg-gradient"/>
 			) : (

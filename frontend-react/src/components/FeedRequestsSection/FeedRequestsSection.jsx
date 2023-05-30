@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 function FeedRequestsSection() {
 	const [requests, setRequests] = useState([]);
 	const user = authService.getCurrentUser();
+	const token = authService.getCurrentToken();
 
 	const fetchRequests = async () => {
 		const user = authService.getCurrentUser();
@@ -35,6 +36,11 @@ function FeedRequestsSection() {
 	useEffect(() => {
 		fetchRequests();
 	}, [user.user_id]);
+
+	
+	if (!token) {
+		return null
+	}
 
 	return (
 		<div

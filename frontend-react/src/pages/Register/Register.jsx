@@ -7,15 +7,15 @@ const Register = () => {
 	return (
 		<>
 			<Navbar />
-			<div className="container-fluid">
-				<div className="row justify-content-center m-2">
+			<main className="container-fluid">
+				<div className="row justify-content-around p-0">
 					{/* BIENVENIDA */}
 					< Cover welcome="Qué estás esperando para ser un tecler?"/>
 
 					{/* REGISTRO */}
                               <RegisterForm />						
 				</div>
-			</div>
+			</main>
 
 			<Footer />
 		</>

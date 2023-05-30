@@ -6,7 +6,8 @@ function InterestsSection() {
 		return null
 	}
 	return (
-		<div className="col-md-2 col-lg-2 d-none d-md-block">
+		
+		<div className="col-md-2 col-lg-2 d-none d-md-block position-static ">
 			<div className="container">
 				<div className="row">
 					<div className="col card w-100 text-center">
@@ -73,6 +74,7 @@ function InterestsSection() {
 				</div>
 			</div>
 		</div>
+		
 	);
 }
 

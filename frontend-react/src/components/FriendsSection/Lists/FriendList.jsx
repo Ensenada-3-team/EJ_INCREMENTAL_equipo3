@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { FriendCard } from "../Cards/FriendCard";
 import authService from "../../../services/auth.service";
 import FriendService from "../../../services/friend.service";
+
+import { FriendCard } from "../Cards/FriendCard";
 import { SectionCard } from "../Cards/SectionCard";
+
 import Swal from "sweetalert2";
 
-function FriendList(props) {
+function FriendList() {
 	const user = authService.getCurrentUser();
 	const [friends, setFriends] = useState([]);
 

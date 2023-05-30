@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+
 import authService from "../../../services/auth.service";
 import FriendService from "../../../services/friend.service";
+
 import { FriendshipRequestCard } from "../../FeedRequestsSection/FriendshipRequestCard";
 import { SectionCard } from "../Cards/SectionCard";
+
 import Swal from "sweetalert2";
 
 function RequestsList() {
@@ -24,7 +27,6 @@ function RequestsList() {
 				icon: "error",
 				title: "Oops...",
 				text: "Ha ocurrido un error al obtener las peticiones de amistad!",
-				// footer: '<a href=""> </a>',
 			});
 		}
 	};
