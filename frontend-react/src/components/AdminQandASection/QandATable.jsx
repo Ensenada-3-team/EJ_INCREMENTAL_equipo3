@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from "react";
+
 import QuerysService from "../../services/querys-services";
 import { formatDate } from "../../utils/formatFunctions";
 
 import { AvatarLink } from "../AvatarLink/AvatarLink";
+
 import Modal from "bootstrap/js/dist/modal";
 import Swal from "sweetalert2";
 
@@ -30,25 +32,19 @@ function QandATable(props) {
 	// MODAL PARA AÑADIR RESPUESTA
 	useEffect(() => {
 		if (modalRef.current) {
+			// modalInstance === null && setModalInstance(new Modal(modalRef.current));
 			const modal = new Modal(modalRef.current);
 			setModalInstance(modal);
 		}
 	}, []);
 
-	const handleOpenModal = (query, queryBody) => {
-		setSelectedQueryId(query);
-		setNewResponse(queryBody || "");
-		if (modalInstance) {
-			modalInstance.show();
-		}
-	};
-
+	
 	const handleSaveResponse = async () => {
 		try {
 			const querysService = new QuerysService();
 			await querysService.addResponse(selectedQueryId, newResponse, adminId);
 
-			updateData(
+			await updateData(
 				data.map((row) => {
 					if (row.query_id === selectedQueryId) {
 						return {
@@ -60,13 +56,28 @@ function QandATable(props) {
 				})
 			);
 
-			setNewResponse("");
-
 			if (modalInstance) {
 				modalInstance.hide();
 			}
 		} catch (error) {
 			Swal.fire("Error", error.message, "error");
+			if (modalInstance) {
+				modalInstance.hide();
+			}
+		}
+	};
+
+	// Al desloguearse se pierde la instancia del modal (null)
+	const handleOpenModal = async (query, adminNewResponse) => {
+		setSelectedQueryId(query);
+		setNewResponse(adminNewResponse || "");
+
+		if (!modalInstance) {
+			const modal = new Modal(modalRef.current);
+			setModalInstance(modal);
+			modal.show();
+		} else {
+			modalInstance.show();
 		}
 	};
 
@@ -97,11 +108,11 @@ function QandATable(props) {
 									{data.map((row) => (
 										<tr
 											key={row.query_id}
-											onClick={() => {
-												if (userRole === "admin") {
-													handleOpenModal(row.query_id, row.response);
-												}
-											}}
+											onClick={() =>
+												userRole === "admin"
+													? handleOpenModal(row.query_id, row.response)
+													: null
+											}
 										>
 											{userRole === "admin" && (
 												<td className="text-center">
