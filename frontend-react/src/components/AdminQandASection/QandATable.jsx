@@ -32,7 +32,6 @@ function QandATable(props) {
 	// MODAL PARA AÑADIR RESPUESTA
 	useEffect(() => {
 		if (modalRef.current) {
-			// modalInstance === null && setModalInstance(new Modal(modalRef.current));
 			const modal = new Modal(modalRef.current);
 			setModalInstance(modal);
 		}

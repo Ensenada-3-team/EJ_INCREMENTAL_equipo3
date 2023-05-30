@@ -86,8 +86,10 @@ router.get("/check/:user_id", async (req, res) => {
 		let params = [];
 
 		if (nickname) {
-			query += "nickname = ? ";
+			query += "(nickname = ? ";
 			params.push(nickname);
+		} else {
+			query += "(";
 		}
 
 		if (email) {
@@ -95,8 +97,10 @@ router.get("/check/:user_id", async (req, res) => {
 				query += "OR ";
 			}
 
-			query += "email = ? ";
+			query += "email = ?) ";
 			params.push(email);
+		} else {
+			query += ") ";
 		}
 
 		if (params.length === 0) {
@@ -108,6 +112,10 @@ router.get("/check/:user_id", async (req, res) => {
 		// Excluimos el nickname y el email del usuario que hace la peticion
 		query += `AND user_id <> ?`;
 		params.push(userId);
+		// params = params.filter(param => param !== userId);
+
+		console.log(query)
+		console.log(params)
 
 		// Ejecutamos la query contra la bd
 		const results = await pool.query(query, params);
