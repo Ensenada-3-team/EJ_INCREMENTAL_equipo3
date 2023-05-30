@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { Navbar } from "../../components/Navbar/Navbar";
-import { AdminQueryForm } from "../../components/AdminQuery/AdminQueryForm";
-import InterestsSection from "../../components/InterestsSection/InterestsSection";
-import { QandATable } from "../../components/AdminQuery/QandATable";
+
 import QuerysService from "../../services/querys-services";
 import authService from "../../services/auth.service";
+
+import { Navbar } from "../../components/Navbar/Navbar";
+import InterestsSection from "../../components/InterestsSection/InterestsSection";
+import { QandATable } from "../../components/AdminQandASection/QandATable";
+import { AdminQueryForm } from "../../components/AdminQandASection/AdminQueryForm";
 
 function AdminQuerys() {
 	const [data, setData] = useState([]);
