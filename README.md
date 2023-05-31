@@ -1,6 +1,6 @@
 # PROYECTO FINAL : BOOTCAMP TECLA - ENSENADA
 
-![Consigna Proyecto final](./frontend-react/public/sprint-final.png Sprint Final
+![Consigna Proyecto final]frontend-react/public/sprint-final.png
 
 🎯 Objetivo General de esta entrega: 
 
