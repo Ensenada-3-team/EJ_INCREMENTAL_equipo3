@@ -1,6 +1,6 @@
 # PROYECTO FINAL : BOOTCAMP TECLA - ENSENADA
 
-![Consigna Proyecto final]frontend-react/public/sprint-final.png
+![Consigna Proyecto final](https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3/blob/09f32933646ca0c1e5743b087f14169e3d05bb33/frontend-react/public/sprint-final.png Sprint Final
 
 🎯 Objetivo General de esta entrega: 
 
