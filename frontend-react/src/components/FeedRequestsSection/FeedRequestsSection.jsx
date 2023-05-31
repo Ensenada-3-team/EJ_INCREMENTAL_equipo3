@@ -43,9 +43,10 @@ function FeedRequestsSection() {
 	}
 
 	return (
+		<div className="col-md-2 col-lg-2 d-none d-md-block z-1">
 		<div
-			id="posible-friends"
-			className="col-md-3 col-lg-2 card d-none d-md-block fit"
+			id="friendship-requests"
+			className="col-md-2 col-lg-2  position-fixed start-1 end-0 card d-none d-md-block fit z-0"
 		>
 			<h4 className="text-center p-md-0 p-lg-0 card-header">Solicitudes</h4>
 			{requests.length !== 0 ? (
@@ -61,6 +62,7 @@ function FeedRequestsSection() {
 					No tienes solicitudes de amistad
 				</div>
 			)}
+		</div>
 		</div>
 	);
 }
