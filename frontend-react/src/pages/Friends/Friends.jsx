@@ -1,6 +1,8 @@
 import { Navbar } from "../../components/Navbar/Navbar";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
 import FriendsSection  from "../../components/FriendsSection/FriendsSection";
+import FeedRequestsSection from "../../components/FeedRequestsSection/FeedRequestsSection";
+
 
 function Friends () {
       return (
@@ -10,6 +12,7 @@ function Friends () {
                         <div className="row justify-content-around p-0">
                               < InterestsSection />
                               < FriendsSection />
+                              <FeedRequestsSection />
                         </div>
                   </main>
             </>

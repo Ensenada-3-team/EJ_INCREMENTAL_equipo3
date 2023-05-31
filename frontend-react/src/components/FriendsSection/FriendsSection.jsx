@@ -1,16 +1,15 @@
 import { FriendList } from "./Lists/FriendList";
 import { ComunityList } from "./Lists/ComunityList";
 import { RequestsList } from "./Lists/RequestsList";
-import FeedRequestsSection from "../FeedRequestsSection/FeedRequestsSection";
 
 function FriendsSection() {
 
 	
 	return (
 		<>
-			<div className="col-md-6 col-lg-7 ipad-friends-section">
+			<div className="col-md-6 col-lg-7 ipad-friends-section p-0 ">
 				{/* CONTENEDOR CENTRO CON DOS ROWS */}
-				<div className="container">
+				<div className="container-fluid">
 					{/* ROW 2: AMIGOS */}
 					<div className="container-fluid">
 						<FriendList />
@@ -29,7 +28,7 @@ function FriendsSection() {
 				</div>
 			</div>
 
-			<FeedRequestsSection />
+			
 		</>
 	);
 }

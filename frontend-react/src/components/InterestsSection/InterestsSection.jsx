@@ -7,7 +7,7 @@ function InterestsSection() {
 	}
 	return (
 		<div className="col-md-2 col-lg-2 d-none d-md-block z-1">
-		<div className="col-md-2 col-lg-2 d-none d-md-block position-fixed start-0 end-0 z-0 ">
+		<div className="col-md-2 col-lg-2 d-none d-md-block position-fixed start-0 end-0 z-0 p-0">
 			<div className="container">
 				<div className="row">
 					<div className="col card w-100 text-center">

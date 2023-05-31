@@ -94,9 +94,9 @@ function FriendCard(props) {
 						{/* AMIGOS ACEPTADOS */}
 						{friendShipState === "accepted" && (
 							<>
-								<button className="btn" title="Escribir mensaje">
+								{/* <button className="btn" title="Escribir mensaje">
 									<i className="bi bi-chat-text fs-4"></i>
-								</button>
+								</button> */}
 								<button className="btn" title="Eliminar amigo">
 									<i
 										className="bi bi-person-dash-fill fs-4"
