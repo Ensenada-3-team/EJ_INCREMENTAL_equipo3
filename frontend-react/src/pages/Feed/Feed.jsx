@@ -13,8 +13,7 @@ function Feed() {
                               < FeedPostsSection />
                               < FeedRequestsSection />
                         </div>
-                  </main>
-            
+                  </main>            
             </>
 	);
 }

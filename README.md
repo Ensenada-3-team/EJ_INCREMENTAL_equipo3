@@ -1,5 +1,7 @@
 # PROYECTO FINAL : BOOTCAMP TECLA - ENSENADA
 
+![Consigna Proyecto final](./frontend-react/public/sprint-final.png Sprint Final
+
 🎯 Objetivo General de esta entrega: 
 
 Desarrollar una red social completa para los Teclers. La misma debe: 
