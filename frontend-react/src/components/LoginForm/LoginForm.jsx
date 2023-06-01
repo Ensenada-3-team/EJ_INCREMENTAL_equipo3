@@ -1,20 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setUserRole } from "../../store/reducers/userRoleSlice";
 
-import AuthService from "../../services/auth.service.js";
+import authService from "../../services/auth.service.js";
 
 import Swal from "sweetalert2";
 
 function LoginForm() {
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const token = AuthService.getCurrentToken();
-	
+	const token = authService.getCurrentToken();
+
 	const [usernameOrEmail, setUsernameOrEmail] = useState("");
 	const [password, setPassword] = useState("");
-	
+
 	const handleUsernameOrEmailChange = (event) => {
 		setUsernameOrEmail(event.target.value.trim());
 	};
@@ -26,8 +23,7 @@ function LoginForm() {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		try {
-			const response = await AuthService.login(usernameOrEmail, password);
-			console.log(response.user.role);
+			const response = await authService.login(usernameOrEmail, password);
 			if (response.token) {
 				await Swal.fire({
 					position: "top-end",
@@ -36,13 +32,8 @@ function LoginForm() {
 					showConfirmButton: false,
 					timer: 1500,
 				});
-				
-				
-				dispatch(setUserRole(response.user.role));
-				
-				navigate("/app/feed")
 
-				
+				navigate("/app/feed");
 			}
 		} catch (error) {
 			console.error(error);
@@ -55,13 +46,12 @@ function LoginForm() {
 		}
 
 		setUsernameOrEmail("");
-      	setPassword("");
+		setPassword("");
 	};
 
 	if (token) {
-		return null
+		return null;
 	}
-	
 
 	return (
 		<div className="col-md-4 p-0 mx-auto">
@@ -105,8 +95,7 @@ function LoginForm() {
 						</button>
 					</form>
 					<p className="text-center">
-						¿No tienes una cuenta?{" "}
-						<a href="/register">Regístrate aquí</a>.
+						¿No tienes una cuenta? <a href="/register">Regístrate aquí</a>.
 					</p>
 				</div>
 			</div>
