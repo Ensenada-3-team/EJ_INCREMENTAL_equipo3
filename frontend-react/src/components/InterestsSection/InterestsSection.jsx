@@ -10,6 +10,7 @@ function InterestsSection() {
 								<a
 									href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3"
 									target="_blank"
+									rel="noreferrer"
 								>
 									<i
 										className="bi bi-github"
@@ -22,7 +23,11 @@ function InterestsSection() {
 								<h6 className="d-lg-block d-md-none">Github</h6>
 							</div>
 							<div>
-								<a href="https://www.linkedin.com/" target="_blank">
+								<a
+									href="https://www.linkedin.com/"
+									target="_blank"
+									rel="noreferrer"
+								>
 									<i
 										className="bi bi-linkedin"
 										style={{ fontSize: "1.5rem", transform: "scale(2)" }}

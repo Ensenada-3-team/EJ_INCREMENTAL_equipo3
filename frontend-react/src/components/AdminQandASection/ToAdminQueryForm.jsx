@@ -30,7 +30,8 @@ function ToAdminQueryForm(props) {
 
 
 	return (
-		<div className="container card bg-secondary bg-gradient">
+		<div className=" d-flex justify-content-center">
+		<div className="container col-lg-6 col-md-7 card bg-secondary bg-gradient">
 			<h2 className="mb-3 text-center"><i className="bi bi-patch-question"></i> Consulta a los administradores</h2>
 			<form onSubmit={handleSubmit(onSubmit)} className="w-100">
 				<div className="mb-3">
@@ -52,6 +53,7 @@ function ToAdminQueryForm(props) {
 					</button>
 				</div>
 			</form>
+		</div>
 		</div>
 	);
 }

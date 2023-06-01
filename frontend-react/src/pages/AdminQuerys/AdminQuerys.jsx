@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import QuerysService from "../../services/querys-services";
 import authService from "../../services/auth.service";
 
-import { Navbar } from "../../components/Navbar/Navbar";
 import Layout from "../../components/Layout";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
 import { QandATable } from "../../components/AdminQandASection/QandATable";

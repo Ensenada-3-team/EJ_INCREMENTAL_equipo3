@@ -34,6 +34,7 @@ const Footer = () => {
 							<a
 								href="https://www.w3schools.com/"
 								target="_blank"
+								rel="noreferrer"
 								className="no-underline"
 							>
 								<strong> W3Schools</strong>
@@ -43,6 +44,7 @@ const Footer = () => {
 							<a
 								href="https://stackoverflow.com/"
 								target="_blank"
+								rel="noreferrer"
 								className="no-underline"
 							>
 								<strong> Stack-Overflow</strong>
@@ -55,6 +57,7 @@ const Footer = () => {
 							<a
 								href="https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3"
 								target="_blank"
+								rel="noreferrer"
 								className="no-underline"
 							>
 								<i className="bi bi-github fs-4"></i>

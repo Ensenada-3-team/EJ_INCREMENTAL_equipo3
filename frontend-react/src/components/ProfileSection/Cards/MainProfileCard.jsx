@@ -1,11 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import FriendService from "../../../services/friend.service";
 
 function MainProfileCard(props) {
 	const { profileData } = props;
-	const navigate = useNavigate();
 
 	const [friendCount, setFriendCount] = useState(0);
 
