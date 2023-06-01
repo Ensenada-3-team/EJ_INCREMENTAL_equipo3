@@ -1,9 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 // import ReactPlayer from "react-player/youtube";
 
 function Cover(props) {
-	const location = useLocation();
+	// const location = useLocation();
 
 	return (
 		<div className="col-md-6 card bg-transparent p-0 mx-auto">
@@ -16,8 +16,8 @@ function Cover(props) {
 				<div className="row">
 					<div className="col-md-8 offset-md-2">
 						<div className="card bg-light">
-							<div className="card-body">
-								<h2 className="card-title text-center">
+							<div className="card-body text-center">
+								<h2 className="card-title">
 									{props.welcome}
 									<br /> {props.title}
 								</h2>

@@ -78,7 +78,7 @@ Las siguientes carpetas se encuentran dentro de `src`:
   
 - `pages`: Aquí se encuentran los componentes padre que se renderizan en cada vista de cada ruta establecida en `App`, para una mejor organización y localización del código.
   
-- `services`: Se han establecido servicios de conexión de peticiones HTTP con el servidor utilizando Axios. Se utiliza la teoría de clases y se establece un método para la comunicación con cada endpoint. También se incluye un `auth-header` que agrega encabezados a las peticiones que requieren un token de autenticación. Para futuras implementaciones, se establecerá un `useService` para cada uno de los servicios.
+- `services`: Se han establecido servicios de conexión de peticiones HTTP con el servidor utilizando Axios. Se utiliza la teoría de clases y se establece un método para la comunicación con cada endpoint. También se incluye un `auth-header` que agrega encabezados a las peticiones que requieren un token de autenticación. Para futuras implementaciones, se establecerá un hook personalizado `useService` para cada uno de los servicios. Actualmente el proyecto cuenta con `useFriendService`.
   
 - `store`: Implementación de Redux. Al utilizar el `Provider` en `index.js` y configurar el store, se pueden utilizar los estados globales de Redux para diversas funcionalidades. 
   - Hasta el momento, la implementación principal se ha realizado en el componente `Searchbar`, que recoge el estado de búsqueda y se utiliza en la vista `Friends`, específicamente en el componente `ComunityList`, para renderizar los resultados de la búsqueda.
@@ -113,7 +113,7 @@ A lo largo del desarrollo del proyecto se han tomado ciertas decisiones que guí
 *Ten en cuenta que estas decisiones están sujetas a futuras mejoras y refactorizaciones del proyecto.*
 
 
-## Ejercicio incremental ~ Localización en el código
+## Ejercicios incrementales ~ Localización en el código
 
 A continuación se presentan los ejercicios incrementales requeridos diariamente para el desarrollo del proyecto, así como los componentes o secciones donde se puede encontrar su implementación.
 

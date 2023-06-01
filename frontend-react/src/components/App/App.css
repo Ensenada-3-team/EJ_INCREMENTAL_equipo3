@@ -347,3 +347,8 @@ footer {
 }
 
 
+/* FOOTER */
+
+.hide-footer {
+	display: none;
+}

@@ -1,25 +1,20 @@
-import { Navbar } from "../../components/Navbar/Navbar";
+import authService from "../../services/auth.service";
+
+import Layout from "../../components/Layout";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
 import FeedRequestsSection from "../../components/FeedRequestsSection/FeedRequestsSection";
 import { AllPostsList } from "../../components/AllPostsList/AllPostsList";
 
 function PublicFeed() {
-    
-      return (
-            <>
-                  <Navbar />
-                  <main className="container-fluid">
-                        <div className="row justify-content-around p-0">
-                              <InterestsSection />
+	const token = authService.getCurrentToken();
 
-                              <AllPostsList />
-                              <FeedRequestsSection />
-
-                        </div>
-                  </main>
-            </>
-      )
-            
+	return (
+		<Layout>
+			{token && <InterestsSection />}
+			<AllPostsList />
+			{token && <FeedRequestsSection />}
+		</Layout>
+	);
 }
 
-export default PublicFeed
+export default PublicFeed;

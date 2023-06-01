@@ -1,3 +1,14 @@
+/**
+ * Hook personalizado para gestionar la funcionalidad de amistad.
+ *
+ * Este hook se utiliza para obtener y gestionar el estado de amistad entre dos usuarios.
+ * Proporciona métodos para agregar amigos, cancelar solicitudes, aceptar solicitudes,
+ * rechazar solicitudes y eliminar amigos.
+ *
+ * @param {string} userId - El ID del usuario con el que se establece la amistad.
+ * @returns {object} - Un objeto con las propiedades y métodos relacionados con la funcionalidad de amistad.
+ */
+
 import { useState, useEffect } from "react";
 import FriendService from "./friend.service";
 import authService from "./auth.service";
