@@ -6,7 +6,7 @@ const pool = require("../db/connection");
 //Middlewares
 const authMiddleware = require("../lib/authMiddleware");
 
-/* ENDPOINTS COURSES */
+/* ENDPOINTS /courses */
 
 // GET  - LISTA DE CURSOS POR ID
 router.get("/user/:user_id", authMiddleware, async (req, res) => {
@@ -58,26 +58,6 @@ router.post("/user/:user_id", authMiddleware, async (req, res) => {
 	}
 });
 
-router.delete("/user/:user_id/courses/:courseId", authMiddleware, async (req, res) => {
-	const userId = req.params.user_id;
-	const courseId = req.params.courseId;
-
-	try {
-		const deletedRows = await pool.query("DELETE FROM courses WHERE id = ?", [
-			courseId,
-		]);
-
-		if (deletedRows.affectedRows === 0) {
-			return res.status(404).json({ message: "El curso no existe" });
-		}
-
-		return res.status(200).json({ message: "Curso eliminado correctamente" });
-	} catch (error) {
-		console.error(error);
-		return res.status(500).json({ message: "Error al eliminar el curso" });
-	}
-});
-
 router.put("/user/:user_id/courses/:courseId", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	const courseId = req.params.courseId;
@@ -99,5 +79,27 @@ router.put("/user/:user_id/courses/:courseId", authMiddleware, async (req, res) 
 		return res.status(500).json({ message: "Error al editar el curso" });
 	}
 });
+
+router.delete("/user/:user_id/courses/:courseId", authMiddleware, async (req, res) => {
+	const userId = req.params.user_id;
+	const courseId = req.params.courseId;
+
+	try {
+		const deletedRows = await pool.query("DELETE FROM courses WHERE id = ?", [
+			courseId,
+		]);
+
+		if (deletedRows.affectedRows === 0) {
+			return res.status(404).json({ message: "El curso no existe" });
+		}
+
+		return res.status(200).json({ message: "Curso eliminado correctamente" });
+	} catch (error) {
+		console.error(error);
+		return res.status(500).json({ message: "Error al eliminar el curso" });
+	}
+});
+
+
 
 module.exports = router;

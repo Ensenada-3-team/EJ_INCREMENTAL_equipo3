@@ -14,6 +14,8 @@ Para inicializar el servidor (backend), sigue los siguientes pasos:
 npm install
 npm run dev
 ```
+### API (manual)
+![Api](Backend\README.md)
 
 ### Estructura
 
@@ -73,8 +75,10 @@ Dentro de la carpeta `src`:
 
 Las siguientes carpetas se encuentran dentro de `src`:
 
-- `components`: Contiene el componente principal `App.js` y los subcomponentes que forman parte de las diferentes vistas establecidas para las distintas rutas.
+- `components`: Contiene el componente principal `App.js` y los subcomponentes que forman parte de las diferentes vistas establecidas para las distintas rutas. A destacar:
   - `App`: Contiene el componente principal de la aplicación, `App.js`, y el archivo `routes.js`, que establece las rutas principales y las rutas protegidas por autenticación. También se incluyen los estilos CSS personalizados y media queries.
+  - `Layout` : Envuelve a las vistas principales de la aplicación (exceptuando la vista de administrador). Hace uso del objeto `children` para renderizar lo específico de cada vista, mientras que Layout contiene lo común a todas las vistas.
+  - COMPONENTES REUTILIZADOS: `inputField`, `AvatarLink`, `Navbar`. 
   
 - `pages`: Aquí se encuentran los componentes padre que se renderizan en cada vista de cada ruta establecida en `App`, para una mejor organización y localización del código.
   
@@ -87,7 +91,7 @@ Las siguientes carpetas se encuentran dentro de `src`:
 
 ## Notas adicionales
 
-Este proyecto tiene como objetivo desarrollar una red social utilizando Express en el backend y React en el frontend. Se han aplicado buenas prácticas, como el uso de rutas, controladores y middlewares en el backend, y la organización de componentes y el uso de Redux en el frontend.
+Se han aplicado buenas prácticas, como el uso de rutas, controladores y middlewares en el backend, y la organización de componentes y el uso de Redux en el frontend.
 
 En el futuro, se planea implementar modelos (schemas) en el backend y seguir mejorando la funcionalidad y la interfaz de usuario en el frontend.
 

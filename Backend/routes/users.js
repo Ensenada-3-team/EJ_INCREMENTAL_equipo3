@@ -112,15 +112,11 @@ router.get("/check/:user_id", async (req, res) => {
 		// Excluimos el nickname y el email del usuario que hace la peticion
 		query += `AND user_id <> ?`;
 		params.push(userId);
-		// params = params.filter(param => param !== userId);
-
-		console.log(query)
-		console.log(params)
+		
 
 		// Ejecutamos la query contra la bd
 		const results = await pool.query(query, params);
-		console.log(results[0]);
-
+		
 		//modificar en el futuro para que concrete si es el emai o el nickname
 		if (results[0].length > 0) {
 			return res.status(409).json({
@@ -150,26 +146,22 @@ router.patch("/change-data/:user_id", authMiddleware, ageValidation, async (req,
 			userId,
 		]);
 
-		// Si no existe, respuesta de error
 		if (isUser.length === 0) {
 			return res
 				.status(404)
 				.json({ message: "El usuario no está en la base de datos" });
 		}
 
-		// Creamos un objeto para guardar las propiedades actualizadas y sus valores
 		const updatedFields = {};
 
-		// Recorremos las propiedades del objeto de datos entrantes
 		for (const [key, value] of Object.entries(userData)) {
-			// Si el valor de la propiedad es diferente al valor en la BD y no es una cadena vacía, 
 			if (value !== isUser[0][key] && value !== "") {
-				// agregamos la propiedad actualizada al objeto de campos actualizados
+
 				updatedFields[key] = value;
 			}
 		}
 
-		// Si no hay campos actualizados, responder con un mensaje
+		// Si no hay campos actualizados, respondemos con un mensaje
 		if (Object.keys(updatedFields).length === 0) {
 			return res.status(200).json({
 				message: "No se han modificado campos de datos",
@@ -177,19 +169,16 @@ router.patch("/change-data/:user_id", authMiddleware, ageValidation, async (req,
 			});
 		}
 
-		// Hacer update de los nuevos datos en la base de datos
 		await pool.query("UPDATE users SET ? WHERE user_id = ?", [
 			updatedFields,
 			userId,
 		]);
 
-		// Obtener los nuevos datos del usuario de la base de datos
 		const updatedUser = await pool.query(
 			"SELECT * FROM users WHERE user_id = ?",
 			[userId]
 		);
 
-		// Devolvemos status 200 + usuario con datos nuevos
 		return res.status(200).json({
 			message: "Usuario actualizado con éxito",
 			user: updatedUser[0],

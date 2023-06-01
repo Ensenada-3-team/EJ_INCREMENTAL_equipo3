@@ -130,7 +130,7 @@ router.post("/send-request", authMiddleware, async (req, res) => {
 			[senderId, receiverId]
 		);
 
-		// Si la inserción fue exitosa, devolvemos un mensaje de éxito
+		
 		if (result.affectedRows > 0) {
 			res
 				.status(200)

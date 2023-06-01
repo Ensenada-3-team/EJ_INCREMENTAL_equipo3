@@ -6,13 +6,11 @@ const pool = require("../db/connection");
 //Middlewares
 const authMiddleware = require("../lib/authMiddleware");
 
-/* ENDPOINTS QUERYS */
+/* ENDPOINTS /querys */
 
 // GET - OBTENEMOS ONSULTAS EXISTENTES. SI USER_ID POR QUERY STRING --> LAS DEL USER
 router.get("/", authMiddleware, async (req, res) => {
 	const userId = req.query.user_id;
-	console.log(userId);
-
 	try {
 		if (userId) {
 			const query = `
@@ -87,7 +85,7 @@ router.put("/respond/query/:queryId", authMiddleware, async (req, res) => {
 			`SELECT * FROM querys WHERE query_id = ?`,
 			[queryId]
 		);
-		console.log(lastQueryResults[0][0]);
+		
 		res.status(200).json(lastQueryResults[0][0]);
 	} catch (error) {
 		console.log(error);

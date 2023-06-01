@@ -8,7 +8,7 @@ const coolImages = require("cool-images");
 const authMiddleware = require("../lib/authMiddleware");
 const minutesAgo = require("../lib/minutesAgo");
 
-/* ENDPOINTS  */
+/* ENDPOINTS /posts  */
 
 //GET - OBTENER TODAS LAS PUBLICACIONES EXISTENTES
 router.get("/", async (req, res) => {
@@ -133,8 +133,7 @@ router.post("/new-post/", authMiddleware, async (req, res) => {
 router.delete("/delete-post/:postId", authMiddleware, async (req, res) => {
 	const { postId } = req.params;
 	const user = req.jwtInfo.user_id;
-	console.log(user, postId)
-
+	
 	try {
 		const [result] = await pool.query(
 			"SELECT * FROM posts WHERE post_id = ? AND user_id = ? ",
