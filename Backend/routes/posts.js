@@ -8,7 +8,7 @@ const coolImages = require("cool-images");
 const authMiddleware = require("../lib/authMiddleware");
 const minutesAgo = require("../lib/minutesAgo");
 
-/* ENDPOINTS /posts  */
+/**ENDPOINTS /posts  */
 
 //GET - OBTENER TODAS LAS PUBLICACIONES EXISTENTES
 router.get("/", async (req, res) => {

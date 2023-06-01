@@ -388,3 +388,29 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
     - Código: 200 (OK)
     - Cuerpo: Mensaje de éxito en el eliminado del usuario.
 
+
+## Feedbacks Service - Feedbacks a un usuario
+
+- **Obtener los feedbacks de un usuario o todos los feedbacks**
+- Método: GET
+  - URL: `http://localhost:3000/feedbacks/:userid`
+  - Parámetros de URL:
+    - `userId`(opcional): ID del usuario del que se desea obtener los feedbacks realizados por otros usuarios.
+  - Cabeceras:
+    - Authorization: Token de autenticación del usuario.
+  - Respuesta exitosa:
+    - Código: 200 (OK)
+    - Cuerpo: Array de objetos con los feedbacks y los datos de sus autores.
+
+- **Crear un nuevo feedback**
+- Método: POST
+  - URL: `http://localhost:3000/feedbacks/create`
+  - Cuerpo de URL:
+    - `feedback_sender`: Autor del feedback
+    - `feedback_receiver`: Usuario que recibe el feedback
+    - `content`: Contenido del feedback.
+  - Cabeceras:
+    - Authorization: Token de autenticación del usuario.
+  - Respuesta exitosa:
+    - Código: 200 (OK)
+    - Cuerpo: Objeto json con el feedback_id creado.

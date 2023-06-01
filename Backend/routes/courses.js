@@ -6,7 +6,7 @@ const pool = require("../db/connection");
 //Middlewares
 const authMiddleware = require("../lib/authMiddleware");
 
-/* ENDPOINTS /courses */
+/**ENDPOINTS /courses */
 
 // GET  - LISTA DE CURSOS POR ID
 router.get("/user/:user_id", authMiddleware, async (req, res) => {

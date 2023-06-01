@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import FriendService from "../../../services/friend.service";
+import Swal from "sweetalert2";
 
 function MainProfileCard(props) {
 	const { profileData } = props;
@@ -15,6 +16,7 @@ function MainProfileCard(props) {
 			  setFriendCount(friends.length);
 		    } catch (error) {
 			  console.log(error);
+			  Swal.fire("Error", "Error al obtener los amigos", "error");
 		    }
 		};
 	  
@@ -82,7 +84,7 @@ function MainProfileCard(props) {
 					</div>
 				</div>
 				{/* FOOTER - BOTONES LINKS */}
-				{/* <div className="card-footer d-flex">
+				<div className="card-footer d-flex">
 					<button
 						className="btn btn-sm btn-primary"
 						onClick={() => navigate("/app/friends")}
@@ -90,13 +92,8 @@ function MainProfileCard(props) {
 						Amigos
 					</button>
 
-					<button
-						className="btn btn-sm btn-dark mx-1"
-						onClick={() => navigate("./funciones.html")}
-					>
-						Explora mi trabajo en equipo
-					</button>
-				</div> */}
+					
+				</div>
 			</section>
 		</>
 	);

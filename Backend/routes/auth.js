@@ -13,7 +13,7 @@ const {
 
 const authMiddleware = require("../lib/authMiddleware");
 
-/* ENDPOINTS AUTENTICACION */
+/**ENDPOINTS /auth*/
 
 //POST - REGISTRO DE USUARIO EN LA BD - 1ºcomprueba si ya existe el nickname y el email.
 router.post("/register",

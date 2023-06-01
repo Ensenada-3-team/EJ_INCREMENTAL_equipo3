@@ -18,8 +18,16 @@ function Profile() {
 		<Layout>
 			<InterestsSection />
 			<div className="col-md-10 col-lg-10">
-				<div className="container">
+				<div className="container-fluid">
 					<ProfileSection friendId={friendId} />
+					{/* <div className=" container ipad-container d-flex justify-content-center">
+						
+						<div className="col-12 card d-flex bg-light bg-gradient ">
+							HOLA 
+						</div>
+
+						
+					</div> */}
 				</div>
 			</div>
 		</Layout>

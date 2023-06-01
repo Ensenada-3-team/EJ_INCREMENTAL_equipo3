@@ -21,6 +21,7 @@ const authRouter = require("./routes/auth");
 const friendsRouter = require("./routes/friends");
 const coursesRouter = require("./routes/courses");
 const querysRouter = require("./routes/querys");
+const feedbacksRouter = require("./routes/feedbacks");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -47,6 +48,7 @@ app.use("/auth", authRouter);
 app.use("/friends", friendsRouter);
 app.use("/courses", coursesRouter);
 app.use("/querys", querysRouter);
+app.use("/feedbacks", feedbacksRouter);
 
 /**
 Error handlers

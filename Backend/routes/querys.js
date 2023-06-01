@@ -6,7 +6,7 @@ const pool = require("../db/connection");
 //Middlewares
 const authMiddleware = require("../lib/authMiddleware");
 
-/* ENDPOINTS /querys */
+/**ENDPOINTS /querys */
 
 // GET - OBTENEMOS ONSULTAS EXISTENTES. SI USER_ID POR QUERY STRING --> LAS DEL USER
 router.get("/", authMiddleware, async (req, res) => {
