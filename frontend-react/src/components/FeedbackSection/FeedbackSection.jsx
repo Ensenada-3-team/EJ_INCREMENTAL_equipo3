@@ -39,7 +39,7 @@ const FeedbackSection = ({ friendId }) => {
 
 	return (
 		
-		<div className="container-fluid">
+		<div className="container">
 			<ResponsiveReactGridLayout
 				className="layout"
 				breakpoints={breakpoints}
