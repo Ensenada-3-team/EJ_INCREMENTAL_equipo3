@@ -35,7 +35,7 @@ function AllPostsList() {
 			{!token ? (
 				<SectionCard title="Esto es parte de lo que vas a encontrar en nuestra comunidad..."  background="bg-secondary bg-gradient"/>
 			) : (
-				<SectionCard title="Los teclers han publicado..."  background="bg-secondary bg-gradient" />
+				<SectionCard title="Lo más reciente..."  background="bg-secondary bg-gradient" />
 			)}
 			<ol id="lista-publicaciones">
 				{token

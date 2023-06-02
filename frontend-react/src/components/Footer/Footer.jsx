@@ -14,7 +14,7 @@ const Footer = () => {
 			{inView && (
 				<footer className="container-fluid fixed-bottom py-3">
 					<div className="row d-flex d-block d-sm-none">
-					<div className="col-4">
+					<div className="col-4 ">
 						<div className="d-flex justify-content-center">
 							<Link to="/" className="navbar-brand">
 								<img
@@ -40,7 +40,7 @@ const Footer = () => {
 								<strong> W3Schools</strong>
 							</a>
 						</div>
-						<div className="d-flex justify-content-center">
+						<div className="d-flex justify-content-center text-center">
 							<a
 								href="https://stackoverflow.com/"
 								target="_blank"

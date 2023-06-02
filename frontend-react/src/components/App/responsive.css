@@ -28,6 +28,9 @@
 		margin: 0rem;
 		padding: 0rem;
 	}
+	.post-nick-date {
+		flex-direction: column;
+	}
 }
 
 @media (min-width: 370px) and (max-width: 533px) {
