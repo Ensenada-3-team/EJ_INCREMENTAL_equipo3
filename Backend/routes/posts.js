@@ -39,7 +39,6 @@ router.get("/", async (req, res) => {
 //GET - TRAE LOS POSTS DE UN USUARIO POR SU NICKNAME
 router.get("/private/search/:nickname", authMiddleware, async (req, res) => {
 	const nickname = req.params.nickname;
-	console.log(nickname);
 	pool
 		.query(
 			`

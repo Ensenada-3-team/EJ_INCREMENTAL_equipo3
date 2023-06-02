@@ -34,7 +34,6 @@ router.get("/user/:user_id", authMiddleware, async (req, res) => {
 router.post("/user/:user_id", authMiddleware, async (req, res) => {
 	const userId = req.params.user_id;
 	const course_name = req.body.course_name;
-	console.log(course_name);
 
 	try {
 		const insertResults = await pool.query(

@@ -46,7 +46,6 @@ router.post("/register",
 				"SELECT * FROM users WHERE nickname = ? OR email = ? ",
 				[nickname, email]
 			);
-			//console.log(isAlreadyUser); ---> el resultado está en la posicion [0]
 
 			// Si el usuario ya existe, enviar una respuesta de error
 			if (isAlreadyUser[0].length > 0) {
@@ -126,7 +125,6 @@ router.post("/login", async (req, res) => {
 			});
 		}
 
-		console.log(rows[0]);
 		// Obtener el hash de la contraseña almacenado en la base de datos
 		const hashedPassword = rows[0].password;
 

@@ -158,7 +158,6 @@ router.delete("/cancel-request", authMiddleware, async (req, res) => {
 			[senderId, receiverId]
 		);
 
-		console.log(result.affectedRows)
 		if (result.affectedRows > 0) {
 			res
 				.status(200)

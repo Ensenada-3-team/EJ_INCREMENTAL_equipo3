@@ -56,7 +56,6 @@ router.post("/create/:user_id", authMiddleware, async (req, res) => {
 		);
 
 		const insertedQueryId = insertQuery[0].insertId;
-		console.log(insertedQueryId);
 
 		const lastQueryResults = await pool.query(
 			`SELECT * FROM querys WHERE query_id = ?`,

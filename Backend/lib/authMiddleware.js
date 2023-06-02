@@ -17,7 +17,7 @@ function authMiddleware(req, res, next) {
 		const decoded = jsonwebtoken.verify(token, process.env.JWT_SECRET);
 		req.jwtInfo = decoded;
 
-		console.log(decoded);
+		// console.log(decoded);
 		next();
 	} catch (error) {
 		console.log(error);
