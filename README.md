@@ -19,7 +19,6 @@ npm run dev
 
 ![Api](Backend/README.md)
 
-Dirección local al manual ![Api](Backend\README.md)
 
 ### Estructura
 

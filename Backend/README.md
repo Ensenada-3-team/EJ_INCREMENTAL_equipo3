@@ -1,6 +1,14 @@
 # MANUAL DE LA API 
 
-Aquí se encuentran una relación de los endpoints creados para esta API. 
+Aquí se encuentran una relación de los endpoints creados para esta API:
+◾ Autenticación
+◾ Gestión de usuarios
+◾ Cursos
+◾ Relaciones de amistad
+◾ Publicaciones
+◾ Consultas al administrador
+◾ Feedbacks de usuarios
+
 
 ## Auth Service - AUTENTICACIÓN
 
@@ -16,7 +24,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Cuerpo de respuesta: Objeto con el token de autenticación y el user sin la contraseña.
 
 
-**Register**
+**Registro**
 
 - Método: `POST`
 - URL: `http://localhost:3000/auth/register`
@@ -38,7 +46,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
 - Respuesta exitosa:
   - Código de estado: `200`
 
-**Change Password**
+**Cambiar contraseña**
 
 - Método: `PUT`
 - URL: `http://localhost:3000/auth/change-password`
@@ -52,9 +60,78 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
 
 
+## User Service - GESTION DE USUARIOS
+
+**Obtener todos los usuarios**
+
+  - Método: GET
+  - URL: `http://localhost:3000/users`
+  - Respuesta exitosa:
+    - Código: 200 (OK)
+    - Cuerpo: Array de objetos que representan los usuarios.
+
+**Obtener un usuario por ID**
+
+  - Método: GET
+  - URL: `http://localhost:3000/users/user/:userId`
+  - Parámetros de URL:
+    - `userId`: ID del usuario que se desea obtener.
+  - Respuesta exitosa:
+    - Código: 200 (OK)
+    - Cuerpo: Objeto que representa el usuario solicitado, mas su último login.
+
+**Obtener un usuario por nickname**
+
+  - Método: GET
+  - URL: `http://localhost:3000/users/user/nickname/:nickname`
+  - Parámetros de URL:
+    - `nickname`: Nickname del usuario que se desea obtener.
+  - Respuesta exitosa:
+    - Código: 200 (OK)
+    - Cuerpo: Objeto que representa el usuario solicitado.
+
+**Comprueba si un nickname o un email existen el la base de datos a excepción de los del usuario que consulta**
+
+  - Método: GET
+  - URL: `http://localhost:3000/users/check/:userId`
+  - Parámetros de URL:
+    - `userId`: ID del usuario que se desea verificar
+  - Parámetros de consulta:
+    - `nickname`: Nickname del usuario a verificar en bd.
+    - `email`: Email del usuario a verificar en bd.
+  - Respuesta exitosa:
+    - Código: 200 (OK)
+    - Cuerpo: Objeto que indica si el usuario ha sido verificado o no.
+
+**Actualizar los datos de un usuario**
+
+  - Método: PATCH
+  - URL: `http://localhost:3000/users/change-data/:userId`
+  - Parámetros de URL:
+    - `userId`: ID del usuario que se desea actualizar.
+  - Cuerpo: 
+    - `userData`: Objeto que contiene los datos que el usuario desea actualizar.
+  - Cabeceras:
+    - Authorization: Token de autenticación del usuario.
+  - Respuesta exitosa:
+    - Código: 200 (OK)
+    - Cuerpo: Objeto que representa el usuario actualizado.
+
+**Eliminar un usuario**
+
+  - Método: DELETE
+  - URL: `http://localhost:3000/users/delete/:userId`
+  - Parámetros de URL:
+    - `userId`: ID del usuario que se desea eliminar.
+  - Cabeceras:
+    - Authorization: Token de autenticación del usuario.
+  - Respuesta exitosa:
+    - Código: 200 (OK)
+    - Cuerpo: Mensaje de éxito en el eliminado del usuario.
+
 ## Courses Service - CURSOS DEL USUARIO
 
-**GetUserCourses**
+**Obtener cursos de un usuario**
 
 - Método: `GET`
 - URL: `http://localhost:3000/courses/user/{userId}`
@@ -66,7 +143,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Objeto con los cursos del usuario.
 
-**AddCourse**
+**Añadir nuevo curso**
 
 - Método: `POST`
 - URL: `http://localhost:3000/courses/user/{userId}`
@@ -80,7 +157,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `201`
   - Cuerpo de respuesta: Objeto con los datos del curso agregado.
 
-**UpdateCourse**
+**Modificar curso**
 
 - Método: `PUT`
 - URL: `http://localhost:3000/courses/user/{userId}/courses/{courseId}`
@@ -94,7 +171,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Mensaje de éxito al actualizar el curso.
 
-**DeleteCourse**
+**Eliminar curso**
 
 - Método: `DELETE`
 - URL: `http://localhost:3000/courses/user/{userId}/courses/{courseId}`
@@ -109,7 +186,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
 
 ## Friend Service - RELACIONES DE AMISTAD
 
-**GetAllFriends**
+**Obtener todos los amigos de un usuario**
 
 - Método: `GET`
 - URL: `http://localhost:3000/friends/user/{userId}`
@@ -121,7 +198,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Objeto con los amigos del usuario y su último login registrado.
 
-**GetAllNonFriends**
+**Obtener la lista de los no amigos**
 
 - Método: `GET`
 - URL: `http://localhost:3000/friends/user/{userId}/nonfriends`
@@ -133,7 +210,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Objeto con los no amigos del usuario y su último login registrado.
 
-**GetFriendshipRequests**
+**Obtener las solicitudes de amistad de un usuario (pendientes)**
 
 - Método: `GET`
 - URL: `http://localhost:3000/friends/pending-requests/{userId}`
@@ -145,7 +222,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Objeto con las solicitudes de amistad del usuario y su último login registrado.
 
-**GetFriendshipStatus**
+**Obtener el estado de una amistad**
 
 - Método: `GET`
 - URL: `http://localhost:3000/friends/status/{userId}/{otherUserId}`
@@ -158,7 +235,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Objeto con el estado de amistad entre los usuarios.
 
-**SendFriendshipRequest**
+**Enviar una solicitud de amistad**
 
 - Método: `POST`
 - URL: `http://localhost:3000/friends/send-request`
@@ -171,7 +248,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Mensaje de éxito al solicitar la amistad.
 
-**CancelFriendshipRequest**
+**Cancelar mi solicitud de amistad a otro usuario**
 
 - Método: `DELETE`
 - URL: `http://localhost:3000/friends/cancel-request`
@@ -184,7 +261,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Mensaje de éxito al cancelar la solicitud de amistad.
 
-**AcceptFriendshipRequest**
+**Aceptar solicitud de amistad**
 
 - Método: `PUT`
 - URL: `http://localhost:3000/friends/accept-request`
@@ -197,7 +274,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Mensaje de éxito al aceptar la solicitud de amistad.
 
-**RejectFriendshipRequest**
+**Rechazar solicitud de amistad**
 
 - Método: `PUT`
 - URL: `http://localhost:3000/friends/reject-request`
@@ -210,7 +287,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Mensaje de éxito al rechazar la solicitud de amistad.
 
-**DeleteFriendship**
+**Eliminar amistad**
 
 - Método: `DELETE`
 - URL: `http://localhost:3000/friends/delete`
@@ -225,7 +302,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
 
 ## Post Service - PUBLICACIONES
 
-**GetAllPosts**
+**Obtener todas las publicaciones**
 
 - Método: `GET`
 - URL: `http://localhost:3000/posts`
@@ -234,7 +311,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Objeto con todos los posts y tiempo desde que se posteó.
 
-**GetUserAndFriendsPosts**
+**Publicaciones de un usuario y de sus amigos**
 
 - Método: `GET`
 - URL: `http://localhost:3000/posts/private/{userId}`
@@ -244,7 +321,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Objeto con todos los posts relacionados con usuario y sus amigos, además de los datos de los usuarios.
 
-**SearchPostsByNickname**
+**Buscar publicaciones por nickname**
 
 - Método: `GET`
 - URL: `http://localhost:3000/posts/private/search/{nickname}`
@@ -256,7 +333,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Código de estado: `200`
   - Cuerpo de respuesta: Objeto con los posts relacionados al nombre de usuario.
 
-**CreatePost**
+**Crear una publicación**
 
 - Método: `POST`
 - URL: `http://localhost:3000/posts/new-post`
@@ -270,7 +347,7 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
   - Cuerpo de respuesta: Objeto con los datos del post creado, incluyendo su post_id y el tiempo que pasa desde su publicación.
 
 
-**DeletePost**
+**Borrar una publicación**
 
 - Método: `DELETE`
 - URL: `http://localhost:3000/posts/delete-post/{postId}`
@@ -286,7 +363,8 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
 
 ## Querys Service - CONSULTAS AL ADMINISTRADOR
 
-- **Obtener todas las consultas**
+**Obtener todas las consultas**
+
   - Método: GET
   - URL: `http://localhost:3000/querys`
   - Parámetros de consulta:
@@ -297,7 +375,8 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
     - Código: 200 (OK)
     - Cuerpo: Array de objetos que representan las consultas.
 
-- **Agregar una consulta**
+**Agregar una consulta**
+
   - Método: POST
   - URL:` http://localhost:3000/querys/create/:userId`
   - Parámetros de URL:
@@ -310,7 +389,8 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
     - Código: 201 (CREATED)
     - Cuerpo: Objeto que representa la consulta agregada.
 
-- **Agregar una respuesta a una consulta**
+**Agregar una respuesta a una consulta**
+
   - Método: PUT
   - URL: `http://localhost:3000/querys/respond/query/:queryId`
   - Parámetros de URL:
@@ -325,73 +405,11 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
     - Cuerpo: Objeto que representa la consulta con la respuesta agregada.
 
 
-## User Service - GESTION DE USUARIOS
 
-- **Obtener todos los usuarios**
-  - Método: GET
-  - URL: `http://localhost:3000/users`
-  - Respuesta exitosa:
-    - Código: 200 (OK)
-    - Cuerpo: Array de objetos que representan los usuarios.
+## Feedbacks Service - FEEDBACKS A LOS USUARIOS
 
-- **Obtener un usuario por ID**
-  - Método: GET
-  - URL: `http://localhost:3000/users/user/:userId`
-  - Parámetros de URL:
-    - `userId`: ID del usuario que se desea obtener.
-  - Respuesta exitosa:
-    - Código: 200 (OK)
-    - Cuerpo: Objeto que representa el usuario solicitado, mas su último login.
+**Obtener los feedbacks de un usuario o todos los feedbacks**
 
-- **Obtener un usuario por nickname**
-  - Método: GET
-  - URL: `http://localhost:3000/users/user/nickname/:nickname`
-  - Parámetros de URL:
-    - `nickname`: Nickname del usuario que se desea obtener.
-  - Respuesta exitosa:
-    - Código: 200 (OK)
-    - Cuerpo: Objeto que representa el usuario solicitado.
-
-- **Comprueba si un nickname o un email existen el la base de datos a excepción de los del usuario que consulta**
-  - Método: GET
-  - URL: `http://localhost:3000/users/check/:userId`
-  - Parámetros de URL:
-    - `userId`: ID del usuario que se desea verificar
-  - Parámetros de consulta:
-    - `nickname`: Nickname del usuario a verificar en bd.
-    - `email`: Email del usuario a verificar en bd.
-  - Respuesta exitosa:
-    - Código: 200 (OK)
-    - Cuerpo: Objeto que indica si el usuario ha sido verificado o no.
-
-- **Actualizar los datos de un usuario**
-  - Método: PATCH
-  - URL: `http://localhost:3000/users/change-data/:userId`
-  - Parámetros de URL:
-    - `userId`: ID del usuario que se desea actualizar.
-  - Cuerpo: 
-    - `userData`: Objeto que contiene los datos que el usuario desea actualizar.
-  - Cabeceras:
-    - Authorization: Token de autenticación del usuario.
-  - Respuesta exitosa:
-    - Código: 200 (OK)
-    - Cuerpo: Objeto que representa el usuario actualizado.
-
-- **Eliminar un usuario**
-  - Método: DELETE
-  - URL: `http://localhost:3000/users/delete/:userId`
-  - Parámetros de URL:
-    - `userId`: ID del usuario que se desea eliminar.
-  - Cabeceras:
-    - Authorization: Token de autenticación del usuario.
-  - Respuesta exitosa:
-    - Código: 200 (OK)
-    - Cuerpo: Mensaje de éxito en el eliminado del usuario.
-
-
-## Feedbacks Service - Feedbacks a un usuario
-
-- **Obtener los feedbacks de un usuario o todos los feedbacks**
 - Método: GET
   - URL: `http://localhost:3000/feedbacks/:userid`
   - Parámetros de URL:
@@ -402,7 +420,8 @@ Aquí se encuentran una relación de los endpoints creados para esta API.
     - Código: 200 (OK)
     - Cuerpo: Array de objetos con los feedbacks y los datos de sus autores.
 
-- **Crear un nuevo feedback**
+**Crear un nuevo feedback**
+
 - Método: POST
   - URL: `http://localhost:3000/feedbacks/create`
   - Cuerpo de URL:
