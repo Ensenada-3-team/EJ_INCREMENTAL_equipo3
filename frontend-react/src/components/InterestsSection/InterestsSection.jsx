@@ -41,13 +41,13 @@ function InterestsSection() {
 							<div>
 								<a href="/public" target="">
 									<i
-										className="bi bi-search"
+										className="bi bi-newspaper"
 										style={{ fontSize: "1.5rem", transform: "scale(2)" }}
 										id="icono"
 										alt="lo mas reciente"
 									></i>
 								</a>
-								<h6 className="d-lg-block d-md-none">Empleo</h6>
+								<h6 className="d-lg-block d-md-none">Actividad reciente</h6>
 							</div>
 						</div>
 					</div>

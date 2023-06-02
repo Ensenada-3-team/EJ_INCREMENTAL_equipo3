@@ -231,7 +231,7 @@ function RegisterForm() {
 							id="linkedin"
 							label="Perfil de LinkedIn:"
 							type="text"
-							required={true}
+							required={false}
 							value={inputValues.linkedin}
 							onChange={handleInputChange}
 						/>
