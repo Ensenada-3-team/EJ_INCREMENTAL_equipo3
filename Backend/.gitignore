@@ -144,4 +144,6 @@ dist
 # Variables de entorno
 .env
 
+# descartados
+descartados/
 # End of https://www.toptal.com/developers/gitignore/api/node
