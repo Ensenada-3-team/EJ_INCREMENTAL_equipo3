@@ -17,7 +17,7 @@ npm run dev
 
 ### API (manual)
 
-![Api](https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3/blob/main/Backend/README.md)
+![Api](Backend/README.md)
 
 Dirección local al manual ![Api](Backend\README.md)
 
