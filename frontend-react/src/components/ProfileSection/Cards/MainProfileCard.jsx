@@ -1,28 +1,69 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setNewFeedback } from "../../../store/reducers/feedbackSlice";
 
 import FriendService from "../../../services/friend.service";
+import FeedbackService from "../../../services/feedback.service";
+import authService from "../../../services/auth.service";
 import Swal from "sweetalert2";
 
 function MainProfileCard(props) {
 	const { profileData } = props;
+	const loggedUser = authService.getCurrentUser().user_id;
+	const isLoggedUser = loggedUser === profileData.user_id;
+
+	const dispatch = useDispatch();
 
 	const [friendCount, setFriendCount] = useState(0);
+	const [showTextarea, setShowTextarea] = useState(false);
+	const [feedback, setFeedback] = useState("");
 
 	useEffect(() => {
 		const fetchFriends = async () => {
-		    try {
-			  const friendService = new FriendService();
-			  const friends = await friendService.getAllFriends(profileData.user_id);
-			  setFriendCount(friends.length);
-		    } catch (error) {
-			  console.log(error);
-			  Swal.fire("Error", "Error al obtener los amigos", "error");
-		    }
+			try {
+				const friendService = new FriendService();
+				const friends = await friendService.getAllFriends(profileData.user_id);
+				setFriendCount(friends.length);
+			} catch (error) {
+				console.log(error);
+				Swal.fire("Error", "Error al obtener los amigos", "error");
+			}
 		};
-	  
-		fetchFriends();
-	  }, [profileData.user_id]);
 
+		fetchFriends();
+	}, [profileData.user_id]);
+
+	const handleFeedbackClick = () => {
+		setShowTextarea(true);
+	};
+
+	const handleFeedbackChange = (event) => {
+		setFeedback(event.target.value);
+
+	};
+
+	const handleSubmit = async () => {
+		try {
+			const feedbackService = new FeedbackService();
+			await feedbackService.createFeedback(
+				loggedUser,
+				profileData.user_id,
+				feedback
+			);
+
+			dispatch(setNewFeedback(true))
+			setShowTextarea(false);
+			setFeedback("");
+			Swal.fire(
+				`Enhorabuena, has dejado una recomendación a ${profileData.nickname}`,
+				"Gracias por tu feedback",
+				"success"
+			);
+		} catch (error) {
+			console.log(error);
+			Swal.fire("Error", "Error al enviar el feedback", "error");
+		}
+	};
 
 	return (
 		<>
@@ -65,15 +106,18 @@ function MainProfileCard(props) {
 							{profileData.name} {profileData.firstname}
 						</h2>
 						<h5 id="user-nickname">({profileData.nickname})</h5>
-						<p id="last-login" className="fw-normal">Connected {profileData.lastLogin}</p>
-						
+						<p id="last-login" className="fw-normal">
+							Connected {profileData.lastLogin}
+						</p>
 					</div>
 					<div>
 						<p id="ocupacion" className="mb-0">
 							{profileData.occupation}
 						</p>
 						<p id="ocupacion">{profileData.grade}</p>
-						<p><i className="bi bi-translate"></i> {profileData.language}</p>
+						<p>
+							<i className="bi bi-translate"></i> {profileData.language}
+						</p>
 					</div>
 					<div className="d-flex">
 						<i className="bi bi-geo-alt"></i>
@@ -83,16 +127,37 @@ function MainProfileCard(props) {
 						<p id="friends-count">{friendCount} amigos Teclers</p>
 					</div>
 				</div>
-				{/* FOOTER - BOTONES LINKS */}
-				<div className="card-footer d-flex">
-					<button
-						className="btn btn-sm btn-primary"
-						onClick={() => navigate("/app/friends")}
-					>
-						Amigos
-					</button>
-
-					
+				<div className="card-footer w-100">
+					{/* BOTÓN FEEDBACK */}
+					{!showTextarea && !isLoggedUser && (
+						<button
+							className="btn d-flex align-items-start w-100 m-3"
+							onClick={handleFeedbackClick}
+							title="Déjame una recomendación"
+						>
+							<i className="bi bi-chat-heart fs-3"></i>
+						</button>
+					)}
+					{/* COMPONENTE DE FEEDBACK */}
+					{showTextarea && (
+						<div className="mt-3">
+							<textarea
+								className="form-control"
+								value={feedback}
+								onChange={handleFeedbackChange}
+								rows="4"
+							/>
+							<button className="btn mt-2" onClick={handleSubmit}>
+								<i className="bi bi-send"> Enviar</i>
+							</button>
+							<button
+								className="btn mt-2"
+								onClick={() => setShowTextarea(false)}
+							>
+								<i className="bi bi-x"> Cancelar</i>
+							</button>
+						</div>
+					)}
 				</div>
 			</section>
 		</>

@@ -74,20 +74,14 @@ function AboutMeProfileCard(props) {
 					
 					<CoursesList userId={profileData.user_id || user.user_id} />
 
-					<h4 className="card-header text-center">Habilidades</h4>
+					{/* <h4 className="card-header text-center">Habilidades</h4> */}
 				</div>
 
 				{/* mas info */}
 				<div className="d-flex justify-content-around w-100">
-					{/* <div>
-						<i className="bi bi-file-person"></i>
-						<a id="link-hoja-de-vida" to="/" href="/">
-							{" "}
-							Más info
-						</a>
-					</div> */}
+					
 					<div>
-						<i className="bi bi-envelope-at"></i>
+						<i className="bi bi-envelope-at fs-3"></i>
 						<a
 							id="email"
 							href={`mailto:${profileData.email}?subject=Asunto&body=Cuerpo del mensaje`}
@@ -97,23 +91,23 @@ function AboutMeProfileCard(props) {
 				</div>
 
 				{/* links redes sociales */}
-				<div className="card-footer d-flex justify-content-center mt-3">
+				<div className="card-footer d-flex justify-content-center mt-3 w-100">
 					{/* github */}
 					{profileData.github && (
 						<button className="btn">
-							<i className="bi bi-github"></i>
+							<i className="bi bi-github fs-3"></i>
 						</button>
 					)}
 					{/* linkedin */}
 					{profileData.linkedin && (
 						<Link className="btn" to={profileData.linkedin} target="_blank">
-							<i className="bi bi-linkedin"></i>
+							<i className="bi bi-linkedin fs-3"></i>
 						</Link>
 					)}
 					{/*  instagram */}
 					{profileData.instagram && (
 						<button className="btn">
-							<i className="bi bi-instagram"></i>
+							<i className="bi bi-instagram fs-3"></i>
 						</button>
 					)}
 				</div>

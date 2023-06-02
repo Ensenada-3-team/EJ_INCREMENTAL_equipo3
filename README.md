@@ -85,7 +85,9 @@ Las siguientes carpetas se encuentran dentro de `src`:
 - `services`: Se han establecido servicios de conexión de peticiones HTTP con el servidor utilizando Axios. Se utiliza la teoría de clases y se establece un método para la comunicación con cada endpoint. También se incluye un `auth-header` que agrega encabezados a las peticiones que requieren un token de autenticación. Para futuras implementaciones, se establecerá un hook personalizado `useService` para cada uno de los servicios. Actualmente el proyecto cuenta con `useFriendService`.
   
 - `store`: Implementación de Redux. Al utilizar el `Provider` en `index.js` y configurar el store, se pueden utilizar los estados globales de Redux para diversas funcionalidades. 
-  - Hasta el momento, la implementación principal se ha realizado en el componente `Searchbar`, que recoge el estado de búsqueda y se utiliza en la vista `Friends`, específicamente en el componente `ComunityList`, para renderizar los resultados de la búsqueda.
+  - Hasta el momento, hay dos implementaciones principales:
+    -  componente `Searchbar`, que recoge el estado de búsqueda y se utiliza en la vista `Friends`, específicamente en el componente `ComunityList`, para renderizar los resultados de la búsqueda.
+    -  componente `MainProfileCard`con la capacidad de dejar un comentario a los usuarios distintos al usuario logueado. Redux recoge el estado `true`en caso de haberse creado un nuevo feedbac, y con `useSelector` FeedbackSection, quien se encarga de hacer el fetch para obtener las recomendaciones, se actualiza cada vez que ese estado cambia. De esta forma obtenemos una interacción inmediata con la interfaz de usuario.
   
 - `utils`: Contiene funciones de uso común en la aplicación.
 
@@ -191,4 +193,4 @@ A continuación se presentan los ejercicios incrementales requeridos diariamente
       - Posibilidad de editar su foto de perfil agregándola desde el archivo
     - ADMINISTRADOR:
       - CRUD : posibilidad de eliminar cuenta de usuario, resetear contraseña, bloquear y editar sus datos.
-      - 
+      - Facultad de agregar comentarios sobre un usuario.

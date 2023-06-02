@@ -15,7 +15,7 @@ router.get("/:user_id", async (req, res) => {
 	try {
 		if (userId) {
 			const feedbacks = await pool.query(
-				`SELECT feedback.*, users.nickname, users.avatar, users.occupation 
+				`SELECT feedback.*, users.nickname, users.avatar, users.occupation, users.name, users.firstname 
                               FROM feedback 
                               INNER JOIN users ON feedback.feedback_sender = users.user_id
                               WHERE feedback.feedback_receiver = ?`,
@@ -25,7 +25,7 @@ router.get("/:user_id", async (req, res) => {
 			res.status(200).json(feedbacks[0]);
 		} else {
 			const feedbacks = await pool.query(
-				`SELECT feedback.*, users.nickname, users.avatar, users.occupation 
+				`SELECT feedback.*, users.nickname, users.avatar, users.occupation, users.name, users.firstname 
                         FROM feedback 
                         INNER JOIN users ON feedback.feedback_sender = users.user_id`
 			);
@@ -42,7 +42,6 @@ router.get("/:user_id", async (req, res) => {
 // POST - CREAR UN NUEVO FEEDBACK
 router.post("/create", async (req, res) => {
 	const { feedback_sender, feedback_receiver, content } = req.body;
-	console.log(feedback_sender, feedback_receiver, content);
 
 	try {
 		const newFeedback = await pool.query(
@@ -53,7 +52,6 @@ router.post("/create", async (req, res) => {
 		res.status(201).json({feedback_id: newFeedback[0].insertId});
 	} catch (error) {
 		console.error(error);
-            console.log(error)
 		res.status(500).json({
 			message: `Internal Server Error: ${error}`,
 		});

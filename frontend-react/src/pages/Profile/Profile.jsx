@@ -1,13 +1,14 @@
 /** PROFILE:
  * UseLocation permite obtener la información del id del usuario pasado por parámetro desde la URL
  * Si no existe ese valor, se renderiza el perfi del usuario que está logueado por defecto.
- */
+*/
 
 import { useLocation } from "react-router-dom";
 
 import Layout from "../../components/Layout";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
+import FeedbackSection from "../../components/FeedbackSection/FeedbackSection";
 
 function Profile() {
 	const location = useLocation();
@@ -20,14 +21,9 @@ function Profile() {
 			<div className="col-md-10 col-lg-10">
 				<div className="container-fluid">
 					<ProfileSection friendId={friendId} />
-					{/* <div className=" container ipad-container d-flex justify-content-center">
-						
-						<div className="col-12 card d-flex bg-light bg-gradient ">
-							HOLA 
-						</div>
-
-						
-					</div> */}
+					<div className="row">
+						<FeedbackSection friendId={friendId} />
+					</div>
 				</div>
 			</div>
 		</Layout>
