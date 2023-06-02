@@ -86,15 +86,15 @@ function QandATable(props) {
 
 	return (
 		<>
-			<div className="container card bg-light bg-gradient">
-				<div className="row ">
-					<div className="col">
+			<div className="container  d-flex justify-content-center">
+				<div className="card bg-light bg-gradient col-lg-8 col-md-7 col-sm-12 col-xs-12 ">
+					<div className="col ">
 						<div className="rounded sombra ">
 							<table
-								style={{ fontSize: "0.8rem" }}
+								style={{ fontSize: "0.9rem" }}
 								className="table table-responsive table-fluid table-hover table-bordered overflow-auto border border-dark text-start align-middle bg-light"
 							>
-								<thead className="text-center align-middle table-success ">
+								<thead className="text-center align-middle table-dark ">
 									<tr>
 										{userRole === "admin" && <th scope="col"> Usuario</th>}
 										<th scope="col"><i class="bi bi-patch-question fs-5"></i></th>
