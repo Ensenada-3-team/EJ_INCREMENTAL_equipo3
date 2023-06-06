@@ -110,6 +110,7 @@ router.post("/register",
 // POST- LOGUEARSE EN LA RED SOCIAL
 router.post("/login", async (req, res) => {
 	const { nicknameOrEmail, password } = req.body;
+	console.log(nicknameOrEmail);
 
 	try {
 		// Obtener el usuario de la base de datos

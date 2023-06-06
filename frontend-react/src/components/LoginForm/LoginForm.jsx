@@ -1,19 +1,25 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useDispatch, useSelector} from 'react-redux';
+import { login } from "../../store/reducers/authSlice.js";
+
 import authService from "../../services/auth.service.js";
 
 import Swal from "sweetalert2";
 
 function LoginForm() {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const errorMessage = useSelector(state => state.auth.errorMessage);
+	console.log(errorMessage)
 	const token = authService.getCurrentToken();
 
-	const [usernameOrEmail, setUsernameOrEmail] = useState("");
+	const [nicknameOrEmail, setnicknameOrEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	const handleUsernameOrEmailChange = (event) => {
-		setUsernameOrEmail(event.target.value.trim());
+	const handlenicknameOrEmailChange = (event) => {
+		setnicknameOrEmail(event.target.value.trim());
 	};
 
 	const handlePasswordChange = (event) => {
@@ -22,8 +28,15 @@ function LoginForm() {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+		const userData = {
+			nicknameOrEmail: nicknameOrEmail,
+			password: password,
+		}
 		try {
-			const response = await authService.login(usernameOrEmail, password);
+			// const response = await authService.login(userData);
+			await dispatch(login(userData));
+			const response = JSON.parse(localStorage.getItem("user"));
+
 			if (response.token) {
 				await Swal.fire({
 					position: "top-end",
@@ -36,16 +49,15 @@ function LoginForm() {
 				navigate("/app/feed");
 			}
 		} catch (error) {
-			console.error(error);
+			console.log(errorMessage);
 			Swal.fire({
 				icon: "error",
 				title: "Oops...",
-				text: `${error.response.data.message}` || "Error al iniciar sesión",
-				footer: '<a href="">Why do I have this issue?</a>',
+				text: `${errorMessage}` || "Error al iniciar sesión",
 			});
 		}
 
-		setUsernameOrEmail("");
+		setnicknameOrEmail("");
 		setPassword("");
 	};
 
@@ -64,12 +76,12 @@ function LoginForm() {
 								Nombre de usuario o correo electrónico:
 							</label>
 							<input
-								id="username-email"
+								id="nickname-email"
 								type="text"
 								className="form-control"
 								name="usuario"
-								value={usernameOrEmail}
-								onChange={handleUsernameOrEmailChange}
+								value={nicknameOrEmail}
+								onChange={handlenicknameOrEmailChange}
 								required
 							/>
 						</div>
