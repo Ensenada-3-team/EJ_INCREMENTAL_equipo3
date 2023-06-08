@@ -16,10 +16,12 @@ export const login = createAsyncThunk("auth/login", async (userData) => {
 		console.log(response.data);
 		return response.data;
 	} catch (error) {
+		console.log(error);
 		if (error.response) {
 			console.log(error.response.data.message);
 			throw { message: error.response.data.message };
 		} else {
+			console.log(error)
 			console.log(error.message);
 			throw error.message;
 		}
@@ -83,9 +85,6 @@ const authSlice = createSlice({
 				if (error.message) {
 					console.log(error.message);
 					state.errorMessage = error.message;
-				} else if (error.response) {
-					console.log(error.response.data.message);
-					state.errorMessage = error.response.data.message;
 				} else {
 					console.log(error);
 					state.errorMessage = "Error al iniciar sesión";

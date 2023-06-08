@@ -18,6 +18,8 @@ function LoginForm() {
 	const [nicknameOrEmail, setnicknameOrEmail] = useState("");
 	const [password, setPassword] = useState("");
 
+	
+
 	const handlenicknameOrEmailChange = (event) => {
 		setnicknameOrEmail(event.target.value.trim());
 	};
@@ -33,27 +35,34 @@ function LoginForm() {
 			password: password,
 		}
 		try {
-			// const response = await authService.login(userData);
-			await dispatch(login(userData));
-			const response = JSON.parse(localStorage.getItem("user"));
-
-			if (response.token) {
+			const response = await dispatch(login(userData));
+			console.log(response)
+			
+			if (response.type === "auth/login/fulfilled") {
 				await Swal.fire({
 					position: "top-end",
 					icon: "success",
-					title: `Hola ${response.user.nickname}`,
+					title: `Hola ${response.payload.user.nickname}`,
 					showConfirmButton: false,
 					timer: 1500,
 				});
 
 				navigate("/app/feed");
 			}
+
+			if (response.type === "auth/login/rejected") {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: `${response.error.message}`,
+				});
+			}
 		} catch (error) {
-			console.log(errorMessage);
+			console.log(error)
 			Swal.fire({
 				icon: "error",
 				title: "Oops...",
-				text: `${errorMessage}` || "Error al iniciar sesión",
+				text:  "Error al iniciar sesión",
 			});
 		}
 
