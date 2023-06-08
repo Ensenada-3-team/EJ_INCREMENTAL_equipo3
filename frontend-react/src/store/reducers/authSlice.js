@@ -9,19 +9,19 @@ export const login = createAsyncThunk("auth/login", async (userData) => {
 			"http://localhost:3000/auth/login",
 			userData
 		);
-            console.log(response)
+		// console.log(response)
 		if (response.data.token) {
 			localStorage.setItem("user", JSON.stringify(response.data));
 		}
-		console.log(response.data);
+		// console.log(response.data);
 		return response.data;
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
 		if (error.response) {
-			console.log(error.response.data.message);
+			// console.log(error.response.data.message);
 			throw { message: error.response.data.message };
 		} else {
-			console.log(error)
+			// console.log(error)
 			console.log(error.message);
 			throw error.message;
 		}
@@ -62,7 +62,6 @@ const authSlice = createSlice({
 		user: JSON.parse(localStorage.getItem("user")) || null,
 		isFetching: false,
 		error: false,
-		errorMessage: "",
 		payload: null,
 	},
 	reducers: {},
@@ -70,26 +69,16 @@ const authSlice = createSlice({
 		builder
 			.addCase(login.pending, (state) => {
 				state.isFetching = true;
-                        
 			})
 			.addCase(login.fulfilled, (state, { payload }) => {
 				state.user = payload;
 				state.isFetching = false;
 				state.error = false;
-				state.errorMessage = "";
 				state.payload = payload;
 			})
-			.addCase(login.rejected, (state, { error }) => {
-                        state.isFetching = false;
+			.addCase(login.rejected, (state) => {
+				state.isFetching = false;
 				state.error = true;
-				if (error.message) {
-					console.log(error.message);
-					state.errorMessage = error.message;
-				} else {
-					console.log(error);
-					state.errorMessage = "Error al iniciar sesión";
-				}
-				
 			})
 			.addCase(logout.pending, (state) => {
 				state.isFetching = true;
@@ -98,12 +87,10 @@ const authSlice = createSlice({
 				state.user = null;
 				state.isFetching = false;
 				state.error = false;
-				state.errorMessage = "";
 			})
 			.addCase(logout.rejected, (state, { payload }) => {
 				state.isFetching = false;
 				state.error = true;
-				state.errorMessage = payload.message;
 			})
 			.addCase(register.pending, (state) => {
 				state.isFetching = true;
@@ -111,12 +98,10 @@ const authSlice = createSlice({
 			.addCase(register.fulfilled, (state) => {
 				state.isFetching = false;
 				state.error = false;
-				state.errorMessage = "";
 			})
 			.addCase(register.rejected, (state, { payload }) => {
 				state.isFetching = false;
 				state.error = true;
-				state.errorMessage = payload.message;
 			})
 			.addCase(changePassword.pending, (state) => {
 				state.isFetching = true;
@@ -124,12 +109,10 @@ const authSlice = createSlice({
 			.addCase(changePassword.fulfilled, (state) => {
 				state.isFetching = false;
 				state.error = false;
-				state.errorMessage = "";
 			})
 			.addCase(changePassword.rejected, (state, { payload }) => {
 				state.isFetching = false;
 				state.error = true;
-				state.errorMessage = payload.message;
 			});
 	},
 });

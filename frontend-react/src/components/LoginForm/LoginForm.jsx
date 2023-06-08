@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch } from "react-redux";
 import { login } from "../../store/reducers/authSlice.js";
 
 import authService from "../../services/auth.service.js";
@@ -11,14 +11,11 @@ import Swal from "sweetalert2";
 function LoginForm() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const errorMessage = useSelector(state => state.auth.errorMessage);
-	console.log(errorMessage)
+	
 	const token = authService.getCurrentToken();
 
 	const [nicknameOrEmail, setnicknameOrEmail] = useState("");
 	const [password, setPassword] = useState("");
-
-	
 
 	const handlenicknameOrEmailChange = (event) => {
 		setnicknameOrEmail(event.target.value.trim());
@@ -33,12 +30,12 @@ function LoginForm() {
 		const userData = {
 			nicknameOrEmail: nicknameOrEmail,
 			password: password,
-		}
+		};
 		try {
-			const response = await dispatch(login(userData));
-			console.log(response)
-			
-			if (response.type === "auth/login/fulfilled") {
+			const response = await dispatch(login(userData)).unwrap();
+			console.log(response);
+
+			if (response.token) {
 				await Swal.fire({
 					position: "top-end",
 					icon: "success",
@@ -49,20 +46,12 @@ function LoginForm() {
 
 				navigate("/app/feed");
 			}
-
-			if (response.type === "auth/login/rejected") {
-				Swal.fire({
-					icon: "error",
-					title: "Oops...",
-					text: `${response.error.message}`,
-				});
-			}
-		} catch (error) {
-			console.log(error)
+		} catch (rejectedValueOrSerializedError) {
+			console.log(rejectedValueOrSerializedError);
 			Swal.fire({
 				icon: "error",
 				title: "Oops...",
-				text:  "Error al iniciar sesión",
+				text: `${rejectedValueOrSerializedError.message}` || "Algo salió mal",
 			});
 		}
 
