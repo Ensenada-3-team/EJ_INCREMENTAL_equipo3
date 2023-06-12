@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import AuthService from "../../services/auth.service.js";
+import { useDispatch } from "react-redux";
+import { register } from "../../store/reducers/authSlice.js";
+
 import InputField from "../InputField/InputField.jsx";
 import Swal from "sweetalert2";
 
 function RegisterForm() {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
 	const [inputValues, setInputValues] = useState({
 		name: "",
 		firstname: "",
@@ -44,23 +48,27 @@ function RegisterForm() {
 		event.preventDefault();
 		if (inputValues.password === inputValues.conf_password) {
 			try {
-				const response = await AuthService.register(
-					inputValues.name,
-					inputValues.firstname,
-					inputValues.nickname,
-					inputValues.birthdate,
-					inputValues.gender,
-					inputValues.avatar ||
+				const userData = {
+					name: inputValues.name,
+					firstname: inputValues.firstname,
+					nickname: inputValues.nickname,
+					birthdate: inputValues.birthdate,
+					gender: inputValues.gender,
+					avatar:
+						inputValues.avatar ||
 						"https://avatars.steamstatic.com/0086700abf852fcd014d8fa02998ce4eca2babeb_full.jpg",
-					inputValues.password,
-					inputValues.email,
-					inputValues.occupation,
-					inputValues.location,
-					inputValues.grade,
-					inputValues.linkedin,
-					inputValues.language,
-					inputValues.bio
-				);
+					password: inputValues.password,
+					email: inputValues.email,
+					occupation: inputValues.occupation,
+					location: inputValues.location,
+					grade: inputValues.grade,
+					linkedin: inputValues.linkedin,
+					language: inputValues.language,
+					bio: inputValues.bio,
+				};
+
+				const response = await dispatch(register(userData)).unwrap();
+
 				console.log(response);
 				if (response === 200) {
 					Swal.fire({
@@ -82,12 +90,6 @@ function RegisterForm() {
 				console.error(error.message);
 				if (error.message === "Usuario menor de 18 años") {
 					Swal.fire("Debes ser mayor de 18 años para registrarte.");
-				} else if (
-					error.message === "Ya existe un usuario con ese nickname y email"
-				) {
-					Swal.fire(
-						"El nickname y el email ya existen en la base de datos. Prueba a cambiarlos"
-					);
 				} else {
 					Swal.fire(error.message);
 				}

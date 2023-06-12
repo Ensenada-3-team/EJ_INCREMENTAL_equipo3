@@ -97,7 +97,7 @@ function QandATable(props) {
 								<thead className="text-center align-middle table-dark ">
 									<tr>
 										{userRole === "admin" && <th scope="col"> Usuario</th>}
-										<th scope="col"><i class="bi bi-patch-question fs-5"></i></th>
+										<th scope="col"><i className="bi bi-patch-question fs-5"></i></th>
 										<th scope="col">Respuestas</th>
 										<th scope="col">Fecha</th>
 										{userRole === "admin" && <th scope="col">Estado</th>}

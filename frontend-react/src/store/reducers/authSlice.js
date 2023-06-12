@@ -33,11 +33,16 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 });
 
 export const register = createAsyncThunk("auth/register", async (userData) => {
-	const response = await axios.post(
-		"http://localhost:3000/auth/register",
-		userData
-	);
-	return response.status;
+	try{
+		const response = await axios.post(
+			"http://localhost:3000/auth/register",
+			userData
+		);
+		return response.status;
+
+	} catch(error) {
+		throw new Error(error.response.data.message);
+	}
 });
 
 export const changePassword = createAsyncThunk(

@@ -96,7 +96,7 @@ router.post("/register",
 					bio,
 				]
 			);
-
+			console.log(result)
 			res.status(200).send(result);
 		} catch (error) {
 			console.error(error);
