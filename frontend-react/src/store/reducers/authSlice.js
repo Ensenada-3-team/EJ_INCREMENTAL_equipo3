@@ -19,11 +19,11 @@ export const login = createAsyncThunk("auth/login", async (userData) => {
 		// console.log(error);
 		if (error.response) {
 			// console.log(error.response.data.message);
-			throw { message: error.response.data.message };
+			throw new Error(error.response.data.message );
 		} else {
 			// console.log(error)
 			console.log(error.message);
-			throw error.message;
+			throw new Error(error.message);
 		}
 	}
 });
@@ -71,7 +71,7 @@ const authSlice = createSlice({
 				state.isFetching = true;
 			})
 			.addCase(login.fulfilled, (state, { payload }) => {
-				state.user = payload;
+				state.user = payload.user;
 				state.isFetching = false;
 				state.error = false;
 				state.payload = payload;
