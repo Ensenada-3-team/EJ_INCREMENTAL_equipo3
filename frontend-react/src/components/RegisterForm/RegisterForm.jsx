@@ -113,6 +113,7 @@ function RegisterForm() {
 							required={true}
 							value={inputValues.name}
 							onChange={handleInputChange}
+							autoComplete="on"
 						/>
 
 						<InputField
@@ -122,6 +123,7 @@ function RegisterForm() {
 							required={true}
 							value={inputValues.firstname}
 							onChange={handleInputChange}
+							autoComplete="on"
 						/>
 						<InputField
 							id="nickname"
@@ -130,6 +132,7 @@ function RegisterForm() {
 							required={true}
 							value={inputValues.nickname}
 							onChange={handleInputChange}
+							autoComplete="off"
 						/>
 						<div className="row">
 							<div className="col">
@@ -141,6 +144,7 @@ function RegisterForm() {
 									value={inputValues.gender}
 									onChange={handleInputChange}
 									options={genderOptions}
+									autoComplete="off"
 								/>
 							</div>
 							<div className="col">
@@ -150,6 +154,7 @@ function RegisterForm() {
 									type="date"
 									value={inputValues.birthdate}
 									onChange={handleInputChange}
+									autoComplete="off"
 								/>
 							</div>
 						</div>
@@ -160,6 +165,7 @@ function RegisterForm() {
 							type="text"
 							value={inputValues.avatar}
 							onChange={handleInputChange}
+							autoComplete="off"
 						/>
 						<div className="row">
 							<div className="col">
@@ -172,6 +178,7 @@ function RegisterForm() {
 									required={true}
 									value={inputValues.password}
 									onChange={handleInputChange}
+									autoComplete="off"
 								/>
 							</div>
 							<div className="col">
@@ -182,6 +189,7 @@ function RegisterForm() {
 									required={true}
 									value={inputValues.conf_password}
 									onChange={handleInputChange}
+									autoComplete="off"
 								/>
 							</div>
 						</div>
@@ -194,6 +202,7 @@ function RegisterForm() {
 							required={true}
 							value={inputValues.email}
 							onChange={handleInputChange}
+							autoComplete="off"
 						/>
 
 						<div className="row">
@@ -205,6 +214,7 @@ function RegisterForm() {
 									required={true}
 									value={inputValues.occupation}
 									onChange={handleInputChange}
+									autoComplete="off"
 								/>
 							</div>
 							<div className="col">
@@ -215,6 +225,7 @@ function RegisterForm() {
 									required={true}
 									value={inputValues.location}
 									onChange={handleInputChange}
+									autoComplete="off"
 								/>
 							</div>
 						</div>
@@ -226,6 +237,7 @@ function RegisterForm() {
 							required={true}
 							value={inputValues.grade}
 							onChange={handleInputChange}
+							autoComplete="off"
 						/>
 
 						<InputField
@@ -235,6 +247,7 @@ function RegisterForm() {
 							required={false}
 							value={inputValues.linkedin}
 							onChange={handleInputChange}
+							autoComplete="off"
 						/>
 
 						<InputField
@@ -244,6 +257,7 @@ function RegisterForm() {
 							type="text"
 							value={inputValues.language}
 							onChange={handleInputChange}
+							autoComplete="off"
 						/>
 
 						<InputField
@@ -253,6 +267,7 @@ function RegisterForm() {
 							type="text"
 							value={inputValues.bio}
 							onChange={handleInputChange}
+							autoComplete="off"
 						/>
 						<div>
 							<button

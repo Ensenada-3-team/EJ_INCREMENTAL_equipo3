@@ -70,7 +70,7 @@ function LoginForm() {
 				<div className="card-body">
 					<form onSubmit={handleSubmit}>
 						<div className="mb-1">
-							<label htmlFor="username-email" className="form-label">
+							<label htmlFor="nickname-email" className="form-label">
 								Nombre de usuario o correo electrónico:
 							</label>
 							<input

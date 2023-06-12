@@ -14,6 +14,7 @@ const InputField = React.forwardRef((props, ref) => {
 					value={props.value}
 					placeholder={props.placeholder}
 					onChange={props.onChange}
+					autoComplete={props.autoComplete}
 					ref={ref}
 				>
 					{props.options.map((option) => (
