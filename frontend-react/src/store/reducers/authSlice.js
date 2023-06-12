@@ -9,19 +9,14 @@ export const login = createAsyncThunk("auth/login", async (userData) => {
 			"http://localhost:3000/auth/login",
 			userData
 		);
-		// console.log(response)
 		if (response.data.token) {
 			localStorage.setItem("user", JSON.stringify(response.data));
 		}
-		// console.log(response.data);
 		return response.data;
 	} catch (error) {
-		// console.log(error);
 		if (error.response) {
-			// console.log(error.response.data.message);
-			throw new Error(error.response.data.message );
+			throw new Error(error.response.data.message);
 		} else {
-			// console.log(error)
 			console.log(error.message);
 			throw new Error(error.message);
 		}
@@ -33,14 +28,13 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 });
 
 export const register = createAsyncThunk("auth/register", async (userData) => {
-	try{
+	try {
 		const response = await axios.post(
 			"http://localhost:3000/auth/register",
 			userData
 		);
 		return response.status;
-
-	} catch(error) {
+	} catch (error) {
 		throw new Error(error.response.data.message);
 	}
 });

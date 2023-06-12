@@ -69,7 +69,6 @@ function RegisterForm() {
 
 				const response = await dispatch(register(userData)).unwrap();
 
-				console.log(response);
 				if (response === 200) {
 					Swal.fire({
 						title: `¡${inputValues.nickname}, te has registrado con éxito!\n¡Te redirigimos al login ipso facto!`,
