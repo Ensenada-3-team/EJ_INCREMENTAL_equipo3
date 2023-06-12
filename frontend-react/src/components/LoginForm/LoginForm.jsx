@@ -39,7 +39,7 @@ function LoginForm() {
 				await Swal.fire({
 					position: "top-end",
 					icon: "success",
-					title: `Hola ${response.payload.user.nickname}`,
+					title: `Hola ${response.user.nickname}`,
 					showConfirmButton: false,
 					timer: 1500,
 				});
