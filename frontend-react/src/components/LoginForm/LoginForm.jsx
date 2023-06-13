@@ -6,12 +6,13 @@ import { login } from "../../store/reducers/authSlice.js";
 
 import authService from "../../services/auth.service.js";
 
+import InputField from "../InputField/InputField.jsx";
 import Swal from "sweetalert2";
 
 function LoginForm() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	
+
 	const token = authService.getCurrentToken();
 
 	const [nicknameOrEmail, setnicknameOrEmail] = useState("");
@@ -70,31 +71,25 @@ function LoginForm() {
 				<div className="card-body">
 					<form onSubmit={handleSubmit}>
 						<div className="mb-1">
-							<label htmlFor="nickname-email" className="form-label">
-								Nombre de usuario o correo electrónico:
-							</label>
-							<input
+							<InputField
 								id="nickname-email"
 								type="text"
-								className="form-control"
-								name="usuario"
+								label="Nombre de usuario o correo electrónico: "
 								value={nicknameOrEmail}
 								onChange={handlenicknameOrEmailChange}
-								required
+								required={true}
+								autoComplete="on"
 							/>
 						</div>
 						<div className="mb-3">
-							<label htmlFor="password" className="form-label">
-								Password:
-							</label>
-							<input
+							<InputField
 								id="password"
 								type="password"
-								className="form-control"
-								name="password"
+								label="Password:"
 								value={password}
 								onChange={handlePasswordChange}
-								required
+								required={true}
+								autoComplete="off"
 							/>
 						</div>
 						<button
