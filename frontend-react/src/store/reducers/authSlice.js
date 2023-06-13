@@ -10,7 +10,7 @@ export const login = createAsyncThunk("auth/login", async (userData) => {
 			userData
 		);
 		if (response.data.token) {
-			localStorage.setItem("user", JSON.stringify(response.data));
+			localStorage.setItem("user", JSON.stringify(response.data.user));
 			localStorage.setItem("token", JSON.stringify( response.data.token));
 		}
 		return response.data;
@@ -65,7 +65,7 @@ export const changePassword = createAsyncThunk(
 const authSlice = createSlice({
 	name: "auth",
 	initialState: {
-		user: JSON.parse(localStorage.getItem("user"))?.user || null,
+		user: JSON.parse(localStorage.getItem("user")) || null,
 		token: JSON.parse(localStorage.getItem("token")) || null,
 		isFetching: false,
 		error: false,
