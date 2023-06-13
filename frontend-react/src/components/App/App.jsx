@@ -1,5 +1,5 @@
 import { useRoutes } from "react-router-dom";
-import authService from "../../services/auth.service";
+import { useSelector } from "react-redux";
 import routes from "./routes";
 import ScrollToTop from "./ScrollToTop";
 
@@ -8,8 +8,10 @@ import "./responsive.css";
 
 
 function App() {
-	const user = authService.getCurrentUser();
-	const isLoggedIn = Boolean(authService.getCurrentToken()) || false;
+	const user = useSelector((state) => state.auth.user);
+	const token = useSelector((state) => state.auth.token);
+	
+	const isLoggedIn = Boolean(token) || false;
 	const isAdmin = user ? user.role === "admin" : false;
 	
 	

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { PostElement } from "../FeedPostsSection/PostElement";
 import { SectionCard } from "../FriendsSection/Cards/SectionCard";
 import PostService from "../../services/post.service.js";
-import authService from "../../services/auth.service.js";
 import Swal from "sweetalert2";
 
 function AllPostsList() {
 	const [posts, setPosts] = useState([]);
-	const token = authService.getCurrentToken();
+	const token = useSelector((state) => state.auth.token);
 
 	useEffect(() => {
 		const postService = new PostService();

@@ -1,4 +1,4 @@
-import authService from "../../../services/auth.service";
+import { useSelector } from "react-redux";
 
 import { AvatarLink } from "../../AvatarLink/AvatarLink";
 import { useFriendService } from "../../../services/useFriendService";
@@ -16,7 +16,7 @@ function FriendCard(props) {
 		handleRemoveFriend 
 	} = useFriendService(data.user_id);
 
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 
 
 	return (

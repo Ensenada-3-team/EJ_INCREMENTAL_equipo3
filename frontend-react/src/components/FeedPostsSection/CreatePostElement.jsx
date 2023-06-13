@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import PostService from "../../services/post.service.js";
-import authService from "../../services/auth.service.js";
 
 import { AvatarLink } from "../AvatarLink/AvatarLink.jsx";
 
@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 function CreatePostElement(props) {
 	const [content, setContent] = useState("");
 	const postService = new PostService();
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();

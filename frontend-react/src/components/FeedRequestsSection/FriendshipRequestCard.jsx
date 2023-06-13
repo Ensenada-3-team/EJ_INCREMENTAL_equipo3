@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import FriendService from "../../services/friend.service";
-import authService from "../../services/auth.service";
+
 import { AvatarLink } from "../AvatarLink/AvatarLink";
 import Swal from "sweetalert2";
 
@@ -8,7 +10,8 @@ function FriendshipRequestCard(props) {
 	const { data } = props;
 	const [accepted, setAccepted] = useState(false);
 	const [rejected, setRejected] = useState(false);
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
+	
 
 	const handleAccept = async () => {
 		const friendService = new FriendService();

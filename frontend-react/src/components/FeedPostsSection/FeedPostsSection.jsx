@@ -5,17 +5,17 @@ PostList contiene la lista de publicaciones del usuario, y recibe la actualizaci
 */
 
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import PostService from "../../services/post.service.js";
-import authService from "../../services/auth.service";
 import { PostList }from "./PostList.jsx";
 import { CreatePostElement } from "./CreatePostElement.jsx";
 import Swal from "sweetalert2";
 
 function FeedPostsSection() {
 	const [posts, setPosts] = useState([]);
+	const user = useSelector((state) => state.auth.user);
 
 	const updatePosts = async () => {
-		const user = authService.getCurrentUser()
 		const postService = new PostService();
 
 		try {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import authService from "../../services/auth.service";
 import FriendService from "../../services/friend.service";
 
 import { FriendshipRequestCard } from "./FriendshipRequestCard";
@@ -9,10 +9,10 @@ import Swal from "sweetalert2";
 
 function FeedRequestsSection() {
 	const [requests, setRequests] = useState([]);
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
+	console.log(user);
 
 	const fetchRequests = async () => {
-		const user = authService.getCurrentUser();
 		const friendService = new FriendService();
 
 		try {

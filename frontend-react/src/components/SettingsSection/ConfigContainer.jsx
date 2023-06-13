@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-
-import authService from "../../services/auth.service";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../store/reducers/authSlice";
 import UserService from '../../services/user.service';
 
 import { ModifyUserData } from "./Forms/ModifyUserData";
@@ -9,13 +9,14 @@ import { AvatarLink } from "../AvatarLink/AvatarLink";
 import { DeleteAccountButton } from "./Forms/DeleteAccountButton";
 
 function ConfigContainer() {
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const userService = new UserService();
 
 	const handleDeleteAccount = async () => {
 		await userService.deleteUser(user.user_id);
-		authService.logout();
+		dispatch(logout());
 		navigate('/');
 	    };
 

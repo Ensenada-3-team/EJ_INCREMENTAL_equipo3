@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/reducers/authSlice.js";
-
-import authService from "../../services/auth.service.js";
 
 import InputField from "../InputField/InputField.jsx";
 import Swal from "sweetalert2";
@@ -13,7 +11,7 @@ function LoginForm() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const token = authService.getCurrentToken();
+	const token = useSelector((state) => state.auth.token);
 
 	const [nicknameOrEmail, setnicknameOrEmail] = useState("");
 	const [password, setPassword] = useState("");

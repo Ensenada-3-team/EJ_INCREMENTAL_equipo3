@@ -11,6 +11,7 @@ export const login = createAsyncThunk("auth/login", async (userData) => {
 		);
 		if (response.data.token) {
 			localStorage.setItem("user", JSON.stringify(response.data));
+			localStorage.setItem("token", JSON.stringify( response.data.token));
 		}
 		return response.data;
 	} catch (error) {
@@ -25,6 +26,7 @@ export const login = createAsyncThunk("auth/login", async (userData) => {
 
 export const logout = createAsyncThunk("auth/logout", async () => {
 	localStorage.removeItem("user");
+	localStorage.removeItem("token");
 });
 
 export const register = createAsyncThunk("auth/register", async (userData) => {
@@ -41,24 +43,30 @@ export const register = createAsyncThunk("auth/register", async (userData) => {
 
 export const changePassword = createAsyncThunk(
 	"auth/changePassword",
-	async (passwordData, { getState }) => {
-		const { user } = getState().auth;
-		const response = await axios.put(
-			`http://localhost:3000/auth/change-password/${user.id}`,
-			passwordData,
-			{
-				headers: authHeader(),
-			}
-		);
-		return response.status;
+	async (passwordData) => {
+		try {
+			const response = await axios.put(
+				`http://localhost:3000/auth/change-password`,
+				passwordData,
+				{
+					headers: authHeader(),
+				}
+			);
+			console.log(response)
+			return response.status;
+		} catch (error) {
+			throw new Error(error.response.data.message);
+		}
 	}
 );
+
 
 // SLICE
 const authSlice = createSlice({
 	name: "auth",
 	initialState: {
-		user: JSON.parse(localStorage.getItem("user")) || null,
+		user: JSON.parse(localStorage.getItem("user"))?.user || null,
+		token: JSON.parse(localStorage.getItem("token")) || null,
 		isFetching: false,
 		error: false,
 		payload: null,
@@ -71,6 +79,7 @@ const authSlice = createSlice({
 			})
 			.addCase(login.fulfilled, (state, { payload }) => {
 				state.user = payload.user;
+				state.token = payload.token;
 				state.isFetching = false;
 				state.error = false;
 				state.payload = payload;
@@ -84,6 +93,7 @@ const authSlice = createSlice({
 			})
 			.addCase(logout.fulfilled, (state) => {
 				state.user = null;
+				state.token = null;
 				state.isFetching = false;
 				state.error = false;
 			})

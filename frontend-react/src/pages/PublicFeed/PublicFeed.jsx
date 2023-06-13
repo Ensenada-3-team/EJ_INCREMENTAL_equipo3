@@ -1,4 +1,4 @@
-import authService from "../../services/auth.service";
+import { useSelector } from "react-redux";
 
 import Layout from "../../components/Layout";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
@@ -6,7 +6,7 @@ import FeedRequestsSection from "../../components/FeedRequestsSection/FeedReques
 import { AllPostsList } from "../../components/AllPostsList/AllPostsList";
 
 function PublicFeed() {
-	const token = authService.getCurrentToken();
+	const token = useSelector((state) => state.auth.token);
 
 	return (
 		<Layout>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import QuerysService from "../../services/querys-services";
-import authService from "../../services/auth.service";
 
 import Layout from "../../components/Layout";
 import InterestsSection from "../../components/InterestsSection/InterestsSection";
@@ -10,7 +10,7 @@ import { ToAdminQueryForm } from "../../components/AdminQandASection/ToAdminQuer
 
 function AdminQuerys() {
 	const [data, setData] = useState([]);
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 	const userRole = user.role;
 
 	useEffect(() => {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import { MainProfileCard } from "./Cards/MainProfileCard";
 import { AboutMeProfileCard } from "./Cards/AboutMeProfileCard";
 
-import authService from "../../services/auth.service";
 import UserService from "../../services/user.service";
 
 import Swal from "sweetalert2";
@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 function ProfileSection(props) {
 	
 	const [profileData, setProfileData] = useState({});
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 	
 	useEffect(() => {
 		const fetchData = async () => {

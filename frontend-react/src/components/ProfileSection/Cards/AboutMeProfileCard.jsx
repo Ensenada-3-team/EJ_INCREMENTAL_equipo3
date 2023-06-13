@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import authService from "../../../services/auth.service";
 import UserService from "../../../services/user.service";
 
 import { CoursesList } from "../Lists/CoursesList";
@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 
 function AboutMeProfileCard(props) {
 	const { profileData } = props;
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 	
 	const [bio, setBio] = useState(profileData.bio);
 

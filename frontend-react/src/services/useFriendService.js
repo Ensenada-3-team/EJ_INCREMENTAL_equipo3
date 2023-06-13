@@ -10,14 +10,15 @@
  */
 
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
 import FriendService from "./friend.service";
-import authService from "./auth.service";
 import Swal from "sweetalert2";
 
 export const useFriendService = (userId) => {
 	const [friendShipState, setFriendshipState] = useState(false);
 	const [senderId, setSenderId] = useState(null);
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 
 	useEffect(() => {
 		const fetchFriendshipStatus = async () => {

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import FeedbackService from "../../services/feedback.service";
-import authService from "../../services/auth.service";
 
 import { Responsive, WidthProvider } from "react-grid-layout";
 import FeedbackCard from "./FeedbackCard";
@@ -13,7 +12,7 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 const FeedbackSection = ({ friendId }) => {
       const [feedbacks, setFeedbacks] = useState([]);
 
-	const loggedUser = authService.getCurrentUser().user_id;
+	const loggedUser = useSelector((state) => state.auth.user).user_id;
       const userId = friendId || loggedUser;
 	const newFeedback = useSelector((state) => state.feedback);
 	

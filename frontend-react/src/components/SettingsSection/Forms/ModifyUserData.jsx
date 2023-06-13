@@ -1,8 +1,12 @@
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../../store/reducers/authSlice";
+
 import InputField from "../../InputField/InputField";
 import UserService from "../../../services/user.service";
-import authService from "../../../services/auth.service";
+
 import Swal from "sweetalert2";
 
 function ModifyUserData() {
@@ -14,9 +18,11 @@ function ModifyUserData() {
 		reset,
 	} = useForm({});
 	const navigate = useNavigate();
-
+	const dispatch = useDispatch();
+	
+	const user = useSelector((state) => state.auth.user);
 	const userService = new UserService();
-	const user = authService.getCurrentUser();
+
 	const title =
 		"Puedes modificar los datos que necesites,\nal acabar, te redirigiremos al login por seguridad.";
 
@@ -36,7 +42,7 @@ function ModifyUserData() {
 					showConfirmButton: false,
 					timer: 2000,
 				});
-				authService.logout();
+				dispatch(logout());
 				navigate("/");
 			} else {
 				Swal.fire(
@@ -50,7 +56,6 @@ function ModifyUserData() {
 				icon: "error",
 				title: `Oops...${error.message}`,
 				text: "Tus datos no han podido modificarse,\npor favor inténtalo nuevamente.",
-				// footer: '<a href="">Why do I have this issue?</a>'
 			});
 			return;
 		}

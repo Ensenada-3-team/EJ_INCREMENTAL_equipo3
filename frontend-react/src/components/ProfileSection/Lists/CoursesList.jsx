@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
+import { useSelector } from "react-redux";
+
 import CoursesService from "../../../services/courses.service";
-import authService from "../../../services/auth.service";
+
 import Modal from "bootstrap/js/dist/modal";
 import Swal from "sweetalert2";
 
@@ -16,7 +18,7 @@ function CoursesList(props) {
 	const [newCourseName, setNewCourseName] = useState("");
 
 	const userId = props.userId;
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 	
 
 	useEffect(() => {

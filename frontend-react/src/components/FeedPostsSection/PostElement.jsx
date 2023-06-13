@@ -1,13 +1,15 @@
 import { useState } from "react";
-import authService from "../../services/auth.service";
+import { useSelector } from "react-redux";
+
 import PostService from "../../services/post.service";
 import { AvatarLink } from "../AvatarLink/AvatarLink";
+
 import Swal from "sweetalert2";
 
 function PostElement(props) {
 	const { data } = props;
-	const token = authService.getCurrentToken();
-	const user = authService.getCurrentUser();
+	const token = useSelector((state) => state.auth.token);
+	const user = useSelector((state) => state.auth.user);
 
 	const [liked, setLiked] = useState(false);
 	const [likeCount, setLikeCount] = useState(data.like_number);

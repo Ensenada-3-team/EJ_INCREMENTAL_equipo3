@@ -148,7 +148,6 @@ router.post("/login", async (req, res) => {
 		);
 
 		res.status(200).json({
-			redirectUrl: "/app/feed",
 			user: user,
 			token: jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET),
 		});
@@ -163,7 +162,9 @@ router.put("/change-password",
 	authMiddleware,
 	validarPassword,
 	async (req, res) => {
-		const { userId, oldPassword, password } = req.body;
+		const { oldPassword, password } = req.body;
+		const userId = req.jwtInfo.user_id
+		console.log(userId)
 
 		try {
 			// Obtener el usuario de la base de datos

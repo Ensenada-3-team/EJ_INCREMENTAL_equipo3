@@ -23,7 +23,7 @@ function DeleteAccountButton({ onDelete }) {
 	};
 
 	return (
-		<button onClick={handleDelete} className="btn btn-danger sombra">
+		<button onClick={handleDelete} className="btn btn-danger sombra mb-3">
 			Eliminar cuenta
 		</button>
 	);

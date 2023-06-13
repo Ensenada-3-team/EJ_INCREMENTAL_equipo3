@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import authService from "../../services/auth.service";
+import { useSelector } from "react-redux";
 
 function AvatarLink(props) {
 	const { userId, avatar, size } = props;
 	const navigate = useNavigate();
-	const token = authService.getCurrentToken();
+	const token = useSelector((state) => state.auth.token);
 	const [isHovered, setIsHovered] = useState(false);
 
 	const handleClick = () => {

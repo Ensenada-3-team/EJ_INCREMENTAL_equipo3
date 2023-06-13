@@ -1,7 +1,7 @@
 import {  useNavigate, Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setUserRole } from "../../store/reducers/userRoleSlice";
-import authService from "../../services/auth.service";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../store/reducers/authSlice";
+
 import { NavbarItem } from "./NavbarItem";
 import Searchbar from "../SearchBar/SearchBar";
 import Swal from "sweetalert2";
@@ -11,9 +11,10 @@ function Navbar() {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	const user = authService.getCurrentUser()
-	const token= authService.getCurrentToken();
-	const admin = user ? authService.getCurrentUser().role === "admin" : false;
+	const user = useSelector((state) => state.auth.user);
+	const token= useSelector((state) => state.auth.token);
+	const admin = user ? user.role === "admin" : false;
+
 
 	const greeting = user
 		? user.gender=== "F"
@@ -30,8 +31,7 @@ function Navbar() {
 			imageHeight: 200,
 			imageAlt: "Custom image",
 		});
-		authService.logout()
-		dispatch(setUserRole(''))
+		dispatch(logout())
 		navigate("/");
 	};
 

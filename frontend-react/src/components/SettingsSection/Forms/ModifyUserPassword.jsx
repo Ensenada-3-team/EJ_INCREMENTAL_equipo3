@@ -1,7 +1,11 @@
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+
 import InputField from "../../InputField/InputField";
-import authService from "../../../services/auth.service";
+
+import { useDispatch } from "react-redux";
+import { changePassword, logout } from "../../../store/reducers/authSlice";
+
 import Swal from "sweetalert2";
 
 function ModifyUserPassword() {
@@ -13,8 +17,8 @@ function ModifyUserPassword() {
 		reset,
 	} = useForm({});
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
-	const user = authService.getCurrentUser();
 	const title =
 		"Recuerda que tu contraseña ha de tener:\nMin. 8 caracteres\nAl menos una minuscula\nAl menos una mayuscula\nAl menos un número\nAl menos un caracter especial";
 
@@ -23,7 +27,6 @@ function ModifyUserPassword() {
 
 	const onSubmit = async (data) => {
 		try {
-			console.log(data);
 			const passwordsMatch = data.newPassword === data.confirmNewPassword;
 
 			if (!passwordsMatch) {
@@ -31,15 +34,16 @@ function ModifyUserPassword() {
 					icon: "error",
 					title: "Oops...",
 					text: "Las contraseñas no coinciden!",
-					// footer: '<a href="">Why do I have this issue?</a>'
 				});
 				return;
 			} else {
-				const updatePassword = await authService.changePassword(
-					user.user_id,
-					data.oldPassword,
-					data.newPassword
-				);
+				const passwordData = {
+					password: data.newPassword,
+					oldPassword: data.oldPassword,
+				};
+				const updatePassword = await dispatch(
+					changePassword(passwordData)
+				).unwrap();
 
 				if (updatePassword === 200) {
 					await Swal.fire({
@@ -51,7 +55,7 @@ function ModifyUserPassword() {
 						timer: 1500,
 					});
 					reset();
-					authService.logout();
+					dispatch(logout());
 					navigate("/");
 				}
 			}
@@ -61,7 +65,6 @@ function ModifyUserPassword() {
 				icon: "error",
 				title: "Oops...",
 				text: `${error.message}`,
-				// footer: '<a href="">Why do I have this issue?</a>'
 			});
 			reset();
 		}

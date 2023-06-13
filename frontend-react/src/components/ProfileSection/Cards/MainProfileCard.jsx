@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setNewFeedback } from "../../../store/reducers/feedbackSlice";
 
 import FriendService from "../../../services/friend.service";
 import FeedbackService from "../../../services/feedback.service";
-import authService from "../../../services/auth.service";
 import Swal from "sweetalert2";
 
 function MainProfileCard(props) {
 	const { profileData } = props;
-	const loggedUser = authService.getCurrentUser().user_id;
-	const isLoggedUser = loggedUser === profileData.user_id;
-
-	const dispatch = useDispatch();
-
 	const [friendCount, setFriendCount] = useState(0);
 	const [showTextarea, setShowTextarea] = useState(false);
 	const [feedback, setFeedback] = useState("");
 
+	const loggedUser = useSelector((state) => state.auth.user).user_id;
+	const isLoggedUser = loggedUser === profileData.user_id;
+
+	
+	const dispatch = useDispatch();
+	
 	useEffect(() => {
 		const fetchFriends = async () => {
 			try {

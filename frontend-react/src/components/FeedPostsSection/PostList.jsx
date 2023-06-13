@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
 import PostService from "../../services/post.service.js";
-import authService from "../../services/auth.service";
-import Swal from "sweetalert2";
+
 import { PostElement }from "./PostElement"; 
+import Swal from "sweetalert2";
 
 function PostList(props) {
-	const user = authService.getCurrentUser();
+	const user = useSelector((state) => state.auth.user);
 	const [posts, setPosts] = useState(props.posts);
 
 	useEffect(() => {

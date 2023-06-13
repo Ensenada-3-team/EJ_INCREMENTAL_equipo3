@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import authService from "../../../services/auth.service";
 import FriendService from "../../../services/friend.service";
 
 import { FriendCard } from "../Cards/FriendCard";
@@ -10,9 +9,8 @@ import { SectionCard } from "../Cards/SectionCard";
 import Swal from "sweetalert2";
 
 function FriendList() {
-	const user = authService.getCurrentUser();
 	const [friends, setFriends] = useState([]);
-
+	const user = useSelector((state) => state.auth.user);
 	const searchTerm = useSelector((state) => state.search);
 
 	useEffect(() => {
