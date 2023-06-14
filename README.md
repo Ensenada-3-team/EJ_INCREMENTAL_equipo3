@@ -4,7 +4,7 @@
 
 Este es el README del proyecto de fin de Bootcamp (Sprint final) que consiste en una red social desarrollada con Express en el backend y React (create-react-app) en el cliente/interfaz de usuario.
 
-## Backend
+## Backend - Express 
 
 ### Inicialización
 
@@ -41,7 +41,11 @@ Entre las dependencias más relevantes instaladas en el backend se encuentran:
 - `moment`: Se utiliza para el manejo de fechas y tiempos.
 - `nodemon`: Se utiliza en el script de inicialización en modo de desarrollo para reiniciar automáticamente el servidor al realizar cambios.
 
-## Frontend
+### ACTUALIZACIÓN BACKEND-> En qué se está trabajando ahora
+
+14-06-23 - Actualmente se pretende refactorizar el código implementado en los `services`, implementando su uso en los estados de Redux, concretamente con la funcionalidad `createAsyncThunk`.  Ya se puede encontrar totalmente implementado el anterior `auth.service` por el nuevo `authSlice`, que maneja `login`, `register`, `logout` y `changePassword`,  así como el acceso al token y a los datos del usuario logueado accediendo al estado `user`y `token` , que se maneja junto con localStorage. 
+
+## Frontend - React
 
 ### Inicialización
 
@@ -88,6 +92,8 @@ Las siguientes carpetas se encuentran dentro de `src`:
   - Hasta el momento, hay dos implementaciones principales:
     - componente `Searchbar`, que recoge el estado de búsqueda y se utiliza en la vista `Friends`, específicamente en el componente `ComunityList`, para renderizar los resultados de la búsqueda.
     - componente `MainProfileCard`con la capacidad de dejar un comentario a los usuarios distintos al usuario logueado. Redux recoge el estado `true`en caso de haberse creado un nuevo feedbac, y con `useSelector` FeedbackSection, quien se encarga de hacer el fetch para obtener las recomendaciones, se actualiza cada vez que ese estado cambia. De esta forma obtenemos una interacción inmediata con la interfaz de usuario.
+    - `NEW!` Todos los componentes que usen autenticación (login, registro, cambio de contraseña de usuario y acceso al estado actual del usuario logueado y token), gracias a la implementación de authSlice con el uso de createAsynkThunk.
+  
 - `utils`: Contiene funciones de uso común en la aplicación.
 
 ## Notas adicionales
@@ -97,6 +103,10 @@ Se han aplicado buenas prácticas, como el uso de rutas, controladores y middlew
 En el futuro, se planea implementar modelos (schemas) en el backend y seguir mejorando la funcionalidad y la interfaz de usuario en el frontend.
 
 Para cualquier consulta o duda, no dudes en contactarme. ¡Gracias por revisar este proyecto!
+
+### ACTUALIZACIÓN FRONTEND-> En qué se está trabajando ahora
+
+14-06-23 -  Actualmente se están revisando  y refactorizando los endpoints que usan authMiddleware para recoger el userId de la jwtInfo decodificada proporcionada por el propio middleware, reduciendo la cantidad de datos cuando son innecesarios, recogidos en la petición del frontend.
 
 ## Decisiones administrativas del proyecto
 
@@ -130,7 +140,7 @@ A continuación se presentan los ejercicios incrementales requeridos diariamente
 
 ### Testeando los objetos
 
-- **Testing de clase:** Realiza los tests necesarios para validar la clase que crea al usuario Tecler. Utiliza Mocha y Chai para realizar las pruebas.
+- **Testing de clase:** Realiza los tests necesarios para validar la clase que crea al usuario Tecler. Utiliza Mocha y Chai para realizar las pruebas. (En construcción)
 
 ### Login seguro en toda la red social
 
