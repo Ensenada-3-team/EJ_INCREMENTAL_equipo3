@@ -26,7 +26,6 @@ function ComunityList() {
 					icon: "error",
 					title: "Oops...",
 					text: "Ha ocurrido un error al obtener a los usuarios!",
-					
 				});
 			}
 		};
@@ -34,9 +33,21 @@ function ComunityList() {
 		fetchFriends();
 	}, [user.user_id]);
 
-	const filteredFriends = friends.filter((friend) =>
-		friend.nickname.toLowerCase().includes(searchTerm.toLowerCase())
-	);
+	const filteredFriends = friends.filter((friend) => {
+		const searchTermLower = searchTerm.toLowerCase();
+		const nicknameLower = friend.nickname.toLowerCase();
+		const nameLower = friend.name.toLowerCase();
+		const firstnameLower = friend.firstname.toLowerCase();
+		const emailLower = friend.email.toLowerCase();
+
+		// Retorna verdadero si el término de búsqueda está presente en el nickname o en el name
+		return (
+			nicknameLower.includes(searchTermLower) ||
+			nameLower.includes(searchTermLower) ||
+			firstnameLower.includes(searchTermLower) ||
+			emailLower.includes(searchTermLower)
+		);
+	});
 
 	return (
 		<>
