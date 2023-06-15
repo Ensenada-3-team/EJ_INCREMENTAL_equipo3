@@ -31,6 +31,12 @@ El servidor es una API REST creada con Express Generator y utiliza Node.js. La e
 
 Todas estas rutas se importan en `app.js`, el archivo principal del servidor. También se incluyen manejadores de errores preestablecidos.
 
+- `test`: _Nuevo_ Contiene un archivo de ejecución de test para algunos aspectos de la ruta de autenticación como registrar a un usuario, error en caso de email y nickname ya existentes en la base de datos, y error en caso de que la contraseña no cumpla con los requisitos de seguridad. 
+Para su implementación se han utilizado las dependencias `mocha`, `chai` y `chai-http`, además se ha creado un nuevo script de ejecución:
+Comando de ejecución de tests en /backend : 
+```bash
+npm test
+```
 ### Dependencias destacadas
 
 Entre las dependencias más relevantes instaladas en el backend se encuentran:
@@ -92,7 +98,7 @@ Las siguientes carpetas se encuentran dentro de `src`:
   - Hasta el momento, hay dos implementaciones principales:
     - componente `Searchbar`, que recoge el estado de búsqueda y se utiliza en la vista `Friends`, específicamente en el componente `ComunityList`, para renderizar los resultados de la búsqueda.
     - componente `MainProfileCard`con la capacidad de dejar un comentario a los usuarios distintos al usuario logueado. Redux recoge el estado `true`en caso de haberse creado un nuevo feedbac, y con `useSelector` FeedbackSection, quien se encarga de hacer el fetch para obtener las recomendaciones, se actualiza cada vez que ese estado cambia. De esta forma obtenemos una interacción inmediata con la interfaz de usuario.
-    - `NEW!` Todos los componentes que usen autenticación (login, registro, cambio de contraseña de usuario y acceso al estado actual del usuario logueado y token), gracias a la implementación de authSlice con el uso de createAsynkThunk.
+    - _Nuevo_ Todos los componentes que usen autenticación (login, registro, cambio de contraseña de usuario y acceso al estado actual del usuario logueado y token), gracias a la implementación de authSlice con el uso de createAsynkThunk.
   
 - `utils`: Contiene funciones de uso común en la aplicación.
 

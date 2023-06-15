@@ -33,7 +33,7 @@ describe("POST /auth/register", () => {
 			.end((err, res) => {
 				expect(err).to.be.null;
 				expect(res).to.have.status(200);
-				// Agrega las expectativas adicionales que necesites aquí
+				// más expectativas...
 				done();
 			});
 	});
