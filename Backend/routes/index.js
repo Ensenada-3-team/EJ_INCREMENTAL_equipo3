@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
+/* GET home page.  http://localhost:3000/ */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Grupo 3 Backend Express' });
+  res.render('index', { title: 'API REST - TECLA' });
 });
 
 module.exports = router;
