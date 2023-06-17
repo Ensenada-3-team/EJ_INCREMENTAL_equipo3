@@ -1,3 +1,7 @@
+# NOTA! 
+Este repositorio no se continuará actualizando. Las nuevas actualizaciones e implementaciones podrán encontrarse en este nuevo repositorio:
+[Github - Silvia Pescador](https://github.com/SilviaPescador/Tecla-Social-Media---FullStack-Project---Express-React.git)
+
 # PROYECTO FINAL : BOOTCAMP TECLA - ENSENADA
 
 ![Consigna Proyecto final](https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3/blob/3c4568ffb6da390ddd11dfce6a0c0a6e9774c139/frontend-react/public/sprint-final.png) Sprint Final
