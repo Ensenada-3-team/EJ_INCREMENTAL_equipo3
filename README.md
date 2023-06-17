@@ -1,6 +1,6 @@
 # PROYECTO FINAL : BOOTCAMP TECLA - ENSENADA
 
-![Consigna Proyecto final](https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3/blob/09f32933646ca0c1e5743b087f14169e3d05bb33/frontend-react/public/sprint-final.png) Sprint Final
+![Consigna Proyecto final](https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3/blob/3c4568ffb6da390ddd11dfce6a0c0a6e9774c139/frontend-react/public/sprint-final.png) Sprint Final
 
 Este es el README del proyecto de fin de Bootcamp (Sprint final) que consiste en una red social desarrollada con Express en el backend y React (create-react-app) en el cliente/interfaz de usuario.
 
